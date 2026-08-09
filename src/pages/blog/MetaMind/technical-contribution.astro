@@ -1,0 +1,221 @@
+---
+import ResearchReleaseLayout from '../../../layouts/ResearchReleaseLayout.astro';
+import CognitiveField from '../../../components/blog/CognitiveField.astro';
+
+const sections = [
+  { id: 'problem', label: 'The hidden state' },
+  { id: 'system', label: 'The MetaMind loop' },
+  { id: 'evidence', label: 'What changes' },
+  { id: 'diagnosis', label: 'Why it works' },
+  { id: 'trajectory', label: 'Open questions' }
+];
+const site = Astro.site!;
+const schema = {
+  '@context':'https://schema.org', '@type':'ScholarlyArticle',
+  headline:'MetaMind: Social Intelligence Begins Before the Answer',
+  description:'A visual research release for MetaMind, a metacognitive multi-agent system for explicit, revisable social reasoning.',
+  image:new URL('/blog/MetaMind/assets/metamind-social-2026.png',site).href,
+  datePublished:'2026-07-13', dateModified:'2026-08-08',
+  author:{'@type':'Person',name:'Xuanming Zhang',url:new URL('/',site).href},
+  isBasedOn:'https://arxiv.org/abs/2505.18943'
+};
+---
+
+<ResearchReleaseLayout
+  title="MetaMind — Social Intelligence Begins Before the Answer"
+  description="MetaMind turns latent social interpretation into an explicit, revisable cognitive trajectory: infer mental states, refine them under context and norms, then validate action."
+  eyebrow="Cognitive AI / MetaMind"
+  headline="Social intelligence begins before the answer."
+  dek="MetaMind treats social reasoning as inference over an unseen mind—not a single pass from language to response. The system keeps interpretations revisable until context, norms, memory, and action agree."
+  image="/blog/MetaMind/assets/metamind-social-2026.png"
+  published="2026-07-13"
+  updated="2026-08-08"
+  {sections}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  <CognitiveField slot="hero-visual" />
+
+  <p class="lead">We have spent years teaching machines to answer questions and execute instructions. The larger problem is only beginning to surface: <strong>what did the system understand before it answered, how did that understanding change while it reasoned, and what happens after its action enters the world?</strong></p>
+
+  <p class="section-label">01 / The hidden state</p>
+  <h2 id="problem">The utterance is visible. The mind is not.</h2>
+
+  <p>Language is a partial observation of cognition. Beneath the sentence lie beliefs, desires, emotions, intentions, social roles, and uncertainty. “I don’t mind” can be permission, reluctance, or an attempt to repair tension. The words stay fixed while the appropriate action changes.</p>
+  <p>Most language-model pipelines compress this ambiguity into a direct mapping: context in, answer out. A fluent response can therefore conceal the decisive error—the system selected the wrong account of the person before generation even began. MetaMind makes that account explicit enough to inspect and revise.</p>
+
+  <section class="thesis-strip" aria-label="The MetaMind modeling shift">
+    <article><span>Stage 1 / Hypothesize</span><strong>Infer unspoken mental states</strong><p>The ToM Agent generates diverse candidates over belief, desire, intention, emotion, and thought.</p></article>
+    <article><span>Stage 2 / Refine</span><strong>Constrain interpretation</strong><p>The Moral Agent revises and selects candidates under cultural norms, ethics, and role expectations.</p></article>
+    <article><span>Stage 3 / Validate</span><strong>Test the response</strong><p>The Response Agent checks empathy and contextual coherence, then releases or regenerates.</p></article>
+  </section>
+
+  <p class="section-label">02 / The system</p>
+  <h2 id="system">Delay commitment. Make revision possible.</h2>
+
+  <p>MetaMind separates three operations that direct generation usually entangles. The separation is functional: each stage exposes a different object that can fail, be evaluated, and be corrected. Dynamic social memory carries validated state across turns without treating the transcript itself as understanding.</p>
+
+  <figure class="pipeline">
+    <div class="pipeline-head"><div><span>System architecture / one cognitive turn</span><strong>Infer → refine → validate</strong></div><span>Input: utterance + context + memory</span></div>
+    <div class="pipeline-stages">
+      <article><span class="stage-number">01</span><b>THEORY OF MIND</b><h3>Infer</h3><h4>Generate mental-state hypotheses.</h4><p>Keep competing explanations over belief, desire, emotion, intention, knowledge, and pragmatic meaning.</p><output>OUTPUT · Hₜ = &#123;h₁ … hₖ&#125;</output></article>
+      <article><span class="stage-number">02</span><b>CONTEXTUAL REFINEMENT</b><h3>Refine</h3><h4>Revise under the situation.</h4><p>Use role, culture, history, ethical boundaries, and task constraints. Plausible is not always appropriate.</p><output>OUTPUT · h̃* = contextual fit</output></article>
+      <article><span class="stage-number">03</span><b>REFLECTIVE ACTION</b><h3>Validate</h3><h4>Inspect before release.</h4><p>Check whether the response preserves the selected state, remains coherent with memory, and respects agency.</p><output>DECISION · release or return</output></article>
+    </div>
+    <div class="algorithm-band" aria-label="MetaMind algorithm at each stage">
+      <div><span>Generate</span><strong>Hₜ = A<sub>ToM</sub>(uₜ, Cₜ, Mₜ)</strong></div>
+      <div><span>Select</span><strong>h̃* = arg max contextual fit</strong></div>
+      <div><span>Validate</span><strong>U(oₜ) = βE + (1−β)C</strong></div>
+    </div>
+    <div class="pipeline-memory">
+      <strong class="memory-title">Dynamic social memory · Mₜ</strong>
+      <div class="memory-static-flow" aria-label="Retrieve memory, add a validated update, and carry it to the next turn">
+        <span>Retrieve</span><i>→</i><span>Validated update</span><i>→</i><span>Mₜ₊₁</span>
+      </div>
+    </div>
+  </figure>
+
+  <p>The architecture does not claim privileged access to another mind. It does the opposite: it preserves uncertainty. A mental-state hypothesis is a revisable model, not a fact about a person. That distinction is necessary for both accuracy and autonomy.</p>
+
+  <p class="section-label">03 / Evidence</p>
+  <h2 id="evidence">The effect survives changes in task and model.</h2>
+
+  <p>The evaluation moves from latent-state inference to norm-sensitive interpretation and then to open-ended social action. MetaMind improves GPT-4 from 74.8 to 81.0 on ToMBench, from 71.5 to 80.5 across eight social-cognition tasks, and from 39.4 to 73.9 on Social Tasks in Sandbox Simulation. The last result matters most: the gain grows when an interpretation must survive long enough to guide action.</p>
+
+  <figure class="evidence-board">
+    <div class="evidence-intro"><span>Reported results</span><strong>One scaffold.<br />Three levels of evidence.</strong><p>The farther the task moves from choosing an answer toward sustaining an interaction, the larger the observed gain.</p></div>
+    <div class="evidence-summary">
+      <div><b>01</b><span>Latent-state reasoning</span><strong>74.8 <i>→</i> 81.0</strong><small>ToMBench · six dimensions</small></div>
+      <div><b>02</b><span>Norm-sensitive cognition</span><strong>71.5 <i>→</i> 80.5</strong><small>Eight social-cognition tasks</small></div>
+      <div><b>03</b><span>Open-ended social action</span><strong>39.4 <i>→</i> 73.9</strong><small>STSS · six interaction domains</small></div>
+    </div>
+    <div class="evidence-key"><strong>Cross-model reinforcement</strong><span><i></i>Base model</span><span><i></i>+ MetaMind</span></div>
+    <div class="evidence-bars" aria-label="Cross-model ToMBench comparisons">
+      <div class="benchmark-row"><span>Mistral–7B</span><div class="bar-pair" style="--base:51.3%;--meta:58.2%"><i class="base"></i><i class="meta"></i></div><strong>+6.9</strong></div>
+      <div class="benchmark-row"><span>GPT–3.5</span><div class="bar-pair" style="--base:58.7%;--meta:65.1%"><i class="base"></i><i class="meta"></i></div><strong>+6.4</strong></div>
+      <div class="benchmark-row"><span>GPT–4</span><div class="bar-pair" style="--base:74.8%;--meta:81%"><i class="base"></i><i class="meta"></i></div><strong>+6.2</strong></div>
+      <div class="benchmark-row"><span>Claude 3.5</span><div class="bar-pair" style="--base:70.7%;--meta:81%"><i class="base"></i><i class="meta"></i></div><strong>+10.3</strong></div>
+      <div class="benchmark-row"><span>DeepSeek–R1</span><div class="bar-pair" style="--base:86%;--meta:88.6%"><i class="base"></i><i class="meta"></i></div><strong>+2.6</strong></div>
+      <div class="benchmark-row"><span>OpenAI o3</span><div class="bar-pair" style="--base:90.3%;--meta:92.2%"><i class="base"></i><i class="meta"></i></div><strong>+1.9</strong></div>
+    </div>
+    <figcaption>Gray = base model; coral = MetaMind. Values are reported ToMBench averages; the complete study evaluates more than 16 backbones.</figcaption>
+  </figure>
+
+  <section class="evidence-visuals radar-only" aria-label="Six-dimensional MetaMind capability comparison">
+    <article class="capability-radar">
+      <header><span>GPT-4 capability profile</span><strong>Six dimensions: base vs + MetaMind</strong></header>
+      <div class="capability-legend"><i></i><b>GPT-4 base</b> <i></i><b>GPT-4 + MetaMind</b></div>
+      <canvas data-tom-radar width="620" height="440" role="img" aria-label="Radar chart comparing GPT-4 and GPT-4 with MetaMind across emotion, desire, intention, knowledge, belief, and natural language communication"></canvas>
+      <div class="radar-deltas" aria-label="Change in each capability">
+        <div style="--gain:18%"><span>Emotion</span><i></i><b>+3.0</b></div>
+        <div style="--gain:42%"><span>Desire</span><i></i><b>+6.8</b></div>
+        <div class="is-negative" style="--gain:3%"><span>Intention</span><i></i><b>−0.4</b></div>
+        <div class="is-largest" style="--gain:100%"><span>Knowledge</span><i></i><b>+16.1</b></div>
+        <div style="--gain:36%"><span>Belief</span><i></i><b>+5.8</b></div>
+        <div style="--gain:28%"><span>NL communication</span><i></i><b>+4.5</b></div>
+      </div>
+      <ul class="radar-insights">
+        <li><b>+16.1</b><span>Knowledge receives the largest repair.</span></li>
+        <li><b>Near human</b><span>Belief 88.6 vs 89.3; communication 88.5 vs 89.0.</span></li>
+        <li><b>−0.4</b><span>Intention does not improve—gains are not uniform.</span></li>
+      </ul>
+    </article>
+    <article class="capability-shift">
+      <header><span>Capability movement</span><strong>Where does MetaMind change the profile?</strong></header>
+      <div class="shift-head"><b>GPT-4 base</b><span>Six connected dimensions</span><b>GPT-4 + MetaMind</b></div>
+      <canvas data-capability-shift height="620" role="img" aria-label="Animated slopegraph connecting GPT-4 base and MetaMind scores across six social reasoning dimensions"></canvas>
+      <div class="shift-live" aria-live="polite"><span>Following</span><strong data-shift-focus>Knowledge · +16.1</strong><p data-shift-note>The largest repair in the six-dimensional profile.</p></div>
+      <p><strong>Knowledge makes the largest move.</strong> Intention remains nearly flat, showing that the scaffold repairs specific capabilities rather than raising every score uniformly.</p>
+    </article>
+  </section>
+
+  <figure class="case-landscape" aria-label="Qualitative analysis across six social situations">
+    <figcaption><span>Qualitative analysis / six situations</span><strong>The same loop can repair—or compound—the error.</strong></figcaption>
+    <div class="finding-pairs" data-finding-pairs>
+      <nav class="pair-tabs" aria-label="Compare paired qualitative findings">
+        <button class="is-active" type="button" data-pair-tab="0"><b>01</b><span>Interpretation</span></button>
+        <button type="button" data-pair-tab="1"><b>02</b><span>Regeneration</span></button>
+        <button type="button" data-pair-tab="2"><b>03</b><span>Boundaries</span></button>
+      </nav>
+      <section class="pair-panel" data-pair-panel="0">
+        <article class="pair-side is-success"><header><div><b>Persuasion</b><span>Successful refinement</span></div><strong>0.84</strong></header><div class="pair-meter"><i style="--score:84%"></i></div><h3>Implicit obstacle recovered</h3><blockquote>“What if we start super small—like a ten-minute jog?”</blockquote><p>“No time” becomes a revisable belief: exercise must require a long session.</p></article>
+        <article class="pair-side is-failure"><header><div><b>Competition</b><span>Failure exposed</span></div><strong>0.93</strong></header><div class="pair-meter"><i style="--score:93%"></i></div><h3>Higher-order goal missed</h3><blockquote>“Guess we’ll see whose insights are truly outdated.”</blockquote><p>Aggression scores highly while leadership and tone control are missed.</p></article>
+        <p class="pair-finding"><span>Finding 01</span><strong>A high validation score can still reward the wrong social objective.</strong></p>
+      </section>
+      <section class="pair-panel" data-pair-panel="1" hidden>
+        <article class="pair-side is-success"><header><div><b>Negotiation</b><span>Successful refinement</span></div><strong>0.92</strong></header><div class="pair-meter"><i style="--score:92%"></i></div><h3>Deflection becomes useful help</h3><blockquote>“Maybe you could help me brainstorm some budgeting ideas instead?”</blockquote><p>Three rounds of revision replace topic-changing with a concrete alternative.</p></article>
+        <article class="pair-side is-failure"><header><div><b>Exchange</b><span>Failure exposed</span></div><strong>Hallucination</strong></header><div class="pair-meter"><i style="--score:62%"></i></div><h3>Regeneration loses grounding</h3><blockquote>The response invents details about dishes and noise that were never supplied.</blockquote><p>Another reasoning round degrades an initially adequate response.</p></article>
+        <p class="pair-finding"><span>Finding 02</span><strong>Regeneration helps only while the new reasoning remains grounded.</strong></p>
+      </section>
+      <section class="pair-panel" data-pair-panel="2" hidden>
+        <article class="pair-side is-success"><header><div><b>Collaboration</b><span>Successful refinement</span></div><strong>0.93</strong></header><div class="pair-meter"><i style="--score:93%"></i></div><h3>Vague intent becomes commitment</h3><blockquote>“I’ll send you updated drafts by 10 AM tomorrow.”</blockquote><p>Creative alignment is paired with a precise, testable next action.</p></article>
+        <article class="pair-side is-failure"><header><div><b>Accommodation</b><span>Failure exposed</span></div><strong>Boundary</strong></header><div class="pair-meter"><i style="--score:58%"></i></div><h3>Helpfulness erodes the limit</h3><blockquote>The system keeps offering help after recognizing burden and policy constraints.</blockquote><p>The boundary is represented internally but never enforced in action.</p></article>
+        <p class="pair-finding"><span>Finding 03</span><strong>Helpfulness and social appropriateness can diverge.</strong></p>
+      </section>
+    </div>
+  </figure>
+
+  <p>In a blinded study of 120 cases, experts ranked MetaMind first in 67.5% of comparisons, ahead of GPT-4.5 and DeepSeek-R1 as standalone systems. This does not prove general social intelligence. It does show that explicit cognitive organization remains useful even when the underlying model becomes stronger.</p>
+
+  <p class="section-label">04 / Diagnosis</p>
+  <h2 id="diagnosis">Each stage removes a different failure.</h2>
+
+  <p>The ablations reveal more than the headline score. Removing hypothesis generation restores premature commitment. Removing contextual refinement confuses surface plausibility with social appropriateness. Removing reflective validation creates the largest failure in open-ended interaction: a reasonable interpretation no longer guarantees a faithful action.</p>
+  <figure class="ablation-chart" aria-label="Performance loss when each MetaMind stage is removed">
+    <figcaption><span>Ablation / reported point loss</span><strong>What breaks when a stage disappears?</strong></figcaption>
+    <div class="ablation-axis"><span>0</span><span>−4</span><span>−8</span><span>−12</span><span>−16</span></div>
+    <ol>
+      <li style="--drop:16%"><div><b>Without mental-state reasoning</b></div><i></i><strong>−2.6</strong></li>
+      <li style="--drop:24%"><div><b>Without contextual refinement</b></div><i></i><strong>−3.8</strong></li>
+      <li class="is-largest" style="--drop:100%"><div><b>Without reflective validation</b></div><i></i><strong>−16.1</strong></li>
+      <li style="--drop:62%"><div><b>Without social memory</b></div><i></i><strong>−10.0</strong></li>
+    </ol>
+  </figure>
+  <div class="diagnosis-findings" aria-label="Where each ablation hurts most">
+    <article><span>Stage 1 removed</span><strong>UOT −4.3</strong></article>
+    <article><span>Stage 2 removed</span><strong>Faux-pas −5.5</strong></article>
+    <article><span>Stage 3 removed</span><strong>Conversation −22.1</strong></article>
+  </div>
+
+  <p class="section-label">05 / Findings and open questions</p>
+  <h2 id="trajectory">Where the framework holds—and where it still breaks.</h2>
+
+  <p>The experiments support a narrow claim: organizing social reasoning into explicit, revisable stages improves performance across tasks and model families. The qualitative cases also show why the framework is not a finished account of social intelligence.</p>
+
+  <section class="research-horizon" aria-label="MetaMind findings and open research questions">
+    <div class="horizon-findings">
+      <span>What the evidence supports</span>
+      <article><b>01</b><strong>Structured reasoning transfers.</strong><p>MetaMind improves models from Mistral–7B to OpenAI o3 rather than depending on one backbone.</p></article>
+      <article><b>02</b><strong>The gains are selective.</strong><p>Knowledge improves by 16.1 points, while intention remains nearly flat at −0.4.</p></article>
+      <article><b>03</b><strong>Validation matters most in action.</strong><p>Removing response validation produces the largest reported loss in open-ended interaction.</p></article>
+    </div>
+    <div class="horizon-questions">
+      <span>Open questions</span>
+      <ol>
+        <li><b>Memory</b><strong>How can updates avoid turning unsupported inferences into persistent state?</strong></li>
+        <li><b>Culture</b><strong>How should norms adapt across communities and changing expectations?</strong></li>
+        <li><b>Modality</b><strong>What changes when tone, expression, gesture, and physical context become observable?</strong></li>
+        <li><b>Time</b><strong>Can the system remain coherent across groups, relationships, and long interaction histories?</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <p>MetaMind makes another mind more explicit as a hypothesis—not more certain as a fact. Preserving that distinction is the next research problem, not a detail to solve after deployment.</p>
+
+  <script>
+    document.querySelectorAll<HTMLElement>('[data-finding-pairs]').forEach((root)=>{
+      const tabs=[...root.querySelectorAll<HTMLButtonElement>('[data-pair-tab]')],panels=[...root.querySelectorAll<HTMLElement>('[data-pair-panel]')];
+      tabs.forEach((tab,index)=>tab.addEventListener('click',()=>{tabs.forEach((item,i)=>item.classList.toggle('is-active',i===index));panels.forEach((panel,i)=>panel.hidden=i!==index)}));
+    });
+    const labels=['Emotion','Desire','Intention','Knowledge','Belief','NL communication'];
+    const base=[75.7,69.7,84.7,52.1,82.8,84.0],meta=[78.7,76.5,84.3,68.2,88.6,88.5];
+    document.querySelectorAll<HTMLCanvasElement>('[data-tom-radar]').forEach((canvas)=>{
+      const draw=()=>{const rect=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2),w=rect.width,h=rect.height;canvas.width=w*d;canvas.height=h*d;const c=canvas.getContext('2d')!;c.setTransform(d,0,0,d,0,0);c.clearRect(0,0,w,h);const cx=w/2,cy=h/2+5,r=Math.min(w*.33,h*.34),n=6,point=(i:number,v:number)=>{const a=-Math.PI/2+i*Math.PI*2/n;return[cx+Math.cos(a)*r*v/100,cy+Math.sin(a)*r*v/100]};c.lineWidth=1;c.strokeStyle='#d1d7d3';for(let level=20;level<=100;level+=20){c.beginPath();for(let i=0;i<n;i++){const [x,y]=point(i,level);i?c.lineTo(x,y):c.moveTo(x,y)}c.closePath();c.stroke()}for(let i=0;i<n;i++){const [x,y]=point(i,100);c.beginPath();c.moveTo(cx,cy);c.lineTo(x,y);c.stroke()}const polygon=(values:number[],stroke:string,fill:string)=>{c.beginPath();values.forEach((v,i)=>{const[x,y]=point(i,v);i?c.lineTo(x,y):c.moveTo(x,y)});c.closePath();c.fillStyle=fill;c.fill();c.strokeStyle=stroke;c.lineWidth=2;c.stroke();values.forEach((v,i)=>{const[x,y]=point(i,v);c.beginPath();c.arc(x,y,3.5,0,Math.PI*2);c.fillStyle=stroke;c.fill()})};polygon(base,'#9ba5a1','rgba(155,165,161,.12)');polygon(meta,'#ff5a3c','rgba(255,90,60,.12)');c.fillStyle='#3f4a47';c.font='700 11px sans-serif';c.textAlign='center';labels.forEach((label,i)=>{const[x,y]=point(i,118);c.fillText(label,x,y+4)})};
+      new ResizeObserver(draw).observe(canvas);draw();
+    });
+    document.querySelectorAll<HTMLCanvasElement>('[data-capability-shift]').forEach((canvas)=>{
+      let frame=0,w=0,h=0,lastActive=-1;const root=canvas.closest<HTMLElement>('.capability-shift')!,focus=root.querySelector<HTMLElement>('[data-shift-focus]')!,note=root.querySelector<HTMLElement>('[data-shift-note]')!,gains=[3,6.8,-.4,16.1,5.8,4.5],notes=['Emotion recognition improves modestly.','Desire inference becomes more reliable.','Intention remains essentially flat.','The largest repair in the six-dimensional profile.','Belief reasoning approaches the human reference.','Communication closes much of the remaining gap.'],sequence=[3,4,5,2,0,1];
+      const resize=()=>{const rect=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);w=rect.width;h=rect.height;canvas.width=w*d;canvas.height=h*d;canvas.getContext('2d')!.setTransform(d,0,0,d,0,0)};
+      const draw=()=>{const c=canvas.getContext('2d')!;c.clearRect(0,0,w,h);const left=Math.max(165,w*.29),right=Math.min(w-165,w*.71),top=66,bottom=h-58,slot=(rank:number)=>top+rank*(bottom-top)/5,leftOrder=[2,4,5,0,1,3],rightOrder=[4,5,2,0,1,3],leftRank=new Map(leftOrder.map((id,rank)=>[id,rank])),rightRank=new Map(rightOrder.map((id,rank)=>[id,rank])),colors=['#d9664f','#cc785f','#7d8985','#ff5a3c','#356b58','#8d5548'],active=sequence[Math.floor(frame/150)%sequence.length],travel=(frame%150)/150;c.font=`800 ${w<700?12:14}px sans-serif`;c.textBaseline='middle';labels.forEach((label,i)=>{const y1=slot(leftRank.get(i)!),y2=slot(rightRank.get(i)!),selected=i===active;c.strokeStyle=colors[i];c.globalAlpha=selected?1:.22;c.lineWidth=selected?4:1.5;c.beginPath();c.moveTo(left,y1);c.bezierCurveTo(w*.43,y1,w*.57,y2,right,y2);c.stroke();c.globalAlpha=1;c.fillStyle=colors[i];[ [left,y1],[right,y2] ].forEach(([x,y])=>{c.beginPath();c.arc(x,y,selected?6:4,0,Math.PI*2);c.fill()});c.fillStyle=selected?'#17221f':'#68736f';c.textAlign='right';c.fillText(`${label}  ${base[i].toFixed(1)}`,left-15,y1);c.textAlign='left';c.fillText(`${meta[i].toFixed(1)}  ${label}`,right+15,y2);if(selected){const x=left+(right-left)*travel,y=y1+(y2-y1)*(travel*travel*(3-2*travel));c.fillStyle=colors[i];c.beginPath();c.arc(x,y,7,0,Math.PI*2);c.fill();c.strokeStyle='rgba(255,90,60,.18)';c.lineWidth=12;c.stroke()}});if(active!==lastActive){const gain=gains[active];focus.textContent=`${labels[active]} · ${gain>0?'+':''}${gain.toFixed(1)}`;note.textContent=notes[active];lastActive=active}frame++;requestAnimationFrame(draw)};new ResizeObserver(resize).observe(canvas);resize();draw();
+    });
+  </script>
+</ResearchReleaseLayout>
