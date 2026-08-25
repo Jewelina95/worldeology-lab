@@ -1,7 +1,8 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
+import ResearchInstrument from '../../../components/ResearchInstrument.astro';
+import LongHorizonTrace from '../../../components/LongHorizonTrace.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
-import '../../../styles/lab.css';
 
 const site = Astro.site!;
 const personSchema = {
@@ -14,79 +15,152 @@ const personSchema = {
   jobTitle: 'AI Research Scientist',
   affiliation: { '@type': 'ResearchOrganization', name: 'Worldeology Lab', url: new URL('/', site).href },
   worksFor: { '@type': 'Organization', name: 'Qwen, Alibaba Group' },
-  knowsAbout: ['Cognitive AI', 'Theory of Mind', 'Test-time computation', 'Interactive AI', 'Long-horizon world modeling'],
+  knowsAbout: ['Test-time computation', 'Interactive AI', 'Theory of Mind', 'AI evaluation', 'Long-horizon world modeling'],
   sameAs: [
     'https://scholar.google.com/citations?user=zP5k9lsAAAAJ',
     'https://github.com/XMZhangAI',
     'https://www.linkedin.com/in/xuanming-zhang-54b9b5290'
   ]
 };
-
-const publications = [
-  ['EMNLP 2026', 'Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding', 'https://arxiv.org/abs/2606.21906'],
-  ['NeurIPS 2025 · Spotlight', 'MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems', 'https://arxiv.org/abs/2505.18943'],
-  ['ACL 2026', 'Cognition-of-Thought Elicits Social-Aligned Reasoning in Large Language Models', 'https://arxiv.org/abs/2509.23441'],
-  ['ICLR 2026', 'Simulating and Understanding Deceptive Behaviors in Long-Horizon Interactions', 'https://arxiv.org/abs/2510.03999'],
-  ['PNAS 2026', 'Human Preferences Are Susceptible to Covertly Misaligned AI Advice', 'https://arxiv.org/abs/2502.07663']
-];
 ---
 
 <SiteLayout
-  title="Xuanming Zhang | Faculty | Worldeology Lab"
-  description="Xuanming Zhang is founding faculty at Worldeology Lab and an AI research scientist working on Cognitive AI, social reasoning, and long-horizon interactive systems."
-  image="/assets/meta/og-home.png"
-  imageAlt="Xuanming Zhang — Faculty at Worldeology Lab"
-  headerTone="paper"
+  title="Xuanming Zhang — Faculty — Worldeology Lab"
+  description="Xuanming Zhang builds frontier AI systems that reason about people, worlds, and consequences across time."
   active="faculty"
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)}></script>
-  <main id="main" class="lab-site faculty-profile">
-    <nav class="faculty-breadcrumb" aria-label="Breadcrumb"><a href="/">Worldeology Lab</a><i>/</i><a href="/faculty/">Faculty</a><i>/</i><span>Xuanming Zhang</span></nav>
 
-    <header class="faculty-profile-hero">
-      <div class="faculty-profile-copy">
-        <p class="lab-index">Founder · Faculty · AI Research Scientist</p>
-        <h1>Xuanming<br />Zhang</h1>
-        <p class="faculty-profile-lead">I build AI systems that expose hidden computation, reason about other minds, and remain coherent when actions accumulate into consequences.</p>
-        <nav class="faculty-profile-links"><a href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Google Scholar ↗</a><a href="https://github.com/XMZhangAI">GitHub ↗</a><a href="https://www.linkedin.com/in/xuanming-zhang-54b9b5290">LinkedIn ↗</a><a href="/faculty/xuanming-zhang/connect/">Contact →</a></nav>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-rail" aria-hidden="true"><span>Worldeology Lab / Faculty</span><span>Frontier models · Interactive AI</span></div>
+      <div class="hero-copy" data-reveal>
+        <p class="hero-role"><span></span> Research Scientist · Qwen</p>
+        <h1 id="hero-title">Intelligence is what survives<br /><em>after the next token.</em></h1>
+        <p class="hero-thesis">I build AI systems that expose hidden computation, reason about other minds, and remain coherent when actions accumulate into consequences.</p>
+        <div class="hero-links">
+          <a class="action action-light" href="#research">Enter the research</a>
+          <a class="action action-outline" href="/faculty/xuanming-zhang/connect/" data-analytics="cv_request">CV / Opportunities ↗</a>
+        </div>
       </div>
-      <figure><img src="/assets/images/xuanming-zhang.webp" width="886" height="886" alt="Portrait of Xuanming Zhang" fetchpriority="high" /><figcaption><span>Worldeology Lab</span><strong>Cognitive AI · Mechanisms · Minds · Worlds</strong></figcaption></figure>
-    </header>
 
-    <section class="faculty-profile-section faculty-agenda" aria-labelledby="faculty-agenda-title">
-      <header><p class="lab-index">01 / Research agenda</p><h2 id="faculty-agenda-title">From hidden computation to consequential worlds.</h2></header>
-      <div>
-        <article><span>Mechanisms</span><h3>Inspect how reasoning forms.</h3><p>Test-time computation, layer selection, process supervision, and mechanisms that make model cognition visible and revisable.</p><a href="https://arxiv.org/abs/2606.21906">Confident Decoding ↗</a></article>
-        <article><span>Minds</span><h3>Model what remains unspoken.</h3><p>Theory of Mind, social cognition, metacognitive control, and responses grounded in explicit mental-state hypotheses.</p><a href="/faculty/xuanming-zhang/blog/MetaMind/">Explore MetaMind →</a></article>
-        <article><span>Worlds</span><h3>Trace what an action changes.</h3><p>Long-horizon interaction, event chains, persistent consequences, and experiential evaluation beyond a single response.</p><a href="/faculty/xuanming-zhang/projects/mariolm/">Explore MarioLM →</a></article>
+      <figure class="hero-portrait" data-portrait data-reveal>
+        <img src="/assets/images/xuanming-zhang.webp" alt="Xuanming Zhang" width="886" height="886" fetchpriority="high" />
+        <div class="portrait-scan" aria-hidden="true"></div>
+        <figcaption><span>Research frame 01</span><strong>Human-centered frontier models</strong></figcaption>
+      </figure>
+
+      <dl class="hero-evidence" data-reveal>
+        <div><dt>941</dt><dd>Scholar citations</dd></div>
+        <div><dt>Spotlight</dt><dd>NeurIPS 2025</dd></div>
+        <div><dt>ACL · ICLR</dt><dd>2026</dd></div>
+        <div><dt>Qwen · Stanford · Amazon</dt><dd>Research trajectory</dd></div>
+      </dl>
+    </section>
+
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <p class="index-label" data-reveal>Research premise</p>
+      <h2 id="manifesto-title" data-reveal>Most benchmarks ask whether a model can answer.<br />I ask what it computes, what it understands, and what its answer changes.</h2>
+      <div class="manifesto-note" data-reveal><span>One program</span><p>Mechanism discovery → cognitive structure → experiential evaluation → optimization.</p></div>
+    </section>
+
+    <ResearchInstrument />
+
+    <section class="systems" id="systems" aria-labelledby="systems-title">
+      <header class="systems-heading" data-reveal>
+        <p class="index-label">02 / Selected systems</p>
+        <h2 id="systems-title">Research that leaves<br />a working machine behind.</h2>
+      </header>
+
+      <article class="case case-confident" data-reveal>
+        <div class="case-index"><span>Case 01</span><span>Inference systems · Qwen</span></div>
+        <div class="case-body">
+          <div class="case-copy">
+            <p class="eyebrow">Confident Decoding</p>
+            <h3>Recover the reasoning that alignment perturbs.</h3>
+            <p>A training-free, entropy-guided layer-selection method grounded as an optimal-stopping problem and integrated into a production vLLM stack.</p>
+            <ul class="case-metrics"><li><strong>+6.5</strong> GPQA-D points</li><li><strong>0 MB</strong> KV-cache overhead</li><li><strong>&lt;2%</strong> latency</li></ul>
+            <div class="case-links"><a href="https://arxiv.org/abs/2606.21906">Paper ↗</a><a href="https://github.com/QwenLM/Confident-Decoding">Official code ↗</a></div>
+          </div>
+          <div class="mechanism mechanism-layers" role="img" aria-label="Guess, refine, perturb layer mechanism">
+            <div><span>Early</span><b>Guess</b><i></i><i></i><i></i></div>
+            <div class="is-signal"><span>Near-final</span><b>Refine</b><i></i><i></i><i></i><em>selected</em></div>
+            <div><span>Final</span><b>Perturb</b><i></i><i></i><i></i></div>
+            <p>Entropy-guided conservative backward search</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case case-mind" data-reveal>
+        <div class="case-index"><span>Case 02</span><span>Cognitive systems · NeurIPS Spotlight</span></div>
+        <div class="case-body">
+          <div class="case-copy">
+            <p class="eyebrow">MetaMind → CooT → Latent-RL</p>
+            <h3>Move cognition from scaffold to evolvable capability.</h3>
+            <p>A continuous research lineage: make mental states explicit, make alignment auditable at decoding time, then internalize the process through reinforcement learning.</p>
+            <ul class="case-metrics"><li><strong>+35.7%</strong> social scenarios</li><li><strong>16+</strong> models evaluated</li><li><strong>0.80</strong> AIR-Bench</li></ul>
+            <div class="case-links"><a href="https://arxiv.org/abs/2505.18943">MetaMind ↗</a><a href="https://arxiv.org/abs/2509.23441">Cognition-of-Thought ↗</a></div>
+          </div>
+          <div class="mechanism mechanism-mind" role="img" aria-label="Cognitive research lineage">
+            <ol>
+              <li><span>External</span><strong>MetaMind</strong><small>Structured mental-state reasoning</small></li>
+              <li><span>Auditable</span><strong>CooT</strong><small>Rollback-and-refine decoding</small></li>
+              <li><span>Internalized</span><strong>Latent-RL</strong><small>Process-supervised cognition</small></li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="case case-world" data-reveal>
+        <div class="case-index"><span>Case 03</span><span>World modeling · Research grant</span></div>
+        <div class="case-body">
+          <div class="case-copy">
+            <p class="eyebrow">MarioLM</p>
+            <h3>Turn evaluation into an experiential world.</h3>
+            <p>MarioLM unifies trajectory-level evaluation and optimization through causally grounded scenes, latent user states, event chains, and temporally persistent consequences.</p>
+            <ul class="case-metrics"><li><strong>500+</strong> annotated turns</li><li><strong>92.3–98.8%</strong> human agreement</li><li><strong>L1–L6</strong> cascaded rubrics</li></ul>
+            <div class="case-links"><a href="/faculty/xuanming-zhang/projects/mariolm/">Project dossier →</a></div>
+          </div>
+          <LongHorizonTrace />
+        </div>
+      </article>
+
+      <div class="secondary-systems" data-reveal>
+        <article><p class="eyebrow">LH-Deception · ICLR 2026</p><h3>Audit the chain, not the confession.</h3><p>Controlled performer–supervisor–auditor worlds reveal concealment and fabrication that do not exist in single-turn tests.</p><a href="https://arxiv.org/abs/2510.03999">Paper ↗</a></article>
+        <article><p class="eyebrow">Trustworthy code intelligence</p><h3>Keep evaluation fresh, realistic, and difficult to game.</h3><p>DevEval, EvoCodeBench, CDD/TED, and Seeker connect repository realism, benchmark freshness, black-box contamination control, and exception-safe generation.</p><nav class="research-index" aria-label="Trustworthy code intelligence papers"><a href="https://aclanthology.org/2024.findings-acl.214/">DevEval ↗</a><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6a059625a6027aca18302803743abaa2-Abstract-Datasets_and_Benchmarks_Track.html">EvoCodeBench ↗</a><a href="https://aclanthology.org/2024.findings-acl.716/">CDD / TED ↗</a><a href="https://arxiv.org/abs/2410.06949">Seeker ↗</a></nav></article>
       </div>
     </section>
 
-    <section class="faculty-profile-section faculty-work" aria-labelledby="faculty-work-title">
-      <header><p class="lab-index">02 / Selected work</p><h2 id="faculty-work-title">Research releases and systems.</h2></header>
-      <div class="faculty-work-list">
-        <a href="/faculty/xuanming-zhang/blog/MetaMind/technical-contribution/"><b>MetaMind</b><span>Technical contribution · explicit, revisable social reasoning</span><i>→</i></a>
-        <a href="/faculty/xuanming-zhang/blog/MetaMind/cognitive-frontier/"><b>Cognition-of-Thought</b><span>From cognitive scaffolds to evolvable capability</span><i>→</i></a>
-        <a href="/faculty/xuanming-zhang/projects/mariolm/"><b>MarioLM</b><span>Long-horizon evaluation through interactive worlds</span><i>→</i></a>
-        <a href="/faculty/xuanming-zhang/notes/"><b>Field notes</b><span>Methods, failed intuitions, and research consequences</span><i>→</i></a>
+    <section class="publications" id="publications" aria-labelledby="publications-title">
+      <header data-reveal>
+        <div><p class="index-label">03 / Selected publications</p><h2 id="publications-title">Evidence, not inventory.</h2></div>
+        <div class="publication-filters" role="group" aria-label="Filter publications"><button type="button" class="is-active" data-publication-filter="all">All</button><button type="button" data-publication-filter="reasoning">Reasoning</button><button type="button" data-publication-filter="interaction">Interaction</button><button type="button" data-publication-filter="evaluation">Evaluation</button></div>
+      </header>
+      <div class="publication-table" data-reveal>
+        <article data-publication data-topic="reasoning"><div class="pub-venue"><strong>EMNLP 2026</strong><span>Under review · top 1%</span></div><div><h3>Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding</h3><p><b>Xuanming Zhang</b>, Sining Zhoubian, Yuxuan Chen, Tianyi Tang, An Yang, et al.</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2606.21906">Paper</a><a href="https://github.com/QwenLM/Confident-Decoding">Code</a><button type="button" data-cite="confident">Cite</button></div></article>
+        <article data-publication data-topic="interaction"><div class="pub-venue"><strong>NeurIPS 2025</strong><span>Spotlight</span></div><div><h3>MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems</h3><p><b>Xuanming Zhang</b>, Yuxuan Chen, Samuel Yeh, Sharon Li</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2505.18943">Paper</a><a href="https://github.com/XMZhangAI/MetaMind">Code</a><button type="button" data-cite="metamind">Cite</button></div></article>
+        <article data-publication data-topic="reasoning"><div class="pub-venue"><strong>ACL 2026</strong><span>Long paper</span></div><div><h3>Cognition-of-Thought Elicits Social-Aligned Reasoning in Large Language Models</h3><p><b>Xuanming Zhang</b>, Yuxuan Chen, Samuel Yeh, Sharon Li</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2509.23441">Paper</a><a href="https://github.com/XMZhangAI/Cognition-of-Thought">Code</a><button type="button" data-cite="coot">Cite</button></div></article>
+        <article data-publication data-topic="evaluation"><div class="pub-venue"><strong>ICLR 2026</strong><span>Equal first author</span></div><div><h3>Simulating and Understanding Deceptive Behaviors in Long-Horizon Interactions</h3><p>Yang Xu*, <b>Xuanming Zhang*</b>, Samuel Yeh, Jwala Dhamala, Ousmane Dia, Rahul Gupta, Sharon Li</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2510.03999">Paper</a><a href="https://github.com/deeplearning-wisc/LongHorizonDeception">Code</a><button type="button" data-cite="deception">Cite</button></div></article>
+        <article data-publication data-topic="interaction"><div class="pub-venue"><strong>PNAS 2026</strong><span>Human subjects</span></div><div><h3>Human Preferences Are Susceptible to Covertly Misaligned AI Advice</h3><p>Sahand Sabour, June M. Liu, Siyang Liu, Chris Z. Yao, Shiyao Cui, <b>Xuanming Zhang</b>, et al.</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2502.07663">Paper</a></div></article>
       </div>
+      <a class="scholar-link" href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Complete publication record on Google Scholar ↗</a>
     </section>
 
-    <section class="faculty-profile-section faculty-publications" aria-labelledby="faculty-publications-title">
-      <header><p class="lab-index">03 / Selected publications</p><h2 id="faculty-publications-title">Evidence across reasoning, interaction, and evaluation.</h2></header>
-      <div>{publications.map(([venue, title, href], index) => <a href={href}><span>{String(index + 1).padStart(2, '0')}</span><small>{venue}</small><strong>{title}</strong><i>↗</i></a>)}</div>
-      <a class="faculty-scholar-link" href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Complete publication record on Google Scholar ↗</a>
+    <section class="field-note" aria-labelledby="field-note-title">
+      <div class="field-note-image"><img src="/assets/images/field-notes-atlas-v2.webp" width="1920" height="1080" alt="A computational research atlas connecting model mechanisms, social cognition, and long-horizon worlds" loading="lazy" /><div class="field-note-coordinate" aria-hidden="true"><span>Research atlas / 01</span><strong>Mechanism → Mind → World</strong></div></div>
+      <div class="field-note-copy" data-reveal><p class="index-label">04 / Field notes</p><h2 id="field-note-title">The paper reports the result.<br />The field note reveals the thinking.</h2><p>An evidence-led technical account and a clearly marked research agenda trace MetaMind from metacognitive social reasoning toward Cognitive AI.</p><a class="action action-dark" href="/faculty/xuanming-zhang/notes/">Open the MetaMind dossier →</a></div>
     </section>
 
-    <section class="faculty-profile-section faculty-trajectory" aria-labelledby="faculty-trajectory-title">
-      <header><p class="lab-index">04 / Trajectory</p><h2 id="faculty-trajectory-title">Research across frontier models and human-centered AI.</h2></header>
-      <ol>
-        <li><time>2026—</time><div><strong>Qwen, Alibaba Group</strong><span>Research Scientist · A Star Top Talent</span></div></li>
-        <li><time>2025</time><div><strong>Stanford NLP Group</strong><span>Visiting Student Researcher</span></div></li>
-        <li><time>2025</time><div><strong>Amazon AGI</strong><span>Student Researcher</span></div></li>
-        <li><time>2021—25</time><div><strong>PKU · UW–Madison · ByteDance · Zhipu AI</strong><span>Research and systems</span></div></li>
+    <section class="trajectory" aria-labelledby="trajectory-title">
+      <header data-reveal><p class="index-label">05 / Trajectory</p><h2 id="trajectory-title">From reliable code<br />to persistent minds.</h2></header>
+      <ol data-reveal>
+        <li><time>2026—</time><div><strong>Qwen, Alibaba Group</strong><span>Research Scientist · A Star Top Talent</span><p>Subjective capabilities, test-time reasoning systems, multi-turn interaction, and mental-state reinforcement learning.</p></div></li>
+        <li><time>2025</time><div><strong>Stanford NLP Group</strong><span>Visiting Student Researcher</span><p>Human-centered AI and social reasoning under uncertainty.</p></div></li>
+        <li><time>2025</time><div><strong>Amazon AGI</strong><span>Student Researcher</span><p>Long-horizon deception, trust dynamics, and foundation-model safety evaluation.</p></div></li>
+        <li><time>2021—25</time><div><strong>PKU · UW–Madison · ByteDance · Zhipu AI</strong><span>Research and systems</span><p>Trustworthy code evaluation, multimodal agents, psychological simulation, and metacognitive social intelligence.</p></div></li>
       </ol>
     </section>
+
     <SiteFooter />
   </main>
 </SiteLayout>
