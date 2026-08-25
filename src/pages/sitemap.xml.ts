@@ -1,5 +1,8 @@
 const routes = [
   ['/', '1.0'],
+  ['/faculty/', '0.8'],
+  ['/faculty/xuanming-zhang/', '0.9'],
+  ['/research/', '0.9'],
   ['/projects/mariolm/', '0.8'],
   ['/notes/', '0.8'],
   ['/blog/MetaMind/', '0.9'],
