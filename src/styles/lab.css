@@ -2,7 +2,7 @@
 .header-paper .site-header{color:var(--lab-ink);background:rgba(255,255,255,.95);border-color:var(--lab-line);backdrop-filter:blur(18px)}
 .header-paper .site-header.is-scrolled{background:rgba(255,255,255,.98)}
 .header-paper .menu-cv{color:#fff;background:var(--lab-ink)}
-.world-mark{color:#fff;background:var(--lab-red);border-color:var(--lab-red);font-family:var(--serif);font-size:1rem}
+.world-mark{color:var(--lab-ink);background:#fff;border-color:var(--lab-ink)}
 .lab-site{color:var(--lab-ink);background:var(--lab-paper)}
 .lab-site h1,.lab-site h2,.lab-site h3{font-family:var(--serif);font-weight:420;letter-spacing:-.045em}
 .lab-index,.lab-kicker{margin:0;color:var(--lab-red);font-size:.67rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}

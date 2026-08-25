@@ -6,7 +6,7 @@ const { active = '' } = Astro.props;
 <div class="read-progress" aria-hidden="true"><span data-read-progress></span></div>
 <header class="site-header" data-site-header>
   <a class="brand" href="/" aria-label="Worldeology Lab — home">
-    <span class="brand-mark world-mark" aria-hidden="true">W</span>
+    <span class="brand-mark world-mark" aria-hidden="true"><i></i><b></b><b></b></span>
     <span class="brand-type"><strong>Worldeology Lab</strong><small>Cognitive AI Research</small></span>
   </a>
 
@@ -15,6 +15,7 @@ const { active = '' } = Astro.props;
   </button>
 
   <nav id="site-menu" class="site-menu" aria-label="Primary navigation" data-site-menu>
+    <a href="/">Main</a>
     <ResearchMenu active={active === 'research'} />
     <a class:list={[active === 'work' && 'is-active']} href="/#work-heading">Work</a>
     <a class:list={[active === 'faculty' && 'is-active']} href="/faculty/">Faculty</a>

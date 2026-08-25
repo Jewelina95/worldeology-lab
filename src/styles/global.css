@@ -42,6 +42,13 @@ button { color: inherit; }
 .site-header.is-scrolled { color: var(--ink); background: rgba(241, 238, 229, .96); border-color: var(--line); backdrop-filter: blur(16px); }
 .brand { display: inline-flex; align-items: center; gap: 13px; }
 .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-size: .7rem; font-weight: 800; letter-spacing: .05em; }
+.world-mark { position: relative; isolation: isolate; overflow: hidden; color: var(--ink); background: #fff; border-color: currentColor; }
+.world-mark::before { content: ""; position: absolute; z-index: 0; top: 9px; left: 4px; width: 20px; height: 19px; background: #171815; border-radius: 58% 42% 47% 53% / 44% 60% 40% 56%; }
+.world-mark::after { content: ""; position: absolute; z-index: -1; top: 10px; left: 3px; width: 30px; height: 17px; border: 1px solid rgba(23,24,21,.27); border-radius: 50%; transform: rotate(-18deg); }
+.world-mark>i { position: absolute; z-index: 2; top: 16px; left: 12px; width: 6px; height: 6px; background: #4f8b6f; border-radius: 50%; }
+.world-mark>b { position: absolute; z-index: 2; display: block; border-radius: 50%; }
+.world-mark>b:first-of-type { top: 7px; right: 5px; width: 8px; height: 8px; background: #3159bd; }
+.world-mark>b:last-of-type { right: 3px; bottom: 6px; width: 9px; height: 8px; background: #e54b2f; border-radius: 56% 44% 51% 49% / 61% 48% 52% 39%; }
 .brand-type { display: grid; line-height: 1.2; }
 .brand-type strong { font-size: .78rem; letter-spacing: .01em; }
 .brand-type small { margin-top: 3px; opacity: .58; font-size: .58rem; letter-spacing: .05em; text-transform: uppercase; }
