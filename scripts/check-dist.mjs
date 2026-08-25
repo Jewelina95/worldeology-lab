@@ -16,6 +16,9 @@ const failures = [];
 
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8');
+  if (/<meta\b[^>]*http-equiv=["']refresh["'][^>]*content=["'][^"']*url=\s*\//i.test(html)) {
+    failures.push(`${relative(root, file)} contains a base-unsafe root-relative meta redirect.`);
+  }
   for (const match of html.matchAll(/\b(?:href|src)=["']([^"']+)["']/g)) {
     const ref = match[1];
     if (/^(?:https?:|mailto:|data:|#)/.test(ref)) continue;
