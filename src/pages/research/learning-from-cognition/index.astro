@@ -1,0 +1,29 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import ResearchFieldNav from '../../../components/ResearchFieldNav.astro';
+import '../../../styles/lab.css';
+---
+<SiteLayout title="Learning from Cognition — Worldeology Lab" description="Learning from Cognition studies how reflective experience becomes persistent capability." headerTone="paper" active="research" image="/og.png">
+  <main id="main" class="lab-site lab-page research-field-page program-learning">
+    <header class="research-field-header">
+      <p class="lab-index"><a href="/research/">Research</a> / Learning from Cognition</p>
+      <h1>Learning from<br />Cognition</h1>
+      <p>Turning cognitive experience into knowledge that can persist, transfer, and generalize.</p>
+    </header>
+    <ResearchFieldNav active="learning-from-cognition" />
+    <article class="research-proposition" aria-label="Learning from Cognition proposition">
+      <p class="program-lead">A system should not only produce cognition. It should be able to learn from the way cognition unfolds.</p>
+      <p>Most learning systems compress experience into outcomes: a correct label, a reward, or a preferred response. Yet the path toward an outcome contains information that the outcome alone cannot preserve—where uncertainty appeared, which hypothesis failed, what evidence changed the direction, and which abstraction became reusable.</p>
+      <p class="program-thesis">Learning from Cognition treats the cognitive process itself as experience.</p>
+      <p>Reflection, prediction error, memory, and test-time evidence can become persistent capability rather than another stored transcript. A system can identify a useful cognitive pattern, separate it from the incidental details of one task, and carry the abstraction into new people, problems, and worlds.</p>
+      <p>This changes learning from passive accumulation into active revision. The model does not merely remember what happened. It examines why its understanding changed, what boundary the experience revealed, and how that discovery should alter future cognition.</p>
+    </article>
+    <section class="research-work-index" aria-labelledby="work-title">
+      <p id="work-title" class="lab-index">Selected work</p>
+      <a href="/blog/MetaMind/cognitive-frontier/"><span>Cognition-of-Thought</span><small>Learning from reflective and revisable cognition</small><i>↗</i></a>
+      <a href="/blog/MetaMind/technical-contribution/"><span>MetaMind</span><small>Structured hypotheses as cognitive supervision</small><i>↗</i></a>
+    </section>
+    <SiteFooter />
+  </main>
+</SiteLayout>

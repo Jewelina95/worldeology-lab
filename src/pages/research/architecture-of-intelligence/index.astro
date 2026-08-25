@@ -1,0 +1,29 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import ResearchFieldNav from '../../../components/ResearchFieldNav.astro';
+import '../../../styles/lab.css';
+---
+<SiteLayout title="Architecture of Intelligence — Worldeology Lab" description="Architecture of Intelligence studies the mechanisms and boundaries through which models reason." headerTone="paper" active="research" image="/og.png">
+  <main id="main" class="lab-site lab-page research-field-page program-architecture">
+    <header class="research-field-header">
+      <p class="lab-index"><a href="/research/">Research</a> / Architecture of Intelligence</p>
+      <h1>Architecture of<br />Intelligence</h1>
+      <p>Redesigning the mechanisms through which models reason, inspect themselves, and revise their boundaries.</p>
+    </header>
+    <ResearchFieldNav active="architecture-of-intelligence" />
+    <article class="research-proposition" aria-label="Architecture of Intelligence proposition">
+      <p class="program-lead">The limits of intelligence are partly the limits of the architecture through which it must think.</p>
+      <p>Current models encounter semantic, knowledge, and structural bottlenecks. More computation can extend a trajectory, but it does not guarantee that the system can identify the point where its reasoning diverged, choose a better cognitive strategy, or incorporate a newly discovered abstraction.</p>
+      <p class="program-thesis">Architecture of Intelligence makes cognition inspectable and revisable by design.</p>
+      <p>We study inference-time mechanisms, reflective decoding, memory, process supervision, rollback, and learned cognitive control. The aim is an architecture that can expose its reasoning boundary, intervene before a failure becomes an answer, and reorganize how it approaches the next problem.</p>
+      <p>Architecture is therefore not only a question of scale. It is the design of the operations through which a system understands, examines, learns, and acts.</p>
+    </article>
+    <section class="research-work-index" aria-labelledby="work-title">
+      <p id="work-title" class="lab-index">Selected work</p>
+      <a href="/blog/MetaMind/cognitive-frontier/"><span>Cognition-of-Thought</span><small>Process-level cognitive control</small><i>↗</i></a>
+      <a href="https://arxiv.org/abs/2606.21906"><span>Confident Decoding</span><small>Inference-time model mechanisms</small><i>↗</i></a>
+    </section>
+    <SiteFooter />
+  </main>
+</SiteLayout>
