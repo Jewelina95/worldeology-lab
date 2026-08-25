@@ -4,33 +4,32 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import '../../styles/lab.css';
 ---
 <SiteLayout title="About — Worldeology Lab" description="Worldeology Lab is a distributed research lab building the foundations of Cognitive AI." headerTone="paper" active="about" image="/og.png">
-  <main id="main" class="lab-site lab-page">
-    <header class="lab-page-hero">
+  <main id="main" class="lab-site lab-page about-page">
+    <header class="lab-page-hero about-page-hero">
       <p class="lab-index">Worldeology Lab / About</p>
-      <h1>Intelligence<br />enters the world.</h1>
-      <p>Worldeology Lab is a distributed, researcher-led lab building the foundations of Cognitive AI: systems that understand hidden states, examine their own reasoning, and model the worlds their actions create.</p>
+      <h1>About</h1>
+      <p>An independent research lab building the foundations of Cognitive AI.</p>
     </header>
 
-    <section class="lab-page-section" aria-labelledby="lab-title">
-      <header><p class="lab-index">01 / The lab</p><h2 id="lab-title">A research network across institutions and disciplines.</h2></header>
+    <section class="lab-page-section about-part" aria-labelledby="lab-title">
+      <header><p class="lab-index">01</p><h2 id="lab-title">Who we are.</h2></header>
       <div class="lab-prose">
-        <p>Worldeology was co-founded as a distributed research effort by researchers and collaborators with ties across Stanford University, Tsinghua University, the University of Wisconsin–Madison, Imperial College London, and frontier AI teams including Qwen. The lab brings together machine learning, social cognition, model alignment, interactive evaluation, and world modeling around one shared question: what changes when intelligence moves beyond producing an answer?</p>
-        <p>We operate as an independent research identity. Institutional names describe the backgrounds and publication network of participating researchers; they do not imply institutional sponsorship of the lab.</p>
+        <p>Worldeology Lab is a distributed, researcher-led lab working across machine learning, social cognition, model alignment, and world modeling.</p>
+        <p>Our research network includes collaborators with ties to Stanford University, Tsinghua University, the University of Wisconsin–Madison, Imperial College London, and frontier AI teams including Qwen. Worldeology operates independently; these affiliations describe research backgrounds and collaborations, not institutional sponsorship.</p>
       </div>
     </section>
 
-    <section class="lab-page-section" aria-labelledby="mission-title">
-      <header><p class="lab-index">02 / The mission</p><h2 id="mission-title">From passive response to active cognition.</h2></header>
-      <div class="about-trajectory">
-        <article><span>Input</span><h3>Complete the information iceberg.</h3><p>Infer what a person is trying to express, what remains unstated, and when uncertainty requires an active question.</p></article>
-        <article><span>Reasoning</span><h3>Make cognition inspectable.</h3><p>Use memory, test-time updates, reflective control, and reasoning-boundary interventions to detect and revise a diverging path.</p></article>
-        <article><span>World</span><h3>Measure what the action changes.</h3><p>Evaluate not only the answer, but also its effect on latent state, trust, agency, relationships, and future possibilities.</p></article>
+    <section class="lab-page-section about-part" aria-labelledby="focus-title">
+      <header><p class="lab-index">02</p><h2 id="focus-title">Research focus.</h2></header>
+      <div class="lab-prose">
+        <p>We study intelligence as a cognitive trajectory rather than a single answer: how a system understands hidden states, examines its reasoning, learns from experience, and anticipates the consequences of its actions.</p>
       </div>
-    </section>
-
-    <section class="lab-page-section" aria-labelledby="name-title">
-      <header><p class="lab-index">03 / The name</p><h2 id="name-title">World + logos: studying the worlds intelligence participates in creating.</h2></header>
-      <div class="lab-prose"><p>A world is not only physical state. It is also what agents believe, value, remember, choose, and make possible for one another. Worldeology names a research stance in which interpretation changes action, action changes another agent, and those changes accumulate into a different future.</p></div>
+      <div class="about-focus-list">
+        <a class="focus-black" href="/research/cognitive-ai/"><span>Cognitive AI</span><small>Understanding cognition before, during, and after an answer.</small><i>↗</i></a>
+        <a class="focus-blue" href="/research/learning-from-cognition/"><span>Learning from Cognition</span><small>Turning cognitive experience into persistent capability.</small><i>↗</i></a>
+        <a class="focus-green" href="/research/engine-of-world/"><span>Engine of World</span><small>Modeling persistent worlds and long-horizon consequences.</small><i>↗</i></a>
+        <a class="focus-red" href="/research/architecture-of-intelligence/"><span>Architecture of Intelligence</span><small>Redesigning the mechanisms through which models reason.</small><i>↗</i></a>
+      </div>
     </section>
     <SiteFooter />
   </main>
