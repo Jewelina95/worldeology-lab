@@ -1,0 +1,27 @@
+---
+interface Props {
+  context?: 'site' | 'manifest';
+  active?: boolean;
+}
+
+const { context = 'site', active = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+const fields = [
+  { href: '/research/cognitive-ai/', name: 'Cognitive AI', tone: 'black' },
+  { href: '/research/learning-from-cognition/', name: 'Learning from Cognition', tone: 'blue' },
+  { href: '/research/engine-of-world/', name: 'Engine of World', tone: 'green' },
+  { href: '/research/architecture-of-intelligence/', name: 'Architecture of Intelligence', tone: 'red' }
+];
+---
+<div class:list={['research-nav-menu', `research-nav-menu-${context}`, active && 'is-active']} data-research-menu>
+  <button class="research-nav-trigger" type="button" aria-expanded="false" data-research-toggle>
+    Research<span class="research-nav-chevron" aria-hidden="true">⌄</span>
+  </button>
+  <div class="research-nav-submenu" data-research-submenu>
+    {fields.map((field) => (
+      <a class:list={[`field-${field.tone}`, currentPath.includes(field.href) && 'is-active']} href={field.href}>
+        <i aria-hidden="true"></i><span>{field.name}</span>
+      </a>
+    ))}
+  </div>
+</div>

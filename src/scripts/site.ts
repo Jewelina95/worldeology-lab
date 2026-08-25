@@ -20,6 +20,10 @@ const closeMenu = () => {
   menu?.classList.remove('is-open');
   menuButton?.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('menu-open');
+  qsa<HTMLElement>('[data-research-menu]').forEach((researchMenu) => {
+    researchMenu.classList.remove('is-open');
+    qs<HTMLButtonElement>('[data-research-toggle]', researchMenu)?.setAttribute('aria-expanded', 'false');
+  });
 };
 
 menuButton?.addEventListener('click', () => {
@@ -29,7 +33,31 @@ menuButton?.addEventListener('click', () => {
   document.body.classList.toggle('menu-open', open);
 });
 qsa<HTMLAnchorElement>('a', menu || document).forEach((link) => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', (event) => event.key === 'Escape' && closeMenu());
+
+const researchMenus = qsa<HTMLElement>('[data-research-menu]');
+const closeResearchMenus = () => researchMenus.forEach((researchMenu) => {
+  researchMenu.classList.remove('is-open');
+  qs<HTMLButtonElement>('[data-research-toggle]', researchMenu)?.setAttribute('aria-expanded', 'false');
+});
+researchMenus.forEach((researchMenu) => {
+  const trigger = qs<HTMLButtonElement>('[data-research-toggle]', researchMenu);
+  trigger?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const willOpen = !researchMenu.classList.contains('is-open');
+    closeResearchMenus();
+    researchMenu.classList.toggle('is-open', willOpen);
+    trigger.setAttribute('aria-expanded', String(willOpen));
+  });
+});
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  if (!(target instanceof Node) || !researchMenus.some((item) => item.contains(target))) closeResearchMenus();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  closeResearchMenus();
+  closeMenu();
+});
 
 const updateScrollUI = () => {
   header?.classList.toggle('is-scrolled', scrollY > 30);

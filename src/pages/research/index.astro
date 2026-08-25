@@ -1,7 +1,6 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
-import ResearchFieldNav from '../../components/ResearchFieldNav.astro';
 import '../../styles/lab.css';
 ---
 <SiteLayout title="Research — Worldeology Lab" description="Four connected research fields: Cognitive AI, Learning from Cognition, Engine of World, and Architecture of Intelligence." headerTone="paper" active="research" image="/og.png">
@@ -12,11 +11,11 @@ import '../../styles/lab.css';
       <p>Four connected fields follow intelligence from hidden cognition to learning, world models, and architecture.</p>
     </header>
 
-    <section class="research-directory-body" aria-labelledby="fields-title">
-      <p id="fields-title" class="lab-index">Research fields</p>
-      <ResearchFieldNav />
+    <section class="research-directory-body" aria-labelledby="research-overview-title">
+      <p id="research-overview-title" class="lab-index">Research program</p>
       <div class="research-directory-note">
-        <p>Each field has its own proposition and body of work. Select a direction to enter its research page.</p>
+        <p>Worldeology studies intelligence as a trajectory: how a system understands hidden cognition, learns from experience, reasons within a world, and revises the architecture through which it thinks.</p>
+        <p>Use the Research menu above to enter one of the four independent fields.</p>
       </div>
     </section>
     <SiteFooter />

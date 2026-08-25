@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ResearchMenu from '../components/ResearchMenu.astro';
 import '../styles/lab.css';
 
 const site = Astro.site!;
@@ -24,7 +25,7 @@ const organizationSchema = {
   <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)}></script>
 
   <main id="main" class="manifest-home">
-    <nav class="manifest-nav" aria-label="Worldeology Lab"><a href="/research/">Research</a><a href="/#work-heading">Recent Work</a><a href="/people/">People</a><a href="/about/">About</a><a href="#join-us">Join us</a></nav>
+    <nav class="manifest-nav" aria-label="Worldeology Lab"><ResearchMenu context="manifest" /><a href="/#work-heading">Recent Work</a><a href="/people/">People</a><a href="/about/">About</a><a href="#join-us">Join us</a></nav>
     <header class="manifest-wordmark">
       <div class="worldeology-kinetic" aria-label="Worldeology Lab research fields">
         <div class="kinetic-orbit kinetic-orbit-one"></div>
