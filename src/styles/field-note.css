@@ -14,7 +14,7 @@
 .essay-frontier .essay-hero { min-height: auto; padding-bottom: 90px; }
 .essay-frontier .essay-hero-grid { min-height: 680px; grid-template-columns: minmax(0,.82fr) minmax(520px,1.18fr); gap: clamp(44px,6vw,92px); }
 .essay-frontier .essay-hero-copy { padding-top: 54px; }
-.essay-frontier .essay-hero h1 { font-size: clamp(3.8rem,6.4vw,7.3rem); }
+.essay-frontier .essay-hero h1 { font-size: 5.25rem; }
 .essay-frontier .essay-dek { max-width: 570px; margin-top: 30px; font-size: 1.05rem; line-height: 1.5; }
 .essay-frontier .essay-meta { margin-top: 26px; }
 .essay-frontier .essay-signal { min-height: 560px; border-color: rgba(98,212,218,.28); }
@@ -78,6 +78,12 @@
 .relevance-note p, .reflection-block p { margin: 0; color: rgba(255,255,255,.72); font-family: var(--sans); font-size: .7rem; line-height: 1.7; }
 .relevance-note strong, .reflection-block strong { color: #fff; }
 .essay-frontier .reflection-block { background: #0b2732; border-color: #d9ad68; }
+.essay-frontier .essay-content { font-size: 1.16rem; }
+.essay-frontier .essay-content h2 { font-size: 3.25rem; }
+.essay-frontier .essay-content h3 { font-size: 2rem; }
+.essay-frontier .essay-content .standfirst { font-size: 1.8rem; }
+.essay-frontier .signal-caption strong { font-size: 1.7rem; }
+.essay-frontier .essay-next strong { font-size: 3.15rem; }
 .article-rule { height: 1px; margin: 90px 0; background: rgba(11,24,32,.18); }
 .evidence-ribbon { margin: 55px 0 80px; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #0b1820; }
 .evidence-ribbon div { min-height: 150px; padding: 24px 20px; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid #0b1820; }
@@ -172,6 +178,8 @@
   .essay-content { max-width: 830px; margin: 0 auto; }
   .essay-frontier .essay-hero-grid { min-height: auto; grid-template-columns: 1fr; }
   .essay-frontier .essay-signal { min-height: 500px; }
+  .essay-frontier .essay-hero h1 { font-size: 4.4rem; }
+  .essay-frontier .essay-content h2 { font-size: 3rem; }
   .essay-figure.full-bleed { width: 100%; margin-left: 0; }
 }
 @media (max-width: 720px) {
@@ -184,6 +192,13 @@
   .essay-content { width: 100%; max-width: 100%; }
   .essay-content h2 { font-size: clamp(2.3rem, 11vw, 3.7rem); }
   .essay-content h3 { font-size: clamp(1.55rem, 7.5vw, 2.25rem); }
+  .essay-frontier .essay-hero h1 { font-size: 3.1rem; }
+  .essay-frontier .essay-content { font-size: 1.08rem; }
+  .essay-frontier .essay-content h2 { font-size: 2.35rem; }
+  .essay-frontier .essay-content h3 { font-size: 1.65rem; }
+  .essay-frontier .essay-content .standfirst { font-size: 1.5rem; }
+  .essay-frontier .signal-caption strong { font-size: 1.4rem; }
+  .essay-frontier .essay-next strong { font-size: 2.35rem; }
   .essay-content .section-kicker { margin-top: 4.5em; }
   .essay-figure, .essay-figure.native-figure { width: 100%; max-width: 100%; margin-top: 48px; margin-bottom: 48px; }
   .essay-figure.paper { padding: 10px; }
