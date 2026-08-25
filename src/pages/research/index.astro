@@ -4,46 +4,48 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import '../../styles/lab.css';
 ---
 <SiteLayout title="Research — Worldeology Lab" description="Four connected research programs for Cognitive AI: cognition, learning, world engines, and intelligence architecture." headerTone="paper" active="research" image="/og.png">
-  <main id="main" class="lab-site lab-page">
-    <header class="lab-page-hero">
+  <main id="main" class="lab-site lab-page research-page">
+    <header class="lab-page-hero research-page-hero">
       <p class="lab-index">Worldeology Lab / Research</p>
-      <h1>Four fields.<br />One trajectory.</h1>
-      <p>Worldeology studies intelligence from the hidden state behind an instruction to the architectures that learn, act, and change a world.</p>
+      <h1>Research</h1>
+      <p>Four connected programs follow intelligence from unspoken intent to learning, world models, and architecture.</p>
     </header>
 
-    <section class="lab-page-section" aria-labelledby="program-title">
+    <section class="lab-page-section research-index-section" aria-labelledby="program-title">
       <header>
-        <p class="lab-index">01 / Research programs</p>
-        <h2 id="program-title">Open a field to see the questions and work inside it.</h2>
+        <p class="lab-index">01 / Research map</p>
+        <h2 id="program-title">Four directions, each connected to current work.</h2>
       </header>
 
-      <div class="research-programs">
-        <details id="cognitive-ai" class="research-program program-cognitive" open>
-          <summary><span>01</span><strong>Cognitive AI</strong><i>Black</i></summary>
-          <div class="program-body">
-            <p>Cognitive AI moves beyond passive response. It infers the unspoken state behind an instruction, monitors how reasoning changes, and models what an action leaves behind over time.</p>
-            <div class="program-work-list" aria-label="Cognitive AI work">
-              <a href="/blog/MetaMind/technical-contribution/"><span>MetaMind</span><small>Before the answer · modeling unspoken minds</small><i>↗</i></a>
-              <a href="/blog/MetaMind/cognitive-frontier/"><span>Cognition-of-Thought</span><small>Inside the answer · reflective and revisable cognition</small><i>↗</i></a>
-              <a href="/projects/mariolm/"><span>MarioLM</span><small>Beyond the answer · consequential interactive worlds</small><i>↗</i></a>
-            </div>
-          </div>
-        </details>
+      <div class="research-explorer">
+        <div class="research-tabs" role="tablist" aria-label="Research fields">
+          <button id="tab-cognitive-ai" class="program-cognitive" type="button" role="tab" aria-selected="true" aria-controls="cognitive-ai" data-program="cognitive-ai"><span>01</span><strong>Cognitive AI</strong></button>
+          <button id="tab-learning-from-cognition" class="program-learning" type="button" role="tab" aria-selected="false" aria-controls="learning-from-cognition" data-program="learning-from-cognition" tabindex="-1"><span>02</span><strong>Learning from Cognition</strong></button>
+          <button id="tab-engine-of-world" class="program-world" type="button" role="tab" aria-selected="false" aria-controls="engine-of-world" data-program="engine-of-world" tabindex="-1"><span>03</span><strong>Engine of World</strong></button>
+          <button id="tab-architecture-of-intelligence" class="program-architecture" type="button" role="tab" aria-selected="false" aria-controls="architecture-of-intelligence" data-program="architecture-of-intelligence" tabindex="-1"><span>04</span><strong>Architecture of Intelligence</strong></button>
+        </div>
 
-        <details id="learning-from-cognition" class="research-program program-learning">
-          <summary><span>02</span><strong>Learning from Cognition</strong><i>Blue</i></summary>
-          <div class="program-body"><p>Experience becomes cognition through reflection and abstraction. This program studies how test-time evidence, prediction error, memory, and self-examination can become persistent capability rather than another stored transcript.</p></div>
-        </details>
+        <div class="research-panels">
+          <article id="cognitive-ai" class="research-panel program-cognitive" role="tabpanel" aria-labelledby="tab-cognitive-ai">
+            <div class="program-introduction"><span>01 / Cognitive AI</span><h3>Understand cognition before, during, and after an answer.</h3><p>Cognitive AI moves beyond passive response. It infers the unspoken state behind an instruction, monitors how reasoning changes, and models what an action leaves behind over time.</p></div>
+            <div class="program-work-list" aria-label="Cognitive AI related work"><p>Related work</p><a href="/blog/MetaMind/technical-contribution/"><span>MetaMind</span><small>Modeling unspoken minds</small><i>↗</i></a><a href="/blog/MetaMind/cognitive-frontier/"><span>Cognition-of-Thought</span><small>Reflective and revisable cognition</small><i>↗</i></a><a href="/projects/mariolm/"><span>MarioLM</span><small>Consequential interactive worlds</small><i>↗</i></a></div>
+          </article>
 
-        <details id="engine-of-world" class="research-program program-world">
-          <summary><span>03</span><strong>Engine of World</strong><i>Green</i></summary>
-          <div class="program-body"><p>Interactive intelligence needs more than a static scene. We model latent state, causal event chains, relationships, world rules, and future branches so that an agent can reason across a full horizon.</p></div>
-        </details>
+          <article id="learning-from-cognition" class="research-panel program-learning" role="tabpanel" aria-labelledby="tab-learning-from-cognition" hidden>
+            <div class="program-introduction"><span>02 / Learning from Cognition</span><h3>Turn cognitive experience into persistent capability.</h3><p>This program studies how reflection, prediction error, memory, and test-time evidence become reusable knowledge rather than another stored transcript. The learning signal is the evolving cognitive process, not only the final answer.</p></div>
+            <div class="program-work-list" aria-label="Learning from Cognition related work"><p>Related work</p><a href="/blog/MetaMind/cognitive-frontier/"><span>Cognition-of-Thought</span><small>Learning from reflective reasoning traces</small><i>↗</i></a><a href="/blog/MetaMind/technical-contribution/"><span>MetaMind</span><small>Structured hypotheses about latent minds</small><i>↗</i></a></div>
+          </article>
 
-        <details id="architecture-of-intelligence" class="research-program program-architecture">
-          <summary><span>04</span><strong>Architecture of Intelligence</strong><i>Red</i></summary>
-          <div class="program-body"><p>We study the semantic, knowledge, and structural bottlenecks that constrain current models, then design inference-time and learning architectures that can revise their own cognitive boundary.</p></div>
-        </details>
+          <article id="engine-of-world" class="research-panel program-world" role="tabpanel" aria-labelledby="tab-engine-of-world" hidden>
+            <div class="program-introduction"><span>03 / Engine of World</span><h3>Model the world as a living causal system.</h3><p>An interactive world is more than a visual scene. It contains latent state, causal event chains, relationships, durable memory, and future branches that let an agent reason across a full horizon.</p></div>
+            <div class="program-work-list" aria-label="Engine of World related work"><p>Related work</p><a href="/projects/mariolm/"><span>MarioLM</span><small>Persistent, consequential interactive worlds</small><i>↗</i></a><a href="https://arxiv.org/abs/2510.03999"><span>Long-Horizon Deception</span><small>Safety across extended interaction</small><i>↗</i></a></div>
+          </article>
+
+          <article id="architecture-of-intelligence" class="research-panel program-architecture" role="tabpanel" aria-labelledby="tab-architecture-of-intelligence" hidden>
+            <div class="program-introduction"><span>04 / Architecture of Intelligence</span><h3>Redesign the mechanisms that intelligence reasons through.</h3><p>We study semantic, knowledge, and structural bottlenecks in current models, then build inference-time and learning architectures that can inspect, control, and revise their own cognitive boundary.</p></div>
+            <div class="program-work-list" aria-label="Architecture of Intelligence related work"><p>Related work</p><a href="/blog/MetaMind/cognitive-frontier/"><span>Cognition-of-Thought</span><small>Process-level cognitive control</small><i>↗</i></a><a href="https://arxiv.org/abs/2606.21906"><span>Confident Decoding</span><small>Inference-time model mechanisms</small><i>↗</i></a></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -61,17 +63,33 @@ import '../../styles/lab.css';
     <SiteFooter />
   </main>
   <script>
-    const programs = [...document.querySelectorAll<HTMLDetailsElement>('.research-program')];
-    const openFromHash = () => {
-      if (!location.hash) return;
-      const target = document.querySelector<HTMLDetailsElement>(location.hash);
-      if (!target?.classList.contains('research-program')) return;
-      programs.forEach((program) => { program.open = program === target; });
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-program]')];
+    const panels = [...document.querySelectorAll<HTMLElement>('.research-panel')];
+
+    const activateProgram = (programId: string, updateHash = false) => {
+      const activeTab = tabs.find((tab) => tab.dataset.program === programId);
+      if (!activeTab) return;
+      tabs.forEach((tab) => {
+        const isActive = tab === activeTab;
+        tab.setAttribute('aria-selected', String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+      });
+      panels.forEach((panel) => { panel.hidden = panel.id !== programId; });
+      if (updateHash) history.replaceState(null, '', `#${programId}`);
     };
-    programs.forEach((program) => program.addEventListener('toggle', () => {
-      if (!program.open) return;
-      programs.forEach((other) => { if (other !== program) other.open = false; });
-    }));
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateProgram(tab.dataset.program ?? '', true));
+      tab.addEventListener('keydown', (event) => {
+        if (!['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+        event.preventDefault();
+        const nextIndex = ['ArrowDown', 'ArrowRight'].includes(event.key) ? (index + 1) % tabs.length : (index - 1 + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        activateProgram(tabs[nextIndex].dataset.program ?? '', true);
+      });
+    });
+
+    const openFromHash = () => activateProgram(location.hash.slice(1) || 'cognitive-ai');
     openFromHash();
     window.addEventListener('hashchange', openFromHash);
   </script>
