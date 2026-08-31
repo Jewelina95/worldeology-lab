@@ -13,7 +13,6 @@
     "check:analytics-live": "node scripts/check-analytics-live.mjs",
     "social": "node scripts/generate-social-cards.mjs",
     "verify": "npm run build && node scripts/check-dist.mjs && npm run check:mobile",
-    "pages:prepare": "node scripts/prefix-pages-base.mjs",
     "start:local": "node scripts/start-local.mjs",
     "preview:dist": "node scripts/preview-dist.mjs"
   },

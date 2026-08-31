@@ -31,9 +31,7 @@ jobs:
       - name: Build and verify production output
         run: npm run verify
         env:
-          PUBLIC_SITE_URL: https://jewelina95.github.io
-      - name: Prepare project-site paths
-        run: npm run pages:prepare
+          PUBLIC_SITE_URL: https://worldeology.com
       - uses: actions/configure-pages@v5
         if: github.event_name != 'pull_request'
       - uses: actions/upload-pages-artifact@v3
