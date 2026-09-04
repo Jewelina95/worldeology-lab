@@ -1,21 +1,137 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
-import ResearchInstrument from '../../../components/ResearchInstrument.astro';
-import LongHorizonTrace from '../../../components/LongHorizonTrace.astro';
-import SiteFooter from '../../../components/SiteFooter.astro';
 
 const site = Astro.site!;
+
+const recentNews = [
+  {
+    date: '2026',
+    title: 'Qwen-InteractEval',
+    text: "Leading Qwen's first Nature submission on interactive world modeling and human-centered AI."
+  },
+  {
+    date: '2026',
+    title: 'Confident Decoding',
+    text: 'Accepted to EMNLP 2026 in the top 0.45%; released with an official QwenLM implementation.',
+    href: 'https://arxiv.org/abs/2606.21906'
+  },
+  {
+    date: '2026',
+    title: 'Cognition-of-Thought',
+    text: 'Accepted to NeurIPS 2026, extending metacognitive reasoning into an auditable rollback-and-refine process.',
+    href: 'https://arxiv.org/abs/2509.23441'
+  },
+  {
+    date: '2026',
+    title: 'Long-horizon AI behavior',
+    text: 'Work on deceptive interaction and covertly misaligned advice appeared at ICLR and in PNAS.',
+    href: 'https://arxiv.org/abs/2510.03999'
+  },
+  {
+    date: '2025',
+    title: 'MetaMind',
+    text: 'Received a NeurIPS Spotlight for modeling human social thought with metacognitive multi-agent systems.',
+    href: 'https://arxiv.org/abs/2505.18943'
+  }
+];
+
+const researchAreas = [
+  {
+    index: '01',
+    name: 'Latent human states',
+    text: 'Inferring beliefs, intentions, preferences, emotions, and awareness before a system acts.'
+  },
+  {
+    index: '02',
+    name: 'Reasoning boundaries',
+    text: 'Making reasoning inspectable, revisable, and able to improve its own cognitive process.'
+  },
+  {
+    index: '03',
+    name: 'Interactive worlds',
+    text: 'Evaluating how actions alter people, relationships, and long-horizon trajectories.'
+  },
+  {
+    index: '04',
+    name: 'Cognizer systems',
+    text: 'Moving AI from closed-ended response optimization toward innovation, organization, and creation.'
+  }
+];
+
+const publications = [
+  {
+    year: '2026',
+    venue: 'EMNLP · Top 0.45%',
+    title: 'Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding',
+    authors: 'Xuanming Zhang, Sining Zhoubian, Yuxuan Chen, Tianyi Tang, An Yang, et al.',
+    paper: 'https://arxiv.org/abs/2606.21906',
+    code: 'https://github.com/QwenLM/Confident-Decoding'
+  },
+  {
+    year: '2026',
+    venue: 'NeurIPS',
+    title: 'Cognition-of-Thought Elicits Social-Aligned Reasoning in Large Language Models',
+    authors: 'Xuanming Zhang, Yuxuan Chen, Samuel Yeh, Sharon Li',
+    paper: 'https://arxiv.org/abs/2509.23441',
+    code: 'https://github.com/XMZhangAI/Cognition-of-Thought'
+  },
+  {
+    year: '2026',
+    venue: 'ICLR · Equal contribution',
+    title: 'Simulating and Understanding Deceptive Behaviors in Long-Horizon Interactions',
+    authors: 'Yang Xu*, Xuanming Zhang*, Samuel Yeh, Jwala Dhamala, Ousmane Dia, Rahul Gupta, Sharon Li',
+    paper: 'https://arxiv.org/abs/2510.03999',
+    code: 'https://github.com/deeplearning-wisc/LongHorizonDeception'
+  },
+  {
+    year: '2026',
+    venue: 'PNAS',
+    title: 'Human Preferences Are Susceptible to Covertly Misaligned AI Advice',
+    authors: 'Sahand Sabour, June M. Liu, Siyang Liu, Chris Z. Yao, Shiyao Cui, Xuanming Zhang, et al.',
+    paper: 'https://arxiv.org/abs/2502.07663'
+  },
+  {
+    year: '2025',
+    venue: 'NeurIPS · Spotlight',
+    title: 'MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems',
+    authors: 'Xuanming Zhang, Yuxuan Chen, Samuel Yeh, Sharon Li',
+    paper: 'https://arxiv.org/abs/2505.18943',
+    code: 'https://github.com/XMZhangAI/MetaMind'
+  },
+  {
+    year: '2025',
+    venue: 'ACL',
+    title: 'SocialEval: Evaluating Social Intelligence of Large Language Models',
+    authors: 'Jinfeng Zhou, Yuxuan Chen, Yihan Shi, Xuanming Zhang, et al.',
+    paper: 'https://aclanthology.org/2025.acl-long.1496/'
+  }
+];
+
+const experience = [
+  ['2026—', 'Worldeology', 'Founder'],
+  ['2026—', 'AlpsLab', 'Co-Founder & Chief Science Officer'],
+  ['2026', 'Qwen, Alibaba Group', 'Research Scientist · subjective and interactive model capabilities'],
+  ['2026', 'Anthropic Interpretability', 'Research Fellow'],
+  ['2025', 'Stanford NLP Group', 'Visiting Undergraduate Researcher · advised by Christopher D. Manning'],
+  ['2025', 'Amazon AGI', 'Student Researcher · long-horizon AI safety'],
+  ['2024—25', 'ByteDance · Zhipu AI', 'AI research and product systems']
+];
+
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Xuanming Zhang',
   alternateName: '张轩铭',
-  url: new URL('/faculty/zhangxm/', site).href,
+  url: new URL('/faculty/xuanming-zhang/', site).href,
   image: new URL('/assets/images/xuanming-zhang.webp', site).href,
-  jobTitle: 'AI Research Scientist',
+  jobTitle: 'Research Scientist',
   affiliation: { '@type': 'ResearchOrganization', name: 'Worldeology Lab', url: new URL('/', site).href },
   worksFor: { '@type': 'Organization', name: 'Qwen, Alibaba Group' },
-  knowsAbout: ['Test-time computation', 'Interactive AI', 'Theory of Mind', 'AI evaluation', 'Long-horizon world modeling'],
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'University of Wisconsin–Madison' },
+    { '@type': 'CollegeOrUniversity', name: 'Stanford University' }
+  ],
+  knowsAbout: ['Cognitive AI', 'Test-time reasoning', 'Interactive AI', 'Theory of mind', 'Long-horizon world modeling'],
   sameAs: [
     'https://scholar.google.com/citations?user=zP5k9lsAAAAJ',
     'https://github.com/XMZhangAI',
@@ -25,142 +141,258 @@ const personSchema = {
 ---
 
 <SiteLayout
-  title="Xuanming Zhang — Faculty — Worldeology Lab"
-  description="Xuanming Zhang builds frontier AI systems that reason about people, worlds, and consequences across time."
+  title="Xuanming Zhang — Worldeology Lab"
+  description="Xuanming Zhang is a research scientist at Qwen working on cognitive AI, interactive evaluation, and long-horizon world modeling."
   active="faculty"
+  headerTone="paper"
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)}></script>
 
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-rail" aria-hidden="true"><span>Worldeology Lab / Faculty</span><span>Frontier models · Interactive AI</span></div>
-      <div class="hero-copy" data-reveal>
-        <p class="hero-role"><span></span> Research Scientist · Qwen</p>
-        <h1 id="hero-title">Intelligence is what survives<br /><em>after the next token.</em></h1>
-        <p class="hero-thesis">I build AI systems that expose hidden computation, reason about other minds, and remain coherent when actions accumulate into consequences.</p>
-        <div class="hero-links">
-          <a class="action action-light" href="#research">Enter the research</a>
-          <a class="action action-outline" href="/faculty/zhangxm/connect/" data-analytics="cv_request">CV / Opportunities ↗</a>
+  <main id="main" class="profile-page">
+    <section class="profile-hero" aria-labelledby="profile-title">
+      <p class="profile-kicker">Worldeology Lab / Faculty</p>
+
+      <div class="profile-grid">
+        <div class="profile-copy">
+          <p class="profile-role">Research Scientist at Qwen · Founder of Worldeology</p>
+          <h1 id="profile-title">Xuanming<br />Zhang</h1>
+
+          <div class="profile-links" aria-label="Profile links">
+            <a href="mailto:zhangxm@worldeology.com">Email</a>
+            <a href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Google Scholar</a>
+            <a href="https://github.com/XMZhangAI">GitHub</a>
+            <a href="https://www.linkedin.com/in/xuanming-zhang-54b9b5290">LinkedIn</a>
+          </div>
+
+          <div class="profile-biography">
+            <p>Xuanming Zhang is a research scientist at Qwen, where he leads work on subjective and interactive model capabilities across Qwen 3.6–4 and Qwen’s first Nature submission. His research program, <em>Cognizer</em>, explores how AI can move beyond closed-ended pattern matching toward systems that infer latent states, examine and revise their reasoning, model long-horizon consequences, and create structures that do not yet exist.</p>
+            <p>His work has appeared in NeurIPS, EMNLP, ACL, ICLR, and PNAS, including a NeurIPS Spotlight, and has received more than 1,100 citations. He earned his bachelor’s degree from the University of Wisconsin–Madison, advised by Sharon Li, and was a visiting undergraduate researcher at Stanford with Christopher D. Manning. His prior research spans Anthropic Interpretability, Amazon AGI, ByteDance, and Zhipu AI.</p>
+            <p>He is also Co-Founder and Chief Science Officer of AlpsLab, whose first financing round was led by Sequoia China at a reported $200 million valuation. His long-term ambition is to build AI with cognition, agency, and enduring world models—systems capable not only of reasoning, but of sustained innovation and organization in the real world. Outside AI research, he is a professional psychological counselor and has worked with more than 50 clients.</p>
+          </div>
         </div>
+
+        <aside class="profile-aside" aria-label="Portrait and research areas">
+          <figure class="profile-portrait">
+            <img src="/assets/images/xuanming-zhang.webp" alt="Portrait of Xuanming Zhang" width="886" height="886" fetchpriority="high" />
+          </figure>
+          <div class="field-key" aria-label="Worldeology research fields">
+            <span class="field-black">Cognitive AI</span>
+            <span class="field-blue">Learning from Cognition</span>
+            <span class="field-green">Engine of World</span>
+            <span class="field-red">Architecture of Intelligence</span>
+          </div>
+        </aside>
       </div>
 
-      <figure class="hero-portrait" data-portrait data-reveal>
-        <img src="/assets/images/xuanming-zhang.webp" alt="Xuanming Zhang" width="886" height="886" fetchpriority="high" />
-        <div class="portrait-scan" aria-hidden="true"></div>
-        <figcaption><span>Research frame 01</span><strong>Human-centered frontier models</strong></figcaption>
-      </figure>
-
-      <dl class="hero-evidence" data-reveal>
-        <div><dt>941</dt><dd>Scholar citations</dd></div>
-        <div><dt>Spotlight</dt><dd>NeurIPS 2025</dd></div>
-        <div><dt>ACL · ICLR</dt><dd>2026</dd></div>
-        <div><dt>Qwen · Stanford · Amazon</dt><dd>Research trajectory</dd></div>
-      </dl>
+      <nav class="section-nav" aria-label="On this page">
+        <a href="#news">Recent news</a>
+        <a href="#research">Research focus</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+      </nav>
     </section>
 
-    <section class="manifesto" aria-labelledby="manifesto-title">
-      <p class="index-label" data-reveal>Research premise</p>
-      <h2 id="manifesto-title" data-reveal>Most benchmarks ask whether a model can answer.<br />I ask what it computes, what it understands, and what its answer changes.</h2>
-      <div class="manifesto-note" data-reveal><span>One program</span><p>Mechanism discovery → cognitive structure → experiential evaluation → optimization.</p></div>
-    </section>
-
-    <ResearchInstrument />
-
-    <section class="systems" id="systems" aria-labelledby="systems-title">
-      <header class="systems-heading" data-reveal>
-        <p class="index-label">02 / Selected systems</p>
-        <h2 id="systems-title">Research that leaves<br />a working machine behind.</h2>
+    <section class="profile-section news-section" id="news" aria-labelledby="news-title">
+      <header class="section-heading">
+        <p>01</p>
+        <h2 id="news-title">Recent news</h2>
       </header>
-
-      <article class="case case-confident" data-reveal>
-        <div class="case-index"><span>Case 01</span><span>Inference systems · Qwen</span></div>
-        <div class="case-body">
-          <div class="case-copy">
-            <p class="eyebrow">Confident Decoding</p>
-            <h3>Recover the reasoning that alignment perturbs.</h3>
-            <p>A training-free, entropy-guided layer-selection method grounded as an optimal-stopping problem and integrated into a production vLLM stack.</p>
-            <ul class="case-metrics"><li><strong>+6.5</strong> GPQA-D points</li><li><strong>0 MB</strong> KV-cache overhead</li><li><strong>&lt;2%</strong> latency</li></ul>
-            <div class="case-links"><a href="https://arxiv.org/abs/2606.21906">Paper ↗</a><a href="https://github.com/QwenLM/Confident-Decoding">Official code ↗</a></div>
-          </div>
-          <div class="mechanism mechanism-layers" role="img" aria-label="Guess, refine, perturb layer mechanism">
-            <div><span>Early</span><b>Guess</b><i></i><i></i><i></i></div>
-            <div class="is-signal"><span>Near-final</span><b>Refine</b><i></i><i></i><i></i><em>selected</em></div>
-            <div><span>Final</span><b>Perturb</b><i></i><i></i><i></i></div>
-            <p>Entropy-guided conservative backward search</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case case-mind" data-reveal>
-        <div class="case-index"><span>Case 02</span><span>Cognitive systems · NeurIPS Spotlight</span></div>
-        <div class="case-body">
-          <div class="case-copy">
-            <p class="eyebrow">MetaMind → CooT → Latent-RL</p>
-            <h3>Move cognition from scaffold to evolvable capability.</h3>
-            <p>A continuous research lineage: make mental states explicit, make alignment auditable at decoding time, then internalize the process through reinforcement learning.</p>
-            <ul class="case-metrics"><li><strong>+35.7%</strong> social scenarios</li><li><strong>16+</strong> models evaluated</li><li><strong>0.80</strong> AIR-Bench</li></ul>
-            <div class="case-links"><a href="https://arxiv.org/abs/2505.18943">MetaMind ↗</a><a href="https://arxiv.org/abs/2509.23441">Cognition-of-Thought ↗</a></div>
-          </div>
-          <div class="mechanism mechanism-mind" role="img" aria-label="Cognitive research lineage">
-            <ol>
-              <li><span>External</span><strong>MetaMind</strong><small>Structured mental-state reasoning</small></li>
-              <li><span>Auditable</span><strong>CooT</strong><small>Rollback-and-refine decoding</small></li>
-              <li><span>Internalized</span><strong>Latent-RL</strong><small>Process-supervised cognition</small></li>
-            </ol>
-          </div>
-        </div>
-      </article>
-
-      <article class="case case-world" data-reveal>
-        <div class="case-index"><span>Case 03</span><span>World modeling · Research grant</span></div>
-        <div class="case-body">
-          <div class="case-copy">
-            <p class="eyebrow">MarioLM</p>
-            <h3>Turn evaluation into an experiential world.</h3>
-            <p>MarioLM unifies trajectory-level evaluation and optimization through causally grounded scenes, latent user states, event chains, and temporally persistent consequences.</p>
-            <ul class="case-metrics"><li><strong>500+</strong> annotated turns</li><li><strong>92.3–98.8%</strong> human agreement</li><li><strong>L1–L6</strong> cascaded rubrics</li></ul>
-            <div class="case-links"><a href="/faculty/zhangxm/projects/mariolm/">Project dossier →</a></div>
-          </div>
-          <LongHorizonTrace />
-        </div>
-      </article>
-
-      <div class="secondary-systems" data-reveal>
-        <article><p class="eyebrow">LH-Deception · ICLR 2026</p><h3>Audit the chain, not the confession.</h3><p>Controlled performer–supervisor–auditor worlds reveal concealment and fabrication that do not exist in single-turn tests.</p><a href="https://arxiv.org/abs/2510.03999">Paper ↗</a></article>
-        <article><p class="eyebrow">Trustworthy code intelligence</p><h3>Keep evaluation fresh, realistic, and difficult to game.</h3><p>DevEval, EvoCodeBench, CDD/TED, and Seeker connect repository realism, benchmark freshness, black-box contamination control, and exception-safe generation.</p><nav class="research-index" aria-label="Trustworthy code intelligence papers"><a href="https://aclanthology.org/2024.findings-acl.214/">DevEval ↗</a><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6a059625a6027aca18302803743abaa2-Abstract-Datasets_and_Benchmarks_Track.html">EvoCodeBench ↗</a><a href="https://aclanthology.org/2024.findings-acl.716/">CDD / TED ↗</a><a href="https://arxiv.org/abs/2410.06949">Seeker ↗</a></nav></article>
+      <div class="news-list">
+        {recentNews.map((item) => (
+          <article>
+            <time>{item.date}</time>
+            <div>
+              {item.href ? <h3><a href={item.href}>{item.title} <span aria-hidden="true">↗</span></a></h3> : <h3>{item.title}</h3>}
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
 
-    <section class="publications" id="publications" aria-labelledby="publications-title">
-      <header data-reveal>
-        <div><p class="index-label">03 / Selected publications</p><h2 id="publications-title">Evidence, not inventory.</h2></div>
-        <div class="publication-filters" role="group" aria-label="Filter publications"><button type="button" class="is-active" data-publication-filter="all">All</button><button type="button" data-publication-filter="reasoning">Reasoning</button><button type="button" data-publication-filter="interaction">Interaction</button><button type="button" data-publication-filter="evaluation">Evaluation</button></div>
+    <section class="profile-section research-section" id="research" aria-labelledby="research-title">
+      <header class="section-heading">
+        <p>02</p>
+        <h2 id="research-title">Research focus</h2>
       </header>
-      <div class="publication-table" data-reveal>
-        <article data-publication data-topic="reasoning"><div class="pub-venue"><strong>EMNLP 2026</strong><span>Under review · top 1%</span></div><div><h3>Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding</h3><p><b>Xuanming Zhang</b>, Sining Zhoubian, Yuxuan Chen, Tianyi Tang, An Yang, et al.</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2606.21906">Paper</a><a href="https://github.com/QwenLM/Confident-Decoding">Code</a><button type="button" data-cite="confident">Cite</button></div></article>
-        <article data-publication data-topic="interaction"><div class="pub-venue"><strong>NeurIPS 2025</strong><span>Spotlight</span></div><div><h3>MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems</h3><p><b>Xuanming Zhang</b>, Yuxuan Chen, Samuel Yeh, Sharon Li</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2505.18943">Paper</a><a href="https://github.com/XMZhangAI/MetaMind">Code</a><button type="button" data-cite="metamind">Cite</button></div></article>
-        <article data-publication data-topic="reasoning"><div class="pub-venue"><strong>ACL 2026</strong><span>Long paper</span></div><div><h3>Cognition-of-Thought Elicits Social-Aligned Reasoning in Large Language Models</h3><p><b>Xuanming Zhang</b>, Yuxuan Chen, Samuel Yeh, Sharon Li</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2509.23441">Paper</a><a href="https://github.com/XMZhangAI/Cognition-of-Thought">Code</a><button type="button" data-cite="coot">Cite</button></div></article>
-        <article data-publication data-topic="evaluation"><div class="pub-venue"><strong>ICLR 2026</strong><span>Equal first author</span></div><div><h3>Simulating and Understanding Deceptive Behaviors in Long-Horizon Interactions</h3><p>Yang Xu*, <b>Xuanming Zhang*</b>, Samuel Yeh, Jwala Dhamala, Ousmane Dia, Rahul Gupta, Sharon Li</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2510.03999">Paper</a><a href="https://github.com/deeplearning-wisc/LongHorizonDeception">Code</a><button type="button" data-cite="deception">Cite</button></div></article>
-        <article data-publication data-topic="interaction"><div class="pub-venue"><strong>PNAS 2026</strong><span>Human subjects</span></div><div><h3>Human Preferences Are Susceptible to Covertly Misaligned AI Advice</h3><p>Sahand Sabour, June M. Liu, Siyang Liu, Chris Z. Yao, Shiyao Cui, <b>Xuanming Zhang</b>, et al.</p></div><div class="pub-links"><a href="https://arxiv.org/abs/2502.07663">Paper</a></div></article>
+      <div class="research-intro">
+        <p class="research-statement">Cognition is not a single answer. It is a trajectory that begins with another mind, passes through a revisable act of reasoning, and continues into the world that action changes.</p>
+        <p>Xuanming’s work connects model mechanisms, social cognition, and interactive world modeling. The goal is to make latent cognitive states observable, reasoning processes correctable, and downstream consequences measurable—then use those signals to train more capable and trustworthy systems.</p>
       </div>
-      <a class="scholar-link" href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Complete publication record on Google Scholar ↗</a>
-    </section>
-
-    <section class="field-note" aria-labelledby="field-note-title">
-      <div class="field-note-image"><img src="/assets/images/field-notes-atlas-v2.webp" width="1920" height="1080" alt="A computational research atlas connecting model mechanisms, social cognition, and long-horizon worlds" loading="lazy" /><div class="field-note-coordinate" aria-hidden="true"><span>Research atlas / 01</span><strong>Mechanism → Mind → World</strong></div></div>
-      <div class="field-note-copy" data-reveal><p class="index-label">04 / Field notes</p><h2 id="field-note-title">The paper reports the result.<br />The field note reveals the thinking.</h2><p>An evidence-led technical account and a clearly marked research agenda trace MetaMind from metacognitive social reasoning toward Cognitive AI.</p><a class="action action-dark" href="/faculty/zhangxm/notes/">Open the MetaMind dossier →</a></div>
-    </section>
-
-    <section class="trajectory" aria-labelledby="trajectory-title">
-      <header data-reveal><p class="index-label">05 / Trajectory</p><h2 id="trajectory-title">From reliable code<br />to persistent minds.</h2></header>
-      <ol data-reveal>
-        <li><time>2026—</time><div><strong>Qwen, Alibaba Group</strong><span>Research Scientist · A Star Top Talent</span><p>Subjective capabilities, test-time reasoning systems, multi-turn interaction, and mental-state reinforcement learning.</p></div></li>
-        <li><time>2025</time><div><strong>Stanford NLP Group</strong><span>Visiting Student Researcher</span><p>Human-centered AI and social reasoning under uncertainty.</p></div></li>
-        <li><time>2025</time><div><strong>Amazon AGI</strong><span>Student Researcher</span><p>Long-horizon deception, trust dynamics, and foundation-model safety evaluation.</p></div></li>
-        <li><time>2021—25</time><div><strong>PKU · UW–Madison · ByteDance · Zhipu AI</strong><span>Research and systems</span><p>Trustworthy code evaluation, multimodal agents, psychological simulation, and metacognitive social intelligence.</p></div></li>
+      <ol class="research-list">
+        {researchAreas.map((area) => (
+          <li>
+            <span>{area.index}</span>
+            <h3>{area.name}</h3>
+            <p>{area.text}</p>
+          </li>
+        ))}
       </ol>
     </section>
 
-    <SiteFooter />
+    <section class="profile-section publications-section" id="publications" aria-labelledby="publications-title">
+      <header class="section-heading section-heading-with-link">
+        <div><p>03</p><h2 id="publications-title">Selected publications</h2></div>
+        <a href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Full record on Scholar ↗</a>
+      </header>
+      <div class="publication-list">
+        {publications.map((publication) => (
+          <article>
+            <div class="publication-meta"><time>{publication.year}</time><span>{publication.venue}</span></div>
+            <div class="publication-copy">
+              <h3>{publication.title}</h3>
+              <p>{publication.authors}</p>
+            </div>
+            <nav aria-label={`Links for ${publication.title}`}>
+              <a href={publication.paper}>Paper ↗</a>
+              {publication.code && <a href={publication.code}>Code ↗</a>}
+            </nav>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="profile-section experience-section" id="experience" aria-labelledby="experience-title">
+      <header class="section-heading">
+        <p>04</p>
+        <h2 id="experience-title">Experience & education</h2>
+      </header>
+      <div class="experience-grid">
+        <div>
+          <h3>Research & industry</h3>
+          <dl>
+            {experience.map(([date, organization, role]) => (
+              <div><dt>{date}</dt><dd><strong>{organization}</strong><span>{role}</span></dd></div>
+            ))}
+          </dl>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <dl>
+            <div><dt>2025—26</dt><dd><strong>Stanford University</strong><span>Visiting Undergraduate, Computer Science · GPA 4.21/4.00</span></dd></div>
+            <div><dt>2025—26</dt><dd><strong>University of Wisconsin–Madison</strong><span>B.S. in Information Science · advised by Sharon Li</span></dd></div>
+            <div><dt>2021—24</dt><dd><strong>National Elite Institute of Engineering</strong><span>B.S. study in Artificial Intelligence, transferred</span></dd></div>
+          </dl>
+
+          <h3 class="service-title">Service & recognition</h3>
+          <p class="service-copy">NeurIPS Top Reviewer 2025; program committee service for ICLR, ACL, OOPSLA, AAAI, TMLR, and IEEE TII. Invited talks include WAIC, Fudan University, and ByteDance.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="profile-footer">
+      <div>
+        <p>Worldeology Lab</p>
+        <a href="mailto:zhangxm@worldeology.com">zhangxm@worldeology.com</a>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="/">Main</a>
+        <a href="/research/">Research</a>
+        <a href="/faculty/">Faculty</a>
+        <a href="/about/">About</a>
+      </nav>
+      <a href="#top">Back to top ↑</a>
+    </footer>
   </main>
 </SiteLayout>
+
+<style is:global>
+  body.header-paper { background: #f7f5ef; }
+  body.header-paper .site-header { color: var(--ink); background: rgba(247, 245, 239, .94); border-color: rgba(11, 26, 36, .14); backdrop-filter: blur(16px); }
+  body.header-paper .menu-cv { color: var(--white); background: var(--night); }
+</style>
+
+<style>
+  .profile-page { color: #191b18; background: #f7f5ef; }
+  .profile-hero, .profile-section, .profile-footer { width: min(1180px, calc(100vw - 64px)); margin-inline: auto; }
+  .profile-hero { padding: 142px 0 54px; }
+  .profile-kicker { margin: 0 0 40px; color: #646860; font-size: .66rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+  .profile-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 330px); gap: clamp(54px, 8vw, 118px); align-items: start; }
+  .profile-role { margin: 0 0 18px; color: #62665f; font-size: .78rem; font-weight: 650; letter-spacing: .03em; }
+  h1 { margin: 0; font-family: var(--serif); font-size: clamp(4.5rem, 8vw, 7.8rem); font-weight: 390; line-height: .78; letter-spacing: -.055em; }
+  .profile-links { margin: 34px 0 0; display: flex; flex-wrap: wrap; gap: 10px 24px; }
+  .profile-links a, .section-nav a, .publication-list nav a, .section-heading-with-link > a, .profile-footer a { font-size: .68rem; font-weight: 720; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+  .profile-biography { max-width: 760px; margin-top: 58px; }
+  .profile-biography p { margin: 0; font-family: var(--serif); font-size: clamp(1.17rem, 1.7vw, 1.4rem); line-height: 1.55; }
+  .profile-biography p + p { margin-top: 1.15em; }
+  .profile-biography em { font-weight: 500; }
+  .profile-portrait { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #e4e0d7; }
+  .profile-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 24%; filter: grayscale(1) contrast(1.04); }
+  .field-key { margin-top: 22px; padding-top: 16px; display: grid; gap: 10px; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .field-key span { --dot: #171815; display: flex; align-items: center; gap: 10px; color: #5e625b; font-size: .61rem; font-weight: 650; }
+  .field-key span::before { content: ''; width: 7px; height: 7px; flex: 0 0 7px; background: var(--dot); border-radius: 50%; }
+  .field-key .field-blue { --dot: #3159bd; }
+  .field-key .field-green { --dot: #4f8b6f; }
+  .field-key .field-red { --dot: #e54b2f; }
+  .section-nav { margin-top: 72px; padding: 18px 0; display: flex; flex-wrap: wrap; gap: 18px 34px; border-top: 1px solid rgba(25, 27, 24, .22); border-bottom: 1px solid rgba(25, 27, 24, .22); }
+  .profile-section { padding: clamp(88px, 11vw, 150px) 0; border-bottom: 1px solid rgba(25, 27, 24, .22); }
+  .section-heading { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; gap: 20px; }
+  .section-heading > p, .section-heading > div > p { margin: 0; color: #3159bd; font-size: .63rem; font-weight: 780; letter-spacing: .12em; }
+  .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5.2rem); font-weight: 400; line-height: .92; letter-spacing: -.045em; }
+  .news-list { margin: 65px 0 0 100px; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .news-list article { padding: 25px 0; display: grid; grid-template-columns: 90px 1fr; gap: 26px; border-bottom: 1px solid rgba(25, 27, 24, .16); }
+  .news-list time { padding-top: 5px; color: #70736d; font-size: .63rem; font-weight: 680; }
+  .news-list h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 480; line-height: 1.2; }
+  .news-list h3 span { margin-left: 5px; font-family: var(--sans); font-size: .7em; }
+  .news-list p { max-width: 730px; margin: 7px 0 0; color: #686c64; font-size: .78rem; line-height: 1.65; }
+  .research-intro { margin: 68px 0 76px 100px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .65fr); gap: clamp(50px, 8vw, 110px); }
+  .research-intro p { margin: 0; }
+  .research-statement { font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 3.4rem); font-weight: 410; line-height: 1.08; letter-spacing: -.025em; }
+  .research-intro p:last-child { padding-top: 8px; color: #646860; font-size: .83rem; line-height: 1.75; }
+  .research-list { margin: 0 0 0 100px; padding: 0; list-style: none; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .research-list li { padding: 27px 0; display: grid; grid-template-columns: 60px minmax(220px, .7fr) minmax(260px, 1fr); gap: 28px; align-items: baseline; border-bottom: 1px solid rgba(25, 27, 24, .16); }
+  .research-list span { color: #3159bd; font-size: .6rem; font-weight: 760; }
+  .research-list h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 470; }
+  .research-list p { margin: 0; color: #686c64; font-size: .76rem; line-height: 1.6; }
+  .section-heading-with-link { grid-template-columns: 1fr auto; align-items: end; }
+  .section-heading-with-link > div { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; gap: 20px; }
+  .publication-list { margin-top: 68px; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .publication-list article { padding: 28px 0; display: grid; grid-template-columns: 170px 1fr 120px; gap: 32px; border-bottom: 1px solid rgba(25, 27, 24, .16); }
+  .publication-meta { display: grid; align-content: start; gap: 6px; }
+  .publication-meta time { font-family: var(--serif); font-size: 1.3rem; }
+  .publication-meta span { color: #3159bd; font-size: .57rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
+  .publication-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 480; line-height: 1.25; }
+  .publication-copy p { margin: 9px 0 0; color: #686c64; font-size: .68rem; line-height: 1.55; }
+  .publication-list nav { display: flex; justify-content: flex-end; align-content: start; flex-wrap: wrap; gap: 10px 15px; }
+  .experience-grid { margin: 68px 0 0 100px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(55px, 9vw, 120px); }
+  .experience-grid h3 { margin: 0 0 20px; font-size: .65rem; font-weight: 780; letter-spacing: .12em; text-transform: uppercase; }
+  .experience-grid dl { margin: 0; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .experience-grid dl > div { padding: 18px 0; display: grid; grid-template-columns: 82px 1fr; gap: 18px; border-bottom: 1px solid rgba(25, 27, 24, .16); }
+  .experience-grid dt { color: #71756e; font-size: .6rem; }
+  .experience-grid dd { margin: 0; display: grid; gap: 3px; }
+  .experience-grid strong { font-family: var(--serif); font-size: 1.12rem; font-weight: 500; }
+  .experience-grid span, .service-copy { color: #686c64; font-size: .66rem; line-height: 1.55; }
+  .service-title { margin-top: 54px !important; }
+  .service-copy { max-width: 470px; margin: 0; }
+  .profile-footer { padding: 40px 0 48px; display: grid; grid-template-columns: 1fr auto auto; gap: 40px; align-items: end; color: #5f635c; }
+  .profile-footer p { margin: 0 0 6px; color: #191b18; font-family: var(--serif); font-size: 1.25rem; }
+  .profile-footer nav { display: flex; flex-wrap: wrap; gap: 12px 22px; }
+
+  @media (max-width: 860px) {
+    .profile-hero, .profile-section, .profile-footer { width: min(100% - 36px, 720px); }
+    .profile-grid { grid-template-columns: 1fr; }
+    .profile-aside { max-width: 360px; grid-row: 1; }
+    .profile-copy { grid-row: 2; }
+    .profile-biography { margin-top: 44px; }
+    .news-list, .research-intro, .research-list, .experience-grid { margin-left: 0; }
+    .research-intro { grid-template-columns: 1fr; }
+    .research-list li { grid-template-columns: 42px minmax(180px, .7fr) 1fr; }
+    .publication-list article { grid-template-columns: 125px 1fr; }
+    .publication-list nav { grid-column: 2; justify-content: flex-start; }
+    .experience-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .profile-hero { padding-top: 118px; }
+    h1 { font-size: clamp(4rem, 20vw, 6rem); }
+    .profile-aside { max-width: none; }
+    .section-heading, .section-heading-with-link > div { grid-template-columns: 38px 1fr; }
+    .section-heading-with-link { grid-template-columns: 1fr; gap: 28px; }
+    .news-list article { grid-template-columns: 52px 1fr; gap: 14px; }
+    .research-list li { grid-template-columns: 34px 1fr; gap: 10px 14px; }
+    .research-list p { grid-column: 2; }
+    .publication-list article { grid-template-columns: 1fr; gap: 15px; }
+    .publication-list nav { grid-column: 1; }
+    .profile-footer { grid-template-columns: 1fr; align-items: start; }
+  }
+</style>
