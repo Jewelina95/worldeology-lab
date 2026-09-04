@@ -8,7 +8,7 @@ await mkdir(output, { recursive: true });
 
 const sans = 'DejaVu Sans, Arial, sans-serif';
 const serif = 'DejaVu Serif, Georgia, serif';
-const portrait = (await readFile(resolve(root, 'public/assets/images/xuanming-zhang.webp'))).toString('base64');
+const portrait = (await readFile(resolve(root, 'public/assets/images/xuanming-zhang-color.webp'))).toString('base64');
 const portraitCard = await sharp(Buffer.from(portrait, 'base64')).resize(410, 630, { fit: 'cover', position: 'north' }).toBuffer();
 const notesArt = await sharp(resolve(root, 'public/assets/images/field-notes-atlas-v2.webp')).resize(1200, 630, { fit: 'cover' }).png().toBuffer();
 const metaMindArt = await sharp(resolve(root, 'public/assets/images/metamind-hypothesis-field-v2.webp')).resize(1200, 630, { fit: 'cover' }).png().toBuffer();
@@ -63,8 +63,8 @@ const homeOverlay = `
   <text x="56" y="575" fill="#aebbc1" font-family="${sans}" font-size="16">Qwen · Stanford NLP · Amazon AGI</text>
   <rect x="790" y="0" width="410" height="630" fill="#07141e" fill-opacity=".08"/>
   <text x="1140" y="585" text-anchor="end" fill="#50d7c8" font-family="${sans}" font-size="12" font-weight="700" letter-spacing="1.2">XMZHANGAI.GITHUB.IO</text>`;
-await savePortrait('og-home', homeOverlay, `${base('#07141e')}<image href="../images/xuanming-zhang.webp" x="790" y="0" width="410" height="630" preserveAspectRatio="xMidYMid slice"/>${homeOverlay}`);
-await savePortrait('og-home-2026', homeOverlay, `${base('#07141e')}<image href="../images/xuanming-zhang.webp" x="790" y="0" width="410" height="630" preserveAspectRatio="xMidYMid slice"/>${homeOverlay}`);
+await savePortrait('og-home', homeOverlay, `${base('#07141e')}<image href="../images/xuanming-zhang-color.webp" x="790" y="0" width="410" height="630" preserveAspectRatio="xMidYMid slice"/>${homeOverlay}`);
+await savePortrait('og-home-2026', homeOverlay, `${base('#07141e')}<image href="../images/xuanming-zhang-color.webp" x="790" y="0" width="410" height="630" preserveAspectRatio="xMidYMid slice"/>${homeOverlay}`);
 
 await saveArtCard('og-notes', notesArt, `
   <defs><linearGradient id="notes-fade" x1="0" x2="1"><stop offset="0" stop-color="#07141e" stop-opacity=".98"/><stop offset=".57" stop-color="#07141e" stop-opacity=".76"/><stop offset="1" stop-color="#07141e" stop-opacity=".08"/></linearGradient></defs>
