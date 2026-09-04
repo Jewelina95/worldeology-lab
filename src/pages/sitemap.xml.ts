@@ -1,15 +1,15 @@
 const routes = [
   ['/', '1.0'],
   ['/faculty/', '0.8'],
-  ['/faculty/Zhangxm/', '0.9'],
+  ['/faculty/zhangxm/', '0.9'],
   ['/research/', '0.9'],
-  ['/faculty/Zhangxm/projects/mariolm/', '0.8'],
-  ['/faculty/Zhangxm/notes/', '0.8'],
-  ['/faculty/Zhangxm/blog/MetaMind/', '0.9'],
-  ['/faculty/Zhangxm/blog/MetaMind/technical-contribution/', '0.9'],
-  ['/faculty/Zhangxm/blog/MetaMind/cognitive-frontier/', '0.8'],
-  ['/faculty/Zhangxm/connect/', '0.5'],
-  ['/faculty/Zhangxm/privacy/', '0.2']
+  ['/faculty/zhangxm/projects/mariolm/', '0.8'],
+  ['/faculty/zhangxm/notes/', '0.8'],
+  ['/faculty/zhangxm/blog/MetaMind/', '0.9'],
+  ['/faculty/zhangxm/blog/MetaMind/technical-contribution/', '0.9'],
+  ['/faculty/zhangxm/blog/MetaMind/cognitive-frontier/', '0.8'],
+  ['/faculty/zhangxm/connect/', '0.5'],
+  ['/faculty/zhangxm/privacy/', '0.2']
 ];
 
 export const GET = ({ site }: { site: URL }) => {
