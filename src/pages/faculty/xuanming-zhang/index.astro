@@ -13,13 +13,13 @@ const recentNews = [
     date: '2026',
     title: 'Confident Decoding',
     text: 'Accepted to EMNLP 2026 in the top 0.45%; released with an official QwenLM implementation.',
-    href: 'https://arxiv.org/abs/2606.21906'
+    href: '/research/architecture-of-intelligence/'
   },
   {
     date: '2026',
     title: 'Cognition-of-Thought',
     text: 'Accepted to NeurIPS 2026, extending metacognitive reasoning into an auditable rollback-and-refine process.',
-    href: 'https://arxiv.org/abs/2509.23441'
+    href: '/blog/MetaMind/cognitive-frontier/'
   },
   {
     date: '2026',
@@ -31,7 +31,7 @@ const recentNews = [
     date: '2025',
     title: 'MetaMind',
     text: 'Received a NeurIPS Spotlight for modeling human social thought with metacognitive multi-agent systems.',
-    href: 'https://arxiv.org/abs/2505.18943'
+    href: '/blog/MetaMind/technical-contribution/'
   }
 ];
 
@@ -64,6 +64,7 @@ const publications = [
     venue: 'EMNLP · Top 0.45%',
     title: 'Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding',
     authors: 'Xuanming Zhang, Sining Zhoubian, Yuxuan Chen, Tianyi Tang, An Yang, et al.',
+    page: '/research/architecture-of-intelligence/',
     paper: 'https://arxiv.org/abs/2606.21906',
     code: 'https://github.com/QwenLM/Confident-Decoding'
   },
@@ -72,6 +73,7 @@ const publications = [
     venue: 'NeurIPS',
     title: 'Cognition-of-Thought Elicits Social-Aligned Reasoning in Large Language Models',
     authors: 'Xuanming Zhang, Yuxuan Chen, Samuel Yeh, Sharon Li',
+    page: '/blog/MetaMind/cognitive-frontier/',
     paper: 'https://arxiv.org/abs/2509.23441',
     code: 'https://github.com/XMZhangAI/Cognition-of-Thought'
   },
@@ -95,6 +97,7 @@ const publications = [
     venue: 'NeurIPS · Spotlight',
     title: 'MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems',
     authors: 'Xuanming Zhang, Yuxuan Chen, Samuel Yeh, Sharon Li',
+    page: '/blog/MetaMind/technical-contribution/',
     paper: 'https://arxiv.org/abs/2505.18943',
     code: 'https://github.com/XMZhangAI/MetaMind'
   },
@@ -158,16 +161,16 @@ const personSchema = {
           <h1 id="profile-title">Xuanming<br />Zhang</h1>
 
           <div class="profile-links" aria-label="Profile links">
-            <a href="mailto:zhangxm@worldeology.com">Email</a>
+            <a href="mailto:zhangxm@worldeology.com">zhangxm@worldeology.com</a>
             <a href="https://scholar.google.com/citations?user=zP5k9lsAAAAJ">Google Scholar</a>
             <a href="https://github.com/XMZhangAI">GitHub</a>
             <a href="https://www.linkedin.com/in/xuanming-zhang-54b9b5290">LinkedIn</a>
           </div>
 
           <div class="profile-biography">
-            <p>Xuanming Zhang is a research scientist at Qwen, where he leads work on subjective and interactive model capabilities across Qwen 3.6–4 and Qwen’s first Nature submission. His research program, <em>Cognizer</em>, explores how AI can move beyond closed-ended pattern matching toward systems that infer latent states, examine and revise their reasoning, model long-horizon consequences, and create structures that do not yet exist.</p>
-            <p>His work has appeared in NeurIPS, EMNLP, ACL, ICLR, and PNAS, including a NeurIPS Spotlight, and has received more than 1,100 citations. He earned his bachelor’s degree from the University of Wisconsin–Madison, advised by Sharon Li, and was a visiting undergraduate researcher at Stanford with Christopher D. Manning. His prior research spans Anthropic Interpretability, Amazon AGI, ByteDance, and Zhipu AI.</p>
-            <p>He is also Co-Founder and Chief Science Officer of AlpsLab, whose first financing round was led by Sequoia China at a reported $200 million valuation. His long-term ambition is to build AI with cognition, agency, and enduring world models—systems capable not only of reasoning, but of sustained innovation and organization in the real world. Outside AI research, he is a professional psychological counselor and has worked with more than 50 clients.</p>
+            <p><strong>Xuanming Zhang is a research scientist at Qwen</strong>, where he leads work on subjective and interactive model capabilities across <strong>Qwen 3.6–4</strong> and Qwen’s first Nature submission. His research program, <em>Cognizer</em>, explores how AI can move beyond closed-ended pattern matching toward systems that infer latent states, examine and revise their reasoning, model long-horizon consequences, and create structures that do not yet exist.</p>
+            <p>His work has appeared in <strong>NeurIPS, EMNLP, ACL, ICLR, and PNAS</strong>, including a NeurIPS Spotlight, and has received <strong>more than 1,100 citations</strong>. He earned his bachelor’s degree from the University of Wisconsin–Madison, advised by Sharon Li, and was a visiting undergraduate researcher at Stanford with Christopher D. Manning. His prior research spans <strong>Anthropic Interpretability, Amazon AGI, ByteDance, and Zhipu AI</strong>.</p>
+            <p>He is also <strong>Co-Founder and Chief Science Officer of AlpsLab</strong>, whose first financing round was led by Sequoia China at a reported $200 million valuation. His long-term ambition is to build AI with cognition, agency, and enduring world models—systems capable not only of reasoning, but of sustained innovation and organization in the real world. Outside AI research, he is a professional psychological counselor and has worked with more than 50 clients.</p>
           </div>
         </div>
 
@@ -244,6 +247,7 @@ const personSchema = {
               <p>{publication.authors}</p>
             </div>
             <nav aria-label={`Links for ${publication.title}`}>
+              {publication.page && <a href={publication.page}>Research page →</a>}
               <a href={publication.paper}>Paper ↗</a>
               {publication.code && <a href={publication.code}>Code ↗</a>}
             </nav>
@@ -271,7 +275,6 @@ const personSchema = {
           <dl>
             <div><dt>2025—26</dt><dd><strong>Stanford University</strong><span>Visiting Undergraduate, Computer Science · GPA 4.21/4.00</span></dd></div>
             <div><dt>2025—26</dt><dd><strong>University of Wisconsin–Madison</strong><span>B.S. in Information Science · advised by Sharon Li</span></dd></div>
-            <div><dt>2021—24</dt><dd><strong>National Elite Institute of Engineering</strong><span>B.S. study in Artificial Intelligence, transferred</span></dd></div>
           </dl>
 
           <h3 class="service-title">Service & recognition</h3>
@@ -307,17 +310,18 @@ const personSchema = {
   .profile-hero, .profile-section, .profile-footer { width: min(1180px, calc(100vw - 64px)); margin-inline: auto; }
   .profile-hero { padding: 142px 0 54px; }
   .profile-kicker { margin: 0 0 40px; color: #646860; font-size: .66rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
-  .profile-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 330px); gap: clamp(54px, 8vw, 118px); align-items: start; }
+  .profile-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, 420px); gap: clamp(48px, 6vw, 84px); align-items: start; }
   .profile-role { margin: 0 0 18px; color: #62665f; font-size: .78rem; font-weight: 650; letter-spacing: .03em; }
-  h1 { margin: 0; font-family: var(--serif); font-size: clamp(4.5rem, 8vw, 7.8rem); font-weight: 390; line-height: .78; letter-spacing: -.055em; }
+  h1 { margin: 0; font-family: var(--serif); font-size: clamp(4.5rem, 8vw, 7.8rem); font-weight: 500; line-height: .78; letter-spacing: -.055em; }
   .profile-links { margin: 34px 0 0; display: flex; flex-wrap: wrap; gap: 10px 24px; }
   .profile-links a, .section-nav a, .publication-list nav a, .section-heading-with-link > a, .profile-footer a { font-size: .68rem; font-weight: 720; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-  .profile-biography { max-width: 760px; margin-top: 58px; }
-  .profile-biography p { margin: 0; font-family: var(--serif); font-size: clamp(1.17rem, 1.7vw, 1.4rem); line-height: 1.55; }
+  .profile-biography { max-width: 720px; margin-top: 52px; }
+  .profile-biography p { margin: 0; font-family: var(--serif); font-size: clamp(1rem, 1.2vw, 1.14rem); line-height: 1.68; }
   .profile-biography p + p { margin-top: 1.15em; }
   .profile-biography em { font-weight: 500; }
-  .profile-portrait { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #e4e0d7; }
-  .profile-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 24%; filter: grayscale(1) contrast(1.04); }
+  .profile-biography strong { font-weight: 690; }
+  .profile-portrait { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #dedbd4; }
+  .profile-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 22%; filter: grayscale(1) contrast(1.12); }
   .field-key { margin-top: 22px; padding-top: 16px; display: grid; gap: 10px; border-top: 1px solid rgba(25, 27, 24, .22); }
   .field-key span { --dot: #171815; display: flex; align-items: center; gap: 10px; color: #5e625b; font-size: .61rem; font-weight: 650; }
   .field-key span::before { content: ''; width: 7px; height: 7px; flex: 0 0 7px; background: var(--dot); border-radius: 50%; }
@@ -325,19 +329,19 @@ const personSchema = {
   .field-key .field-green { --dot: #4f8b6f; }
   .field-key .field-red { --dot: #e54b2f; }
   .section-nav { margin-top: 72px; padding: 18px 0; display: flex; flex-wrap: wrap; gap: 18px 34px; border-top: 1px solid rgba(25, 27, 24, .22); border-bottom: 1px solid rgba(25, 27, 24, .22); }
-  .profile-section { padding: clamp(88px, 11vw, 150px) 0; border-bottom: 1px solid rgba(25, 27, 24, .22); }
+  .profile-section { padding: clamp(78px, 9vw, 120px) 0; border-bottom: 1px solid rgba(25, 27, 24, .22); }
   .section-heading { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; gap: 20px; }
   .section-heading > p, .section-heading > div > p { margin: 0; color: #3159bd; font-size: .63rem; font-weight: 780; letter-spacing: .12em; }
-  .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5.2rem); font-weight: 400; line-height: .92; letter-spacing: -.045em; }
-  .news-list { margin: 65px 0 0 100px; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.25rem, 3.7vw, 3.85rem); font-weight: 470; line-height: 1; letter-spacing: -.035em; }
+  .news-list { margin: 52px 0 0 100px; border-top: 1px solid rgba(25, 27, 24, .22); }
   .news-list article { padding: 25px 0; display: grid; grid-template-columns: 90px 1fr; gap: 26px; border-bottom: 1px solid rgba(25, 27, 24, .16); }
   .news-list time { padding-top: 5px; color: #70736d; font-size: .63rem; font-weight: 680; }
   .news-list h3 { margin: 0; font-family: var(--serif); font-size: 1.45rem; font-weight: 480; line-height: 1.2; }
   .news-list h3 span { margin-left: 5px; font-family: var(--sans); font-size: .7em; }
   .news-list p { max-width: 730px; margin: 7px 0 0; color: #686c64; font-size: .78rem; line-height: 1.65; }
-  .research-intro { margin: 68px 0 76px 100px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .65fr); gap: clamp(50px, 8vw, 110px); }
+  .research-intro { margin: 54px 0 66px 100px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .65fr); gap: clamp(50px, 8vw, 110px); }
   .research-intro p { margin: 0; }
-  .research-statement { font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 3.4rem); font-weight: 410; line-height: 1.08; letter-spacing: -.025em; }
+  .research-statement { font-family: var(--serif); font-size: clamp(1.75rem, 2.7vw, 2.7rem); font-weight: 450; line-height: 1.12; letter-spacing: -.02em; }
   .research-intro p:last-child { padding-top: 8px; color: #646860; font-size: .83rem; line-height: 1.75; }
   .research-list { margin: 0 0 0 100px; padding: 0; list-style: none; border-top: 1px solid rgba(25, 27, 24, .22); }
   .research-list li { padding: 27px 0; display: grid; grid-template-columns: 60px minmax(220px, .7fr) minmax(260px, 1fr); gap: 28px; align-items: baseline; border-bottom: 1px solid rgba(25, 27, 24, .16); }
@@ -346,7 +350,7 @@ const personSchema = {
   .research-list p { margin: 0; color: #686c64; font-size: .76rem; line-height: 1.6; }
   .section-heading-with-link { grid-template-columns: 1fr auto; align-items: end; }
   .section-heading-with-link > div { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; gap: 20px; }
-  .publication-list { margin-top: 68px; border-top: 1px solid rgba(25, 27, 24, .22); }
+  .publication-list { margin-top: 54px; border-top: 1px solid rgba(25, 27, 24, .22); }
   .publication-list article { padding: 28px 0; display: grid; grid-template-columns: 170px 1fr 120px; gap: 32px; border-bottom: 1px solid rgba(25, 27, 24, .16); }
   .publication-meta { display: grid; align-content: start; gap: 6px; }
   .publication-meta time { font-family: var(--serif); font-size: 1.3rem; }
@@ -354,7 +358,7 @@ const personSchema = {
   .publication-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 480; line-height: 1.25; }
   .publication-copy p { margin: 9px 0 0; color: #686c64; font-size: .68rem; line-height: 1.55; }
   .publication-list nav { display: flex; justify-content: flex-end; align-content: start; flex-wrap: wrap; gap: 10px 15px; }
-  .experience-grid { margin: 68px 0 0 100px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(55px, 9vw, 120px); }
+  .experience-grid { margin: 54px 0 0 100px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(55px, 9vw, 120px); }
   .experience-grid h3 { margin: 0 0 20px; font-size: .65rem; font-weight: 780; letter-spacing: .12em; text-transform: uppercase; }
   .experience-grid dl { margin: 0; border-top: 1px solid rgba(25, 27, 24, .22); }
   .experience-grid dl > div { padding: 18px 0; display: grid; grid-template-columns: 82px 1fr; gap: 18px; border-bottom: 1px solid rgba(25, 27, 24, .16); }
@@ -371,7 +375,7 @@ const personSchema = {
   @media (max-width: 860px) {
     .profile-hero, .profile-section, .profile-footer { width: min(100% - 36px, 720px); }
     .profile-grid { grid-template-columns: 1fr; }
-    .profile-aside { max-width: 360px; grid-row: 1; }
+    .profile-aside { max-width: 420px; grid-row: 1; }
     .profile-copy { grid-row: 2; }
     .profile-biography { margin-top: 44px; }
     .news-list, .research-intro, .research-list, .experience-grid { margin-left: 0; }
