@@ -7,7 +7,7 @@ const { active = '' } = Astro.props;
 <header class="site-header" data-site-header>
   <a class="brand" href="/" aria-label="Worldeology Lab — home">
     <span class="brand-mark world-mark" aria-hidden="true"><i></i><b></b><b></b></span>
-    <span class="brand-type"><strong>Worldeology Lab</strong><small>Cognitive AI Research</small></span>
+    <span class="brand-type"><strong>Worldeology Lab</strong></span>
   </a>
 
   <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-button>
@@ -20,6 +20,6 @@ const { active = '' } = Astro.props;
     <a class:list={[active === 'work' && 'is-active']} href="/#work-heading">Work</a>
     <a class:list={[active === 'faculty' && 'is-active']} href="/faculty/">Faculty</a>
     <a class:list={[active === 'about' && 'is-active']} href="/about/">About</a>
-    <a class="menu-cv" href="mailto:xuanmingdi.zxm@alibaba-inc.com?subject=Worldeology%20Lab">Contact <span aria-hidden="true">↗</span></a>
+    <a class="menu-cv" href="mailto:zhangxm@worldeology.com?subject=Worldeology%20Lab">Contact <span aria-hidden="true">↗</span></a>
   </nav>
 </header>
