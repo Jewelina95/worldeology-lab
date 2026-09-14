@@ -6,8 +6,8 @@ const site = Astro.site!;
 const recentNews = [
   {
     date: '2026',
-    title: 'Qwen-InteractEval',
-    text: "Leading Qwen's first Nature submission on interactive world modeling and human-centered AI."
+    title: 'InteractEval',
+    text: 'Define interactive world modeling and human-centered AI evaluation.'
   },
   {
     date: '2026',
@@ -111,8 +111,8 @@ const publications = [
 
 const experience = [
   ['2026—', 'Worldeology', 'Founder'],
-  ['2026—', 'AlpsLab', 'Co-Founder & Chief Science Officer'],
-  ['2026', 'Qwen, Alibaba Group', 'Research Scientist · subjective and interactive model capabilities'],
+  ['2026—', 'AlpsLab', 'Co-Founder & Chief Cognitive Science Officer'],
+  ['2026', 'Qwen, Alibaba Group', 'Researcher'],
   ['2026', 'Anthropic (Interpretability Team)', 'Research Fellow'],
   ['2025', 'Stanford NLP Group', 'Visiting Undergraduate Researcher'],
   ['2025', 'Amazon (AGI Team)', 'Student Researcher · long-horizon AI safety'],
@@ -126,9 +126,9 @@ const personSchema = {
   alternateName: '张轩铭',
   url: new URL('/faculty/xuanming-zhang/', site).href,
   image: new URL('/assets/images/xuanming-zhang-color.webp', site).href,
-  jobTitle: 'Research Scientist',
+  jobTitle: 'Co-Founder and Chief Cognitive Science Officer',
   affiliation: { '@type': 'ResearchOrganization', name: 'Worldeology Lab', url: new URL('/', site).href },
-  worksFor: { '@type': 'Organization', name: 'Qwen, Alibaba Group' },
+  worksFor: { '@type': 'Organization', name: 'AlpsLab' },
   alumniOf: [
     { '@type': 'CollegeOrUniversity', name: 'University of Wisconsin–Madison' },
     { '@type': 'CollegeOrUniversity', name: 'Stanford University' }
@@ -144,7 +144,7 @@ const personSchema = {
 
 <SiteLayout
   title="Xuanming Zhang — Worldeology Lab"
-  description="Xuanming Zhang is a research scientist at Qwen working on cognitive AI, interactive evaluation, and long-horizon world modeling."
+  description="Xuanming Zhang is Co-Founder and Chief Cognitive Science Officer of AlpsLab, working on cognitive AI, interactive evaluation, and long-horizon world modeling."
   active="faculty"
   headerTone="paper"
 >
@@ -156,7 +156,7 @@ const personSchema = {
 
       <div class="profile-grid">
         <div class="profile-copy">
-          <p class="profile-role">Research Scientist at Qwen · Founder of Worldeology</p>
+          <p class="profile-role">Co-Founder & Chief Cognitive Science Officer of AlpsLab · Founder of Worldeology</p>
           <h1 id="profile-title">Xuanming<br />Zhang</h1>
 
           <div class="profile-links" aria-label="Profile links">
@@ -167,9 +167,9 @@ const personSchema = {
           </div>
 
           <div class="profile-biography">
-            <p><strong>Xuanming Zhang is a research scientist at Qwen</strong>, where he leads work on subjective and interactive model capabilities across <strong>Qwen 3.6–4</strong> and Qwen’s first Nature submission. His research program, <em>Cognizer</em>, explores how AI can move beyond closed-ended pattern matching and distribution alignment through a test-time cognition flywheel that infers latent states, organizes chains of logic, recursively examines and revises its reasoning, models long-horizon consequences, transfers learned patterns across domains, and creates structures that do not yet exist.</p>
-            <p>His work has appeared in <strong>NeurIPS, EMNLP, ACL, ICLR, and PNAS</strong>, including <strong>two Oral/Spotlight awards</strong>, and has received <strong>more than 1,100 citations</strong>. He earned his bachelor’s degree from the University of Wisconsin–Madison and was a joint undergraduate researcher at Stanford University. His prior research spans <strong>Anthropic (Interpretability Team), Amazon (AGI Team), ByteDance (Coze Team), and Zhipu AI (Emohaa Team)</strong>.</p>
-            <p>He is also <strong>Co-Founder and Chief Science Officer of AlpsLab</strong>. His long-term ambition is to build AI with cognition, agency, and enduring world models—systems capable not only of reasoning, but of sustained innovation and organization in the real world. Outside AI research, he is a professional psychological counselor and has worked with more than 50 clients.</p>
+            <p><strong>Xuanming Zhang is Co-Founder and Chief Cognitive Science Officer of AlpsLab.</strong> His research program, <em>Cognizer</em>, explores how AI can move beyond closed-ended pattern matching and distribution alignment through a test-time cognition flywheel that infers latent states, organizes chains of logic, recursively examines and revises its reasoning, models long-horizon consequences, transfers learned patterns across domains, and creates structures that do not yet exist.</p>
+            <p>His work has appeared in <strong>NeurIPS, EMNLP, ACL, ICLR, and PNAS</strong>, including <strong>two Oral/Spotlight awards</strong>, and has received <strong>more than 1,100 citations</strong>. He earned his bachelor’s degree from the University of Wisconsin–Madison and was a joint undergraduate researcher at Stanford University. His prior research spans <strong>Qwen (Subjectivity & Interactivity Team), Anthropic (Interpretability Team), Amazon (AGI Team), ByteDance (Coze Team), and Zhipu AI (Emohaa Team)</strong>.</p>
+            <p>His long-term ambition is to build AI with cognition, agency, and enduring world models—systems capable not only of reasoning, but of sustained innovation and organization in the real world. Outside AI research, he is a professional psychological counselor and has worked with more than 50 clients.</p>
           </div>
         </div>
 
@@ -272,7 +272,7 @@ const personSchema = {
           <h3>Education</h3>
           <dl>
             <div><dt>2025—26</dt><dd><strong>Stanford University</strong><span>Joint Undergraduate in Computer Science · GPA 4.21/4.00</span></dd></div>
-            <div><dt>2024—26</dt><dd><strong>University of Wisconsin–Madison</strong><span>B.S. in Information Science</span></dd></div>
+            <div><dt>2024—26</dt><dd><strong>University of Wisconsin–Madison</strong><span>Bachelor of Science in Information Science</span></dd></div>
           </dl>
 
           <h3 class="service-title">Service & recognition</h3>
