@@ -3,6 +3,7 @@ const routes = [
   ['/faculty/', '0.8'],
   ['/faculty/zhangxm/', '0.9'],
   ['/research/', '0.9'],
+  ['/blog/cognizer/', '0.8'],
   ['/faculty/zhangxm/projects/mariolm/', '0.8'],
   ['/faculty/zhangxm/notes/', '0.8'],
   ['/faculty/zhangxm/blog/MetaMind/', '0.9'],

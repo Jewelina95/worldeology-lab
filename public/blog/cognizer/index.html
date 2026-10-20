@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cognizer — Worldeology Lab</title>
+<meta name="description" content="Cognizer: an explicit cognitive regime for evidence-grounded self-improvement.">
+<link rel="canonical" href="https://worldeology.com/blog/cognizer/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --bg:#FAF9F7;
+  --plate:#FFFFFF;
+  --ink:#1F1E1C;
+  --ink-soft:#44413B;
+  --muted:#6B6862;
+  --faint:#9A948B;
+  --rule:#E4E0D8;
+  --rule-soft:#EFECE6;
+  --verified:#4F7A5B;
+  --open:#8A6618;
+  --rejected:#A8492F;
+  --accent:#A8492F;
+  --plate-ground:#FBFAF8;
+  --chip:#F2F0EC;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#161513;
+    --plate:#1E1D1A;
+    --ink:#EDEAE4;
+    --ink-soft:#CFCAC1;
+    --muted:#9A948B;
+    --faint:#7A746B;
+    --rule:#322F2A;
+    --rule-soft:#272420;
+    --verified:#8FB89B;
+    --open:#D9B562;
+    --rejected:#E08C70;
+    --accent:#E08C70;
+    --plate-ground:#F7F6F3;
+    --chip:#272420;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161513; --plate:#1E1D1A; --ink:#EDEAE4; --ink-soft:#CFCAC1;
+  --muted:#9A948B; --faint:#7A746B; --rule:#322F2A; --rule-soft:#272420;
+  --verified:#8FB89B; --open:#D9B562; --rejected:#E08C70; --accent:#E08C70;
+  --plate-ground:#F7F6F3; --chip:#272420;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+.site-return{
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  max-width:940px; margin:0 auto; padding:18px 20px;
+  border-bottom:1px solid var(--rule);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:12px; line-height:1.2; letter-spacing:.08em; text-transform:uppercase;
+}
+.site-return a{color:var(--ink); text-decoration:none}
+.site-return a:last-child{color:var(--muted)}
+.site-return a:hover{text-decoration:underline; text-underline-offset:4px}
+
+#progress{
+  position:fixed; top:env(safe-area-inset-top,0px); left:0; height:2px; width:0%;
+  background:var(--accent); z-index:50; transition:width .08s linear;
+}
+@media (prefers-reduced-motion:reduce){ #progress{transition:none} }
+
+.wrap{
+  max-width:940px; margin:0 auto;
+  padding-inline:20px;
+  padding-block:0 96px;
+}
+.measure{max-width:680px; margin-inline:auto}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:64px 40px; border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--faint); margin:0 0 26px;
+}
+h1{
+  font-family:Newsreader,Georgia,serif;
+  font-weight:500; font-size:clamp(44px,8vw,78px); line-height:1.02;
+  letter-spacing:-.022em; margin:0 0 20px; text-wrap:balance;
+}
+.standfirst{
+  font-family:Newsreader,Georgia,serif;
+  font-size:clamp(20px,2.7vw,25px); line-height:1.44; font-weight:400;
+  color:var(--ink-soft); margin:0 0 34px; max-width:30em; text-wrap:balance;
+}
+.byline{
+  display:flex; flex-wrap:wrap; gap:10px 22px; align-items:baseline;
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:13px; color:var(--muted);
+}
+.byline .sep{color:var(--rule)}
+
+/* ---------- contents ---------- */
+.toc{
+  margin:40px 0 0; padding:24px 0 4px; border-bottom:1px solid var(--rule);
+}
+.toc h2{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--faint); font-weight:500; margin:0 0 16px;
+}
+.toc ol{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:2px 32px;
+}
+.toc li{counter-increment:toc}
+.toc a{
+  display:flex; gap:14px; padding:7px 0;
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:14.5px;
+  color:var(--ink-soft); text-decoration:none; border-bottom:1px solid transparent;
+}
+.toc a:hover{color:var(--accent)}
+.toc a::before{
+  content:counter(toc,decimal-leading-zero);
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint);
+  padding-top:3px; flex:none;
+}
+.toc ol{counter-reset:toc}
+
+/* ---------- sections ---------- */
+section{padding-block:56px 0}
+h2.sec{
+  font-family:Newsreader,Georgia,serif; font-weight:500;
+  font-size:clamp(28px,4.2vw,38px); line-height:1.14; letter-spacing:-.016em;
+  margin:0 0 8px; text-wrap:balance;
+}
+.sec-no{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  color:var(--accent); display:block; margin-bottom:14px;
+}
+h3{
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-weight:600;
+  font-size:16px; letter-spacing:-.005em; margin:40px 0 -4px; color:var(--ink);
+}
+p{margin:20px 0}
+.lede{font-size:20.5px; line-height:1.55; color:var(--ink-soft)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+a:hover{border-bottom-color:var(--accent)}
+em{font-style:italic}
+strong{font-weight:600}
+code{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.86em;
+  background:var(--chip); padding:.12em .36em; border-radius:3px;
+}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+/* pull-quote */
+.claim{
+  margin:36px 0; padding:4px 0 4px 26px; border-left:2px solid var(--accent);
+  font-family:Newsreader,Georgia,serif; font-size:21px; line-height:1.46;
+  color:var(--ink);
+}
+
+/* ---------- figures ---------- */
+figure{margin:52px 0}
+figure.plate svg{display:block; width:100%; height:auto}
+.plate-inner{
+  background:var(--plate-ground);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:12px;
+  overflow-x:auto;
+}
+.plate-inner > svg{min-width:620px}
+figcaption{
+  margin-top:14px; max-width:680px; margin-inline:auto;
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:13.5px; line-height:1.55; color:var(--muted);
+}
+figcaption b{
+  font-weight:600; color:var(--ink-soft);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto; margin:36px 0}
+table{
+  border-collapse:collapse; width:100%; min-width:540px;
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:14px;
+  font-variant-numeric:tabular-nums;
+}
+caption{
+  caption-side:bottom; text-align:left; padding-top:14px;
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:13.5px; line-height:1.55; color:var(--muted); max-width:680px;
+}
+th{
+  text-align:left; font-weight:600; font-size:11.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--faint);
+  padding:0 16px 10px 0; border-bottom:1px solid var(--ink-soft);
+}
+td{padding:11px 16px 11px 0; border-bottom:1px solid var(--rule-soft); vertical-align:top; color:var(--ink-soft)}
+tr:last-child td{border-bottom:1px solid var(--rule)}
+td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+.v{font-weight:600; white-space:nowrap}
+.v-pass{color:var(--verified)}
+.v-fail{color:var(--rejected)}
+.v-open{color:var(--open)}
+
+/* reserved / pending tables */
+.pending{position:relative}
+.pending table{min-width:540px}
+.pending td{color:var(--faint)}
+.pending .slot{
+  color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:13px;
+}
+.pending-head{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed var(--rule);
+}
+.chip{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; padding:4px 9px; border-radius:999px;
+  border:1px solid currentColor;
+}
+.chip-pending{color:var(--open)}
+.chip-done{color:var(--verified)}
+.pending-head p{margin:0; font-family:"IBM Plex Sans",sans-serif; font-size:13.5px; color:var(--muted)}
+
+/* ---------- pseudocode ---------- */
+pre{
+  margin:36px 0; padding:22px 24px; overflow-x:auto;
+  background:var(--plate); border:1px solid var(--rule); border-radius:10px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:13px; line-height:1.72; color:var(--ink-soft);
+}
+pre b{color:var(--ink); font-weight:500}
+pre .cm{color:var(--faint)}
+pre .hl{color:var(--accent)}
+
+/* ---------- ladder ---------- */
+.ladder{margin:36px 0; border-top:1px solid var(--ink-soft)}
+.rung{
+  display:grid; grid-template-columns:62px 1fr 1.5fr; gap:4px 20px;
+  padding:14px 0; border-bottom:1px solid var(--rule-soft);
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:14px;
+}
+.rung .lv{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--faint)}
+.rung .ob{font-weight:600; color:var(--ink)}
+.rung .de{color:var(--muted)}
+.rung.here{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.rung.here .lv{color:var(--accent)}
+@media (max-width:620px){
+  .rung{grid-template-columns:52px 1fr}
+  .rung .de{grid-column:2}
+}
+
+/* ---------- closing ---------- */
+.endnote{
+  margin-top:64px; padding-top:28px; border-top:1px solid var(--rule);
+  font-family:"IBM Plex Sans",system-ui,sans-serif; font-size:13.5px;
+  color:var(--muted); line-height:1.6;
+}
+.endnote p{margin:10px 0}
+
+@media (max-width:640px){
+  body{font-size:17px}
+  .masthead{padding-block:44px 32px}
+  section{padding-block:44px 0}
+}
+</style>
+</head>
+<body>
+
+<div id="progress" aria-hidden="true"></div>
+
+<nav class="site-return" aria-label="Worldeology Lab">
+  <a href="/">Worldeology Lab</a>
+  <a href="/#work-heading">Research notes</a>
+</nav>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="measure">
+      <p class="eyebrow">AlpsLab · Research</p>
+      <h1>Cognizer</h1>
+      <p class="standfirst">Most systems learn to act better inside a way of thinking someone else chose. We are building one that can change the way of thinking — and only on evidence it can account for.</p>
+      <div class="byline">
+        <span>Xuanming Zhang, Kaiwen Guo, Jin Wang, Yuxuan Chen, Yonghang Chen, Shaoyue Wen, Teresa Lyu</span>
+        <span class="sep">·</span>
+        <span>AlpsLab</span>
+      </div>
+    </div>
+
+    <nav class="toc measure" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#locus">The locus of adaptation</a></li>
+        <li><a href="#architecture">An architecture for an explicit regime</a></li>
+        <li><a href="#premise">What may become a premise</a></li>
+        <li><a href="#units">Units small enough to check</a></li>
+        <li><a href="#basis">What “checked” is allowed to mean</a></li>
+        <li><a href="#recursion">Recursion, and what it costs</a></li>
+        <li><a href="#grounding">Grounding cognition in the world</a></li>
+        <li><a href="#evidence">Evidence</a></li>
+        <li><a href="#falsify">What would change our mind</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- ============ 1 ============ -->
+  <section id="locus">
+    <div class="measure">
+      <span class="sec-no">01</span>
+      <h2 class="sec">The locus of adaptation</h2>
+      <p class="lede">Human intelligence advances by changing what can be thought, not only by answering better within what already can be. Machine intelligence has moved in the opposite order.</p>
+      <p>Foundation models learn representations. Agents learn actions. Recursive systems improve their own procedures. But the abstractions those systems reason with, the way they formulate a problem, and the standard they hold evidence to are all inherited from us. The locus of adaptation — the highest-level structure a system can change through experience rather than receive — has risen steadily, and stopped short of the structures that generate cognition itself.</p>
+    </div>
+
+    <div class="measure">
+      <div class="ladder">
+        <div class="rung"><span class="lv">L0</span><span class="ob">Rules</span><span class="de">Execute externally specified procedures</span></div>
+        <div class="rung"><span class="lv">L1</span><span class="ob">Representations</span><span class="de">Learn knowledge and general-purpose representations</span></div>
+        <div class="rung"><span class="lv">L2</span><span class="ob">Actions</span><span class="de">Select actions and tools through environmental interaction</span></div>
+        <div class="rung"><span class="lv">L3</span><span class="ob">Policies and procedures</span><span class="de">Recursively improve behaviour and execution</span></div>
+        <div class="rung here"><span class="lv">L4</span><span class="ob">Cognitive structures</span><span class="de">Generate and evolve the structures that produce cognition</span></div>
+        <div class="rung"><span class="lv">L5</span><span class="ob">Collective cognition</span><span class="de">Enable cognition and its environment to co-evolve</span></div>
+      </div>
+      <p>The boundary that matters sits between L3 and L4. An L3 system recursively improves how it <em>executes</em> cognition; it searches better, reasons longer, picks better tools. An L4 system recursively improves how cognition is <em>generated</em>. The first finds better answers inside a space. The second changes the space.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-label="Two loops compared. Optimization cycles through policy, action and outcome inside a fixed space of possibilities, improving performance within it. Cognition cycles through a cognitive prior, exploration, discovery and cognitive update, and each turn redraws the boundary of the space itself.">
+  <defs>
+    <marker id="k1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9A948B"/>
+    </marker>
+    <marker id="k2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F7A5B"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="400" fill="#FFFFFF"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <!-- ========== LEFT: optimization ========== -->
+    <text x="40" y="34" font-size="12.5" font-weight="600" fill="#1F1E1C">Optimization</text>
+    <text x="40" y="51" font-size="10.5" fill="#85807A">improves performance inside a space that stays fixed</text>
+
+    <rect x="40" y="68" width="372" height="252" rx="10" fill="#F6F5F2" stroke="#C9C3B9"/>
+    <text x="56" y="88" font-size="9.5" font-weight="600" fill="#A8A299">SPACE OF POSSIBILITIES &#8212; GIVEN IN ADVANCE</text>
+
+    <circle cx="226" cy="126" r="30" fill="#FFFFFF" stroke="#C9C3B9"/>
+    <text x="226" y="130" font-size="10.5" fill="#4A4740" text-anchor="middle">policy</text>
+
+    <circle cx="316" cy="216" r="30" fill="#FFFFFF" stroke="#C9C3B9"/>
+    <text x="316" y="220" font-size="10.5" fill="#4A4740" text-anchor="middle">action</text>
+
+    <circle cx="136" cy="216" r="30" fill="#FFFFFF" stroke="#C9C3B9"/>
+    <text x="136" y="220" font-size="10.5" fill="#4A4740" text-anchor="middle">outcome</text>
+
+    <path d="M 252 146 A 64 64 0 0 1 294 192" fill="none" stroke="#9A948B" stroke-width="1.4" marker-end="url(#k1)"/>
+    <path d="M 286 228 A 64 64 0 0 1 168 228" fill="none" stroke="#9A948B" stroke-width="1.4" marker-end="url(#k1)"/>
+    <path d="M 158 192 A 64 64 0 0 1 200 146" fill="none" stroke="#9A948B" stroke-width="1.4" marker-end="url(#k1)"/>
+
+    <text x="226" y="286" font-size="10.5" fill="#85807A" text-anchor="middle">the boundary is never a variable</text>
+    <text x="226" y="302" font-size="10.5" fill="#85807A" text-anchor="middle">of the loop that runs inside it</text>
+
+    <!-- divider -->
+    <line x1="480" y1="60" x2="480" y2="330" stroke="#EFECE6" stroke-width="1.5"/>
+
+    <!-- ========== RIGHT: cognition ========== -->
+    <text x="548" y="34" font-size="12.5" font-weight="600" fill="#1F1E1C">Cognition</text>
+    <text x="548" y="51" font-size="10.5" fill="#85807A">each turn redraws the boundary the next turn runs inside</text>
+
+    <!-- new boundary -->
+    <rect x="548" y="68" width="372" height="252" rx="10" fill="#F3F7F4" stroke="#4F7A5B"/>
+    <text x="564" y="88" font-size="9.5" font-weight="600" fill="#3C6349">SPACE OF POSSIBILITIES &#8212; REDRAWN BY THE LOOP</text>
+
+    <rect x="590" y="100" width="212" height="196" rx="10" fill="none" stroke="#A8A299" stroke-width="1.2" stroke-dasharray="5 4"/>
+    <text x="598" y="116" font-size="9" fill="#A8A299">prior space</text>
+
+    <circle cx="734" cy="126" r="34" fill="#FFFFFF" stroke="#4F7A5B" stroke-width="1.3"/>
+    <text x="734" y="123" font-size="10" fill="#3C6349" text-anchor="middle">cognitive</text>
+    <text x="734" y="135" font-size="10" fill="#3C6349" text-anchor="middle">prior</text>
+
+    <circle cx="840" cy="216" r="34" fill="#FFFFFF" stroke="#4F7A5B" stroke-width="1.3"/>
+    <text x="840" y="220" font-size="10" fill="#3C6349" text-anchor="middle">exploration</text>
+
+    <circle cx="734" cy="272" r="34" fill="#FFFFFF" stroke="#4F7A5B" stroke-width="1.3"/>
+    <text x="734" y="276" font-size="10" fill="#3C6349" text-anchor="middle">discovery</text>
+
+    <circle cx="628" cy="216" r="34" fill="#FFFFFF" stroke="#4F7A5B" stroke-width="1.3"/>
+    <text x="628" y="213" font-size="10" fill="#3C6349" text-anchor="middle">cognitive</text>
+    <text x="628" y="225" font-size="10" fill="#3C6349" text-anchor="middle">update</text>
+
+    <path d="M 766 146 A 78 78 0 0 1 814 186"  fill="none" stroke="#4F7A5B" stroke-width="1.4" marker-end="url(#k2)"/>
+    <path d="M 822 246 A 78 78 0 0 1 770 268"  fill="none" stroke="#4F7A5B" stroke-width="1.4" marker-end="url(#k2)"/>
+    <path d="M 698 268 A 78 78 0 0 1 646 246"  fill="none" stroke="#4F7A5B" stroke-width="1.4" marker-end="url(#k2)"/>
+    <path d="M 654 186 A 78 78 0 0 1 702 146"  fill="none" stroke="#4F7A5B" stroke-width="1.4" marker-end="url(#k2)"/>
+
+    <!-- the update acts on the boundary -->
+    <path d="M 600 190 L 572 112" fill="none" stroke="#4F7A5B" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#k2)"/>
+
+    <text x="40" y="346" font-size="10.5" fill="#6B6862">A better search inside a fixed space yields better answers; a changed space yields answers that were previously unreachable.</text>
+    <text x="40" y="364" font-size="10.5" fill="#6B6862">Only the second alters what the system can subsequently conceive &#8212; which is why the update is admitted only on verified evidence.</text>
+
+  </g>
+</svg></div>
+      <figcaption>Both are loops, and they differ in what the loop is allowed to change. In optimization the boundary is never a variable of the process running inside it. In cognition the boundary is an output: each turn's update redraws the space the next turn runs in.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <p>That difference has a consequence which shapes everything below. In optimization, a bad step is corrected by later data. In cognitive recursion, a structure admitted on bad evidence changes <em>which questions get asked next</em>, and therefore which evidence is collected. The error is not corrected by later data — it selects the later data.</p>
+      <div class="claim">A cognitive regime that updates on unverified experience does not evolve. It drifts.</div>
+      <p>So the admission rule — what a system is allowed to treat as established — is not a safety feature attached to the loop. It is the condition under which the loop converges on anything at all. Most of the design that follows is a consequence of taking that seriously.</p>
+    </div>
+  </section>
+
+  <!-- ============ 2 ============ -->
+  <section id="architecture">
+    <div class="measure">
+      <span class="sec-no">02</span>
+      <h2 class="sec">An architecture for an explicit regime</h2>
+      <p>Crossing the L3/L4 boundary requires less autonomy than it requires <strong>explicitness</strong>. A system cannot evolve structures it never represents. A regime is defined by its available abstractions, how it formulates problems, what it accepts as evidence, and how it explores — and in most systems all four are latent in the weights, inaccessible to inspection and therefore to revision.</p>
+      <p>The first move is to make those four into data. The Cognitive Brain below does this for a frozen model: a problem's decomposition is constructed while the problem is being solved, rather than fixed before it is read.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 516" role="img" aria-label="The TRHI pipeline. A problem becomes a demand anchor split into known, unknown and unresolved information; a cognitive pattern is activated as the decomposition backbone; the goal is expanded into a chain of minimal empirical logic units carrying value, key and query evidence; each unit is verified under budget control, and unsettled units recurse one level down. Verified results flow back into later episodes.">
+  <defs>
+    <marker id="g1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9A948B"/>
+    </marker>
+    <marker id="g2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F7A5B"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="516" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="28" y="40" font-size="17" font-weight="600" fill="#1F1E1C">Test-time Recursive Harness Improvement</text>
+    <text x="28" y="61" font-size="11.5" fill="#85807A">The structure of the solution is built while the problem is being solved, and only verified results survive the episode.</text>
+
+    <!-- ===================== PANEL 1 ===================== -->
+    <rect x="28" y="84" width="236" height="316" rx="9" fill="#FFFFFF" stroke="#E4E0D8"/>
+    <circle cx="48" cy="108" r="10" fill="#2B2A26"/>
+    <text x="48" y="112" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="66" y="105" font-size="11.5" font-weight="600" fill="#1F1E1C">Demand Anchor</text>
+    <text x="66" y="120" font-size="11.5" font-weight="600" fill="#1F1E1C">&amp; Domain Decomposition</text>
+
+    <rect x="48" y="140" width="196" height="48" rx="6" fill="#F6F5F2"/>
+    <text x="62" y="158" font-size="9" font-weight="600" fill="#A8A299">INPUT</text>
+    <text x="62" y="173" font-size="9.5" fill="#6B6862">&#8220;Design an accelerator to hit</text>
+    <text x="62" y="184" font-size="9.5" fill="#6B6862">a TOPS/W target under an area cap.&#8221;</text>
+
+    <path d="M 146 192 L 146 206" stroke="#9A948B" stroke-width="1.3" marker-end="url(#g1)"/>
+    <text x="48" y="224" font-size="10" font-weight="600" fill="#4A4740">A goal, and what is known of it</text>
+
+    <rect x="48" y="234" width="196" height="40" rx="6" fill="#EFF5F0"/>
+    <circle cx="64" cy="250" r="4.5" fill="#4F7A5B"/>
+    <text x="78" y="254" font-size="10.5" font-weight="600" fill="#3C6349">Known</text>
+    <text x="78" y="267" font-size="9.5" fill="#5E7D68">established, usable as a premise</text>
+
+    <rect x="48" y="280" width="196" height="40" rx="6" fill="#FDF6E7"/>
+    <circle cx="64" cy="296" r="4.5" fill="#B58A33"/>
+    <text x="78" y="300" font-size="10.5" font-weight="600" fill="#8A6618">Unknown</text>
+    <text x="78" y="313" font-size="9.5" fill="#9A7C3A">unobserved, but obtainable</text>
+
+    <rect x="48" y="326" width="196" height="40" rx="6" fill="#FBEFEB"/>
+    <circle cx="64" cy="342" r="4.5" fill="#B0503A"/>
+    <text x="78" y="346" font-size="10.5" font-weight="600" fill="#9C4530">Unresolved</text>
+    <text x="78" y="359" font-size="9.5" fill="#A9604C">open, must be checked</text>
+
+    <text x="48" y="379" font-size="9.5" fill="#85807A">Unknown is emptied first: observed</text>
+    <text x="48" y="390" font-size="9.5" fill="#85807A">goes to Known, the rest to Unresolved.</text>
+
+    <path d="M 266 242 L 272 242" stroke="#9A948B" stroke-width="1.3" marker-end="url(#g1)"/>
+
+    <!-- ===================== PANEL 2 ===================== -->
+    <rect x="276" y="84" width="236" height="316" rx="9" fill="#FFFFFF" stroke="#E4E0D8"/>
+    <circle cx="296" cy="108" r="10" fill="#2B2A26"/>
+    <text x="296" y="112" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="314" y="105" font-size="11.5" font-weight="600" fill="#1F1E1C">Next Pattern Prediction</text>
+    <text x="314" y="120" font-size="11.5" font-weight="600" fill="#1F1E1C">Backbone Activation</text>
+
+    <text x="296" y="150" font-size="9" font-weight="600" fill="#A8A299">PATTERN LIBRARY</text>
+    <text x="296" y="168" font-size="10" fill="#4A4740">First Principles</text>
+    <text x="296" y="184" font-size="10" fill="#4A4740">Compound Interest</text>
+    <text x="296" y="200" font-size="10" fill="#4A4740">Agile Development</text>
+    <text x="296" y="216" font-size="10" fill="#4A4740">Scientific Method</text>
+    <text x="296" y="232" font-size="10" fill="#A8A299">&#8230; twenty in all</text>
+
+    <text x="416" y="150" font-size="9" font-weight="600" fill="#A8A299">WINDOW</text>
+    <rect x="416" y="158" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.85"/>
+    <rect x="434" y="158" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.28"/>
+    <rect x="452" y="158" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.55"/>
+    <rect x="470" y="158" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.14"/>
+    <rect x="416" y="176" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.20"/>
+    <rect x="434" y="176" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.64"/>
+    <rect x="452" y="176" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.12"/>
+    <rect x="470" y="176" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.40"/>
+    <rect x="416" y="194" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.45"/>
+    <rect x="434" y="194" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.12"/>
+    <rect x="452" y="194" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.76"/>
+    <rect x="470" y="194" width="15" height="15" rx="2" fill="#4F7A5B" opacity="0.24"/>
+    <text x="416" y="226" font-size="9" fill="#85807A">ordered by what</text>
+    <text x="416" y="237" font-size="9" fill="#85807A">has held up before</text>
+
+    <line x1="296" y1="256" x2="492" y2="256" stroke="#EFECE6"/>
+    <text x="296" y="275" font-size="9" font-weight="600" fill="#A8A299">ACTIVATE AS BACKBONE</text>
+
+    <rect x="296" y="285" width="58" height="26" rx="13" fill="#F6F5F2"/>
+    <text x="325" y="302" font-size="10" fill="#4A4740" text-anchor="middle">single</text>
+    <rect x="360" y="285" width="58" height="26" rx="13" fill="#F6F5F2"/>
+    <text x="389" y="302" font-size="10" fill="#4A4740" text-anchor="middle">multi</text>
+    <rect x="424" y="285" width="68" height="26" rx="13" fill="#EFF5F0"/>
+    <text x="458" y="302" font-size="10" font-weight="600" fill="#3C6349" text-anchor="middle">compose</text>
+
+    <text x="296" y="333" font-size="9.5" fill="#85807A">Composing admits a new pattern</text>
+    <text x="296" y="344" font-size="9.5" fill="#85807A">that then competes like the rest.</text>
+    <text x="296" y="367" font-size="9.5" fill="#85807A">Chosen again at every node, so a</text>
+    <text x="296" y="378" font-size="9.5" fill="#85807A">sub-problem can be split on other</text>
+    <text x="296" y="389" font-size="9.5" fill="#85807A">terms than its parent.</text>
+
+    <path d="M 514 242 L 520 242" stroke="#9A948B" stroke-width="1.3" marker-end="url(#g1)"/>
+
+    <!-- ===================== PANEL 3 ===================== -->
+    <rect x="524" y="84" width="236" height="316" rx="9" fill="#FFFFFF" stroke="#E4E0D8"/>
+    <circle cx="544" cy="108" r="10" fill="#2B2A26"/>
+    <text x="544" y="112" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="562" y="105" font-size="11.5" font-weight="600" fill="#1F1E1C">Chain of Logic</text>
+    <text x="562" y="120" font-size="11.5" font-weight="600" fill="#1F1E1C">Minimal Empirical Logic Units</text>
+
+    <text x="544" y="150" font-size="9" font-weight="600" fill="#A8A299">ONE CHAIN, LINK BY LINK</text>
+    <circle cx="556" cy="172" r="11" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.3"/>
+    <path d="M 570 172 L 582 172" stroke="#9A948B" stroke-width="1.2" marker-end="url(#g1)"/>
+    <circle cx="600" cy="172" r="11" fill="#FDF6E7" stroke="#B58A33" stroke-width="1.3"/>
+    <path d="M 614 172 L 626 172" stroke="#9A948B" stroke-width="1.2" marker-end="url(#g1)"/>
+    <rect x="633" y="161" width="22" height="22" rx="4" fill="#F2F0EC" stroke="#8A857D" stroke-width="1.3"/>
+    <path d="M 660 172 L 672 172" stroke="#9A948B" stroke-width="1.2" marker-end="url(#g1)"/>
+    <circle cx="690" cy="172" r="11" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.3"/>
+    <text x="544" y="199" font-size="9.5" fill="#85807A">Links differ: settled, open, unsupported.</text>
+
+    <line x1="544" y1="212" x2="740" y2="212" stroke="#EFECE6"/>
+    <text x="544" y="231" font-size="9" font-weight="600" fill="#A8A299">EVIDENCE PER UNIT</text>
+
+    <rect x="544" y="240" width="196" height="22" rx="4" fill="#EFF5F0"/>
+    <text x="556" y="255" font-size="10" font-weight="600" fill="#3C6349">V</text>
+    <text x="572" y="255" font-size="9.5" fill="#4A6B52">direct support for the claim</text>
+
+    <rect x="544" y="266" width="196" height="22" rx="4" fill="#FDF6E7"/>
+    <text x="556" y="281" font-size="10" font-weight="600" fill="#8A6618">K</text>
+    <text x="572" y="281" font-size="9.5" fill="#8A6618">assumptions it rests on</text>
+
+    <rect x="544" y="292" width="196" height="22" rx="4" fill="#F3F1F7"/>
+    <text x="556" y="307" font-size="10" font-weight="600" fill="#5F5484">Q</text>
+    <text x="572" y="307" font-size="9.5" fill="#5F5484">transfer from another field</text>
+
+    <text x="544" y="334" font-size="9.5" fill="#85807A">An observation outranks a proposal:</text>
+    <text x="544" y="345" font-size="9.5" fill="#85807A">a collector&#8217;s readings become V, and</text>
+    <text x="544" y="356" font-size="9.5" fill="#85807A">the model&#8217;s own claims drop to K.</text>
+    <text x="544" y="379" font-size="9.5" fill="#85807A">An unsettled link becomes a smaller</text>
+    <text x="544" y="390" font-size="9.5" fill="#85807A">anchor over the same three domains.</text>
+
+    <path d="M 762 242 L 768 242" stroke="#9A948B" stroke-width="1.3" marker-end="url(#g1)"/>
+
+    <!-- ===================== PANEL 4 ===================== -->
+    <rect x="772" y="84" width="236" height="316" rx="9" fill="#FFFFFF" stroke="#E4E0D8"/>
+    <circle cx="792" cy="108" r="10" fill="#2B2A26"/>
+    <text x="792" y="112" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="810" y="105" font-size="11.5" font-weight="600" fill="#1F1E1C">Recursive Verification</text>
+    <text x="810" y="120" font-size="11.5" font-weight="600" fill="#1F1E1C">under Budget Control</text>
+
+    <!-- mini tree, centred, nothing beside it -->
+    <rect x="862" y="142" width="56" height="20" rx="5" fill="#F6F5F2"/>
+    <text x="890" y="156" font-size="9" fill="#4A4740" text-anchor="middle">root</text>
+    <path d="M 878 162 L 838 186" stroke="#9A948B" stroke-width="1.1"/>
+    <path d="M 890 162 L 890 186" stroke="#9A948B" stroke-width="1.1"/>
+    <path d="M 902 162 L 942 186" stroke="#9A948B" stroke-width="1.1"/>
+    <circle cx="834" cy="194" r="8" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.2"/>
+    <circle cx="890" cy="194" r="8" fill="#FDF6E7" stroke="#B58A33" stroke-width="1.2"/>
+    <rect x="938" y="186" width="16" height="16" rx="3" fill="#F2F0EC" stroke="#8A857D" stroke-width="1.2"/>
+    <path d="M 884 202 L 868 220" stroke="#9A948B" stroke-width="1.1"/>
+    <path d="M 896 202 L 912 220" stroke="#9A948B" stroke-width="1.1"/>
+    <circle cx="864" cy="228" r="8" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.2"/>
+    <circle cx="916" cy="228" r="8" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.2"/>
+
+    <text x="792" y="256" font-size="9.5" fill="#85807A">A failed check is not retried. It becomes</text>
+    <text x="792" y="267" font-size="9.5" fill="#85807A">the next sub-problem, one level down.</text>
+
+    <line x1="792" y1="280" x2="988" y2="280" stroke="#EFECE6"/>
+    <text x="792" y="298" font-size="9" font-weight="600" fill="#A8A299">AN INDEPENDENT CHECK DECIDES</text>
+    <text x="792" y="314" font-size="9.5" fill="#4A4740">factual audit &#183; completeness &#183;</text>
+    <text x="792" y="326" font-size="9.5" fill="#4A4740">refusal of forced interpretation</text>
+    <text x="792" y="340" font-size="9.5" fill="#85807A">A confidence score cannot overrule it.</text>
+
+    <line x1="792" y1="348" x2="988" y2="352" stroke="#EFECE6"/>
+    <text x="792" y="364" font-size="9" font-weight="600" fill="#A8A299">BOUNDED SEARCH</text>
+    <text x="792" y="380" font-size="9.5" fill="#4A4740">early return &#183; per-branch allowance &#183;</text>
+    <text x="792" y="391" font-size="9.5" fill="#4A4740">depth and breadth taper</text>
+
+    <!-- ===================== BACKFLOW ===================== -->
+    <rect x="28" y="424" width="980" height="60" rx="9" fill="#F3F7F4" stroke="#CFE0D5"/>
+    <text x="48" y="447" font-size="11" font-weight="600" fill="#3C6349">Experience backflow</text>
+    <text x="48" y="463" font-size="9.5" fill="#5E7D68">across episodes</text>
+
+    <text x="196" y="449" font-size="10" fill="#3C6349">keep what passed,</text>
+    <text x="196" y="462" font-size="10" fill="#3C6349">with how it was checked</text>
+    <path d="M 348 455 L 366 455" stroke="#4F7A5B" stroke-width="1.2" marker-end="url(#g2)"/>
+
+    <text x="378" y="449" font-size="10" fill="#3C6349">start the next anchor</text>
+    <text x="378" y="462" font-size="10" fill="#3C6349">from established ground</text>
+    <path d="M 526 455 L 544 455" stroke="#4F7A5B" stroke-width="1.2" marker-end="url(#g2)"/>
+
+    <text x="556" y="449" font-size="10" fill="#3C6349">re-weight the patterns</text>
+    <text x="556" y="462" font-size="10" fill="#3C6349">that actually held up</text>
+    <path d="M 700 455 L 718 455" stroke="#4F7A5B" stroke-width="1.2" marker-end="url(#g2)"/>
+
+    <text x="730" y="449" font-size="10" fill="#3C6349">evidence of different</text>
+    <text x="730" y="462" font-size="10" fill="#3C6349">strength is never mixed</text>
+
+    <!-- return: the band feeds the next episode's anchor -->
+    <path d="M 28 454 L 14 454 L 14 242 L 24 242" fill="none" stroke="#4F7A5B" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#g2)"/>
+
+    <text x="28" y="504" font-size="10" fill="#85807A">Explicit &#183; recursive &#183; verifiable &#183; self-improving &#8212; a fixed scaffold replaced by a computation graph the problem shapes as it is solved.</text>
+  </g>
+</svg></div>
+      <figcaption>A problem becomes an anchor with an explicit information partition. An abstraction is activated as the backbone of its decomposition. The anchor expands into units scoped so each can be checked alone, and units that fail become anchors one level down. The band beneath is the cognitive update: what passed, and how it was established, shapes the next episode.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 3 ============ -->
+  <section id="premise">
+    <div class="measure">
+      <span class="sec-no">03</span>
+      <h2 class="sec">What may become a premise</h2>
+      <p>A problem is represented as a <strong>demand anchor</strong>: a goal, plus a three-way split of the propositions around it. <span style="color:var(--verified)">Established</span> is usable as a premise. <span style="color:var(--open)">Unobserved</span> is not established but could be, by consulting something outside the model. <span style="color:var(--rejected)">Open</span> is neither, and must be settled by checking.</p>
+      <p>The second distinction is the one that does work. Failures on hard problems are mostly not errors of inference. They are sound inferences from propositions nobody established — a bandwidth figure assumed rather than measured, a scene fact presumed rather than observed. Collapsing “not yet looked up” into “uncertain” makes those indistinguishable downstream, though they call for different remedies: one is settled by reasoning, the other only by going and looking.</p>
+      <p>An anchor is not decomposed while anything is still unobserved, because decomposing around a hole produces sub-problems whose checkability depends on information nobody has. How that set gets emptied turned out to be the most consequential decision in the design.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 392" role="img" aria-label="Only an adapter's observation can place a fact in the Known domain. A model's suggestion is recorded in Unresolved as an obligation to check; the earlier design that let suggestions become premises was removed.">
+  <defs>
+    <marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A857D"/>
+    </marker>
+    <marker id="c1G" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F7A5B"/>
+    </marker>
+    <marker id="c1A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B58A33"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="392" rx="10" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="32" y="38" font-size="14" font-weight="600" fill="#2B2A26">What is allowed to become a premise</text>
+    <text x="32" y="57" font-size="11.5" fill="#85807A">Unknown item: &#8220;the measured bandwidth of the on-chip SRAM&#8221;</text>
+
+    <!-- source -->
+    <rect x="32" y="156" width="148" height="52" rx="6" fill="#FDF6E7" stroke="#B58A33"/>
+    <text x="106" y="178" font-size="11.5" font-weight="600" fill="#8A6618" text-anchor="middle">&#9675; Unknown</text>
+    <text x="106" y="195" font-size="10.5" fill="#8A6618" text-anchor="middle">not yet observed</text>
+
+    <path d="M 180 172 L 206 172 L 206 118 L 230 118" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#c1)"/>
+    <path d="M 180 192 L 206 192 L 206 250 L 230 250" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#c1)"/>
+
+    <!-- adapter route -->
+    <rect x="232" y="92" width="200" height="52" rx="6" fill="#FFFFFF" stroke="#4F7A5B" stroke-width="1.5"/>
+    <text x="248" y="113" font-size="11.5" font-weight="600" fill="#2B2A26">adapter answers</text>
+    <text x="248" y="130" font-size="10.5" fill="#85807A">query, sensor, person at an interface</text>
+
+    <!-- model route -->
+    <rect x="232" y="224" width="200" height="52" rx="6" fill="#F6F5F2"/>
+    <text x="248" y="245" font-size="11.5" font-weight="600" fill="#2B2A26">model suggests</text>
+    <text x="248" y="262" font-size="10.5" fill="#85807A">plausible, nothing was observed</text>
+
+    <!-- the gate -->
+    <line x1="528" y1="76" x2="528" y2="292" stroke="#C9C3B9" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="528" y="68" font-size="10.5" font-weight="600" fill="#85807A" text-anchor="middle">the gate</text>
+
+    <!-- adapter -> Known -->
+    <path d="M 432 118 L 618 118" fill="none" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#c1G)"/>
+    <text x="444" y="110" font-size="10.5" fill="#3C6349">observation</text>
+
+    <!-- model -> Unresolved -->
+    <path d="M 432 250 L 618 250" fill="none" stroke="#B58A33" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#c1A)"/>
+    <text x="444" y="242" font-size="10.5" fill="#8A6618">recorded as an obligation</text>
+
+    <!-- removed edge, blocked at the gate -->
+    <path d="M 436 222 L 514 168" fill="none" stroke="#CFC9BF" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="520" y1="154" x2="536" y2="170" stroke="#B0503A" stroke-width="2.2"/>
+    <line x1="536" y1="154" x2="520" y2="170" stroke="#B0503A" stroke-width="2.2"/>
+    <text x="444" y="300" font-size="10.5" fill="#9C4530">removed: a suggestion used to land in Known, and one wrong</text>
+    <text x="444" y="314" font-size="10.5" fill="#9C4530">guess at the root became a premise for every step below it</text>
+
+    <!-- domains -->
+    <rect x="620" y="76" width="228" height="216" rx="8" fill="#F6F5F2"/>
+    <text x="636" y="96" font-size="10.5" font-weight="600" fill="#85807A">DEMAND ANCHOR</text>
+
+    <rect x="636" y="106" width="196" height="42" rx="6" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="650" y="124" font-size="11.5" font-weight="600" fill="#3C6349">&#9679; Known</text>
+    <text x="650" y="139" font-size="10" fill="#3C6349">usable as a premise</text>
+
+    <rect x="636" y="158" width="196" height="42" rx="6" fill="#F6F5F2" stroke="#D9D4CB" stroke-dasharray="4 3"/>
+    <text x="650" y="176" font-size="11.5" font-weight="600" fill="#A8A299">&#9675; Unknown</text>
+    <text x="650" y="191" font-size="10" fill="#A8A299">empty before decomposition</text>
+
+    <rect x="636" y="210" width="196" height="66" rx="6" fill="#FBEFEB" stroke="#B0503A"/>
+    <text x="650" y="228" font-size="11.5" font-weight="600" fill="#9C4530">&#9679; Unresolved</text>
+    <text x="650" y="243" font-size="10" fill="#9C4530">&#8220;Verify proposed supplement&#8221;</text>
+    <text x="650" y="256" font-size="10" fill="#9C4530">and whatever the adapter could</text>
+    <text x="650" y="269" font-size="10" fill="#9C4530">not answer &#8212; all of it checked</text>
+
+    <!-- footnote -->
+    <line x1="32" y1="336" x2="848" y2="336" stroke="#E4E0D8"/>
+    <text x="32" y="358" font-size="11" fill="#4A4740">The same rule governs evidence. Where a collector is present, its observations become the unit&#8217;s evidence,</text>
+    <text x="32" y="376" font-size="11" fill="#4A4740">and the model&#8217;s own claims are demoted to assumptions that still have to be checked.</text>
+  </g>
+</svg></div>
+      <figcaption>Only an observation enters the established domain. A model proposal is kept, but as an obligation to check. The removed edge — proposal becoming premise — is the one that silently corrupts a recursive system.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <p>An early version asked the model to fill the gaps and moved its answers into the established set. Its failure mode was characteristic: the system did not produce obviously wrong answers. It produced well-structured answers resting on a fabricated figure introduced three levels above, with every subsequent step correct with respect to it. Internally consistent, and unfounded — precisely the pathology that cognitive recursion amplifies.</p>
+      <p>The rule now separates <em>proposing</em> from <em>observing</em>. Only a source outside the model — a query against a real store, an instrument, a person answering through a real interface — produces a premise. The model may still propose, and its proposals are kept as obligations rather than discarded. A plausible proposal is frequently the right one; recording it as something to check preserves it while denying it the authority of a fact. The whole difference is in what the rest of the system may then do with it.</p>
+    </div>
+  </section>
+
+  <!-- ============ 4 ============ -->
+  <section id="units">
+    <div class="measure">
+      <span class="sec-no">04</span>
+      <h2 class="sec">Units small enough to check</h2>
+      <p>With a backbone chosen, the anchor expands into an ordered chain of <strong>minimal empirical logic units</strong>. A unit is one claim, scoped narrowly enough to be checked on its own.</p>
+      <p>Minimality is defined by verifiability, not by length. A step that cannot be checked without first resolving the rest of the problem is too large, and whatever is wrong inside it will surface only after the solution has been built on top of it. The test when expanding an anchor is not “is this a reasonable next step” but “could an independent party determine whether this is true, given only what is stated here.”</p>
+      <p>Each unit carries evidence in three channels, named for their roles in attention. <strong>V</strong> is direct support. <strong>K</strong> is the assumptions the claim rests on — testable, not yet tested. <strong>Q</strong> is material from another field that might transfer by analogy. The separation keeps a distinction prose collapses: “the design meets the power target” backed by a measurement and the same sentence backed by an assumption about clock gating are different claims, and a checker that cannot see which it has is reduced to judging plausibility.</p>
+      <p>The channels also have distinct fates. V is what a checker confirms against. K is what <em>descends</em> — when a unit becomes a sub-problem, its assumptions become the next level's open set, so the unexamined parts of a claim are exactly the agenda beneath it.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" role="img" aria-label="After evidence integration a unit is stable, a sub-demand, or an unknown block. Stable units and migrated candidates both reach verification; a failed check turns a unit into a sub-demand, which forms a child anchor and recurses.">
+  <defs>
+    <marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A857D"/>
+    </marker>
+    <marker id="b1R" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B0503A"/>
+    </marker>
+    <marker id="b1G" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F7A5B"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="430" rx="10" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="32" y="38" font-size="14" font-weight="600" fill="#2B2A26">Where a unit goes after evidence integration</text>
+
+    <!-- MELU -->
+    <rect x="32" y="146" width="130" height="60" rx="6" fill="#F6F5F2"/>
+    <text x="97" y="170" font-size="11.5" font-weight="600" fill="#2B2A26" text-anchor="middle">MELU</text>
+    <text x="97" y="188" font-size="10.5" fill="#85807A" text-anchor="middle">V / K / Q collected</text>
+
+    <!-- fan-out -->
+    <path d="M 162 166 L 182 166 L 182 86 L 196 86" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+    <path d="M 162 176 L 196 176" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+    <path d="M 162 186 L 182 186 L 182 270 L 196 270" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+
+    <!-- states -->
+    <rect x="200" y="70" width="132" height="32" rx="6" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="266" y="90" font-size="11.5" font-weight="600" fill="#3C6349" text-anchor="middle">&#9661;  stable</text>
+
+    <rect x="200" y="160" width="132" height="32" rx="6" fill="#FBEFEB" stroke="#B0503A"/>
+    <text x="266" y="180" font-size="11.5" font-weight="600" fill="#9C4530" text-anchor="middle">&#9723;  unknown block</text>
+
+    <rect x="200" y="254" width="132" height="32" rx="6" fill="#FDF6E7" stroke="#B58A33"/>
+    <text x="266" y="274" font-size="11.5" font-weight="600" fill="#8A6618" text-anchor="middle">&#9675;  sub-demand</text>
+
+    <!-- stable -> verify -->
+    <path d="M 332 86 L 574 86" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+
+    <!-- verify -->
+    <rect x="578" y="58" width="112" height="56" rx="6" fill="#FFFFFF" stroke="#8A857D" stroke-width="1.4"/>
+    <text x="634" y="83" font-size="11.5" font-weight="600" fill="#2B2A26" text-anchor="middle">verify</text>
+    <text x="634" y="100" font-size="10" fill="#85807A" text-anchor="middle">records a basis</text>
+
+    <!-- verify -> pass -->
+    <path d="M 690 86 L 714 86" fill="none" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#b1G)"/>
+    <rect x="718" y="62" width="130" height="48" rx="6" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="732" y="81" font-size="11" font-weight="600" fill="#3C6349">applied to the</text>
+    <text x="732" y="96" font-size="11" font-weight="600" fill="#3C6349">node&#8217;s answer</text>
+
+    <!-- unknown block -> migrate -->
+    <path d="M 332 176 L 366 176" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+    <rect x="370" y="154" width="182" height="44" rx="6" fill="#F6F5F2"/>
+    <text x="384" y="173" font-size="11.5" fill="#2B2A26">cross-domain migration</text>
+    <text x="384" y="189" font-size="10" fill="#85807A">borrows an approach using Q</text>
+
+    <!-- migrate joins verify from below -->
+    <path d="M 552 176 L 634 176 L 634 118" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+    <text x="384" y="214" font-size="10" fill="#85807A">a candidate, tagged with its source field</text>
+
+    <!-- verify fails -> sub-demand -->
+    <path d="M 688 114 L 688 238 L 266 238 L 266 250" fill="none" stroke="#B0503A" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#b1R)"/>
+    <text x="286" y="232" font-size="10.5" fill="#9C4530">fails &#8594; the note becomes the child&#8217;s Unresolved item</text>
+
+    <!-- sub-demand -> child anchor -->
+    <path d="M 332 270 L 366 270" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#b1)"/>
+    <rect x="370" y="244" width="478" height="76" rx="6" fill="#F6F5F2"/>
+    <text x="386" y="264" font-size="11.5" font-weight="600" fill="#2B2A26">form a child Demand Anchor</text>
+    <text x="386" y="284" font-size="10.5" fill="#4A4740">Known = parent Known + V</text>
+    <text x="386" y="300" font-size="10.5" fill="#4A4740">Unresolved = K + feedback</text>
+    <text x="612" y="284" font-size="10.5" fill="#4A4740">Unknown = what the unit reported missing</text>
+    <text x="612" y="300" font-size="10.5" fill="#85807A">supplemented again before decomposing</text>
+
+    <!-- recursion loop -->
+    <path d="M 609 320 L 609 346 L 97 346 L 97 210" fill="none" stroke="#8A857D" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#b1)"/>
+    <text x="300" y="340" font-size="10.5" fill="#85807A">the child runs the same pipeline at depth + 1</text>
+
+    <!-- footnote -->
+    <line x1="32" y1="372" x2="848" y2="372" stroke="#E4E0D8"/>
+    <text x="32" y="394" font-size="11" fill="#4A4740">Nothing reaches the answer without passing through <tspan font-weight="600">verify</tspan>. Migration changes how a claim is framed, never whether it was checked.</text>
+    <text x="32" y="412" font-size="11" fill="#85807A">If no check could run at all, the unit stays open rather than recursing &#8212; repeating an unchecked claim would only produce more of them.</text>
+  </g>
+</svg></div>
+      <figcaption>Three states, and the transitions between them. The dashed edge — a failed check turning a unit into a new sub-problem — is where most of the recursion originates.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <p>That dashed edge is worth separating from the familiar idea of retrying. A rejected unit is neither re-attempted against the same decomposition nor patched in place. The objection — a counterexample, an unmet requirement, a missing case — becomes the open question of a strictly smaller problem, attacked with its own backbone and its own evidence. The information content of a good rejection is high, and treating it as a specification rather than as an error is what turns that information into structure.</p>
+    </div>
+  </section>
+
+  <!-- ============ 5 ============ -->
+  <section id="basis">
+    <div class="measure">
+      <span class="sec-no">05</span>
+      <h2 class="sec">What “checked” is allowed to mean</h2>
+      <p>Verification is the only thing that discharges a unit, which puts the weight of the design on what counts as verification.</p>
+      <p>Checking happens at two levels: each unit, and separately the assembled answer against the node's original objective. The second is not redundant. Units that are individually sound routinely compose into an answer that misses the goal — a design where every component is justified and the system still fails its target is the ordinary case in engineering, not an exotic one. A procedure that checks only its parts inherits that failure invisibly, because every local check reports success.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" role="img" aria-label="Every result records how it was checked. An estimate never completes a unit; model review, simulation and empirical evidence do, in increasing strength. Simulation and empirical results are rejected without evidence files, and memory keeps bases in separate stores.">
+  <defs>
+    <marker id="d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A857D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="460" rx="10" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="32" y="38" font-size="14" font-weight="600" fill="#2B2A26">How a result was checked travels with the result</text>
+    <text x="32" y="57" font-size="11.5" fill="#85807A">The framework assigns the basis from the source of the check. A model cannot label its own output.</text>
+
+    <!-- axis -->
+    <line x1="60" y1="336" x2="848" y2="336" stroke="#C9C3B9" stroke-width="1.5" marker-end="url(#d1)"/>
+    <text x="62" y="356" font-size="10.5" fill="#A8A299">weaker</text>
+
+    <!-- estimate -->
+    <rect x="62" y="248" width="170" height="76" rx="6" fill="#F6F5F2" stroke="#C9C3B9" stroke-dasharray="4 3"/>
+    <text x="78" y="270" font-size="11.5" font-weight="600" fill="#85807A">estimate</text>
+    <text x="78" y="288" font-size="10" fill="#85807A">an analytical figure,</text>
+    <text x="78" y="302" font-size="10" fill="#85807A">nothing was executed</text>
+    <text x="78" y="317" font-size="10" font-weight="600" fill="#9C4530">&#10005;  cannot complete a unit</text>
+    <line x1="147" y1="324" x2="147" y2="336" stroke="#E4E0D8"/>
+
+    <!-- model_review -->
+    <rect x="252" y="192" width="170" height="76" rx="6" fill="#F6F5F2"/>
+    <text x="268" y="214" font-size="11.5" font-weight="600" fill="#2B2A26">model_review</text>
+    <text x="268" y="232" font-size="10" fill="#85807A">one model audited</text>
+    <text x="268" y="246" font-size="10" fill="#85807A">another model&#8217;s claim</text>
+    <text x="268" y="261" font-size="10" font-weight="600" fill="#3C6349">&#10003;  completes a unit</text>
+    <line x1="337" y1="268" x2="337" y2="336" stroke="#E4E0D8"/>
+
+    <!-- simulation -->
+    <rect x="442" y="136" width="170" height="76" rx="6" fill="#FFFFFF" stroke="#B58A33"/>
+    <text x="458" y="158" font-size="11.5" font-weight="600" fill="#2B2A26">simulation</text>
+    <text x="458" y="176" font-size="10" fill="#85807A">an executed model of</text>
+    <text x="458" y="190" font-size="10" fill="#85807A">the thing, not the thing</text>
+    <text x="458" y="205" font-size="10" font-weight="600" fill="#8A6618">&#10003;  for its simulated goal</text>
+    <line x1="527" y1="212" x2="527" y2="336" stroke="#E4E0D8"/>
+
+    <!-- empirical -->
+    <rect x="632" y="80" width="170" height="76" rx="6" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.5"/>
+    <text x="648" y="102" font-size="11.5" font-weight="600" fill="#2B2A26">empirical</text>
+    <text x="648" y="120" font-size="10" fill="#4A4740">the check actually ran</text>
+    <text x="648" y="134" font-size="10" fill="#4A4740">against the real thing</text>
+    <text x="648" y="149" font-size="10" font-weight="600" fill="#3C6349">&#10003;  completes a unit</text>
+    <line x1="717" y1="156" x2="717" y2="336" stroke="#E4E0D8"/>
+
+    <!-- strict mode bracket -->
+    <path d="M 632 68 L 802 68 M 632 68 L 632 76 M 802 68 L 802 76" fill="none" stroke="#4F7A5B" stroke-width="1.5"/>
+    <text x="717" y="60" font-size="10" fill="#3C6349" text-anchor="middle">all that strict mode accepts</text>
+
+    <!-- evidence-file bracket -->
+    <path d="M 442 348 L 802 348 M 442 348 L 442 340 M 802 348 L 802 340" fill="none" stroke="#B58A33" stroke-width="1.5"/>
+    <text x="622" y="364" font-size="10" fill="#8A6618" text-anchor="middle">both are rejected unless they carry evidence files</text>
+
+    <!-- memory isolation -->
+    <line x1="32" y1="386" x2="848" y2="386" stroke="#E4E0D8"/>
+    <text x="32" y="408" font-size="12" font-weight="600" fill="#2B2A26">Memory keeps them apart</text>
+    <text x="32" y="428" font-size="11" fill="#4A4740">Recall, pattern rewards and saved weights are all filtered by basis, so a run</text>
+    <text x="32" y="444" font-size="11" fill="#4A4740">that demands executed checks never inherits what a review of prose produced.</text>
+
+    <rect x="610" y="396" width="108" height="46" rx="6" fill="#F6F5F2"/>
+    <text x="664" y="415" font-size="10" fill="#85807A" text-anchor="middle">store</text>
+    <text x="664" y="431" font-size="10.5" font-weight="600" fill="#2B2A26" text-anchor="middle">model_review</text>
+
+    <line x1="734" y1="394" x2="734" y2="444" stroke="#B0503A" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <rect x="750" y="396" width="98" height="46" rx="6" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="799" y="415" font-size="10" fill="#3C6349" text-anchor="middle">store</text>
+    <text x="799" y="431" font-size="10.5" font-weight="600" fill="#3C6349" text-anchor="middle">empirical</text>
+  </g>
+</svg></div>
+      <figcaption>Every result records how it was established, and the framework assigns that label from the provenance of the check rather than letting the model being checked choose it.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <p>A verdict is admissible only if a check of sufficient standing actually ran, it addresses the whole stated objective, it is correct against its cited evidence, and it does not claim more than that evidence supports. Confidence, where a checker reports one, is kept for inspection and appears nowhere in that rule.</p>
+      <p>That exclusion was learned. An earlier version admitted a unit when a blended confidence score cleared a threshold, with the checker's assessment as one term in the blend. Fluent answers that nothing had checked got through, and the blend made it hard to see: the score was high because the generator was confident and the reviewer agreeable, and no quantity in the system recorded that no check had occurred.</p>
+      <div class="claim">A scalar permitted to overturn evidence is not a confidence estimate. It is a bypass.</div>
+      <p>So “nothing ran” is represented explicitly, and distinguished from “something ran and disagreed.” A unit in the first condition is neither admitted nor recursed on — recursion is justified by an objection, and an absence is not one.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6 ============ -->
+  <section id="recursion">
+    <div class="measure">
+      <span class="sec-no">06</span>
+      <h2 class="sec">Recursion, and what it costs</h2>
+      <p>The result is a tree, but nothing fixes its shape. Depth, breadth, and where each branch stops are decided by what the checks say and what the budget allows.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 472" role="img" aria-label="A recursive search tree rooted at the problem, whose four branches end in four different ways: an early return, a sub-problem that recursed two levels, a unit resolved by cross-domain migration, and a branch stopped by its token allowance.">
+  <defs>
+    <marker id="t2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A857D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="472" rx="10" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="32" y="38" font-size="14" font-weight="600" fill="#2B2A26">The tree is an outcome, not a plan</text>
+    <text x="32" y="57" font-size="11.5" fill="#85807A">Nothing fixes its shape in advance. Each branch ends where its own checks and its own allowance let it end.</text>
+
+    <!-- depth guides -->
+    <line x1="130" y1="86" x2="848" y2="86" stroke="#F2F0EC"/>
+    <line x1="130" y1="188" x2="848" y2="188" stroke="#F2F0EC"/>
+    <line x1="130" y1="290" x2="848" y2="290" stroke="#F2F0EC"/>
+    <text x="40" y="90" font-size="10" fill="#A8A299">depth 0</text>
+    <text x="40" y="192" font-size="10" fill="#A8A299">depth 1</text>
+    <text x="40" y="294" font-size="10" fill="#A8A299">depth 2</text>
+
+    <!-- root -->
+    <rect x="404" y="70" width="112" height="32" rx="6" fill="#FFFFFF" stroke="#8A857D" stroke-width="1.4"/>
+    <text x="460" y="90" font-size="11.5" font-weight="600" fill="#2B2A26" text-anchor="middle">Root Problem</text>
+
+    <!-- edges root -> depth 1 -->
+    <path d="M 432 102 L 214 172" fill="none" stroke="#8A857D" stroke-width="1.3" marker-end="url(#t2)"/>
+    <path d="M 450 102 L 388 172" fill="none" stroke="#8A857D" stroke-width="1.3" marker-end="url(#t2)"/>
+    <path d="M 472 102 L 550 172" fill="none" stroke="#8A857D" stroke-width="1.3" marker-end="url(#t2)"/>
+    <path d="M 488 102 L 726 172" fill="none" stroke="#8A857D" stroke-width="1.3" marker-end="url(#t2)"/>
+
+    <!-- depth 1 -->
+    <circle cx="200" cy="188" r="16" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.5"/>
+    <text x="200" y="194" font-size="13" fill="#3C6349" text-anchor="middle">&#9651;</text>
+    <text x="200" y="222" font-size="10.5" font-weight="600" fill="#3C6349" text-anchor="middle">early return</text>
+
+    <circle cx="380" cy="188" r="16" fill="#FDF6E7" stroke="#B58A33" stroke-width="1.5"/>
+    <text x="380" y="194" font-size="13" fill="#8A6618" text-anchor="middle">&#9675;</text>
+    <text x="356" y="192" font-size="10.5" font-weight="600" fill="#8A6618" text-anchor="end">recursed</text>
+
+    <rect x="544" y="172" width="32" height="32" rx="5" fill="#F2F0EC" stroke="#8A857D" stroke-width="1.4"/>
+    <text x="560" y="194" font-size="13" fill="#6B6862" text-anchor="middle">&#9723;</text>
+    <text x="560" y="222" font-size="10.5" font-weight="600" fill="#4A4740" text-anchor="middle">migrated</text>
+
+    <circle cx="740" cy="188" r="16" fill="#FBEFEB" stroke="#B0503A" stroke-width="1.5"/>
+    <text x="740" y="194" font-size="13" fill="#9C4530" text-anchor="middle">&#9675;</text>
+    <text x="740" y="222" font-size="10.5" font-weight="600" fill="#9C4530" text-anchor="middle">limit reached</text>
+
+    <!-- edges to depth 2 -->
+    <path d="M 370 203 L 328 274" fill="none" stroke="#8A857D" stroke-width="1.3" marker-end="url(#t2)"/>
+    <path d="M 392 203 L 434 274" fill="none" stroke="#8A857D" stroke-width="1.3" marker-end="url(#t2)"/>
+
+    <circle cx="320" cy="290" r="15" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.5"/>
+    <text x="320" y="296" font-size="12" fill="#3C6349" text-anchor="middle">&#9651;</text>
+    <circle cx="442" cy="290" r="15" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.5"/>
+    <text x="442" y="296" font-size="12" fill="#3C6349" text-anchor="middle">&#9651;</text>
+    <text x="381" y="324" font-size="10.5" fill="#3C6349" text-anchor="middle">both verified</text>
+
+    <!-- legend -->
+    <line x1="32" y1="350" x2="848" y2="350" stroke="#EFECE6"/>
+
+    <circle cx="44" cy="372" r="8" fill="#EFF5F0" stroke="#4F7A5B" stroke-width="1.3"/>
+    <text x="60" y="376" font-size="10.5" fill="#4A4740"><tspan font-weight="600" fill="#3C6349">verified</tspan> &#8212; its own check passed, every unit under it passed, nothing left open</text>
+
+    <circle cx="44" cy="396" r="8" fill="#FDF6E7" stroke="#B58A33" stroke-width="1.3"/>
+    <text x="60" y="400" font-size="10.5" fill="#4A4740"><tspan font-weight="600" fill="#8A6618">recursed</tspan> &#8212; a check failed, and its objection became the question one level down</text>
+
+    <rect x="36" y="412" width="16" height="16" rx="3" fill="#F2F0EC" stroke="#8A857D" stroke-width="1.3"/>
+    <text x="60" y="424" font-size="10.5" fill="#4A4740"><tspan font-weight="600" fill="#4A4740">migrated</tspan> &#8212; unsupported in these terms, reframed from another field, then checked</text>
+
+    <circle cx="44" cy="444" r="8" fill="#FBEFEB" stroke="#B0503A" stroke-width="1.3"/>
+    <text x="60" y="448" font-size="10.5" fill="#4A4740"><tspan font-weight="600" fill="#9C4530">limit reached</tspan> &#8212; returns what it verified and names what it did not</text>
+
+  </g>
+</svg></div>
+      <figcaption>Four branches ending four different ways. A node counts as finished only when its own check passed, every unit under it passed, and nothing is left open.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <pre><b>solve</b>(anchor):
+  supplement until nothing is unobserved
+  <b>if</b> nothing is open:  discharge with one check; <b>return</b> on success
+
+  <b>repeat</b> up to a bounded number of times:
+    activate a backbone;  expand into units
+    <b>for each</b> unit:
+      gather V / K / Q evidence
+      unknown block  <span class="cm">→</span> reframe from another field, then check
+      stable         <span class="cm">→</span> check; <span class="cm">on failure it becomes a sub-demand</span>
+      sub-demand     <span class="cm">→</span> solve(child)
+                       <span class="hl">if the child passes, re-check it
+                       against <b>this</b> node's own obligation</span>
+    <b>if</b> every unit passed:
+      assemble the answer; check the whole answer
+      passed <span class="cm">→</span> <b>return</b> verified
+      failed <span class="cm">→</span> <span class="hl">discard the decomposition, not the answer</span>
+
+  <b>return</b> partial — what passed, and what is still open</pre>
+
+      <h3>A child's success is not the parent's success</h3>
+      <p>A sub-problem is carved out to discharge something specific, and it can be solved exactly as posed while leaving that obligation unmet. The child was given a narrowed question; the parent needed an answer to the original one. So a passing child's result is attached to the parent's unit and that unit is checked again, against the parent's wording. In the run below this is the fourth of five checks, and it is redundant with none of the others.</p>
+
+      <h3>Failure discards the decomposition, not the answer</h3>
+      <p>When the whole-answer check fails, the node does not edit its prose. It records the objection and the backbone that produced it, and expands again from a different angle. The failure is treated as evidence that the decomposition was wrong.</p>
+
+      <h3>Spending that can be accounted for</h3>
+      <p>Recursion with unbounded branching is an expensive loop, and the costs are not hypothetical — a single verification by a tool-using agent can run for minutes and consume six figures of tokens, and a node that re-decomposes pays for its chain again.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img" aria-label="Every model call passes one gateway that estimates input and reserves output room before sending. A call that does not fit is never sent; a call that fails in transit is still charged. Three controls bound the search.">
+  <defs>
+    <marker id="e1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A857D"/>
+    </marker>
+    <marker id="e1R" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B0503A"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="420" rx="10" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="32" y="38" font-size="14" font-weight="600" fill="#2B2A26">One gateway, so nothing is spent unaccounted</text>
+
+    <!-- call -->
+    <rect x="32" y="82" width="128" height="56" rx="6" fill="#F6F5F2"/>
+    <text x="96" y="104" font-size="11.5" font-weight="600" fill="#2B2A26" text-anchor="middle">any model call</text>
+    <text x="96" y="121" font-size="10" fill="#85807A" text-anchor="middle">including retries after</text>
+    <text x="96" y="132" font-size="10" fill="#85807A" text-anchor="middle">malformed JSON</text>
+
+    <path d="M 160 110 L 188 110" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#e1)"/>
+
+    <!-- gateway -->
+    <rect x="192" y="82" width="176" height="56" rx="6" fill="#FFFFFF" stroke="#8A857D" stroke-width="1.4"/>
+    <text x="280" y="104" font-size="11.5" font-weight="600" fill="#2B2A26" text-anchor="middle">estimate and reserve</text>
+    <text x="280" y="121" font-size="10" fill="#85807A" text-anchor="middle">input size, then output room</text>
+    <text x="280" y="132" font-size="10" fill="#85807A" text-anchor="middle">out of what is left</text>
+
+    <path d="M 368 110 L 394 110" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#e1)"/>
+
+    <!-- decision -->
+    <path d="M 462 80 L 508 110 L 462 140 L 416 110 Z" fill="#FFFFFF" stroke="#8A857D" stroke-width="1.4"/>
+    <text x="462" y="114" font-size="11" font-weight="600" fill="#2B2A26" text-anchor="middle">fits?</text>
+
+    <!-- yes -->
+    <path d="M 508 110 L 522 110 L 522 80 L 534 80" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#e1)"/>
+    <text x="512" y="70" font-size="10" fill="#3C6349">yes</text>
+    <rect x="540" y="58" width="308" height="44" rx="6" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="556" y="76" font-size="11.5" font-weight="600" fill="#3C6349">send</text>
+    <text x="556" y="92" font-size="10" fill="#3C6349">the reservation is released and actual usage is charged</text>
+
+    <!-- transit failure -->
+    <path d="M 694 102 L 694 112" fill="none" stroke="#B0503A" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#e1R)"/>
+    <rect x="540" y="116" width="308" height="46" rx="6" fill="#FBEFEB" stroke="#B0503A"/>
+    <text x="556" y="135" font-size="11" font-weight="600" fill="#9C4530">fails in transit &#8594; still charged</text>
+    <text x="556" y="151" font-size="10" fill="#9C4530">the provider may bill for it, so it is not refunded</text>
+
+    <!-- no -->
+    <path d="M 462 140 L 462 208 L 534 208" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#e1)"/>
+    <text x="430" y="166" font-size="10" fill="#85807A">no</text>
+    <rect x="540" y="186" width="308" height="46" rx="6" fill="#F6F5F2"/>
+    <text x="556" y="205" font-size="11" font-weight="600" fill="#2B2A26">never sent</text>
+    <text x="556" y="221" font-size="10" fill="#85807A">the branch returns what it has already verified</text>
+
+    <!-- divider -->
+    <line x1="32" y1="252" x2="848" y2="252" stroke="#E4E0D8"/>
+    <text x="32" y="274" font-size="12.5" font-weight="600" fill="#2B2A26">Three controls on top of that accounting</text>
+
+    <!-- cards -->
+    <rect x="32" y="288" width="258" height="96" rx="6" fill="#F6F5F2"/>
+    <text x="48" y="310" font-size="11.5" font-weight="600" fill="#2B2A26">early return</text>
+    <text x="48" y="330" font-size="10.5" fill="#4A4740">A path with nothing left open is settled</text>
+    <text x="48" y="345" font-size="10.5" fill="#4A4740">as one unit and returns at once &#8212; but</text>
+    <text x="48" y="360" font-size="10.5" fill="#4A4740">only if that unit passes its check.</text>
+    <text x="48" y="376" font-size="10" fill="#85807A">Otherwise the attempt becomes feedback.</text>
+
+    <rect x="311" y="288" width="258" height="96" rx="6" fill="#F6F5F2"/>
+    <text x="327" y="310" font-size="11.5" font-weight="600" fill="#2B2A26">branch allowance</text>
+    <text x="327" y="330" font-size="10.5" fill="#4A4740">Each anchor has its own allowance.</text>
+    <text x="327" y="345" font-size="10.5" fill="#4A4740">Children get their own, and all of them</text>
+    <text x="327" y="360" font-size="10.5" fill="#4A4740">draw on one episode total.</text>
+    <text x="327" y="376" font-size="10" fill="#85807A">Exhausted &#8594; stop spawning children.</text>
+
+    <rect x="590" y="288" width="258" height="96" rx="6" fill="#F6F5F2"/>
+    <text x="606" y="310" font-size="11.5" font-weight="600" fill="#2B2A26">explore &#8594; exploit</text>
+    <text x="606" y="330" font-size="10.5" fill="#4A4740">Depth is capped; fan-out narrows as</text>
+    <text x="606" y="345" font-size="10.5" fill="#4A4740">depth grows. Anchoring, pattern choice</text>
+    <text x="606" y="360" font-size="10.5" fill="#4A4740">and migration count as exploration.</text>
+    <text x="606" y="376" font-size="10" fill="#85807A">Everything else counts as exploitation.</text>
+
+    <text x="32" y="406" font-size="11" fill="#85807A">External verifiers keep separate accounts: a tool-using agent&#8217;s own token use is tracked by its adapter, not added to the planner&#8217;s total.</text>
+  </g>
+</svg></div>
+      <figcaption>Calls are costed before they are issued rather than reconciled afterwards. A call that cannot fit in the remaining allowance is never made; a call that dies in transit is charged its reservation, because a budget that forgives failed calls drifts under exactly the conditions where control matters.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 7 ============ -->
+  <section id="grounding">
+    <div class="measure">
+      <span class="sec-no">07</span>
+      <h2 class="sec">Grounding cognition in the world</h2>
+      <p>Every guarantee above is conditional on something being able to answer a question. A system reasoning over text alone has almost no such source. Supplementation still terminates, but it terminates by moving everything into the open set: assumptions descend as the next level's open questions, the tree deepens, and nothing is ever discharged empirically.</p>
+      <p>The architecture does not fail loudly in that condition. It produces increasingly careful accounts of how much it has not established.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-label="The two physical layers attach to different parts of the information partition. Perception answers unobserved items by looking, moving them into the established domain. Intervention settles open items by designed experiment. Items that neither layer can reach stay open as obligations.">
+  <defs>
+    <marker id="p1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F7A5B"/>
+    </marker>
+    <marker id="p2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9A948B"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="410" fill="#FFFFFF"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="40" y="32" font-size="12.5" font-weight="600" fill="#1F1E1C">Where the physical layers attach</text>
+    <text x="40" y="49" font-size="10.5" fill="#85807A">The partition already says which remedy an item needs: unobserved items need looking at, open items need acting on.</text>
+
+    <!-- partition column -->
+    <rect x="360" y="76" width="236" height="250" rx="9" fill="#FFFFFF" stroke="#D9D4CB"/>
+    <text x="376" y="96" font-size="9.5" font-weight="600" fill="#A8A299">DEMAND ANCHOR</text>
+
+    <rect x="376" y="106" width="204" height="52" rx="6" fill="#FDF6E7"/>
+    <circle cx="392" cy="126" r="4.5" fill="#B58A33"/>
+    <text x="406" y="130" font-size="11" font-weight="600" fill="#8A6618">Unobserved</text>
+    <text x="406" y="146" font-size="9.5" fill="#9A7C3A">answerable by looking</text>
+
+    <rect x="376" y="168" width="204" height="52" rx="6" fill="#FBEFEB"/>
+    <circle cx="392" cy="188" r="4.5" fill="#B0503A"/>
+    <text x="406" y="192" font-size="11" font-weight="600" fill="#9C4530">Open</text>
+    <text x="406" y="208" font-size="9.5" fill="#A9604C">answerable only by acting</text>
+
+    <rect x="376" y="238" width="204" height="52" rx="6" fill="#EFF5F0"/>
+    <circle cx="392" cy="258" r="4.5" fill="#4F7A5B"/>
+    <text x="406" y="262" font-size="11" font-weight="600" fill="#3C6349">Established</text>
+    <text x="406" y="278" font-size="9.5" fill="#5E7D68">usable as a premise</text>
+
+    <!-- nervous system -->
+    <rect x="40" y="88" width="268" height="88" rx="9" fill="#F6F5F2"/>
+    <text x="58" y="112" font-size="11.5" font-weight="600" fill="#1F1E1C">Nervous System</text>
+    <text x="58" y="131" font-size="10" fill="#6B6862">perception, placement, latency, channel</text>
+    <text x="58" y="149" font-size="10" fill="#6B6862">&#8212; determines what can be <tspan font-style="italic">seen</tspan>, and</text>
+    <text x="58" y="164" font-size="10" fill="#6B6862">at what cost per observation</text>
+
+    <path d="M 308 132 L 368 132" fill="none" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#p1)"/>
+
+    <!-- limbs -->
+    <rect x="40" y="200" width="268" height="88" rx="9" fill="#F6F5F2"/>
+    <text x="58" y="224" font-size="11.5" font-weight="600" fill="#1F1E1C">Embodied Limbs</text>
+    <text x="58" y="243" font-size="10" fill="#6B6862">execution, interaction, attributable</text>
+    <text x="58" y="261" font-size="10" fill="#6B6862">feedback &#8212; produce the evidence a</text>
+    <text x="58" y="276" font-size="10" fill="#6B6862">specific open item requires</text>
+
+    <path d="M 308 194 L 368 194" fill="none" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#p1)"/>
+
+    <!-- resolution arrows into established -->
+    <path d="M 580 140 L 616 140 L 616 252 L 588 252" fill="none" stroke="#4F7A5B" stroke-width="1.4" marker-end="url(#p1)"/>
+    <path d="M 580 202 L 600 202 L 600 248 L 588 248" fill="none" stroke="#4F7A5B" stroke-width="1.4" marker-end="url(#p1)"/>
+
+    <!-- out of reach -->
+    <rect x="660" y="88" width="260" height="106" rx="9" fill="#FFFFFF" stroke="#D9D4CB" stroke-dasharray="5 4"/>
+    <text x="678" y="112" font-size="11" font-weight="600" fill="#4A4740">Beyond reach of either layer</text>
+    <text x="678" y="132" font-size="10" fill="#85807A">The item stays open. It is carried as an</text>
+    <text x="678" y="147" font-size="10" fill="#85807A">obligation, not quietly downgraded to</text>
+    <text x="678" y="162" font-size="10" fill="#85807A">an assumption, and the answer that</text>
+    <text x="678" y="177" font-size="10" fill="#85807A">depends on it is reported as partial.</text>
+
+    <path d="M 596 150 L 650 124" fill="none" stroke="#9A948B" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#p2)"/>
+    <path d="M 596 196 L 650 160" fill="none" stroke="#9A948B" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#p2)"/>
+
+    <!-- ceiling note -->
+    <rect x="660" y="214" width="260" height="112" rx="9" fill="#F3F7F4" stroke="#CFE0D5"/>
+    <text x="678" y="238" font-size="11" font-weight="600" fill="#3C6349">The ceiling on a regime</text>
+    <text x="678" y="258" font-size="10" fill="#4A6B52">No admission rule is stronger than the</text>
+    <text x="678" y="273" font-size="10" fill="#4A6B52">evidence available to it. These layers do</text>
+    <text x="678" y="288" font-size="10" fill="#4A6B52">not make cognition faster; they decide</text>
+    <text x="678" y="303" font-size="10" fill="#4A6B52">how much of a regime can be grounded</text>
+    <text x="678" y="318" font-size="10" fill="#4A6B52">at all.</text>
+
+    <line x1="40" y1="352" x2="920" y2="352" stroke="#EFECE6"/>
+    <text x="40" y="374" font-size="10.5" fill="#6B6862">A text-only system has neither layer. Every unobserved item becomes an obligation, every open item stays open, and the recursion</text>
+    <text x="40" y="390" font-size="10.5" fill="#6B6862">deepens without ever discharging anything empirically &#8212; which is the failure these components exist to prevent.</text>
+  </g>
+</svg></div>
+      <figcaption>The partition already says which remedy each item needs, and the two physical layers divide along that line. Perception answers what is merely unobserved; intervention settles what is genuinely open.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <p>This gives the hardware a cognitive job description rather than an engineering one. <strong>Perception</strong> — placement, modality, latency, channel — sets what can be seen and at what price per observation. Since observations are charged against the same allowance that pays for reasoning, an observation costing more than what remains is not merely expensive but unavailable: the item it would have settled stays open, and the recursion descends instead. Beyond some round-trip cost the system begins to prefer argument to measurement, which is the substitution the whole design exists to prevent.</p>
+      <p><strong>Intervention</strong> handles what perception cannot reach. An open item is open precisely because looking harder does not settle it — whether a design holds under load, whether a grasp succeeds on an unfamiliar object. Those are settled by arranging a situation that discriminates between the possibilities, which is acting rather than observing.</p>
+      <p>One consequence is counterintuitive. A real environment that does not cooperate is a requirement, not a hazard: the recursion is driven entirely by objections, so an environment that only ever confirms produces a system that never restructures. A simulator tuned until the agent performs well has, by this measure, been degraded.</p>
+    </div>
+  </section>
+
+  <!-- ============ 8 ============ -->
+  <section id="evidence">
+    <div class="measure">
+      <span class="sec-no">08</span>
+      <h2 class="sec">Evidence</h2>
+      <p>We have instrumented runs for the admission machinery and partial evidence for the decomposition claim. The rest is specified and not yet measured, and the tables below mark which is which.</p>
+      <h3>One task, five checks</h3>
+      <p>The checker was a tool-using agent in a sandbox, free to write and execute its own tests. Only the files listed for review were copied in; inputs were hashed before and after, so an agent that repairs the candidate it was asked to assess invalidates its own run. The task: an implementation of <code>ceil_div(n, d)</code> correct for all <code>n ≥ 0</code>, <code>d &gt; 0</code>, rejecting <code>d ≤ 0</code>.</p>
+    </div>
+
+    <figure class="plate">
+      <div class="plate-inner"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" role="img" aria-label="A real run: a failed check on ceil_div becomes a child Demand Anchor; the repaired result returns and is re-verified against the parent's original obligation before the whole answer is verified.">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8A857D"/>
+    </marker>
+    <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B0503A"/>
+    </marker>
+    <marker id="arG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F7A5B"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="880" height="470" rx="10" fill="#FBFAF8"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+    <text x="32" y="38" font-size="14" font-weight="600" fill="#2B2A26">One verified run, five checks</text>
+    <text x="32" y="57" font-size="11.5" fill="#85807A">Objective: ceil_div(n, d) correct for all n &#8805; 0, d &gt; 0; raise ValueError when d &#8804; 0</text>
+
+    <!-- depth rails -->
+    <line x1="66" y1="82" x2="66" y2="414" stroke="#D9D4CB" stroke-width="1.5"/>
+    <line x1="150" y1="178" x2="150" y2="330" stroke="#D9D4CB" stroke-width="1.5"/>
+    <text x="34" y="86" font-size="10" fill="#A8A299">depth</text>
+    <text x="52" y="100" font-size="10" fill="#A8A299">0</text>
+    <text x="136" y="196" font-size="10" fill="#A8A299">1</text>
+
+    <!-- ===== depth 0: anchor ===== -->
+    <rect x="80" y="76" width="300" height="30" rx="6" fill="#F6F5F2"/>
+    <text x="94" y="95" font-size="11.5" fill="#2B2A26">Demand Anchor &#183; candidate implementation</text>
+
+    <!-- step 1 -->
+    <circle cx="96" cy="134" r="10" fill="#B0503A"/>
+    <text x="96" y="138" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="118" y="131" font-size="11.5" fill="#2B2A26">verify the unit</text>
+    <text x="118" y="146" font-size="10.5" fill="#85807A">Codex writes and runs a grid test</text>
+    <line x1="330" y1="134" x2="486" y2="134" stroke="#B0503A" stroke-width="1.5" marker-end="url(#arR)"/>
+    <rect x="494" y="121" width="86" height="25" rx="12.5" fill="#FBEFEB" stroke="#B0503A"/>
+    <text x="537" y="138" font-size="11" font-weight="600" fill="#9C4530" text-anchor="middle">REJECTED</text>
+    <text x="594" y="131" font-size="10.5" fill="#4A4740">419 of 3,030 cases fail</text>
+    <text x="594" y="146" font-size="10.5" fill="#85807A">ceil_div(0, 1) returned 1, expected 0</text>
+
+    <!-- failure note becomes child unresolved -->
+    <path d="M 96 152 L 96 176 L 140 176" fill="none" stroke="#B0503A" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arR)"/>
+    <text x="118" y="170" font-size="10.5" fill="#9C4530">the counterexample becomes the child&#8217;s Unresolved item</text>
+
+    <!-- ===== depth 1 ===== -->
+    <rect x="164" y="186" width="310" height="30" rx="6" fill="#F6F5F2"/>
+    <text x="178" y="205" font-size="11.5" fill="#2B2A26">Child Anchor &#183; (n + d - 1) // d</text>
+
+    <!-- step 2 -->
+    <circle cx="180" cy="244" r="10" fill="#4F7A5B"/>
+    <text x="180" y="248" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="202" y="248" font-size="11.5" fill="#2B2A26">verify the unit</text>
+    <line x1="330" y1="244" x2="486" y2="244" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#arG)"/>
+    <rect x="494" y="231" width="60" height="25" rx="12.5" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="524" y="248" font-size="11" font-weight="600" fill="#3C6349" text-anchor="middle">PASS</text>
+    <text x="568" y="248" font-size="10.5" fill="#4A4740">200,432 checks</text>
+
+    <!-- step 3 -->
+    <circle cx="180" cy="288" r="10" fill="#4F7A5B"/>
+    <text x="180" y="292" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="202" y="292" font-size="11.5" fill="#2B2A26">verify the child&#8217;s whole answer</text>
+    <line x1="400" y1="288" x2="486" y2="288" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#arG)"/>
+    <rect x="494" y="275" width="60" height="25" rx="12.5" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="524" y="292" font-size="11" font-weight="600" fill="#3C6349" text-anchor="middle">PASS</text>
+    <text x="568" y="292" font-size="10.5" fill="#4A4740">20,720 checks</text>
+
+    <!-- return to parent -->
+    <path d="M 150 316 L 150 332 L 96 332 L 96 348" fill="none" stroke="#8A857D" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="168" y="330" font-size="10.5" fill="#85807A">result returns to the parent unit</text>
+
+    <!-- step 4 -->
+    <circle cx="96" cy="364" r="10" fill="#4F7A5B"/>
+    <text x="96" y="368" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="118" y="361" font-size="11.5" fill="#2B2A26">re-verify against the parent&#8217;s original obligation</text>
+    <text x="118" y="376" font-size="10.5" fill="#85807A">a child can satisfy its own task and still miss the parent&#8217;s</text>
+    <line x1="420" y1="364" x2="486" y2="364" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#arG)"/>
+    <rect x="494" y="351" width="60" height="25" rx="12.5" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="524" y="368" font-size="11" font-weight="600" fill="#3C6349" text-anchor="middle">PASS</text>
+    <text x="568" y="361" font-size="10.5" fill="#4A4740">310,300 valid inputs</text>
+    <text x="568" y="376" font-size="10.5" fill="#85807A">20 invalid-divisor cases</text>
+
+    <!-- step 5 -->
+    <circle cx="96" cy="406" r="10" fill="#4F7A5B"/>
+    <text x="96" y="410" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">5</text>
+    <text x="118" y="410" font-size="11.5" fill="#2B2A26">verify the whole answer</text>
+    <line x1="340" y1="406" x2="486" y2="406" stroke="#4F7A5B" stroke-width="1.5" marker-end="url(#arG)"/>
+    <rect x="494" y="393" width="60" height="25" rx="12.5" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="524" y="410" font-size="11" font-weight="600" fill="#3C6349" text-anchor="middle">PASS</text>
+    <text x="568" y="410" font-size="10.5" fill="#4A4740">105,020 checks</text>
+
+    <!-- outcome -->
+    <line x1="32" y1="434" x2="848" y2="434" stroke="#E4E0D8"/>
+    <text x="32" y="454" font-size="11" fill="#4A4740">2 nodes &#183; depth 1 &#183; 2 experiences stored &#183; basis</text>
+    <rect x="312" y="442" width="74" height="18" rx="9" fill="#EFF5F0" stroke="#4F7A5B"/>
+    <text x="349" y="455" font-size="10" font-weight="600" fill="#3C6349" text-anchor="middle">empirical</text>
+    <text x="398" y="454" font-size="11" fill="#85807A">the rejected answer never became an experience</text>
+  </g>
+</svg></div>
+      <figcaption>The counts are measured; the checker selected its own tests.</figcaption>
+    </figure>
+
+    <div class="measure">
+      <div class="tablewrap">
+        <table>
+          <caption>The repair was <code>(n + d - 1) // d</code>, keeping the rejection of <code>d ≤ 0</code>. The tree finished at two nodes, depth one. The rejected candidate was never retained as experience.</caption>
+          <thead><tr><th>#</th><th>Subject</th><th>Observation</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>candidate unit</td><td>419 of 3,030 cases fail; <code>ceil_div(0,1)</code> returned 1, expected 0</td><td class="v v-fail">rejected</td></tr>
+            <tr><td class="num">2</td><td>repaired unit (child)</td><td>200,432 checks pass, with an algebraic argument</td><td class="v v-pass">admitted</td></tr>
+            <tr><td class="num">3</td><td>child, whole answer</td><td>20,720 checks pass</td><td class="v v-pass">admitted</td></tr>
+            <tr><td class="num">4</td><td>parent's original obligation</td><td>310,300 valid inputs, 20 invalid-divisor cases</td><td class="v v-pass">admitted</td></tr>
+            <tr><td class="num">5</td><td>root, whole answer</td><td>105,020 checks pass</td><td class="v v-pass">admitted</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Check 1 returns a counterexample rather than a score, and that counterexample becomes the child's open question — what descends is the specific failing input, not an instruction to try harder. Checks 2 and 3 are the two levels applied at the child. Check 4 is the step a flat procedure omits. Check 5 closes the root. Across the wider experiment the agent ran seven times, consuming 467,819 input tokens (319,616 cached), 7,801 output tokens, and about 695 seconds.</p>
+
+      <h3>Refusing to discharge the objective</h3>
+      <p>The most informative result came from a case that did not pass. On a chip-design objective the agent built and executed a throughput and power model, reporting a peak of 8.192 TOPS and, under an assumed 0.5 W envelope, 16.384 TOPS/W. The arithmetic was sound and the model genuinely ran. But absent RTL, a process design kit, or physical measurement, the objective concerned a physical artefact that an executed parameter model is not evidence about. The verdict recorded was <span class="v v-open">inconclusive</span>, and the unit stayed open.</p>
+      <p>A two-valued notion of verification has only bad options here. Admit it, and a chip design is reported as verified on the strength of a parameter sweep. Reject it, and a legitimate analysis is discarded along with the bound it produced. The ordering lets the system keep what the simulation did establish — a result under stated assumptions — while refusing to let it discharge a claim about hardware. The assumed envelope stays an assumption, so a later reader can see which number was supposed and which was computed.</p>
+    </div>
+
+    <div class="measure">
+      <h3>Reserved: comparative results</h3>
+      <div class="pending-head">
+        <span class="chip chip-pending">Pending measurement</span>
+        <p>Quantities and controls are fixed here before the numbers are taken.</p>
+      </div>
+
+      <div class="tablewrap pending">
+        <table>
+          <caption>Primary comparison. A fixed harness and this architecture at matched token budgets, on tasks whose answers can be checked mechanically. The headline number is not mean accuracy — it is the rate of confident wrong answers, the failure the admission rule exists to suppress and the one that compounds under recursion.</caption>
+          <thead><tr><th>Quantity</th><th>Fixed harness</th><th>Cognizer</th><th>Direction that supports the design</th></tr></thead>
+          <tbody>
+            <tr><td>Confident wrong answers</td><td class="slot">—</td><td class="slot">—</td><td>lower</td></tr>
+            <tr><td>Mean accuracy</td><td class="slot">—</td><td class="slot">—</td><td>not the headline; may trade down</td></tr>
+            <tr><td>Verified / partial split</td><td class="slot">—</td><td class="slot">—</td><td>honest partials scored as partials</td></tr>
+            <tr><td>Spend on checks that confirm</td><td class="slot">—</td><td class="slot">—</td><td>the overhead the guarantee costs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tablewrap pending">
+        <table>
+          <caption>Ablations. Each removes one mechanism the architecture argues for, and each should degrade a different quantity. If none of them does, the corresponding argument is wrong.</caption>
+          <thead><tr><th>Ablation</th><th>Expected degradation</th><th>Measured</th></tr></thead>
+          <tbody>
+            <tr><td>No re-check against parent's obligation</td><td>verified nodes whose answers miss the original objective</td><td class="slot">—</td></tr>
+            <tr><td>No whole-answer check</td><td>locally sound answers that miss the goal</td><td class="slot">—</td></tr>
+            <tr><td>Pooled pattern weights</td><td>strict runs inherit a prior built from review</td><td class="slot">—</td></tr>
+            <tr><td>Lowered admission threshold</td><td>confident-wrong-answer rate rises</td><td class="slot">—</td></tr>
+            <tr><td>No pattern composition</td><td>cross-domain problems degrade, in-domain unaffected</td><td class="slot">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tablewrap pending">
+        <table>
+          <caption>Cross-episode improvement, with the model held fixed throughout. This is the only place the self-improvement claim can be tested: nothing is trained, so any movement comes from the regime rather than the weights.</caption>
+          <thead><tr><th>Quantity</th><th>Episode 1</th><th>Episode 2</th><th>Episode 3</th></tr></thead>
+          <tbody>
+            <tr><td>Revisions per verified node</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
+            <tr><td>Depth to verification</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
+            <tr><td>Partition established at outset</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
+            <tr><td>Composed patterns reselected</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9 ============ -->
+  <section id="falsify">
+    <div class="measure">
+      <span class="sec-no">09</span>
+      <h2 class="sec">What would change our mind</h2>
+      <p>Four commitments carry the design. The decomposition is chosen per node and reshaped by what fails, rather than fixed before the problem is read. Models may propose, but only something outside the model turns a proposal into a premise. A result is discharged when a check of sufficient standing says so, never when a number is large enough. And every surviving result carries the provenance of its check, so what crosses between attempts is bounded by what was actually established.</p>
+      <p>Each costs something, and the costs are of a kind. Strict supplementation leaves open obligations a more permissive method would have closed, so intermediate states look less finished. Two-level verification doubles the checking of a node that would have passed anyway. Re-decomposition discards work that was locally correct. Separating evidence by standing forbids a strict run from drawing on a large store of cheaply obtained experience. In each case the method pays — in visible progress, or in tokens — for a guarantee about what it is entitled to assert. That is the right trade only if confident unfounded answers are more expensive than slow ones. For the problems that motivate this work we think they are, but that is a judgement about the domain rather than a result.</p>
+      <p>Two limits are structural. A checking agent picks its own tests, and while we can validate that a check of the claimed kind ran against unmodified inputs with retrievable evidence, we cannot determine whether those tests were sufficient; nothing in the design closes that, and a system whose guarantees rest on its checkers inherits their blind spots. And the pattern library is a prior whose value is unmeasured — we describe it as attention over a window, and what is implemented is an ordered prompt with self-reported relevance.</p>
+      <p>The sense in which this is self-improving is narrow, and worth repeating because the term invites a stronger reading. Between attempts the repertoire grows, the ordering changes, and the starting ground improves. The model is untouched, nothing is trained, and no capability is added that was not there at the first attempt.</p>
+      <p>We began by asking whether machines can participate in the evolution of thought rather than only operate within its results. This does not settle that. It proposes that the participation has a precondition which is unglamorous and specific: a system may evolve the structures of its own cognition only to the extent that it can say what it has actually established, and how.</p>
+
+      <div class="endnote">
+        <p>Figures are drawn from the architecture document; all counts in §8 are measured from instrumented runs. Reserved tables mark quantities fixed in advance of measurement.</p>
+        <p>AlpsLab · <span>contact@alps-lab.com</span></p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var bar = document.getElementById('progress');
+  var tick = function(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  };
+  addEventListener('scroll', tick, {passive:true});
+  addEventListener('resize', tick);
+  tick();
+})();
+</script>
+</body>
+</html>
