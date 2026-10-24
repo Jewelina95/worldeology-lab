@@ -8,9 +8,8 @@ const { context = 'site', active = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 const fields = [
   { href: '/research/cognitive-ai/', name: 'Cognitive AI', tone: 'black' },
-  { href: '/research/learning-from-cognition/', name: 'Learning from Cognition', tone: 'blue' },
-  { href: '/research/engine-of-world/', name: 'Engine of World', tone: 'green' },
-  { href: '/research/architecture-of-intelligence/', name: 'Architecture of Intelligence', tone: 'red' }
+  { href: '/research/architecture-of-intelligence/', name: 'SI Architecture', tone: 'blue' },
+  { href: '/research/engine-of-world/', name: 'Causal World Modeling', tone: 'green' }
 ];
 ---
 <div class:list={['research-nav-menu', `research-nav-menu-${context}`, active && 'is-active']} data-research-menu>
