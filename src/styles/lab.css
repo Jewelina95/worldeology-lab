@@ -180,6 +180,9 @@
 
 /* Collaboration network */
 .people-grid-single{grid-template-columns:minmax(0,760px);justify-content:center}
+.academic-network{margin-top:70px}
+.network-intro{max-width:760px;margin:18px 0 0;color:#62685f;font-size:1rem;line-height:1.65}
+.academic-network .institution-index{margin-top:32px}
 .institution-index{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lab-ink);border-left:1px solid var(--lab-ink)}
 .institution-index article{min-height:240px;padding:26px;display:flex;flex-direction:column;border-right:1px solid var(--lab-ink);border-bottom:1px solid var(--lab-ink)}
 .institution-index span{color:var(--lab-red);font-size:.58rem;font-weight:820}
