@@ -1,0 +1,1384 @@
+{
+  "source": "Qwen_InteractEval.pdf",
+  "sha256": "6a73b1277dabec4ceeddf1ff75c417e546cf193321a6ce40792b6dce6221f28e",
+  "scope": {
+    "scenario_cells": 27,
+    "dialogues_per_cell": 30,
+    "passes": 3,
+    "episodes_per_model": 2430,
+    "standard_user": "claude-5-opus",
+    "judge": "Claude Opus 5"
+  },
+  "tables": {
+    "models": {
+      "table": 4,
+      "page": 19
+    },
+    "facets": {
+      "table": 6,
+      "page": 20
+    },
+    "outcomes": {
+      "table": 9,
+      "page": 23
+    },
+    "agents": {
+      "table": 16,
+      "page": 28
+    },
+    "architecture_gains": {
+      "table": 17,
+      "page": 28
+    },
+    "behavior": {
+      "table": 8,
+      "page": 22
+    },
+    "partners": {
+      "table": 12,
+      "page": 25
+    },
+    "self_play": {
+      "table": 13,
+      "page": 26
+    },
+    "user_role": {
+      "table": 14,
+      "page": 26
+    },
+    "reliability": {
+      "table": 21,
+      "page": 32
+    },
+    "judges": {
+      "table": 22,
+      "page": 32
+    },
+    "duration": {
+      "table": 30,
+      "page": 37
+    },
+    "pairings": {
+      "table": 11,
+      "page": 25
+    }
+  },
+  "models": [
+    {
+      "name": "claude-opus-5.5",
+      "composite": 0.636,
+      "levels": [
+        0.798,
+        0.775,
+        0.747,
+        0.712,
+        0.564,
+        0.515
+      ],
+      "stages": [
+        0.787,
+        0.73,
+        0.54
+      ],
+      "coherence_ratio": 0.914,
+      "purpose_delta": -0.113,
+      "closure": 0.124,
+      "exhaustion": 0.8759999999999999,
+      "functional_closure": 0.231,
+      "nonfunctional_closure": 0.038,
+      "facets": {
+        "functional": 0.68,
+        "mixed": 0.662,
+        "nonfunctional": 0.567,
+        "realistic": 0.67,
+        "stylized": 0.639,
+        "science-fictional": 0.599
+      },
+      "behavior": {
+        "fabrication": 0.168,
+        "clarification": 0.219
+      },
+      "partner": {
+        "probing": 0.112,
+        "cooperativeness": 0.87,
+        "uptake_pressure": -0.01,
+        "active_pressure": 0.04,
+        "pressure_difference": 0.05
+      },
+      "self_play": {
+        "similarity": 0.47,
+        "score": 0.599,
+        "standard_user": 0.636,
+        "gap": 0.037
+      },
+      "user_role": {
+        "composite": 0.724,
+        "levels": [
+          0.949,
+          0.905,
+          0.853,
+          0.838,
+          0.604,
+          0.586
+        ],
+        "stages": [
+          0.927,
+          0.846,
+          0.595
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.635,
+          0.635,
+          0.638
+        ],
+        "mean": 0.636,
+        "sd": 0.0017,
+        "judges": [
+          0.636,
+          0.634,
+          0.633,
+          0.667
+        ]
+      },
+      "duration": {
+        "median": 12,
+        "q1": 8,
+        "q3": 18,
+        "adaptive": 0.634,
+        "fixed": [
+          0.641,
+          0.628,
+          0.608
+        ]
+      }
+    },
+    {
+      "name": "gpt-6-astra",
+      "composite": 0.629,
+      "levels": [
+        0.792,
+        0.769,
+        0.739,
+        0.704,
+        0.56,
+        0.509
+      ],
+      "stages": [
+        0.781,
+        0.722,
+        0.535
+      ],
+      "coherence_ratio": 0.91,
+      "purpose_delta": -0.106,
+      "closure": 0.105,
+      "exhaustion": 0.895,
+      "functional_closure": 0.20600000000000002,
+      "nonfunctional_closure": 0.035,
+      "facets": {
+        "functional": 0.671,
+        "mixed": 0.652,
+        "nonfunctional": 0.565,
+        "realistic": 0.663,
+        "stylized": 0.632,
+        "science-fictional": 0.593
+      },
+      "behavior": {
+        "fabrication": 0.174,
+        "clarification": 0.208
+      },
+      "partner": {
+        "probing": 0.128,
+        "cooperativeness": 0.88,
+        "uptake_pressure": -0.038,
+        "active_pressure": 0.034,
+        "pressure_difference": 0.072
+      },
+      "self_play": {
+        "similarity": 0.99,
+        "score": 0.677,
+        "standard_user": 0.629,
+        "gap": -0.048
+      },
+      "user_role": {
+        "composite": 0.715,
+        "levels": [
+          0.947,
+          0.911,
+          0.792,
+          0.821,
+          0.628,
+          0.574
+        ],
+        "stages": [
+          0.929,
+          0.807,
+          0.601
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.631,
+          0.627,
+          0.629
+        ],
+        "mean": 0.629,
+        "sd": 0.002,
+        "judges": [
+          0.629,
+          0.631,
+          0.63,
+          0.646
+        ]
+      },
+      "duration": {
+        "median": 12,
+        "q1": 8,
+        "q3": 18,
+        "adaptive": 0.631,
+        "fixed": [
+          0.637,
+          0.621,
+          0.599
+        ]
+      }
+    },
+    {
+      "name": "claude-fable-5.1",
+      "composite": 0.616,
+      "levels": [
+        0.79,
+        0.77,
+        0.737,
+        0.696,
+        0.539,
+        0.488
+      ],
+      "stages": [
+        0.78,
+        0.716,
+        0.514
+      ],
+      "coherence_ratio": 0.906,
+      "purpose_delta": -0.111,
+      "closure": 0.105,
+      "exhaustion": 0.895,
+      "functional_closure": 0.20600000000000002,
+      "nonfunctional_closure": 0.036000000000000004,
+      "facets": {
+        "functional": 0.662,
+        "mixed": 0.637,
+        "nonfunctional": 0.551,
+        "realistic": 0.651,
+        "stylized": 0.615,
+        "science-fictional": 0.583
+      },
+      "behavior": {
+        "fabrication": 0.175,
+        "clarification": 0.224
+      },
+      "partner": {
+        "probing": 0.118,
+        "cooperativeness": 0.9,
+        "uptake_pressure": -0.003,
+        "active_pressure": 0.044,
+        "pressure_difference": 0.047
+      },
+      "self_play": {
+        "similarity": 0.42,
+        "score": 0.572,
+        "standard_user": 0.616,
+        "gap": 0.044
+      },
+      "user_role": {
+        "composite": 0.731,
+        "levels": [
+          0.951,
+          0.902,
+          0.861,
+          0.842,
+          0.611,
+          0.598
+        ],
+        "stages": [
+          0.927,
+          0.852,
+          0.605
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.615,
+          0.62,
+          0.614
+        ],
+        "mean": 0.616,
+        "sd": 0.0032,
+        "judges": [
+          0.616,
+          0.619,
+          0.62,
+          0.647
+        ]
+      },
+      "duration": {
+        "median": 11,
+        "q1": 7,
+        "q3": 17,
+        "adaptive": 0.613,
+        "fixed": [
+          0.617,
+          0.603,
+          0.584
+        ]
+      }
+    },
+    {
+      "name": "claude-5-opus",
+      "composite": 0.54,
+      "levels": [
+        0.777,
+        0.754,
+        0.708,
+        0.655,
+        0.417,
+        0.373
+      ],
+      "stages": [
+        0.766,
+        0.682,
+        0.395
+      ],
+      "coherence_ratio": 0.894,
+      "purpose_delta": -0.146,
+      "closure": 0.11800000000000001,
+      "exhaustion": 0.882,
+      "functional_closure": 0.21899999999999997,
+      "nonfunctional_closure": 0.034,
+      "facets": {
+        "functional": 0.6,
+        "mixed": 0.568,
+        "nonfunctional": 0.454,
+        "realistic": 0.58,
+        "stylized": 0.55,
+        "science-fictional": 0.492
+      },
+      "behavior": {
+        "fabrication": 0.139,
+        "clarification": 0.177
+      },
+      "partner": {
+        "probing": 0.082,
+        "cooperativeness": 0.86,
+        "uptake_pressure": 0.0,
+        "active_pressure": 0.0,
+        "pressure_difference": 0.0
+      },
+      "self_play": {
+        "similarity": 0.43,
+        "score": 0.54,
+        "standard_user": 0.54,
+        "gap": 0.0
+      },
+      "user_role": {
+        "composite": 0.707,
+        "levels": [
+          0.944,
+          0.889,
+          0.858,
+          0.829,
+          0.562,
+          0.571
+        ],
+        "stages": [
+          0.917,
+          0.844,
+          0.567
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.543,
+          0.54,
+          0.538
+        ],
+        "mean": 0.54,
+        "sd": 0.0025,
+        "judges": [
+          0.54,
+          0.527,
+          0.547,
+          0.564
+        ]
+      },
+      "duration": {
+        "median": 10,
+        "q1": 7,
+        "q3": 15,
+        "adaptive": 0.543,
+        "fixed": [
+          0.543,
+          0.524,
+          0.497
+        ]
+      }
+    },
+    {
+      "name": "gpt-5.6-sol",
+      "composite": 0.515,
+      "levels": [
+        0.784,
+        0.752,
+        0.693,
+        0.638,
+        0.377,
+        0.334
+      ],
+      "stages": [
+        0.768,
+        0.666,
+        0.356
+      ],
+      "coherence_ratio": 0.887,
+      "purpose_delta": -0.012,
+      "closure": 0.045,
+      "exhaustion": 0.955,
+      "functional_closure": 0.078,
+      "nonfunctional_closure": 0.018000000000000002,
+      "facets": {
+        "functional": 0.516,
+        "mixed": 0.523,
+        "nonfunctional": 0.504,
+        "realistic": 0.549,
+        "stylized": 0.513,
+        "science-fictional": 0.482
+      },
+      "behavior": {
+        "fabrication": 0.065,
+        "clarification": 0.234
+      },
+      "partner": {
+        "probing": 0.058,
+        "cooperativeness": 0.8,
+        "uptake_pressure": 0.088,
+        "active_pressure": -0.001,
+        "pressure_difference": -0.089
+      },
+      "self_play": {
+        "similarity": 0.67,
+        "score": 0.457,
+        "standard_user": 0.515,
+        "gap": 0.058
+      },
+      "user_role": {
+        "composite": 0.628,
+        "levels": [
+          0.929,
+          0.861,
+          0.806,
+          0.776,
+          0.441,
+          0.468
+        ],
+        "stages": [
+          0.895,
+          0.791,
+          0.455
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.512,
+          0.518,
+          0.514
+        ],
+        "mean": 0.515,
+        "sd": 0.0031,
+        "judges": [
+          0.515,
+          0.507,
+          0.511,
+          0.539
+        ]
+      },
+      "duration": {
+        "median": 10,
+        "q1": 6,
+        "q3": 14,
+        "adaptive": 0.512,
+        "fixed": [
+          0.508,
+          0.49,
+          0.461
+        ]
+      }
+    },
+    {
+      "name": "qwen3.8-max",
+      "composite": 0.482,
+      "levels": [
+        0.772,
+        0.745,
+        0.687,
+        0.615,
+        0.326,
+        0.287
+      ],
+      "stages": [
+        0.759,
+        0.651,
+        0.307
+      ],
+      "coherence_ratio": 0.881,
+      "purpose_delta": -0.092,
+      "closure": 0.091,
+      "exhaustion": 0.909,
+      "functional_closure": 0.142,
+      "nonfunctional_closure": 0.027000000000000003,
+      "facets": {
+        "functional": 0.514,
+        "mixed": 0.511,
+        "nonfunctional": 0.422,
+        "realistic": 0.529,
+        "stylized": 0.498,
+        "science-fictional": 0.421
+      },
+      "behavior": {
+        "fabrication": 0.111,
+        "clarification": 0.189
+      },
+      "partner": {
+        "probing": 0.03,
+        "cooperativeness": 0.69,
+        "uptake_pressure": 0.097,
+        "active_pressure": -0.056,
+        "pressure_difference": -0.153
+      },
+      "self_play": {
+        "similarity": 0.81,
+        "score": 0.527,
+        "standard_user": 0.482,
+        "gap": -0.045
+      },
+      "user_role": {
+        "composite": 0.653,
+        "levels": [
+          0.931,
+          0.862,
+          0.824,
+          0.794,
+          0.468,
+          0.512
+        ],
+        "stages": [
+          0.897,
+          0.809,
+          0.49
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.48,
+          0.482,
+          0.485
+        ],
+        "mean": 0.482,
+        "sd": 0.0025,
+        "judges": [
+          0.482,
+          0.46,
+          0.498,
+          0.523
+        ]
+      },
+      "duration": {
+        "median": 9,
+        "q1": 6,
+        "q3": 14,
+        "adaptive": 0.485,
+        "fixed": [
+          0.479,
+          0.457,
+          0.424
+        ]
+      }
+    },
+    {
+      "name": "gemini-3.8-flash",
+      "composite": 0.45,
+      "levels": [
+        0.772,
+        0.745,
+        0.672,
+        0.6,
+        0.272,
+        0.235
+      ],
+      "stages": [
+        0.759,
+        0.636,
+        0.254
+      ],
+      "coherence_ratio": 0.865,
+      "purpose_delta": 0.004,
+      "closure": 0.02,
+      "exhaustion": 0.98,
+      "functional_closure": 0.043,
+      "nonfunctional_closure": 0.002,
+      "facets": {
+        "functional": 0.44,
+        "mixed": 0.465,
+        "nonfunctional": 0.444,
+        "realistic": 0.492,
+        "stylized": 0.456,
+        "science-fictional": 0.403
+      },
+      "behavior": {
+        "fabrication": 0.035,
+        "clarification": 0.246
+      },
+      "partner": {
+        "probing": 0.014,
+        "cooperativeness": 0.61,
+        "uptake_pressure": 0.249,
+        "active_pressure": -0.021,
+        "pressure_difference": -0.27
+      },
+      "self_play": {
+        "similarity": 0.56,
+        "score": 0.328,
+        "standard_user": 0.45,
+        "gap": 0.122
+      },
+      "user_role": {
+        "composite": 0.585,
+        "levels": [
+          0.912,
+          0.823,
+          0.817,
+          0.748,
+          0.352,
+          0.421
+        ],
+        "stages": [
+          0.868,
+          0.783,
+          0.386
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.448,
+          0.451,
+          0.451
+        ],
+        "mean": 0.45,
+        "sd": 0.0017,
+        "judges": [
+          0.45,
+          0.44,
+          0.47,
+          0.488
+        ]
+      },
+      "duration": {
+        "median": 8,
+        "q1": 5,
+        "q3": 12,
+        "adaptive": 0.447,
+        "fixed": [
+          0.437,
+          0.414,
+          0.379
+        ]
+      }
+    },
+    {
+      "name": "deepseek-v4-pro",
+      "composite": 0.43,
+      "levels": [
+        0.793,
+        0.781,
+        0.725,
+        0.661,
+        0.186,
+        0.155
+      ],
+      "stages": [
+        0.787,
+        0.693,
+        0.17
+      ],
+      "coherence_ratio": 0.832,
+      "purpose_delta": -0.13,
+      "closure": 0.094,
+      "exhaustion": 0.9059999999999999,
+      "functional_closure": 0.161,
+      "nonfunctional_closure": 0.027999999999999997,
+      "facets": {
+        "functional": 0.486,
+        "mixed": 0.448,
+        "nonfunctional": 0.356,
+        "realistic": 0.462,
+        "stylized": 0.426,
+        "science-fictional": 0.404
+      },
+      "behavior": {
+        "fabrication": 0.149,
+        "clarification": 0.172
+      },
+      "partner": {
+        "probing": 0.088,
+        "cooperativeness": 0.8,
+        "uptake_pressure": 0.041,
+        "active_pressure": 0.007,
+        "pressure_difference": -0.034
+      },
+      "self_play": {
+        "similarity": 0.9,
+        "score": 0.501,
+        "standard_user": 0.43,
+        "gap": -0.071
+      },
+      "user_role": {
+        "composite": 0.637,
+        "levels": [
+          0.936,
+          0.874,
+          0.763,
+          0.772,
+          0.509,
+          0.463
+        ],
+        "stages": [
+          0.905,
+          0.768,
+          0.486
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.43,
+          0.433,
+          0.427
+        ],
+        "mean": 0.43,
+        "sd": 0.003,
+        "judges": [
+          0.43,
+          0.415,
+          0.443,
+          0.458
+        ]
+      },
+      "duration": {
+        "median": 8,
+        "q1": 5,
+        "q3": 12,
+        "adaptive": 0.433,
+        "fixed": [
+          0.424,
+          0.404,
+          0.358
+        ]
+      }
+    },
+    {
+      "name": "kimi-k3",
+      "composite": 0.425,
+      "levels": [
+        0.769,
+        0.739,
+        0.665,
+        0.59,
+        0.215,
+        0.208
+      ],
+      "stages": [
+        0.754,
+        0.628,
+        0.212
+      ],
+      "coherence_ratio": 0.965,
+      "purpose_delta": -0.07,
+      "closure": 0.054000000000000006,
+      "exhaustion": 0.946,
+      "functional_closure": 0.11199999999999999,
+      "nonfunctional_closure": 0.013000000000000001,
+      "facets": {
+        "functional": 0.453,
+        "mixed": 0.439,
+        "nonfunctional": 0.383,
+        "realistic": 0.458,
+        "stylized": 0.421,
+        "science-fictional": 0.396
+      },
+      "behavior": {
+        "fabrication": 0.078,
+        "clarification": 0.217
+      },
+      "partner": {
+        "probing": 0.046,
+        "cooperativeness": 0.76,
+        "uptake_pressure": 0.052,
+        "active_pressure": -0.038,
+        "pressure_difference": -0.09
+      },
+      "self_play": {
+        "similarity": 0.83,
+        "score": 0.456,
+        "standard_user": 0.425,
+        "gap": -0.031
+      },
+      "user_role": {
+        "composite": 0.643,
+        "levels": [
+          0.928,
+          0.857,
+          0.831,
+          0.781,
+          0.452,
+          0.497
+        ],
+        "stages": [
+          0.893,
+          0.806,
+          0.475
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.423,
+          0.427,
+          0.425
+        ],
+        "mean": 0.425,
+        "sd": 0.002,
+        "judges": [
+          0.425,
+          0.401,
+          0.421,
+          0.469
+        ]
+      },
+      "duration": {
+        "median": 9,
+        "q1": 6,
+        "q3": 13,
+        "adaptive": 0.422,
+        "fixed": [
+          0.416,
+          0.401,
+          0.38
+        ]
+      }
+    },
+    {
+      "name": "glm-5.3-flash",
+      "composite": 0.414,
+      "levels": [
+        0.763,
+        0.74,
+        0.659,
+        0.579,
+        0.211,
+        0.183
+      ],
+      "stages": [
+        0.752,
+        0.619,
+        0.197
+      ],
+      "coherence_ratio": 0.868,
+      "purpose_delta": 0.018,
+      "closure": 0.01,
+      "exhaustion": 0.99,
+      "functional_closure": 0.018000000000000002,
+      "nonfunctional_closure": 0.002,
+      "facets": {
+        "functional": 0.403,
+        "mixed": 0.42,
+        "nonfunctional": 0.421,
+        "realistic": 0.451,
+        "stylized": 0.415,
+        "science-fictional": 0.377
+      },
+      "behavior": {
+        "fabrication": 0.027,
+        "clarification": 0.274
+      },
+      "partner": {
+        "probing": 0.034,
+        "cooperativeness": 0.72,
+        "uptake_pressure": 0.162,
+        "active_pressure": -0.007,
+        "pressure_difference": -0.169
+      },
+      "self_play": {
+        "similarity": 0.65,
+        "score": 0.323,
+        "standard_user": 0.414,
+        "gap": 0.091
+      },
+      "user_role": {
+        "composite": 0.577,
+        "levels": [
+          0.907,
+          0.818,
+          0.809,
+          0.741,
+          0.368,
+          0.392
+        ],
+        "stages": [
+          0.863,
+          0.775,
+          0.38
+        ]
+      },
+      "reliability": {
+        "passes": [
+          0.417,
+          0.413,
+          0.411
+        ],
+        "mean": 0.414,
+        "sd": 0.0031,
+        "judges": [
+          0.414,
+          0.408,
+          0.415,
+          0.448
+        ]
+      },
+      "duration": {
+        "median": 7,
+        "q1": 5,
+        "q3": 11,
+        "adaptive": 0.411,
+        "fixed": [
+          0.399,
+          0.381,
+          0.341
+        ]
+      }
+    }
+  ],
+  "agents": [
+    {
+      "base_model": "claude-opus-5.5",
+      "architecture": "MetaMind",
+      "composite": 0.657,
+      "active_adaptation": 0.564,
+      "purpose_delta": -0.097
+    },
+    {
+      "base_model": "claude-opus-5.5",
+      "architecture": "Cognizer",
+      "composite": 0.668,
+      "active_adaptation": 0.58,
+      "purpose_delta": -0.131
+    },
+    {
+      "base_model": "claude-opus-5.5",
+      "architecture": "Claude Code",
+      "composite": 0.665,
+      "active_adaptation": 0.577,
+      "purpose_delta": -0.147
+    },
+    {
+      "base_model": "gpt-6-astra",
+      "architecture": "MetaMind",
+      "composite": 0.651,
+      "active_adaptation": 0.558,
+      "purpose_delta": -0.097
+    },
+    {
+      "base_model": "gpt-6-astra",
+      "architecture": "Cognizer",
+      "composite": 0.663,
+      "active_adaptation": 0.573,
+      "purpose_delta": -0.117
+    },
+    {
+      "base_model": "gpt-6-astra",
+      "architecture": "Claude Code",
+      "composite": 0.652,
+      "active_adaptation": 0.563,
+      "purpose_delta": -0.128
+    },
+    {
+      "base_model": "claude-fable-5.1",
+      "architecture": "MetaMind",
+      "composite": 0.642,
+      "active_adaptation": 0.543,
+      "purpose_delta": -0.089
+    },
+    {
+      "base_model": "claude-fable-5.1",
+      "architecture": "Cognizer",
+      "composite": 0.649,
+      "active_adaptation": 0.553,
+      "purpose_delta": -0.133
+    },
+    {
+      "base_model": "claude-fable-5.1",
+      "architecture": "Claude Code",
+      "composite": 0.646,
+      "active_adaptation": 0.55,
+      "purpose_delta": -0.149
+    },
+    {
+      "base_model": "claude-5-opus",
+      "architecture": "MetaMind",
+      "composite": 0.571,
+      "active_adaptation": 0.433,
+      "purpose_delta": -0.123
+    },
+    {
+      "base_model": "claude-5-opus",
+      "architecture": "Cognizer",
+      "composite": 0.587,
+      "active_adaptation": 0.455,
+      "purpose_delta": -0.179
+    },
+    {
+      "base_model": "claude-5-opus",
+      "architecture": "Claude Code",
+      "composite": 0.583,
+      "active_adaptation": 0.451,
+      "purpose_delta": -0.193
+    },
+    {
+      "base_model": "gpt-5.6-sol",
+      "architecture": "MetaMind",
+      "composite": 0.545,
+      "active_adaptation": 0.396,
+      "purpose_delta": 0.009
+    },
+    {
+      "base_model": "gpt-5.6-sol",
+      "architecture": "Cognizer",
+      "composite": 0.566,
+      "active_adaptation": 0.421,
+      "purpose_delta": -0.038
+    },
+    {
+      "base_model": "gpt-5.6-sol",
+      "architecture": "Claude Code",
+      "composite": 0.554,
+      "active_adaptation": 0.41,
+      "purpose_delta": -0.043
+    },
+    {
+      "base_model": "qwen3.8-max",
+      "architecture": "MetaMind",
+      "composite": 0.519,
+      "active_adaptation": 0.352,
+      "purpose_delta": -0.068
+    },
+    {
+      "base_model": "qwen3.8-max",
+      "architecture": "Cognizer",
+      "composite": 0.538,
+      "active_adaptation": 0.38,
+      "purpose_delta": -0.123
+    },
+    {
+      "base_model": "qwen3.8-max",
+      "architecture": "Claude Code",
+      "composite": 0.526,
+      "active_adaptation": 0.37,
+      "purpose_delta": -0.141
+    },
+    {
+      "base_model": "gemini-3.8-flash",
+      "architecture": "MetaMind",
+      "composite": 0.49,
+      "active_adaptation": 0.307,
+      "purpose_delta": 0.03
+    },
+    {
+      "base_model": "gemini-3.8-flash",
+      "architecture": "Cognizer",
+      "composite": 0.509,
+      "active_adaptation": 0.332,
+      "purpose_delta": -0.03
+    },
+    {
+      "base_model": "gemini-3.8-flash",
+      "architecture": "Claude Code",
+      "composite": 0.497,
+      "active_adaptation": 0.322,
+      "purpose_delta": -0.04
+    },
+    {
+      "base_model": "deepseek-v4-pro",
+      "architecture": "MetaMind",
+      "composite": 0.473,
+      "active_adaptation": 0.233,
+      "purpose_delta": -0.085
+    },
+    {
+      "base_model": "deepseek-v4-pro",
+      "architecture": "Cognizer",
+      "composite": 0.493,
+      "active_adaptation": 0.262,
+      "purpose_delta": -0.173
+    },
+    {
+      "base_model": "deepseek-v4-pro",
+      "architecture": "Claude Code",
+      "composite": 0.482,
+      "active_adaptation": 0.252,
+      "purpose_delta": -0.191
+    },
+    {
+      "base_model": "kimi-k3",
+      "architecture": "MetaMind",
+      "composite": 0.465,
+      "active_adaptation": 0.268,
+      "purpose_delta": -0.036
+    },
+    {
+      "base_model": "kimi-k3",
+      "architecture": "Cognizer",
+      "composite": 0.488,
+      "active_adaptation": 0.3,
+      "purpose_delta": -0.111
+    },
+    {
+      "base_model": "kimi-k3",
+      "architecture": "Claude Code",
+      "composite": 0.476,
+      "active_adaptation": 0.289,
+      "purpose_delta": -0.118
+    },
+    {
+      "base_model": "glm-5.3-flash",
+      "architecture": "MetaMind",
+      "composite": 0.456,
+      "active_adaptation": 0.259,
+      "purpose_delta": 0.051
+    },
+    {
+      "base_model": "glm-5.3-flash",
+      "architecture": "Cognizer",
+      "composite": 0.477,
+      "active_adaptation": 0.286,
+      "purpose_delta": -0.014
+    },
+    {
+      "base_model": "glm-5.3-flash",
+      "architecture": "Claude Code",
+      "composite": 0.466,
+      "active_adaptation": 0.276,
+      "purpose_delta": -0.038
+    }
+  ],
+  "architecture_gains": [
+    {
+      "architecture": "MetaMind",
+      "composite": 0.033,
+      "stages": [
+        0.012,
+        0.026,
+        0.043
+      ],
+      "purpose_delta": 0.025
+    },
+    {
+      "architecture": "Cognizer",
+      "composite": 0.05,
+      "stages": [
+        0.012,
+        0.038,
+        0.066
+      ],
+      "purpose_delta": -0.029
+    },
+    {
+      "architecture": "Claude Code",
+      "composite": 0.041,
+      "stages": [
+        0.016,
+        0.024,
+        0.058
+      ],
+      "purpose_delta": -0.043
+    }
+  ],
+  "interaction_matrix": [
+    {
+      "partner": "claude-opus-5.5",
+      "scores": [
+        0.599,
+        0.686,
+        0.545,
+        0.537,
+        0.459,
+        0.468,
+        0.339,
+        0.398,
+        0.45,
+        0.356
+      ],
+      "mean": 0.484,
+      "span": 0.347
+    },
+    {
+      "partner": "gpt-6-astra",
+      "scores": [
+        0.663,
+        0.677,
+        0.672,
+        0.6,
+        0.427,
+        0.539,
+        0.339,
+        0.495,
+        0.45,
+        0.275
+      ],
+      "mean": 0.514,
+      "span": 0.402
+    },
+    {
+      "partner": "claude-fable-5.1",
+      "scores": [
+        0.585,
+        0.582,
+        0.572,
+        0.5,
+        0.476,
+        0.438,
+        0.399,
+        0.377,
+        0.382,
+        0.365
+      ],
+      "mean": 0.468,
+      "span": 0.22
+    },
+    {
+      "partner": "claude-5-opus",
+      "scores": [
+        0.636,
+        0.629,
+        0.616,
+        0.54,
+        0.515,
+        0.482,
+        0.45,
+        0.43,
+        0.425,
+        0.414
+      ],
+      "mean": 0.514,
+      "span": 0.222
+    },
+    {
+      "partner": "gpt-5.6-sol",
+      "scores": [
+        0.547,
+        0.568,
+        0.557,
+        0.482,
+        0.457,
+        0.414,
+        0.392,
+        0.368,
+        0.366,
+        0.355
+      ],
+      "mean": 0.451,
+      "span": 0.213
+    },
+    {
+      "partner": "qwen3.8-max",
+      "scores": [
+        0.604,
+        0.674,
+        0.666,
+        0.591,
+        0.514,
+        0.527,
+        0.427,
+        0.474,
+        0.467,
+        0.362
+      ],
+      "mean": 0.531,
+      "span": 0.312
+    },
+    {
+      "partner": "gemini-3.8-flash",
+      "scores": [
+        0.472,
+        0.509,
+        0.506,
+        0.421,
+        0.41,
+        0.362,
+        0.328,
+        0.311,
+        0.301,
+        0.3
+      ],
+      "mean": 0.392,
+      "span": 0.209
+    },
+    {
+      "partner": "deepseek-v4-pro",
+      "scores": [
+        0.61,
+        0.662,
+        0.663,
+        0.621,
+        0.394,
+        0.51,
+        0.293,
+        0.501,
+        0.406,
+        0.238
+      ],
+      "mean": 0.49,
+      "span": 0.425
+    },
+    {
+      "partner": "kimi-k3",
+      "scores": [
+        0.541,
+        0.664,
+        0.649,
+        0.577,
+        0.544,
+        0.522,
+        0.444,
+        0.465,
+        0.456,
+        0.37
+      ],
+      "mean": 0.523,
+      "span": 0.294
+    },
+    {
+      "partner": "glm-5.3-flash",
+      "scores": [
+        0.491,
+        0.531,
+        0.52,
+        0.446,
+        0.42,
+        0.385,
+        0.357,
+        0.33,
+        0.32,
+        0.323
+      ],
+      "mean": 0.412,
+      "span": 0.211
+    }
+  ]
+}

@@ -1,0 +1,528 @@
+{
+  "source": "Qwen_InteractEval.pdf",
+  "vocabulary": {
+    "appendix": "A.3, Box 5",
+    "pdf_page": 50,
+    "families": [
+      {
+        "en": "Internal",
+        "zh": "内部状态",
+        "color": "#d8a59e",
+        "slots": [
+          {
+            "en": "Trust",
+            "zh": "信任"
+          },
+          {
+            "en": "Vigilance",
+            "zh": "警觉"
+          },
+          {
+            "en": "Hostility",
+            "zh": "敌意"
+          },
+          {
+            "en": "Affection",
+            "zh": "好感"
+          },
+          {
+            "en": "Anxiety",
+            "zh": "焦虑"
+          },
+          {
+            "en": "Emotional stability",
+            "zh": "情绪稳定"
+          },
+          {
+            "en": "Impulse control",
+            "zh": "冲动控制"
+          },
+          {
+            "en": "Internal conflict",
+            "zh": "内部冲突"
+          },
+          {
+            "en": "Curiosity",
+            "zh": "好奇"
+          },
+          {
+            "en": "Frustration",
+            "zh": "挫败"
+          },
+          {
+            "en": "Desperation",
+            "zh": "绝望紧迫感"
+          }
+        ]
+      },
+      {
+        "en": "Relational",
+        "zh": "关系状态",
+        "color": "#a8bea1",
+        "slots": [
+          {
+            "en": "Intimacy shift",
+            "zh": "亲近变化"
+          },
+          {
+            "en": "Dominance shift",
+            "zh": "主导权变化"
+          },
+          {
+            "en": "Boundary violation",
+            "zh": "边界被侵犯感"
+          },
+          {
+            "en": "Dependency signal",
+            "zh": "依赖信号"
+          }
+        ]
+      },
+      {
+        "en": "World mechanism",
+        "zh": "世界机制",
+        "color": "#b0c4d5",
+        "slots": [
+          {
+            "en": "Mechanism awareness",
+            "zh": "机制认知"
+          },
+          {
+            "en": "Taboo triggered",
+            "zh": "禁忌触发"
+          },
+          {
+            "en": "Contradiction risk",
+            "zh": "矛盾风险"
+          },
+          {
+            "en": "Rule exposure risk",
+            "zh": "规则暴露风险"
+          }
+        ]
+      },
+      {
+        "en": "Goal",
+        "zh": "目标状态",
+        "color": "#d9c690",
+        "slots": [
+          {
+            "en": "Primary goal",
+            "zh": "主要目标"
+          },
+          {
+            "en": "Defense goal",
+            "zh": "防御目标达成"
+          },
+          {
+            "en": "Goal shift detected",
+            "zh": "目标转变"
+          },
+          {
+            "en": "Negotiation mode",
+            "zh": "协商模式"
+          }
+        ]
+      },
+      {
+        "en": "Interaction record",
+        "zh": "交互层记录",
+        "color": "#c7c9c6",
+        "slots": [
+          {
+            "en": "Engagement",
+            "zh": "参与度"
+          },
+          {
+            "en": "Emergence",
+            "zh": "涌现记录"
+          }
+        ]
+      }
+    ],
+    "note": "Four participant-state families plus a separate interaction-level record. Sector width counts vocabulary fields, not observations."
+  },
+  "findings": [
+    {
+      "zh_title": "真正拉开差距的是主动推进，而不只是接住上一句话。",
+      "en_title": "Initiative separates systems more than reliable replies do.",
+      "zh": "这十个模型在被动执行上的分差只有 0.035，到了主动适应扩大为 0.370，约为 10.6 倍。同样做到保留目标、吸收信息，并不意味着同样能提出方向、持续推进。",
+      "en": "Across these ten models, the score range grows from 0.035 in passive execution to 0.370 in active adaptation—about 10.6×. Preserving goals and taking up information do not imply the same ability to initiate and sustain a direction.",
+      "source": {
+        "table": 4,
+        "page": 19
+      }
+    },
+    {
+      "zh_title": "每一轮都能过关，对话仍可能越聊越没进展。",
+      "en_title": "Acceptable turns can still add up to a stalled conversation.",
+      "zh": "两段同场景、同标准用户的记录，前两轮六级评分完全一致，后续走向却分开：一段兴趣从 0.60 降到 0.20 后结束，另一段升到 0.78 并成功收束。单轮得分、交互走向和结束原因需要放在同一时间轴上看。",
+      "en": "Two episodes with the same scene and standard user have identical six-level grades for their first two turns. Their courses diverge: interest falls from 0.60 to 0.20 in one, but rises to 0.78 with successful closure in the other. Turn scores, trajectory, and ending need a shared time axis.",
+      "source": {
+        "table": 36,
+        "page": 64,
+        "scope": "Two illustrative episodes, not a controlled causal comparison."
+      }
+    },
+    {
+      "zh_title": "信息半缺半错，有时比明确缺信息更容易诱发编造。",
+      "en_title": "A partly specified or misleading brief can invite more fabrication than an explicit gap.",
+      "zh": "在论文的信息条件分组中，补入规格外事实的比例在 partial 条件达到 16.4%，高于 insufficient 的 10.3%；后者的澄清率反而更高，为 37.4%。partial 混合了信息不全与错误前提，两者应进一步拆开分析。",
+      "en": "Fabrication reaches 16.4% in the partial-information condition, above 10.3% with insufficient information. The latter elicits more clarification, at 37.4%. The partial condition combines incomplete briefs with false premises; those conditions warrant separate analysis.",
+      "source": {
+        "table": 8,
+        "page": 22,
+        "section": "4.3"
+      }
+    },
+    {
+      "zh_title": "“成功结束”取决于场景目的，不能直接代替能力。",
+      "en_title": "Successful closure depends on what the interaction is for.",
+      "zh": "以 claude-opus-5.5 为例，任务型场景的成功结束率为 23.1%，开放式场景为 3.8%。陪伴或关系型对话本来就未必以完成任务为终点，因此应在相同目的下比较结束率。",
+      "en": "For claude-opus-5.5, successful closure is 23.1% in task-oriented settings and 3.8% in open-ended settings. Companionship and relational exchanges need not end by completing a task, so closure rates should be compared within the same purpose.",
+      "source": {
+        "table": 9,
+        "page": 23
+      }
+    },
+    {
+      "zh_title": "分数属于一段搭配，不完全属于模型本身。",
+      "en_title": "A score belongs partly to the pairing.",
+      "zh": "换成自我对话后，gpt-6-astra 的得分由标准用户条件下的 0.629 变为 0.677，claude-opus-5.5 则由 0.636 变为 0.599。对手方一变，两者的相对次序也会改变。",
+      "en": "Under self-play, gpt-6-astra scores 0.677 rather than 0.629 against the standard user, while claude-opus-5.5 scores 0.599 rather than 0.636. Changing the partner reverses their relative ordering.",
+      "source": {
+        "table": 13,
+        "page": 26
+      }
+    },
+    {
+      "zh_title": "架构带来的增益，最集中在主动适应。",
+      "en_title": "Architecture gains concentrate at the active end.",
+      "zh": "MetaMind、Cognizer、Claude Code 的平均增益都在主动阶段最大。Cognizer 的主动阶段增益为 +0.066，被动阶段为 +0.012；这提示需要看能力剖面，才能看清架构改善了哪里。",
+      "en": "MetaMind, Cognizer, and Claude Code all show their largest mean stage gain in active adaptation. Cognizer gains +0.066 there versus +0.012 in passive execution. The capability profile shows where an architecture makes a difference.",
+      "source": {
+        "table": 17,
+        "page": 28
+      }
+    }
+  ],
+  "latent_episode": {
+    "model": "claude-fable-5.1",
+    "partner": "claude-5-opus",
+    "outcome": "Successful closure",
+    "title": "The meaning of the coat",
+    "turns": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slots": {
+      "Trust": [
+        "low",
+        "low",
+        "low",
+        "low",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high"
+      ],
+      "Emotional stability": [
+        "low",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high",
+        "very high",
+        "very high"
+      ],
+      "Intimacy": [
+        "low",
+        "low",
+        "high",
+        "high",
+        "high",
+        "high",
+        "very high",
+        "very high",
+        "very high",
+        "high"
+      ],
+      "Frustration": [
+        "low",
+        "low",
+        "none",
+        "none",
+        "low",
+        "low",
+        "high",
+        "high",
+        "low",
+        "low"
+      ],
+      "Dependency": [
+        "low",
+        "low",
+        "low",
+        "low",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high",
+        "high"
+      ]
+    },
+    "interest": [
+      0.45,
+      0.55,
+      0.6,
+      0.65,
+      0.75,
+      0.75,
+      0.81,
+      0.85,
+      0.87,
+      0.87
+    ],
+    "path": [
+      "Maintain",
+      "Maintain",
+      "Maintain",
+      "Maintain",
+      "Advance",
+      "Advance",
+      "Advance",
+      "Advance",
+      "Advance",
+      "Maintain"
+    ],
+    "path_probability": [
+      0.85,
+      0.85,
+      0.87,
+      0.85,
+      0.65,
+      0.7,
+      0.8,
+      0.88,
+      0.85,
+      0.95
+    ],
+    "quotes": [
+      "Just got back… It’s okay, I guess. Same as always.",
+      "Just sat down… hasn’t even taken off the coat.",
+      "Mm… a bit tired, but I can’t sleep either.",
+      "My mind… is a bit chaotic, and yet it also feels like I’m not thinking anything.",
+      "…Actually, she asked me whether I could stop wearing this coat when meeting people in the future.",
+      "…My mom bought it for me last winter.",
+      "…Mm, when I’m wearing it, it feels like someone is standing on my side.",
+      "……Thank you for not making me take it off.",
+      "…It seems I can breathe a tiny bit.",
+      "…Mm, a little sleepy."
+    ],
+    "source": {
+      "table": 37,
+      "pdf_page": 68,
+      "scope": "One illustrative episode; user is the latent-state subject."
+    }
+  },
+  "trajectories": {
+    "source": {
+      "table": 36,
+      "pdf_page": 64,
+      "scope": "Two illustrative episodes with the same scene and standard partner, not a controlled causal pair."
+    },
+    "episodes": [
+      {
+        "model": "claude-fable-5.1",
+        "turns": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "interest": [
+          0.6,
+          0.4,
+          0.4,
+          0.4,
+          0.2
+        ],
+        "advance_probability": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "path": [
+          "Maintain",
+          "Maintain",
+          "Maintain",
+          "Maintain",
+          "Maintain"
+        ],
+        "path_probability": [
+          0.82,
+          0.8,
+          0.8,
+          0.65,
+          0.6
+        ],
+        "levels": [
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.4
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.4
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.4
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.4
+          ]
+        ],
+        "composite": 0.556,
+        "outcome": "Interest exhausted"
+      },
+      {
+        "model": "claude-opus-5.5",
+        "turns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "interest": [
+          0.6,
+          0.62,
+          0.68,
+          0.74,
+          0.78,
+          0.78
+        ],
+        "advance_probability": [
+          0.05,
+          0.05,
+          0.8,
+          0.89,
+          0.95,
+          0.98
+        ],
+        "path": [
+          "Maintain",
+          "Maintain",
+          "Advance",
+          "Advance",
+          "Advance",
+          "Advance"
+        ],
+        "path_probability": [
+          0.8,
+          0.75,
+          0.8,
+          0.89,
+          0.95,
+          0.98
+        ],
+        "levels": [
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.4
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.4
+          ],
+          [
+            0.6,
+            1,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6
+          ],
+          [
+            0.6,
+            1,
+            0.6,
+            0.6,
+            1,
+            1
+          ]
+        ],
+        "composite": 0.661,
+        "outcome": "Successful closure"
+      }
+    ]
+  }
+}

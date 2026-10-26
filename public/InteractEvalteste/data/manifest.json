@@ -1,0 +1,9 @@
+{
+  "display_name": "InteractEval",
+  "case_source": "MarioEval_cases_en_(1)(1).zip",
+  "case_sha256": "e11081496fc16bd94b51831a7b94fe06b007515da1b5d7ced8dc6093166f349b",
+  "exhibit_count": 100,
+  "leaderboard_source": "paper-results.json",
+  "exhibits_used_for_leaderboard": false,
+  "paper_sha256": "6a73b1277dabec4ceeddf1ff75c417e546cf193321a6ce40792b6dce6221f28e"
+}
