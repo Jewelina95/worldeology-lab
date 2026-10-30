@@ -1,0 +1,37 @@
+/* Homepage argument, continuous section navigation, and paper-grounded findings. */
+.results-page .journal-hero h1{font-size:clamp(64px,7.2vw,106px);letter-spacing:-.045em}
+.results-page .journal-hero .journal-deck{font:400 clamp(25px,2.5vw,33px)/1.25 var(--serif);color:#dce7d4}
+.results-page .hero-method-summary{font-size:17px;line-height:1.8;max-width:580px}
+.results-page .article-shell{align-items:start}
+.results-page .home-rail{top:105px;max-height:calc(100dvh - 125px);overflow-y:auto}
+.results-page .home-rail>a:not(.rail-link){display:flex;align-items:baseline;gap:10px;padding:10px 9px;font-size:14px;line-height:1.5}
+.results-page .home-rail small{font-size:12px;min-width:18px;color:#697d61}
+.results-page .home-rail [aria-current=location]{border-left-color:#426c4b;background:#e8eee0;color:#294837}
+.results-page .home-project-overview .journal-section-heading{margin-bottom:26px}
+.results-page .home-argument{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;margin:0 0 28px;padding-bottom:28px;border-bottom:1px solid #dce2d6}
+.results-page .home-argument h3{font:400 24px/1.25 var(--serif);color:#36583d;margin:4px 0 0}
+.results-page .home-argument p{font:400 16px/1.9 var(--sans);color:#435b45;margin:0;max-width:850px}
+.results-page .home-source-note{font:14px/1.8 var(--sans);color:#53634f;max-width:880px}
+.results-page .home-source-note a{text-underline-offset:3px;color:#365c3e}
+.results-page .article-body>.proactivity-opening{max-width:none;margin:54px 0 0;padding:0;scroll-margin-top:var(--home-nav-offset,120px)}
+.results-page .proactivity-opening .intro-section-heading{padding-top:0;grid-template-columns:1fr 1fr;gap:32px}
+.results-page .intro-dialogue-panel{grid-template-columns:minmax(0,1.2fr) minmax(240px,.9fr);gap:28px}
+.results-page .intro-dialogue-reading h3{font-size:30px}
+.results-page .intro-turns li.is-current blockquote{font-size:23px}
+.results-page .article-section{scroll-margin-top:var(--home-nav-offset,120px)}
+.results-page .home-chapter-number{display:block;font:14px/1.6 var(--sans);color:#53634f;margin-bottom:14px}
+.results-page .home-findings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.results-page .home-finding{display:flex;flex-direction:column;min-width:0;padding:27px;background:#eef2e7;border:1px solid #dae2d1;border-radius:12px}
+.results-page .home-finding-number{font:14px/1.5 var(--sans);color:#6b8061;margin-bottom:15px}
+.results-page .home-finding h3{font:400 30px/1.15 var(--serif);color:#294837;margin:0;min-height:70px}
+.results-page .home-finding-stat{padding:23px 0 20px;margin-bottom:18px;border-bottom:1px solid #d5dfca}
+.results-page .home-finding-stat strong{display:block;font:400 clamp(26px,2.7vw,40px)/1.1 var(--sans);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#355d3d}
+.results-page .home-finding-stat>span{display:block;margin-top:10px;font:14px/1.65 var(--sans);color:#53634f}
+.results-page .home-finding>p{font:15px/1.85 var(--sans);margin:0 0 22px;color:#435b45}
+.results-page .home-finding footer{display:grid;gap:13px;margin-top:auto;padding-top:15px;border-top:1px solid #d5dfca}
+.results-page .home-finding footer>span{font:13px/1.65 var(--sans);color:#53634f}
+.results-page .home-finding footer>a{font:500 14px/1.6 var(--sans);color:#34573b;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1100px){.results-page .home-argument{grid-template-columns:150px minmax(0,1fr);gap:22px}.results-page .home-finding{padding:22px}.results-page .home-finding h3{font-size:27px}.results-page .intro-dialogue-panel{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:800px){.results-page .home-rail{position:static;display:flex;max-height:none;overflow-x:auto;overflow-y:hidden;margin-bottom:36px;gap:7px}.results-page .home-rail>a:not(.rail-link){white-space:nowrap;padding:10px 12px;min-height:44px}.results-page .home-argument{grid-template-columns:1fr;gap:12px}.results-page .home-argument h3{font-size:25px}.results-page .home-argument p{font-size:16px}.results-page .home-findings-grid{grid-template-columns:1fr}.results-page .home-finding h3{min-height:0;font-size:30px}.results-page .home-finding-stat strong{font-size:clamp(29px,9vw,36px)}.results-page .proactivity-opening .intro-section-heading{grid-template-columns:1fr;gap:16px}.results-page .hero-method-summary{font-size:16px}.results-page .journal-hero h1{font-size:clamp(46px,13vw,88px)}}
+@media(prefers-reduced-motion:reduce){.results-page .home-rail{scroll-behavior:auto}}
+@media(max-width:420px){.results-page :is(.journal-outcome-head,.journal-purpose-row){grid-template-columns:minmax(100px,1.2fr) minmax(60px,1fr) minmax(60px,1fr);gap:8px}}

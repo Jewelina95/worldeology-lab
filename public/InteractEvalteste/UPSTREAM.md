@@ -22,3 +22,7 @@ Source mapping:
 | Record retention, aggregation, separate gap behaviors | §3.6; Appendix A.9 |
 
 No invented clinical, psychological, or causal measurements are added. Conceptual diagrams stay separate from the published full-study tables and the illustrative case records. The existing `/interactiveval/` site is not modified by this test edition.
+
+## Homepage argument and findings, 30 October 2026
+
+The homepage uses the paper title, introduces the limits of response-level evaluation, defines the process-oriented instrument, and explains initiative as a proposed precondition for interactive creativity. The Introduction and Discussion ground these paragraphs; capability-targeted learning, causal attribution experiments, and persistent worlds remain future studies rather than demonstrated benefits. The same six findings from `research-evidence.json` now appear as homepage section 07, with table provenance, comparison links and scope notes. A single section index covers the introduction, authored demo and results; its current-section state follows scrolling. No experimental records or measured values were changed in this update.
