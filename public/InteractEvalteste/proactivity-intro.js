@@ -41,20 +41,11 @@ let introductoryDialogue = 0;
 let introductoryStep = 0;
 
 function proactivityHero() {
-  const stages = [
-    ['Follow the brief', 'L1\u2013L2'],
-    ['Adapt as things change', 'L3\u2013L4'],
-    ['Take the lead & follow through', 'L5\u2013L6']
-  ];
-  const ranges = stages.map((_, i) => {
-    const scores = publication.models.map(model => model.stages[i]);
-    return { low: Math.min(...scores), high: Math.max(...scores) };
-  });
   return editorialHero({
     body: `<p class="hero-method-summary">The framework follows participant states and event trajectories across turns, then evaluates six levels of interaction capability.</p><div class="hero-entry-links"><a href="#model-readout">Explore the results <span aria-hidden="true">&#8595;</span></a><a href="./research.html">How evaluation works <span aria-hidden="true">&#8599;</span></a></div>`,
     title: 'Can a model<br/><em>take the next step?</em>',
     deck: 'InteractEval is a benchmark and evaluation framework for multi-turn interaction. It measures how models understand changing situations, take useful initiative, and follow through.',
-    aside: `<figure class="hero-finding" aria-labelledby="hero-finding-title"><figcaption><h2 id="hero-finding-title">The gap grows with initiative.</h2><p>Models cluster when following a brief. Their scores spread out when they must take the lead.</p></figcaption><div class="hero-finding-axis"><span>Score (0 to 1)</span><span>Gap between models</span></div>${stages.map(([label,levels],i)=>{const r=ranges[i];return `<div class="hero-finding-row ${i===2?'is-active-stage':''}"><div class="hero-finding-label"><h3>${label}</h3><span>${levels}</span></div><div class="hero-finding-measure"><div class="hero-finding-track" role="img" aria-label="${label}: model scores range from ${r.low.toFixed(3)} to ${r.high.toFixed(3)}"><i style="left:${r.low*100}%;width:${(r.high-r.low)*100}%"></i><b style="left:${r.low*100}%"></b><b style="left:${r.high*100}%"></b></div><strong>${(r.high-r.low).toFixed(3)}</strong></div></div>`;}).join('')}<div class="hero-finding-scale" aria-hidden="true"><span>0</span><span>0.5</span><span>1</span></div><p class="hero-finding-note">Each band spans the lowest to highest score across ten base models. All three use the same scale.</p><a href="#capability">Explore the six capability levels <span aria-hidden="true">&#8595;</span></a></figure>`
+    aside: heroInteractionFigure()
   });
 }
 
@@ -162,6 +153,7 @@ function startIntroductoryPlayback(restart=false){
 }
 
 function setupIntroductoryPlayer(){
+  if(typeof setupHeroInteraction==='function')setupHeroInteraction();
   clearIntroductoryTimer(true);
   introductoryPlayback.observer?.disconnect();
   introductoryPlayback.visible=false;
