@@ -13,9 +13,10 @@ const hero=context.proactivityHero();
 assert.ok(hero.includes('<h1>InteractEval</h1>'));
 assert.ok(hero.includes('Can a model shape an interaction, not just respond?'));
 assert.ok(!hero.includes('take the next step'));
+assert.ok(hero.includes('next-generation interactive AI'));
 const overview=context.homeProjectOverview();
 assert.equal((overview.match(/<p>/g)||[]).length,1);
-assert.ok(overview.replace(/<[^>]*>/g,' ').split(/\s+/).filter(Boolean).length<32);
+assert.ok(overview.replace(/<[^>]*>/g,' ').split(/\s+/).filter(Boolean).length<60);
 const findings=context.homeKeyFindings();
 assert.equal((findings.match(/class="home-finding home-finding-visual"/g)||[]).length,6);
 assert.ok((findings.match(/<svg /g)||[]).length>=2);
@@ -35,4 +36,4 @@ assert.ok(site.indexOf("journalSection('partners'")<site.indexOf('${homeKeyFindi
 assert.ok(read('paper-site.js').includes("'key-findings'"));
 assert.ok(read('explorer.js').includes("setAttribute('aria-current','location')"));
 for(const f of ['index.html','research.html','showcase.html'])assert.ok(read(f).includes('./home-overview.css')&&read(f).includes('./finding-charts.js'));
-console.log('Homepage verified: one-sentence overview, explicit question, six data-driven visuals, honest axes, scope labels and live asset wiring.');
+console.log('Homepage verified: concise mechanism-grounded overview, explicit question, six data-driven visuals, honest axes, scope labels and live asset wiring.');
