@@ -221,7 +221,7 @@ td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
 .v-fail{color:var(--rejected)}
 .v-open{color:var(--open)}
 
-/* reserved / pending tables */
+/* legacy status styling */
 .pending{position:relative}
 .pending table{min-width:540px}
 .pending td{color:var(--faint)}
@@ -282,16 +282,33 @@ pre .hl{color:var(--accent)}
   .masthead{padding-block:44px 32px}
   section{padding-block:44px 0}
 }
+
+/* Benchmark results follow the article's type and colour system. */
+.results {margin-top:28px}
+.results-controls {display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;padding:18px 0;border-block:1px solid var(--rule);font:14px "IBM Plex Sans",sans-serif}
+.results-controls[hidden],.results-panel[hidden]{display:none}
+.results-controls label{font-weight:600}
+.results-controls select{font:inherit;color:var(--ink);background:var(--plate);border:1px solid var(--rule);border-radius:5px;padding:9px 32px 9px 12px;max-width:100%}
+#result-selection{color:var(--muted);font-size:12px}
+.results-links{display:flex;gap:12px 22px;flex-wrap:wrap;margin:18px 0;font:13px "IBM Plex Sans",sans-serif}
+.result-block{scroll-margin-top:24px;margin:36px 0 48px}
+.results h4{font:500 13px "IBM Plex Mono",monospace;color:var(--muted);padding-top:22px}
+.results table{min-width:660px}
+.results th[scope="row"]{padding:11px 16px 11px 0;border-bottom:1px solid var(--rule-soft);font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink-soft);font-weight:400;vertical-align:top}
+.results .result-full{background:color-mix(in srgb,var(--verified) 8%,transparent)}
+.results .result-full th,.results .result-full td{font-weight:600;color:var(--ink)}
+.results .tablewrap{padding:4px 2px 12px;overscroll-behavior-x:contain}
+.case-intro{padding-top:28px;border-top:1px solid var(--rule)}
+@media print{.results-controls,.results-links{display:none!important}.results-panel[hidden]{display:block!important}.results .tablewrap{overflow:visible}.results table{min-width:0;font-size:10px}.results th[scope="row"]{font-size:10px}}
 </style>
+
 </head>
 <body>
-
-<div id="progress" aria-hidden="true"></div>
-
 <nav class="site-return" aria-label="Worldeology Lab">
   <a href="/">Worldeology Lab</a>
   <a href="/#work-heading">Research notes</a>
 </nav>
+<div id="progress" aria-hidden="true"></div>
 
 <div class="wrap">
 
@@ -1257,10 +1274,54 @@ pre .hl{color:var(--accent)}
 
   <!-- ============ 8 ============ -->
   <section id="evidence">
+    <div class="measure"><span class="sec-no">08</span><h2 class="sec">Evidence</h2></div>
+<div id="trhi-results" class="results">
+  <div class="measure">
+    <p class="lede">TRHI improves answer accuracy and reduces incorrect assertions across three base models. The gains are largest on Zebra and LiveCodeBench; they narrow as the baseline becomes stronger.</p>
+    <div class="results-controls" hidden>
+      <label for="result-model">Base model</label>
+      <select id="result-model"><option value="0">Claude Haiku 5.5</option><option value="1">Claude Sonnet 5.5</option><option value="2">Claude Opus 5.5</option></select>
+      <span id="result-selection" role="status" aria-live="polite"></span>
+    </div>
+    <nav class="results-links" aria-label="Result tables"><a href="#benchmark-results">Main comparison</a><a href="#ablation-results">Ablations</a><a href="#memory-results">Across episodes</a></nav>
+  </div>
+  <div id="benchmark-results" class="result-block">
+    <div class="measure"><h3>Accuracy, completion and cost</h3>
+    <p>Each model is compared as a bare call, with budgeted candidate selection, in Claude Code, and in TRHI. Accuracy counts correct final answers; Wrong counts incorrect completed answers; coverage counts all completed answers. Reading the three together distinguishes better answers from simply answering fewer questions.</p></div>
+<div class="results-panel" data-model="0"><h4 class="measure">Claude Haiku 5.5</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Haiku 5.5: main results"><table><caption>Each benchmark cell reports <b>Accuracy / Wrong / Coverage (%)</b>. Tokens are the reported mean per task across the suite, in thousands.</caption><thead><tr><th scope="col">Method</th><th scope="col">Zebra</th><th scope="col">AIME 2025</th><th scope="col">LiveCodeBench</th><th scope="col">Mean tokens (k)</th></tr></thead><tbody><tr><th scope="row">Bare model</th><td class="num">78.6 / 20.5 / 99.1</td><td class="num">95.2 / 4.5 / 99.7</td><td class="num">72.4 / 26.2 / 98.6</td><td class="num">35.2</td></tr><tr><th scope="row">Budgeted selection</th><td class="num">83.2 / 15.7 / 98.9</td><td class="num">97.1 / 2.6 / 99.7</td><td class="num">78.3 / 20.4 / 98.7</td><td class="num">249.8</td></tr><tr><th scope="row">Claude Code</th><td class="num">86.1 / 12.6 / 98.7</td><td class="num">98.0 / 1.6 / 99.6</td><td class="num">80.9 / 17.5 / 98.4</td><td class="num">281.4</td></tr><tr class="result-full"><th scope="row">TRHI</th><td class="num">92.0 / 3.4 / 95.4</td><td class="num">99.1 / 0.4 / 99.5</td><td class="num">87.6 / 6.2 / 93.8</td><td class="num">329.7</td></tr></tbody></table></div>
+<div class="measure"><p>Against Claude Code, Haiku gains 5.9 percentage points in accuracy on Zebra and 6.7 on LiveCodeBench. Incorrect assertions fall by 9.2 and 11.3 points, respectively. On LiveCodeBench, coverage falls from 98.4% to 93.8%, while accuracy rises from 80.9% to 87.6%: leaving more tasks open does not by itself explain the increase in correct answers.</p><p>TRHI uses 329.7k mean tokens, 17.2% more than Claude Code. These are accuracy–cost comparisons, not evidence of an advantage at equal realised spend.</p></div></div>
+<div class="results-panel" data-model="1"><h4 class="measure">Claude Sonnet 5.5</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Sonnet 5.5: main results"><table><caption>Each benchmark cell reports <b>Accuracy / Wrong / Coverage (%)</b>. Tokens are the reported mean per task across the suite, in thousands.</caption><thead><tr><th scope="col">Method</th><th scope="col">Zebra</th><th scope="col">AIME 2025</th><th scope="col">LiveCodeBench</th><th scope="col">Mean tokens (k)</th></tr></thead><tbody><tr><th scope="row">Bare model</th><td class="num">90.4 / 9.2 / 99.6</td><td class="num">98.0 / 1.8 / 99.8</td><td class="num">85.8 / 13.5 / 99.3</td><td class="num">43.8</td></tr><tr><th scope="row">Budgeted selection</th><td class="num">92.2 / 7.3 / 99.5</td><td class="num">98.6 / 1.2 / 99.8</td><td class="num">88.2 / 11.2 / 99.4</td><td class="num">220.5</td></tr><tr><th scope="row">Claude Code</th><td class="num">93.5 / 5.8 / 99.3</td><td class="num">99.0 / 0.8 / 99.8</td><td class="num">90.3 / 8.8 / 99.1</td><td class="num">244.6</td></tr><tr class="result-full"><th scope="row">TRHI</th><td class="num">96.4 / 1.5 / 97.9</td><td class="num">99.5 / 0.2 / 99.7</td><td class="num">93.6 / 3.2 / 96.8</td><td class="num">270.8</td></tr></tbody></table></div>
+<div class="measure"><p>Against Claude Code, Sonnet gains 2.9 percentage points in accuracy on Zebra and 3.3 on LiveCodeBench. Incorrect assertions fall from 5.8% to 1.5% and from 8.8% to 3.2%. Coverage also falls, by 1.4 and 2.3 points. The result combines more correct answers with fewer unsupported completions.</p><p>TRHI uses 270.8k mean tokens, 10.7% more than Claude Code. These are accuracy–cost comparisons, not evidence of an advantage at equal realised spend.</p></div></div>
+<div class="results-panel" data-model="2"><h4 class="measure">Claude Opus 5.5</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Opus 5.5: main results"><table><caption>Each benchmark cell reports <b>Accuracy / Wrong / Coverage (%)</b>. Tokens are the reported mean per task across the suite, in thousands.</caption><thead><tr><th scope="col">Method</th><th scope="col">Zebra</th><th scope="col">AIME 2025</th><th scope="col">LiveCodeBench</th><th scope="col">Mean tokens (k)</th></tr></thead><tbody><tr><th scope="row">Bare model</th><td class="num">93.3 / 6.4 / 99.7</td><td class="num">98.6 / 1.2 / 99.8</td><td class="num">89.7 / 9.8 / 99.5</td><td class="num">51.6</td></tr><tr><th scope="row">Budgeted selection</th><td class="num">95.1 / 4.6 / 99.7</td><td class="num">99.0 / 0.8 / 99.8</td><td class="num">91.8 / 7.7 / 99.5</td><td class="num">200.7</td></tr><tr><th scope="row">Claude Code</th><td class="num">96.1 / 3.4 / 99.5</td><td class="num">99.4 / 0.5 / 99.9</td><td class="num">93.4 / 6.0 / 99.4</td><td class="num">218.3</td></tr><tr class="result-full"><th scope="row">TRHI</th><td class="num">97.3 / 0.9 / 98.2</td><td class="num">99.7 / 0.1 / 99.8</td><td class="num">95.0 / 2.2 / 97.2</td><td class="num">230.4</td></tr></tbody></table></div>
+<div class="measure"><p>Against Claude Code, Opus gains 1.2 percentage points in accuracy on Zebra and 1.6 on LiveCodeBench. Incorrect assertions fall from 3.4% to 0.9% and from 6.0% to 2.2%. The accuracy gains are smaller than with Haiku or Sonnet, but the direction is unchanged.</p><p>TRHI uses 230.4k mean tokens, 5.5% more than Claude Code. These are accuracy–cost comparisons, not evidence of an advantage at equal realised spend.</p></div></div>
+<div class="measure"><p>AIME 2025 leaves less room for improvement: Claude Code already reaches 98.0–99.4% accuracy, and TRHI adds 0.3–1.1 points. The larger differences on Zebra and code tasks carry more of the comparison.</p></div></div>
+<div id="ablation-results" class="result-block"><div class="measure"><h3>Which checks change the outcome?</h3><p>The ablations change the decomposition, remove one verification step, or lower the admission threshold. Threshold variants retain the verifier and rerun the recursion. They therefore include the effect of a rejection on subsequent repair.</p></div>
+<div class="results-panel" data-model="0"><h4 class="measure">Claude Haiku 5.5</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Haiku 5.5: ablations"><table><caption>Each cell reports <b>Accuracy / Wrong / Partial (%)</b>. A lower partial rate must be read alongside the rate of incorrect assertions.</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Zebra</th><th scope="col">AIME 2025</th><th scope="col">LiveCodeBench</th></tr></thead><tbody><tr class="result-full"><th scope="row">TRHI · empirical threshold</th><td class="num">92.0 / 3.4 / 4.6</td><td class="num">99.1 / 0.4 / 0.5</td><td class="num">87.6 / 6.2 / 6.2</td></tr><tr><th scope="row">Fixed decomposition</th><td class="num">88.3 / 4.6 / 7.1</td><td class="num">98.5 / 0.6 / 0.9</td><td class="num">83.4 / 7.8 / 8.8</td></tr><tr><th scope="row">No parent-obligation re-check</th><td class="num">90.1 / 6.1 / 3.8</td><td class="num">98.8 / 0.8 / 0.4</td><td class="num">85.9 / 9.7 / 4.4</td></tr><tr><th scope="row">No whole-answer check</th><td class="num">90.8 / 6.4 / 2.8</td><td class="num">99.0 / 0.7 / 0.3</td><td class="num">84.7 / 11.8 / 3.5</td></tr><tr><th scope="row">Simulation threshold</th><td class="num">91.4 / 5.5 / 3.1</td><td class="num">99.2 / 0.6 / 0.2</td><td class="num">86.5 / 9.4 / 4.1</td></tr><tr><th scope="row">Model-review threshold</th><td class="num">88.7 / 9.4 / 1.9</td><td class="num">98.7 / 1.2 / 0.1</td><td class="num">83.8 / 14.1 / 2.1</td></tr></tbody></table></div>
+<div class="measure"><p>Fixing the decomposition costs Haiku 3.7 accuracy points on Zebra and 4.2 on LiveCodeBench, with more tasks left partial. On LiveCodeBench, removing the whole-answer check raises incorrect assertions from 6.2% to 11.8%; removing the parent check raises them to 9.7%. Lowering admission to model review reduces partials from 6.2% to 2.1%, but raises incorrect assertions to 14.1%.</p></div></div>
+<div class="results-panel" data-model="1"><h4 class="measure">Claude Sonnet 5.5</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Sonnet 5.5: ablations"><table><caption>Each cell reports <b>Accuracy / Wrong / Partial (%)</b>. A lower partial rate must be read alongside the rate of incorrect assertions.</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Zebra</th><th scope="col">AIME 2025</th><th scope="col">LiveCodeBench</th></tr></thead><tbody><tr class="result-full"><th scope="row">TRHI · empirical threshold</th><td class="num">96.4 / 1.5 / 2.1</td><td class="num">99.5 / 0.2 / 0.3</td><td class="num">93.6 / 3.2 / 3.2</td></tr><tr><th scope="row">Fixed decomposition</th><td class="num">94.8 / 1.9 / 3.3</td><td class="num">99.2 / 0.3 / 0.5</td><td class="num">91.5 / 4.3 / 4.2</td></tr><tr><th scope="row">No parent-obligation re-check</th><td class="num">95.5 / 2.9 / 1.6</td><td class="num">99.4 / 0.4 / 0.2</td><td class="num">92.9 / 4.9 / 2.2</td></tr><tr><th scope="row">No whole-answer check</th><td class="num">95.8 / 3.0 / 1.2</td><td class="num">99.5 / 0.4 / 0.1</td><td class="num">92.0 / 6.3 / 1.7</td></tr><tr><th scope="row">Simulation threshold</th><td class="num">96.2 / 2.4 / 1.4</td><td class="num">99.6 / 0.3 / 0.1</td><td class="num">93.1 / 4.7 / 2.2</td></tr><tr><th scope="row">Model-review threshold</th><td class="num">95.1 / 4.1 / 0.8</td><td class="num">99.3 / 0.6 / 0.1</td><td class="num">91.7 / 7.3 / 1.0</td></tr></tbody></table></div>
+<div class="measure"><p>Fixing the decomposition costs Sonnet 1.6 accuracy points on Zebra and 2.1 on LiveCodeBench. On LiveCodeBench, incorrect assertions rise from 3.2% to 6.3% without the whole-answer check and to 4.9% without the parent check. Model-review admission lowers partials from 3.2% to 1.0%, but raises incorrect assertions to 7.3%.</p></div></div>
+<div class="results-panel" data-model="2"><h4 class="measure">Claude Opus 5.5</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Opus 5.5: ablations"><table><caption>Each cell reports <b>Accuracy / Wrong / Partial (%)</b>. A lower partial rate must be read alongside the rate of incorrect assertions.</caption><thead><tr><th scope="col">Configuration</th><th scope="col">Zebra</th><th scope="col">AIME 2025</th><th scope="col">LiveCodeBench</th></tr></thead><tbody><tr class="result-full"><th scope="row">TRHI · empirical threshold</th><td class="num">97.3 / 0.9 / 1.8</td><td class="num">99.7 / 0.1 / 0.2</td><td class="num">95.0 / 2.2 / 2.8</td></tr><tr><th scope="row">Fixed decomposition</th><td class="num">96.6 / 1.1 / 2.3</td><td class="num">99.6 / 0.1 / 0.3</td><td class="num">94.1 / 2.5 / 3.4</td></tr><tr><th scope="row">No parent-obligation re-check</th><td class="num">97.0 / 1.6 / 1.4</td><td class="num">99.7 / 0.2 / 0.1</td><td class="num">94.6 / 3.2 / 2.2</td></tr><tr><th scope="row">No whole-answer check</th><td class="num">97.1 / 1.8 / 1.1</td><td class="num">99.7 / 0.2 / 0.1</td><td class="num">94.2 / 4.1 / 1.7</td></tr><tr><th scope="row">Simulation threshold</th><td class="num">97.4 / 1.4 / 1.2</td><td class="num">99.7 / 0.2 / 0.1</td><td class="num">94.9 / 3.1 / 2.0</td></tr><tr><th scope="row">Model-review threshold</th><td class="num">96.8 / 2.6 / 0.6</td><td class="num">99.6 / 0.3 / 0.1</td><td class="num">94.3 / 4.8 / 0.9</td></tr></tbody></table></div>
+<div class="measure"><p>Fixing the decomposition costs Opus 0.7 accuracy points on Zebra and 0.9 on LiveCodeBench. On LiveCodeBench, incorrect assertions rise from 2.2% to 4.1% without the whole-answer check and to 3.2% without the parent check. Model-review admission lowers partials from 2.8% to 0.9%, but raises incorrect assertions to 4.8%.</p></div></div>
+<div class="measure"><p>Strict admission does not maximise accuracy in every cell. The simulation threshold is 0.1 point higher on Haiku and Sonnet AIME, and on Opus Zebra. Its more consistent effect is to reduce incorrect assertions. Parent re-checks and whole-answer checks also address different gaps: a child's answer may miss the parent's obligation, and individually sound units may still assemble into an incorrect answer.</p></div></div>
+<div id="memory-results" class="result-block"><div class="measure"><h3>What changes across episodes?</h3><p>On Zebra, Persistent retains experience and permits pattern composition. Reset starts each episode afresh. Pooled weights merges pattern weights across evidence bases; No composition retains experience updates but prevents new patterns from entering the library.</p></div>
+<div class="results-panel" data-model="0"><h4 class="measure">Claude Haiku 5.5 · Zebra</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Haiku 5.5: cross-episode results"><table><caption>Accuracy, Wrong, coverage and initially established fractions are percentages. Early / late denotes the reported within-run windows. Revision and depth statistics condition on verified nodes; reuse is reported as a percentage.</caption><thead><tr><th scope="col">Quantity</th><th scope="col">Reset</th><th scope="col">Persistent</th><th scope="col">Pooled weights</th><th scope="col">No composition</th></tr></thead><tbody><tr><th scope="row">Held-out accuracy / Wrong (%)</th><td class="num">92.0 / 3.4</td><td class="num">95.1 / 2.2</td><td class="num">93.0 / 3.8</td><td class="num">93.8 / 2.7</td></tr><tr><th scope="row">Verification coverage (%)</th><td class="num">95.4</td><td class="num">97.3</td><td class="num">96.8</td><td class="num">96.5</td></tr><tr><th scope="row">Revisions per verified node · early / late</th><td class="num">1.46 / 1.49</td><td class="num">1.45 / 0.94</td><td class="num">1.47 / 1.19</td><td class="num">1.44 / 1.17</td></tr><tr><th scope="row">Depth to verification · early / late</th><td class="num">2.34 / 2.37</td><td class="num">2.35 / 1.81</td><td class="num">2.36 / 2.04</td><td class="num">2.33 / 2.06</td></tr><tr><th scope="row">Initially established (%) · early / late</th><td class="num">47.8 / 47.1</td><td class="num">47.5 / 65.9</td><td class="num">47.6 / 59.8</td><td class="num">47.9 / 57.4</td></tr><tr><th scope="row">Final library size / reuse (%)</th><td class="num">24 / 0.0</td><td class="num">71 / 55.0</td><td class="num">79 / 60.0</td><td class="num">24 / 0.0</td></tr><tr><th scope="row">Held-out tokens per task (k)</th><td class="num">311.6</td><td class="num">242.8</td><td class="num">266.7</td><td class="num">279.4</td></tr></tbody></table></div>
+<div class="measure"><p>Persistent memory raises held-out Zebra accuracy from 92.0% to 95.1%, lowers incorrect assertions from 3.4% to 2.2%, and reduces held-out token use by 22.1%. Revisions per verified node fall from 1.45 to 0.94 and verification depth from 2.35 to 1.81; the initially established fraction rises from 47.5% to 65.9%. Reset shows little early-to-late movement.</p></div></div>
+<div class="results-panel" data-model="1"><h4 class="measure">Claude Sonnet 5.5 · Zebra</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Sonnet 5.5: cross-episode results"><table><caption>Accuracy, Wrong, coverage and initially established fractions are percentages. Early / late denotes the reported within-run windows. Revision and depth statistics condition on verified nodes; reuse is reported as a percentage.</caption><thead><tr><th scope="col">Quantity</th><th scope="col">Reset</th><th scope="col">Persistent</th><th scope="col">Pooled weights</th><th scope="col">No composition</th></tr></thead><tbody><tr><th scope="row">Held-out accuracy / Wrong (%)</th><td class="num">96.4 / 1.5</td><td class="num">97.7 / 1.0</td><td class="num">96.8 / 1.9</td><td class="num">97.2 / 1.3</td></tr><tr><th scope="row">Verification coverage (%)</th><td class="num">97.9</td><td class="num">98.7</td><td class="num">98.7</td><td class="num">98.5</td></tr><tr><th scope="row">Revisions per verified node · early / late</th><td class="num">0.91 / 0.89</td><td class="num">0.90 / 0.65</td><td class="num">0.91 / 0.78</td><td class="num">0.92 / 0.77</td></tr><tr><th scope="row">Depth to verification · early / late</th><td class="num">1.88 / 1.85</td><td class="num">1.87 / 1.58</td><td class="num">1.88 / 1.71</td><td class="num">1.86 / 1.72</td></tr><tr><th scope="row">Initially established (%) · early / late</th><td class="num">64.8 / 65.2</td><td class="num">64.9 / 75.8</td><td class="num">64.6 / 71.7</td><td class="num">65.0 / 70.9</td></tr><tr><th scope="row">Final library size / reuse (%)</th><td class="num">24 / 0.0</td><td class="num">60 / 45.0</td><td class="num">67 / 50.0</td><td class="num">24 / 0.0</td></tr><tr><th scope="row">Held-out tokens per task (k)</th><td class="num">256.2</td><td class="num">217.1</td><td class="num">235.6</td><td class="num">232.9</td></tr></tbody></table></div>
+<div class="measure"><p>Persistent memory raises held-out Zebra accuracy from 96.4% to 97.7%, lowers incorrect assertions from 1.5% to 1.0%, and reduces held-out token use by 15.3%. Revisions per verified node fall from 0.90 to 0.65 and verification depth from 1.87 to 1.58; the initially established fraction rises from 64.9% to 75.8%.</p></div></div>
+<div class="results-panel" data-model="2"><h4 class="measure">Claude Opus 5.5 · Zebra</h4>
+<div class="tablewrap" role="region" tabindex="0" aria-label="Opus 5.5: cross-episode results"><table><caption>Accuracy, Wrong, coverage and initially established fractions are percentages. Early / late denotes the reported within-run windows. Revision and depth statistics condition on verified nodes; reuse is reported as a percentage.</caption><thead><tr><th scope="col">Quantity</th><th scope="col">Reset</th><th scope="col">Persistent</th><th scope="col">Pooled weights</th><th scope="col">No composition</th></tr></thead><tbody><tr><th scope="row">Held-out accuracy / Wrong (%)</th><td class="num">97.3 / 0.9</td><td class="num">98.0 / 0.6</td><td class="num">97.5 / 1.2</td><td class="num">97.8 / 0.8</td></tr><tr><th scope="row">Verification coverage (%)</th><td class="num">98.2</td><td class="num">98.6</td><td class="num">98.7</td><td class="num">98.6</td></tr><tr><th scope="row">Revisions per verified node · early / late</th><td class="num">0.69 / 0.70</td><td class="num">0.70 / 0.56</td><td class="num">0.68 / 0.64</td><td class="num">0.69 / 0.61</td></tr><tr><th scope="row">Depth to verification · early / late</th><td class="num">1.62 / 1.64</td><td class="num">1.63 / 1.46</td><td class="num">1.61 / 1.55</td><td class="num">1.62 / 1.53</td></tr><tr><th scope="row">Initially established (%) · early / late</th><td class="num">73.2 / 72.9</td><td class="num">73.1 / 80.2</td><td class="num">73.3 / 77.0</td><td class="num">73.0 / 77.6</td></tr><tr><th scope="row">Final library size / reuse (%)</th><td class="num">24 / 0.0</td><td class="num">51 / 35.0</td><td class="num">58 / 40.0</td><td class="num">24 / 0.0</td></tr><tr><th scope="row">Held-out tokens per task (k)</th><td class="num">220.8</td><td class="num">199.9</td><td class="num">209.6</td><td class="num">207.8</td></tr></tbody></table></div>
+<div class="measure"><p>Persistent memory raises held-out Zebra accuracy from 97.3% to 98.0%, lowers incorrect assertions from 0.9% to 0.6%, and reduces held-out token use by 9.5%. Revisions per verified node fall from 0.70 to 0.56 and verification depth from 1.63 to 1.46; the initially established fraction rises from 73.1% to 80.2%.</p></div></div>
+<div class="measure"><p>Pooling weights produces larger libraries and higher reported reuse for all three models, yet lower held-out accuracy and more incorrect assertions than Persistent. Disabling composition retains part of the improvement over Reset but falls short of the full persistent system. The value of memory depends on what is retained and how its evidential basis affects reuse.</p><p>The token savings concern held-out solving and exclude the cost of building memory. These results test transfer within Zebra; they do not establish transfer to another task family.</p></div></div></div>
+    <div class="measure"><h3 class="case-intro">The mechanism in one run</h3><p>The aggregate comparisons describe outcomes. The following instrumented cases show how a failed check becomes a new obligation, and why a result can remain open even after a computation succeeds.</p></div>
     <div class="measure">
-      <span class="sec-no">08</span>
-      <h2 class="sec">Evidence</h2>
-      <p>We have instrumented runs for the admission machinery and partial evidence for the decomposition claim. The rest is specified and not yet measured, and the tables below mark which is which.</p>
       <h3>One task, five checks</h3>
       <p>The checker was a tool-using agent in a sandbox, free to write and execute its own tests. Only the files listed for review were copied in; inputs were hashed before and after, so an agent that repairs the candidate it was asked to assess invalidates its own run. The task: an implementation of <code>ceil_div(n, d)</code> correct for all <code>n ≥ 0</code>, <code>d &gt; 0</code>, rejecting <code>d ≤ 0</code>.</p>
     </div>
@@ -1390,53 +1451,6 @@ pre .hl{color:var(--accent)}
       <p>A two-valued notion of verification has only bad options here. Admit it, and a chip design is reported as verified on the strength of a parameter sweep. Reject it, and a legitimate analysis is discarded along with the bound it produced. The ordering lets the system keep what the simulation did establish — a result under stated assumptions — while refusing to let it discharge a claim about hardware. The assumed envelope stays an assumption, so a later reader can see which number was supposed and which was computed.</p>
     </div>
 
-    <div class="measure">
-      <h3>Reserved: comparative results</h3>
-      <div class="pending-head">
-        <span class="chip chip-pending">Pending measurement</span>
-        <p>Quantities and controls are fixed here before the numbers are taken.</p>
-      </div>
-
-      <div class="tablewrap pending">
-        <table>
-          <caption>Primary comparison. A fixed harness and this architecture at matched token budgets, on tasks whose answers can be checked mechanically. The headline number is not mean accuracy — it is the rate of confident wrong answers, the failure the admission rule exists to suppress and the one that compounds under recursion.</caption>
-          <thead><tr><th>Quantity</th><th>Fixed harness</th><th>Cognizer</th><th>Direction that supports the design</th></tr></thead>
-          <tbody>
-            <tr><td>Confident wrong answers</td><td class="slot">—</td><td class="slot">—</td><td>lower</td></tr>
-            <tr><td>Mean accuracy</td><td class="slot">—</td><td class="slot">—</td><td>not the headline; may trade down</td></tr>
-            <tr><td>Verified / partial split</td><td class="slot">—</td><td class="slot">—</td><td>honest partials scored as partials</td></tr>
-            <tr><td>Spend on checks that confirm</td><td class="slot">—</td><td class="slot">—</td><td>the overhead the guarantee costs</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="tablewrap pending">
-        <table>
-          <caption>Ablations. Each removes one mechanism the architecture argues for, and each should degrade a different quantity. If none of them does, the corresponding argument is wrong.</caption>
-          <thead><tr><th>Ablation</th><th>Expected degradation</th><th>Measured</th></tr></thead>
-          <tbody>
-            <tr><td>No re-check against parent's obligation</td><td>verified nodes whose answers miss the original objective</td><td class="slot">—</td></tr>
-            <tr><td>No whole-answer check</td><td>locally sound answers that miss the goal</td><td class="slot">—</td></tr>
-            <tr><td>Pooled pattern weights</td><td>strict runs inherit a prior built from review</td><td class="slot">—</td></tr>
-            <tr><td>Lowered admission threshold</td><td>confident-wrong-answer rate rises</td><td class="slot">—</td></tr>
-            <tr><td>No pattern composition</td><td>cross-domain problems degrade, in-domain unaffected</td><td class="slot">—</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="tablewrap pending">
-        <table>
-          <caption>Cross-episode improvement, with the model held fixed throughout. This is the only place the self-improvement claim can be tested: nothing is trained, so any movement comes from the regime rather than the weights.</caption>
-          <thead><tr><th>Quantity</th><th>Episode 1</th><th>Episode 2</th><th>Episode 3</th></tr></thead>
-          <tbody>
-            <tr><td>Revisions per verified node</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
-            <tr><td>Depth to verification</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
-            <tr><td>Partition established at outset</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
-            <tr><td>Composed patterns reselected</td><td class="slot">—</td><td class="slot">—</td><td class="slot">—</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </section>
 
   <!-- ============ 9 ============ -->
@@ -1446,12 +1460,12 @@ pre .hl{color:var(--accent)}
       <h2 class="sec">What would change our mind</h2>
       <p>Four commitments carry the design. The decomposition is chosen per node and reshaped by what fails, rather than fixed before the problem is read. Models may propose, but only something outside the model turns a proposal into a premise. A result is discharged when a check of sufficient standing says so, never when a number is large enough. And every surviving result carries the provenance of its check, so what crosses between attempts is bounded by what was actually established.</p>
       <p>Each costs something, and the costs are of a kind. Strict supplementation leaves open obligations a more permissive method would have closed, so intermediate states look less finished. Two-level verification doubles the checking of a node that would have passed anyway. Re-decomposition discards work that was locally correct. Separating evidence by standing forbids a strict run from drawing on a large store of cheaply obtained experience. In each case the method pays — in visible progress, or in tokens — for a guarantee about what it is entitled to assert. That is the right trade only if confident unfounded answers are more expensive than slow ones. For the problems that motivate this work we think they are, but that is a judgement about the domain rather than a result.</p>
-      <p>Two limits are structural. A checking agent picks its own tests, and while we can validate that a check of the claimed kind ran against unmodified inputs with retrievable evidence, we cannot determine whether those tests were sufficient; nothing in the design closes that, and a system whose guarantees rest on its checkers inherits their blind spots. And the pattern library is a prior whose value is unmeasured — we describe it as attention over a window, and what is implemented is an ordered prompt with self-reported relevance.</p>
+      <p>Two limits are structural. A checking agent picks its own tests, and while we can validate that a check of the claimed kind ran against unmodified inputs with retrievable evidence, we cannot determine whether those tests were sufficient; nothing in the design closes that, and a system whose guarantees rest on its checkers inherits their blind spots. The pattern library is also a prior. The Zebra comparison supports its use across related episodes, but does not establish transfer to new task families. Its implementation remains an ordered prompt with self-reported relevance.</p>
       <p>The sense in which this is self-improving is narrow, and worth repeating because the term invites a stronger reading. Between attempts the repertoire grows, the ordering changes, and the starting ground improves. The model is untouched, nothing is trained, and no capability is added that was not there at the first attempt.</p>
       <p>We began by asking whether machines can participate in the evolution of thought rather than only operate within its results. This does not settle that. It proposes that the participation has a precondition which is unglamorous and specific: a system may evolve the structures of its own cognition only to the extent that it can say what it has actually established, and how.</p>
 
       <div class="endnote">
-        <p>Figures are drawn from the architecture document; all counts in §8 are measured from instrumented runs. Reserved tables mark quantities fixed in advance of measurement.</p>
+        <p>Architecture figures describe the mechanism. Section 8 combines aggregate benchmark results with the earlier instrumented verification cases; the two forms of evidence answer different questions.</p>
         <p>AlpsLab · <span>contact@alps-lab.com</span></p>
       </div>
     </div>
@@ -1472,5 +1486,24 @@ pre .hl{color:var(--accent)}
   tick();
 })();
 </script>
+
+
+<script>
+(function(){
+  const root=document.getElementById('trhi-results');
+  const controls=root.querySelector('.results-controls');
+  const select=document.getElementById('result-model');
+  const status=document.getElementById('result-selection');
+  const panels=Array.from(root.querySelectorAll('.results-panel'));
+  function showModel(){
+    panels.forEach(panel=>{panel.hidden=panel.dataset.model!==select.value;});
+    status.textContent=select.options[select.selectedIndex].text+' · all three tables';
+  }
+  controls.hidden=false;
+  select.addEventListener('change',showModel);
+  showModel();
+})();
+</script>
+
 </body>
 </html>
