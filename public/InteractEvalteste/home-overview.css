@@ -3,6 +3,7 @@
 .results-page .journal-hero .journal-deck{font:400 clamp(25px,2.5vw,33px)/1.25 var(--serif);color:#dce7d4}
 .results-page .hero-method-summary{font-size:17px;line-height:1.8;max-width:580px}
 .results-page .article-shell{align-items:start}
+@media(min-width:801px){.results-page .article-shell{width:min(1440px,100%);grid-template-columns:160px minmax(0,1fr)}}
 .results-page .home-rail{top:105px;max-height:calc(100dvh - 125px);overflow-y:auto}
 .results-page .home-rail>a:not(.rail-link){display:flex;align-items:baseline;gap:10px;padding:10px 9px;font-size:14px;line-height:1.5}
 .results-page .home-rail small{font-size:12px;min-width:18px;color:#697d61}

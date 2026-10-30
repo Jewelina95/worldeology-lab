@@ -75,7 +75,7 @@ function afterExplorerRender(){
   if(route==='research'||route==='home'){
     researchObserver=new IntersectionObserver(()=>syncArticleNavigation(),{rootMargin:'-90px 0px -55% 0px'});
     document.querySelectorAll('.article-section').forEach(s=>researchObserver.observe(s));
-    const requested=location.hash.slice(1),aliases=route==='research'?{architecture:'framework',components:'layer-mechanism','scenario-space':'layer-data',rubric:'layer-normative',evidence:'layer-normative',method:'layer-normative','measurement-model':'theory','update-control':'layer-interaction'}:{outcomes:'process',coverage:'partners',method:'evidence',notes:'takeaways'},target=aliases[requested]||requested;
+    const requested=location.hash.slice(1),aliases=route==='research'?{framework:'architecture','layer-data':'scenario-space','layer-interaction':'architecture','layer-mechanism':'components','layer-normative':'rubric',iceberg:'theory',movie:'theory',agency:'theory',discoveries:'evidence',method:'evidence','measurement-model':'theory','update-control':'architecture'}:{outcomes:'process',coverage:'partners',method:'evidence',notes:'takeaways'},target=aliases[requested]||requested;
     if(lastJournalAnchor!==location.pathname+location.hash){lastJournalAnchor=location.pathname+location.hash;if(document.getElementById(target))requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start',behavior:'instant'}));}
     syncArticleNavigation();
   }

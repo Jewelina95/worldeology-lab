@@ -1,0 +1,36 @@
+/* Reference interaction layout, with technical depth disclosed in its own panel. */
+.research-feature .article-shell{width:min(1480px,100%);margin-inline:auto;grid-template-columns:170px minmax(0,1160px);gap:48px;padding-inline:36px}
+.research-feature .article-body{min-width:0}
+.research-feature .article-rail{max-height:calc(100dvh - 120px);overflow-y:auto}
+.research-feature .article-rail>a{font-size:14px;line-height:1.6}
+.research-feature .theory-essay>p{font-size:16px;line-height:1.8}
+.research-feature .theory-essay h3{font-size:34px;margin-top:12px}
+.research-feature .research-theory-panel{align-items:start;gap:32px}
+.research-feature .research-theory-tabs small{font-size:14px;line-height:1.5}
+.research-feature .theory-art-caption{font-size:14px}
+.research-feature .research-problem{display:block;margin-top:22px;font:500 14px/1.6 var(--sans);color:#895b43}
+.research-feature .research-rule-formula{font:400 25px/1.7 var(--serif);color:#294837;margin:13px 0;overflow-wrap:anywhere}
+.research-feature .research-symbol-key{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
+.research-feature .research-symbol-key>div{padding:0!important;border:0!important;display:block!important}
+.research-feature .research-symbol-key dt{font:500 17px/1.5 var(--sans);color:#365b3e}
+.research-feature .research-symbol-key dd{font:14px/1.7 var(--sans);margin:3px 0 0;color:#53634f}
+.research-feature .research-detail{border-top:1px solid #d5decd;padding:0;margin-top:20px}
+.research-feature .research-detail summary{cursor:pointer;font:500 15px/1.65 var(--sans);color:#365b3e;padding:16px 0;min-height:48px;list-style:disclosure-closed}
+.research-feature .research-detail[open] summary{list-style:disclosure-open}
+.research-feature .research-detail-body{padding:5px 0 15px}
+.research-feature .research-detail-body :is(p,li){font:15px/1.85 var(--sans);color:#53634f;margin:0 0 14px}
+.research-feature .research-detail-body ol{padding-left:22px;margin:0 0 14px}
+.research-feature .research-detail-body .research-detail-source{font-size:13px;color:#6c7d61;margin-bottom:0}
+.research-feature .rule-sequence{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0 18px}
+.research-feature .rule-sequence>span{padding:8px 11px;background:#e7eddf;border-radius:5px;font:14px/1.6 var(--sans);color:#355b3c}
+.research-feature .rule-sequence>b{font:400 14px var(--sans);color:#6d8064}
+.research-feature .research-rule-pair{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:26px;margin-top:22px}
+.research-feature .research-instrument-detail>p{font-size:16px;line-height:1.85}
+.research-feature .instrument-io p,.research-feature .instrument-boundary p{font-size:15px;line-height:1.8}
+.research-feature .research-record-sheet dd{font-size:15px;line-height:1.8}
+.research-feature .research-record-sheet dt{font-size:14px}
+.research-feature .research-record-sheet footer{font-size:14px}
+.research-feature .article-section{scroll-margin-top:125px}
+@media(max-width:1100px){.research-feature .article-shell{grid-template-columns:145px minmax(0,1fr);gap:28px;padding-inline:24px}.research-feature .research-theory-panel{grid-template-columns:1fr}.research-feature .theory-artboard{max-width:640px}}
+@media(max-width:800px){.research-feature .article-shell{display:block;padding-inline:20px}.research-feature .article-rail{max-height:none;overflow-x:auto;overflow-y:hidden}.research-feature .research-rule-pair{grid-template-columns:1fr;gap:0}.research-feature .research-symbol-key{gap:12px}.research-feature .research-theory-tabs>button>strong{font-size:24px}.research-feature .research-theory-tabs small{font-size:13px}.research-feature .theory-essay h3{font-size:31px}}
+@media(max-width:420px){.research-feature .research-theory-tabs{grid-template-columns:1fr}.research-feature .research-theory-tabs>button{display:grid;grid-template-columns:95px 1fr;align-items:center}.research-feature .research-symbol-key{grid-template-columns:1fr}.research-feature .pipeline-nodes strong{font-size:22px}}

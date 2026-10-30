@@ -44,13 +44,13 @@ function renderEditorialNavigation(){
       ['Capability profiles','See where the differences emerge.','models?category=Capabilities','capability']
     ]},
     research:{label:'Research',title:'Research',intro:'The ideas, components, and rules behind InteractEval.',href:'./research.html',items:[
-      ['Three theoretical ideas','State, trajectory, and initiative.','./research.html#theory','theory'],
-      ['Measurement architecture','Four layers with distinct responsibilities.','./research.html#framework','agent'],
-      ['World components','Scene, latent state, and event chain.','./research.html#layer-mechanism','scenario'],
+      ['Three principles','State, trajectory, and initiative.','./research.html#theory','theory'],
+      ['Measurement architecture','Four layers with distinct responsibilities.','./research.html#architecture','agent'],
+      ['World components','Scene, latent state, and event chain.','./research.html#components','scenario'],
       ['Time-indexed records','Follow real states and paths across turns.','./research.html#temporal-records','duration'],
-      ['Key findings','What the interaction record reveals.','./research.html#discoveries','overview'],
-      ['Scenario design','Three questions define the situation.','./research.html#layer-data','capability'],
-      ['Capability rubric','Six levels and their dependency rules.','./research.html#layer-normative','rubric']
+      ['Key findings','Six conclusions from the tested systems.','./index.html#key-findings','overview'],
+      ['Scenario design','Three questions define the situation.','./research.html#scenario-space','capability'],
+      ['Capability rubric','Six levels and their dependency rules.','./research.html#rubric','rubric']
     ]}
   };
   const item=(id,g)=>`<div class="restored-nav-item"><a href="${g.href}" ${route===id||(id==='showcase'&&route==='cases')?'aria-current="page"':''}>${g.label}</a><button data-nav-menu="${id}" aria-label="Open ${g.label} menu" aria-expanded="false" aria-controls="nav-${id}"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></button><div class="restored-nav-menu" id="nav-${id}" hidden><header><span>Explore ${g.label}</span><h2>${g.title}</h2><p>${g.intro}</p></header><div class="nav-card-grid">${g.items.map(([title,copy,url,icon])=>`<a class="nav-destination" href="${url.startsWith('./')?url:base+url}"><i>${agentIdentity[icon]?agentIcon(icon):navigationIcon(icon)}</i><span><strong>${title}</strong><small>${copy}</small></span><b aria-hidden="true">&#8599;</b></a>`).join('')}</div></div></div>`;

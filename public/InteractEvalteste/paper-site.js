@@ -55,6 +55,9 @@ function render(){
  route=page==='research.html'?'research':page==='showcase.html'?'cases':resultAnchors.includes(hash)?'home':hash||'home';
  if(!['home','models','agents','cases','research','trends','multimodal','leaderboards','compare','architecture'].includes(route)&&!route.startsWith('model/'))route='home';
  const params=new URLSearchParams(query);
+ if(page==='research.html'&&['iceberg','movie','agency'].includes(hash))theoryPrinciple=hash;
+ if(page==='research.html'&&hash==='layer-interaction')instrumentStage=1;
+ if(page==='research.html'&&hash==='update-control')instrumentStage=2;
  if(params.has('metric')&&metrics.some(m=>m.id===params.get('metric')))metric=params.get('metric');
  if(params.has('model'))caseQuery=params.get('model');
  if(route==='architecture')route='cases';
