@@ -1186,7 +1186,12 @@
         0.026,
         0.043
       ],
-      "purpose_delta": 0.025
+      "purpose_delta": 0.025,
+      "purpose_gains": {
+        "functional": 0.021,
+        "mixed": 0.032,
+        "nonfunctional": 0.046
+      }
     },
     {
       "architecture": "Cognizer",
@@ -1196,7 +1201,12 @@
         0.038,
         0.066
       ],
-      "purpose_delta": -0.029
+      "purpose_delta": -0.029,
+      "purpose_gains": {
+        "functional": 0.061,
+        "mixed": 0.056,
+        "nonfunctional": 0.032
+      }
     },
     {
       "architecture": "Claude Code",
@@ -1206,7 +1216,12 @@
         0.024,
         0.058
       ],
-      "purpose_delta": -0.043
+      "purpose_delta": -0.043,
+      "purpose_gains": {
+        "functional": 0.062,
+        "mixed": 0.042,
+        "nonfunctional": 0.019
+      }
     }
   ],
   "interaction_matrix": [

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-labelledby="title desc">
+  <title id="title">Initiative: propose a warranted next step and follow through</title>
+  <desc id="desc">A goal remains in view while an agent notices a missing detail, proposes a check, and updates the plan. The middle step introduces a direction; the final step sustains it.</desc>
+  <defs>
+    <filter id="paper-shadow" x="-15%" y="-20%" width="130%" height="155%">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#3d563d" flood-opacity=".08" />
+    </filter>
+    <marker id="step-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="m1.5 1 5 3-5 3" fill="none" stroke="#73916e" stroke-width="1.3" />
+    </marker>
+  </defs>
+  <rect width="640" height="440" rx="18" fill="#eef0e5" />
+  <path d="M49 97c124-28 414-28 542 0" fill="none" stroke="#b5c5a9" stroke-width="1.4" stroke-dasharray="2 6" />
+  <text x="320" y="54" text-anchor="middle" fill="#55714c" font-family="Arial,sans-serif" font-size="18">Keep the goal and constraints in view</text>
+  <path d="M190 255c25 0 22-47 47-47M403 208c25 0 22 47 47 47" fill="none" stroke="#789875" stroke-width="2" marker-end="url(#step-arrow)" />
+  <g filter="url(#paper-shadow)">
+    <rect x="34" y="179" width="166" height="145" rx="11" fill="#f9faf3" transform="rotate(-3 117 251)" />
+    <path d="M252 126h131l23 24v163a11 11 0 0 1-11 11H252a11 11 0 0 1-11-11V137a11 11 0 0 1 11-11Z" fill="#dae6ce" />
+    <path d="M383 126v16a8 8 0 0 0 8 8h15Z" fill="#b8cda6" />
+    <rect x="442" y="179" width="166" height="145" rx="11" fill="#f9faf3" transform="rotate(3 525 251)" />
+  </g>
+  <g font-family="Arial,sans-serif" font-size="17" fill="#819276" text-anchor="middle">
+    <text x="116" y="220" font-family="Arial,sans-serif" font-size="17" text-anchor="middle" fill="#819276">Notice</text>
+    <text x="320" y="171" fill="#5a7a4c" font-family="Arial,sans-serif" font-size="17" text-anchor="middle">Initiate</text>
+    <text x="525" y="220" font-family="Arial,sans-serif" font-size="17" text-anchor="middle" fill="#819276">Sustain</text>
+  </g>
+  <g font-family="Georgia,serif" font-size="25" fill="#3b593d" text-anchor="middle">
+    <text x="116" y="259" font-family="Georgia,serif" font-size="25" text-anchor="middle" fill="#3b593d">A missing</text>
+    <text x="116" y="289" font-family="Georgia,serif" font-size="25" text-anchor="middle" fill="#3b593d">detail</text>
+    <text x="320" y="218" font-family="Georgia,serif" font-size="25" text-anchor="middle" fill="#3b593d">Propose</text>
+    <text x="320" y="249" font-family="Georgia,serif" font-size="25" text-anchor="middle" fill="#3b593d">a check</text>
+    <text x="525" y="259" font-family="Georgia,serif" font-size="25" text-anchor="middle" fill="#3b593d">Update</text>
+    <text x="525" y="289" font-family="Georgia,serif" font-size="25" text-anchor="middle" fill="#3b593d">the plan</text>
+  </g>
+  <path d="m306 283 9 8 16-18" fill="none" stroke="#6c8b58" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="320" y="397" text-anchor="middle" fill="#75876a" font-family="Arial,sans-serif" font-size="17">The contribution depends on what the situation needs.</text>
+</svg>

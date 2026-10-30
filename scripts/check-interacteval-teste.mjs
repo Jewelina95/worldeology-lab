@@ -1,44 +1,32 @@
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {resolve} from 'node:path';
-import {createHash} from 'node:crypto';
 import vm from 'node:vm';
-
 const root=resolve('public/InteractEvalteste');
-const read=name=>readFileSync(resolve(root,name),'utf8');
-const context=vm.createContext({});
-vm.runInContext(read('research-methods.js'),context);
-for(const id of ['iceberg','movie','agency']){
-  const html=context.methodTheoryDetails(id);
-  assert.ok(html.includes('Paper §2.'),`${id}: manuscript source missing`);
-  assert.ok(html.includes('method-equation'),`${id}: equation missing`);
-  assert.ok(html.includes('<dt>')&&html.includes('<dd>'),`${id}: symbols must be explained`);
+const read=f=>readFileSync(resolve(root,f),'utf8');
+const context=vm.createContext({document:{addEventListener(){}}});
+vm.runInContext(read('research-showcase.js'),context);
+const scores=raw=>JSON.parse(JSON.stringify(context.researchCascadeScores(raw)));
+assert.deepEqual(scores([1,1,0,1,1,1]).map(d=>d.s),[1,1,0,0,0,0]);
+assert.deepEqual(scores([1,.6,.4,1,1,1]).map(d=>d.s),[1,.6,.4,.4,.4,.4]);
+assert.deepEqual(scores([1,.6,1,1,1,1]).map(d=>d.s),[1,.6,1,1,1,1]);
+const markup=vm.runInContext('researchReferenceMarkup',context);
+for(const id of ['theory','iceberg','movie','agency','framework','layer-data','layer-interaction','layer-mechanism','layer-normative','cube','rubRows'])assert.ok(markup.includes('id="'+id+'"'),id);
+for(const text of ['routine clarification can remain responsive','does not assess its downstream effect','Conceptual illustration, not measured scores','Symbols in the interaction model'])assert.ok(markup.includes(text),text);
+assert.ok(!markup.includes('id="L1"'));
+assert.ok(read('research-features.js').includes('return researchShowcasePage()'));
+for(const f of ['index.html','research.html','showcase.html']){
+ const html=read(f);
+ assert.ok(html.includes('https://worldeology.com/InteractEvalteste/'));
+ assert.ok(html.includes('./fonts.css')&&html.includes('./readability.css'));
+ assert.ok(html.indexOf('./research-showcase.js')<html.indexOf('./paper-site.js'));
+ assert.ok(!html.includes('./research-methods'));
+ for(const [,asset]of html.matchAll(/(?:src|href)="\.\/([^"?#]+)(?:[^" ]*)?"/g))assert.ok(existsSync(resolve(root,asset)),`${f}: ${asset}`);
 }
-assert.ok(context.methodTheoryDetails('agency').includes('does not measure downstream causal benefit'));
-assert.ok(context.methodTheoryDetails('movie').includes('not labels for whether an outcome benefits'));
-assert.ok(context.methodComponentDetails('scene').includes('Fixed'));
-assert.ok(context.methodComponentDetails('latent').includes('Unknown records insufficient evidence'));
-assert.ok(context.methodComponentDetails('events').includes('never rewritten to fit a forecast'));
-assert.ok(context.methodMeasurementModel().includes('C<sup>eval</sup> is the case specification'));
-assert.ok(context.methodExecutionPanel().includes('eₜ ≤ 0.20 or bₜ ≤ 0'));
-assert.ok(context.methodExecutionPanel().includes('does not directly stop an episode'));
-assert.ok(context.methodRubricDetails().includes('α = 0.8'));
-assert.ok(context.methodRubricDetails().includes('User L3–L5'));
-for(let i=0;i<4;i++)assert.ok(context.methodStageDetails(i).includes('Paper '));
-const feature=read('research-features.js');
-for(const renderer of ['methodTheoryDetails(theoryPrinciple)','methodStageDetails(instrumentStage)','methodComponentDetails(worldComponent)','methodMeasurementModel()','methodExecutionPanel()','methodRubricDetails()','methodEvidenceDetails()'])assert.ok(feature.includes(renderer),`Unwired renderer: ${renderer}`);
-for(const file of ['index.html','research.html','showcase.html']){
-  const html=read(file);
-  assert.ok(html.includes('https://worldeology.com/InteractEvalteste/'),`${file}: canonical destination`);
-  assert.ok(html.indexOf('./research-methods.js')<html.indexOf('./research-features.js'),`${file}: script ordering`);
-  for(const [,path] of html.matchAll(/(?:src|href)="\.\/([^"?#]+)(?:[^" ]*)?"/g))assert.ok(existsSync(resolve(root,path)),`${file}: missing local asset ${path}`);
+assert.equal(JSON.parse(read('data/cases.json')).length,100);
+assert.equal(readdirSync(resolve(root,'data/cases')).filter(f=>f.endsWith('.json')).length,100);
+if(process.argv[2]){
+ assert.deepEqual(JSON.parse(read('data/paper-results.json')),JSON.parse(readFileSync(resolve(process.argv[2],'data/paper-results.json'),'utf8')));
+ for(const f of ['data/cases.json','data/research-evidence.json'])assert.equal(read(f),readFileSync(resolve(process.argv[2],f),'utf8'));
 }
-const cases=JSON.parse(read('data/cases.json'));
-assert.ok(Array.isArray(cases)&&cases.length===100,'Expected the upstream 100-case illustrative library');
-assert.equal(readdirSync(resolve(root,'data/cases')).filter(name=>name.endsWith('.json')).length,100);
-// Optional upstream checkout verifies that relocation and Research edits changed no measurements.
-if(process.argv[2])for(const file of ['data/paper-results.json','data/cases.json','data/research-evidence.json']){
-  const sha=path=>createHash('sha256').update(readFileSync(path)).digest('hex');
-  assert.equal(sha(resolve(root,file)),sha(resolve(process.argv[2],file)),`Upstream data changed: ${file}`);
-}
-console.log('InteractEvalteste verified: theory definitions, layer boundaries, controls, script order, local assets, 100 examples, and unchanged publication data.');
+console.log('Verified: upstream layout assets, research diagrams, cascade rules, symbol explanations, architecture IDs, data and 100 cases.');

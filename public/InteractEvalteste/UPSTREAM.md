@@ -1,13 +1,13 @@
 # InteractEvalteste provenance
 
 - Base website: https://github.com/xgogu/InteractEval
-- Upstream commit: 01f53487d9e8ab8c53a90b29f1b885e86a43c3ab
+- Upstream commit: 0ee2862ff28030c79bcd6727517c4332144e9072
 - Deployment: https://worldeology.com/InteractEvalteste/
-- Research content update: 26 October 2026.
+- Research content and full-site layout update: 30 October 2026.
 
-The base website, published measurements, figures and 100-example library are retained. The original license and attribution remain. Numerical result files are unchanged.
+The latest upstream typography, navigation, full-site layouts, published figures and 100-example library are retained. The original license and attribution remain. Published data match the upstream revision, including its newly supplied purpose-specific architecture gains. Existing model measurements and case records are not recalculated.
 
-The Research additions are grounded in the user-supplied `interacteval_showcase.html` and `main.tex` in `Qwen_InteractEval (1).zip`. The manuscript definitions take precedence when shorthand in the supplied HTML is ambiguous. In particular, the architecture layers are not capability levels L1–L4, an Advance path has no inherent positive valence, and Δ_H is a theoretical causal contrast, not a quantity identified by transcript-only rubric scores.
+The Research presentation replaces the previous appended text panels with the theory and measurement sections adapted from the user-supplied `interacteval_showcase.html`, aligned to `main.tex` in `Qwen_InteractEval (1).zip`. The manuscript definitions take precedence when shorthand in the supplied HTML is ambiguous. Architecture layers are not capability levels L1–L4, an Advance path has no inherent positive valence, routine clarification is not necessarily initiative, and Δ_H is a theoretical causal contrast, not a quantity identified by transcript-only rubric scores. The 27-cell sampler and scoring cascade demonstrate definitions, not new observations.
 
 Source mapping:
 

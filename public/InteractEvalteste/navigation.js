@@ -19,7 +19,7 @@ function navigationIcon(name){return `<svg viewBox="0 0 24 24" fill="none" strok
 
 function renderEditorialNavigation(){
   const base='./index.html#',groups={
-    models:{label:'Models',title:'Understand the whole profile.',intro:'42 measures, with a guide to what each one tells you.',href:base+'models',items:[
+    models:{label:'Models',title:'Model evaluations',intro:'42 measures, with a guide to what each one tells you.',href:base+'models',items:[
       ['All evaluations','Every measure in one workspace.','models','overview'],
       ['Capabilities','Six levels, from goals to sustained initiative.','models?category=Capabilities','capability'],
       ['Scenario conditions','Purpose, information, and world setting.','models?category=Scenarios','scenario'],
@@ -29,35 +29,32 @@ function renderEditorialNavigation(){
       ['Partners & roles','Pairings, self-play, and the user role.','models?category=Partners','partner'],
       ['Repeatability','Independent passes and judge changes.','models?category=Reliability','repeat']
     ]},
-    agents:{label:'Agents',title:'A model, with a way to work.',intro:'Compare three architectures across the same ten base models.',href:base+'agents',items:[
+    agents:{label:'Agents',title:'Agent architectures',intro:'Compare three architectures across the same ten base models.',href:base+'agents',items:[
       ['Compare architectures','Explore all configurations side by side.','agents','agent'],
       ...['MetaMind','Cognizer','Claude Code'].map(name=>[name,({MetaMind:'Explore MetaMind across ten base models.',Cognizer:'Explore Cognizer across ten base models.','Claude Code':'Explore Claude Code across ten base models.'})[name],'agents?architecture='+encodeURIComponent(name),name])
     ]},
-    multimodal:{label:'Image, Speech, Video',title:'More ways to interact.',intro:'Multimodal evaluation is in preparation.',href:base+'multimodal',items:[['Multimodal evaluations','Image, speech, and video · Pending','multimodal','media']]},
-    showcase:{label:'Showcase',title:'Follow an interaction.',intro:'Read the dialogue, then inspect the evidence at each turn.',href:'./showcase.html',items:[
+    multimodal:{label:'Image, Speech, Video',title:'Multimodal evaluations',intro:'Multimodal evaluation is in preparation.',href:base+'multimodal',items:[['Multimodal evaluations','Image, speech, and video · Pending','multimodal','media']]},
+    showcase:{label:'Showcase',title:'Conversation library',intro:'Read the dialogue, then inspect the evidence at each turn.',href:'./showcase.html',items:[
       ['All conversations','Explore the complete example library.','./showcase.html','conversation'],
       ['Task-oriented','Follow a concrete objective to its ending.','./showcase.html#cases?purpose=functional','outcome'],
       ['Open-ended','See how a conversation sustains its value.','./showcase.html#cases?purpose=nonfunctional','partner']
     ]},
-    leaderboards:{label:'Leaderboards',title:'Compare, then look closer.',intro:'Start with the ranking. Explore the capabilities behind it.',href:base+'leaderboards',items:[
+    leaderboards:{label:'Leaderboards',title:'Model rankings',intro:'Start with the ranking. Explore the capabilities behind it.',href:base+'leaderboards',items:[
       ['Overall ranking','Compare scores on the same scale.','leaderboards','overview'],
       ['Capability profiles','See where the differences emerge.','models?category=Capabilities','capability']
     ]},
-    research:{label:'Research',title:'Inside the framework.',intro:'The ideas, components, and rules behind InteractEval.',href:'./research.html',items:[
+    research:{label:'Research',title:'Research',intro:'The ideas, components, and rules behind InteractEval.',href:'./research.html',items:[
       ['Three theoretical ideas','State, trajectory, and initiative.','./research.html#theory','theory'],
-      ['Symbols and measurement','Observed world, evidence, reconstruction, and score.','./research.html#measurement-model','theory'],
-      ['Instrument architecture','Four stages with distinct responsibilities.','./research.html#architecture','agent'],
-      ['World components','Scene, latent state, and event chain.','./research.html#components','scenario'],
-      ['Update and control','Subturn order, revision gates, and stopping.','./research.html#update-control','repeat'],
+      ['Measurement architecture','Four layers with distinct responsibilities.','./research.html#framework','agent'],
+      ['World components','Scene, latent state, and event chain.','./research.html#layer-mechanism','scenario'],
       ['Time-indexed records','Follow real states and paths across turns.','./research.html#temporal-records','duration'],
       ['Key findings','What the interaction record reveals.','./research.html#discoveries','overview'],
-      ['Scenario design','Three questions define the situation.','./research.html#scenario-space','capability'],
-      ['Capability rubric','Six levels and their dependency rules.','./research.html#rubric','rubric'],
-      ['Evidence rules','Verified quotations and separated judgments.','./research.html#evidence','conversation']
+      ['Scenario design','Three questions define the situation.','./research.html#layer-data','capability'],
+      ['Capability rubric','Six levels and their dependency rules.','./research.html#layer-normative','rubric']
     ]}
   };
-  const item=(id,g)=>`<div class="restored-nav-item"><a href="${g.href}" ${route===id||(id==='showcase'&&route==='cases')?'aria-current="page"':''}>${g.label}</a><button data-nav-menu="${id}" aria-label="Open ${g.label} menu" aria-expanded="false" aria-controls="nav-${id}"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></button><div class="restored-nav-menu" id="nav-${id}" hidden><header><span>EXPLORE ${g.label.toUpperCase()}</span><h2>${g.title}</h2><p>${g.intro}</p></header><div class="nav-card-grid">${g.items.map(([title,copy,url,icon])=>`<a class="nav-destination" href="${url.startsWith('./')?url:base+url}"><i>${agentIdentity[icon]?agentIcon(icon):navigationIcon(icon)}</i><span><strong>${title}</strong><small>${copy}</small></span><b aria-hidden="true">&#8599;</b></a>`).join('')}</div></div></div>`;
-  $('.primary-nav').innerHTML=`<a class="results-nav-link" href="./index.html" ${route==='home'?'aria-current="page"':''}>Results</a>`+Object.entries(groups).map(([id,g])=>item(id,g)).join('');
+  const item=(id,g)=>`<div class="restored-nav-item"><a href="${g.href}" ${route===id||(id==='showcase'&&route==='cases')?'aria-current="page"':''}>${g.label}</a><button data-nav-menu="${id}" aria-label="Open ${g.label} menu" aria-expanded="false" aria-controls="nav-${id}"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></button><div class="restored-nav-menu" id="nav-${id}" hidden><header><span>Explore ${g.label}</span><h2>${g.title}</h2><p>${g.intro}</p></header><div class="nav-card-grid">${g.items.map(([title,copy,url,icon])=>`<a class="nav-destination" href="${url.startsWith('./')?url:base+url}"><i>${agentIdentity[icon]?agentIcon(icon):navigationIcon(icon)}</i><span><strong>${title}</strong><small>${copy}</small></span><b aria-hidden="true">&#8599;</b></a>`).join('')}</div></div></div>`;
+  $('.primary-nav').innerHTML=`<a class="results-nav-link" href="./index.html" ${route==='home'?'aria-current="page"':''}>Main</a>`+Object.entries(groups).map(([id,g])=>item(id,g)).join('');
   $('.wordmark').href='./index.html';
 }
 
