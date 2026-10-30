@@ -5,7 +5,7 @@ import vm from 'node:vm';
 const root=resolve('public/InteractEvalteste');
 const read=f=>readFileSync(resolve(root,f),'utf8');
 const context=vm.createContext({document:{addEventListener(){}},safe:s=>String(s),navigationIcon:()=>'<svg></svg>',levelNames:['L1','L2','L3','L4','L5','L6'],measureGuide:id=>({title:id,meaning:'Criterion',reading:'Reading'}),researchRecordsPanel:()=>'<div>Recorded evidence</div>',journalSection:(id,n,k,title,deck,body)=>`<section id="${id}">${body}</section>`});
-for(const f of ['site-pages.js','research-details.js','research-features.js'])vm.runInContext(read(f),context);
+for(const f of ['site-pages.js','research-details.js','research-upgrade.js','research-features.js'])vm.runInContext(read(f),context);
 for(const id of ['iceberg','movie','agency']){
  vm.runInContext(`theoryPrinciple='${id}'`,context);
  const html=context.researchTheoryPanel();
