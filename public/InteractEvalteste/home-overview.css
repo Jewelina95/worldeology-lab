@@ -36,3 +36,53 @@
 @media(max-width:800px){.results-page .home-rail{position:static;display:flex;max-height:none;overflow-x:auto;overflow-y:hidden;margin-bottom:36px;gap:7px}.results-page .home-rail>a:not(.rail-link){white-space:nowrap;padding:10px 12px;min-height:44px}.results-page .home-argument{grid-template-columns:1fr;gap:12px}.results-page .home-argument h3{font-size:25px}.results-page .home-argument p{font-size:16px}.results-page .home-findings-grid{grid-template-columns:1fr}.results-page .home-finding h3{min-height:0;font-size:30px}.results-page .home-finding-stat strong{font-size:clamp(29px,9vw,36px)}.results-page .proactivity-opening .intro-section-heading{grid-template-columns:1fr;gap:16px}.results-page .hero-method-summary{font-size:16px}.results-page .journal-hero h1{font-size:clamp(46px,13vw,88px)}}
 @media(prefers-reduced-motion:reduce){.results-page .home-rail{scroll-behavior:auto}}
 @media(max-width:420px){.results-page :is(.journal-outcome-head,.journal-purpose-row){grid-template-columns:minmax(100px,1.2fr) minmax(60px,1fr) minmax(60px,1fr);gap:8px}}
+
+/* A short entry, then six visual summaries instead of six text essays. */
+.results-page .home-project-overview{padding:0 0 32px;border-bottom:1px solid #dce2d6}
+.results-page .home-project-overview>h2{font:400 31px/1.2 var(--serif);margin:0 0 14px;color:#294837}
+.results-page .home-project-overview>p{font:400 18px/1.85 var(--sans);margin:0;max-width:900px;color:#435b45}
+.results-page .journal-hero .journal-deck{font-size:clamp(25px,2.4vw,32px);line-height:1.35}
+.results-page .home-findings-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.results-page .home-finding-visual{padding:22px 20px;background:#f0f3e9}
+.results-page .home-finding-visual h3{font:400 27px/1.15 var(--serif);min-height:62px}
+.results-page .home-finding-visual .home-finding-number{margin-bottom:10px}
+.home-finding-chart{margin:20px 0 22px;min-width:0}
+.finding-unit{font:14px/1.6 var(--sans);color:#53634f;margin-bottom:18px}
+.finding-mini-row{display:grid;grid-template-columns:91px minmax(0,1fr) 48px;align-items:center;gap:8px;margin:21px 0;font:14px/1.5 var(--sans)}
+.finding-mini-row>span{color:#435b45;overflow-wrap:anywhere}
+.finding-mini-row>b{font-weight:500;text-align:right;font-variant-numeric:tabular-nums;color:#294837}
+.finding-mini-track{height:16px;border-radius:2px;background:#e0e7d6;overflow:hidden}
+.finding-mini-track>i{display:block;height:100%;background:#8aa579;border-radius:2px;transform-origin:left;animation:finding-bar-enter .65s ease both}
+.finding-mini-track>i.is-emphasis{background:#426c4b}
+.finding-mini-axis{display:flex;justify-content:space-between;margin:7px 56px 0 99px;border-top:1px solid #cdd8c2;padding-top:5px;font:12px/1.5 var(--sans);color:#62745a}
+.finding-line-plot{position:relative;height:160px;margin-left:34px}
+.finding-line-plot>svg{display:block;width:100%;height:100%;overflow:visible}
+.finding-y-axis{position:absolute;right:calc(100% + 7px);top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;font:12px/1.4 var(--sans);color:#62745a}
+.finding-grid{fill:none;stroke:#d4ddca;stroke-width:1;vector-effect:non-scaling-stroke}
+.finding-series{fill:none;stroke-width:2.6;vector-effect:non-scaling-stroke}
+.finding-series.series-0{stroke:#426c4b}.finding-series.series-1{stroke:#a46b48;stroke-dasharray:6 4}
+.series-point.series-0{fill:#426c4b}.series-point.series-1{fill:#a46b48}
+.series-point{stroke:#f0f3e9;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.finding-x-axis{display:flex;justify-content:space-between;gap:8px;margin:8px 0 0 34px;font:12px/1.5 var(--sans);color:#62745a}
+.finding-chart-legend{display:grid;gap:8px;margin-top:18px;font:13px/1.6 var(--sans);color:#435b45}
+.finding-chart-legend>div{display:grid;grid-template-columns:14px minmax(0,1fr) auto;align-items:center;gap:6px}
+.finding-chart-legend b{font-weight:500;font-variant-numeric:tabular-nums;color:#294837}
+.series-key{height:3px;background:#426c4b}.series-key.series-1{background:repeating-linear-gradient(90deg,#a46b48 0 4px,transparent 4px 6px)}
+.results-page .finding-one-line{font:14px/1.7 var(--sans);color:#53634f;margin:16px 0 0}
+.finding-stage-legend{display:flex;flex-wrap:wrap;gap:7px 12px;margin-bottom:18px;font:12px/1.5 var(--sans);color:#53634f}
+.finding-stage-legend>span{display:flex;gap:5px;align-items:center}.finding-stage-legend i{width:9px;height:9px}
+.stage-0{background:#bacbad}.stage-1{background:#8ba579}.stage-2{background:#426c4b}
+.finding-architecture-group{margin:0 0 17px}.finding-architecture-group>strong{display:block;font:500 14px/1.5 var(--sans);margin-bottom:7px;color:#435b45}
+.finding-gain-row{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:8px;align-items:center;margin:4px 0;font:12px/1.5 var(--sans)}
+.finding-gain-row>div{height:8px;background:#e2e9d9}.finding-gain-row i{display:block;height:100%;transform-origin:left;animation:finding-bar-enter .65s ease both}
+.finding-gain-row>b{text-align:right;font-weight:400;font-variant-numeric:tabular-nums;color:#435b45}
+.finding-gain-axis{display:flex;justify-content:space-between;margin-right:60px;border-top:1px solid #cdd8c2;padding-top:5px;font:12px/1.5 var(--sans);color:#62745a}
+.finding-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.results-page .home-finding-visual footer{gap:8px}.results-page .home-finding-visual footer>span{font-size:12px;line-height:1.6}
+@keyframes finding-bar-enter{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:1200px){.results-page .home-findings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.results-page .home-findings-grid{grid-template-columns:1fr}.results-page .home-finding-visual h3{font-size:29px;min-height:0}.finding-line-plot{height:175px}.finding-chart-legend{font-size:14px}.results-page .home-project-overview>p{font-size:17px}.results-page .home-finding-visual{padding:22px}}
+@media(max-width:370px){.finding-chart-legend>div{grid-template-columns:14px minmax(0,1fr)}.finding-chart-legend b{grid-column:2}.finding-mini-row{grid-template-columns:83px minmax(0,1fr) 46px;gap:6px;font-size:13px}.finding-mini-axis{margin-left:89px}}
+@media(prefers-reduced-motion:reduce){.finding-mini-track>i,.finding-gain-row i{animation:none}}
+.finding-y-axis,.finding-x-axis,.finding-mini-axis,.finding-gain-axis,.finding-stage-legend,.finding-gain-row{font-size:13px}
+.results-page .home-finding-visual footer>span{font-size:13px}

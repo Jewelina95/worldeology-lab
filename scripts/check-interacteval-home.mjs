@@ -8,18 +8,23 @@ const researchEvidence=JSON.parse(read('data/research-evidence.json'));
 const context=vm.createContext({document:{addEventListener(){}},window:{addEventListener(){}},safe:s=>String(s),researchEvidence,publication:JSON.parse(read('data/paper-results.json')),editorialHero:x=>x});
 vm.runInContext(read('site-pages.js'),context);
 vm.runInContext(read('proactivity-intro.js'),context);
+vm.runInContext(read('finding-charts.js'),context);
 const hero=context.proactivityHero();
 assert.ok(hero.includes('<h1>InteractEval</h1>'));
-assert.ok(hero.includes('Measuring Interactive Intelligence'));
+assert.ok(hero.includes('Can a model shape an interaction, not just respond?'));
 assert.ok(!hero.includes('take the next step'));
 const overview=context.homeProjectOverview();
-assert.equal((overview.match(/class="home-argument"/g)||[]).length,3);
-for(const text of ['response-level evaluation','process-oriented benchmark','precondition of interactive creativity','require further experiments','does not demonstrate improved learning'])assert.ok(overview.includes(text),text);
+assert.equal((overview.match(/<p>/g)||[]).length,1);
+assert.ok(overview.replace(/<[^>]*>/g,' ').split(/\s+/).filter(Boolean).length<32);
 const findings=context.homeKeyFindings();
-assert.equal((findings.match(/class="home-finding"/g)||[]).length,6);
-for(const finding of researchEvidence.findings){assert.ok(findings.includes(finding.en));assert.ok(findings.includes('Paper Table '+finding.source.table));}
-assert.ok(findings.includes('two illustrative episodes'));
-assert.ok(findings.includes('three systems'));
+assert.equal((findings.match(/class="home-finding home-finding-visual"/g)||[]).length,6);
+assert.ok((findings.match(/<svg /g)||[]).length>=2);
+assert.equal((findings.match(/class="finding-mini-bars"/g)||[]).length,3);
+for(const finding of researchEvidence.findings){assert.ok(!findings.includes(finding.en));assert.ok(findings.includes('Table '+finding.source.table));}
+assert.ok(findings.includes('Two episodes · not a causal pair'));
+for(const value of ['0.035','0.111','0.370','16.4%','10.3%','23.1%','3.8%','0.629 → 0.677','+0.066'])assert.ok(findings.includes(value),value);
+assert.ok(!findings.includes('NaN')&&!findings.includes('undefined'));
+assert.ok(findings.includes('0.50–0.70'),'Truncated slope axis must be explicit');
 const sections=vm.runInContext('homeSectionIndex',context);
 assert.equal(sections.at(-1)[0],'key-findings');
 assert.equal(sections.at(-1)[2],'07');
@@ -29,5 +34,5 @@ assert.ok(site.includes('${homeArticleRail()}<article class="article-body">${hom
 assert.ok(site.indexOf("journalSection('partners'")<site.indexOf('${homeKeyFindings()}'));
 assert.ok(read('paper-site.js').includes("'key-findings'"));
 assert.ok(read('explorer.js').includes("setAttribute('aria-current','location')"));
-for(const f of ['index.html','research.html','showcase.html'])assert.ok(read(f).includes('./home-overview.css'));
-console.log('Homepage verified: three-part argument, exact title, shared navigation, six source-grounded findings, scope notes and live asset wiring.');
+for(const f of ['index.html','research.html','showcase.html'])assert.ok(read(f).includes('./home-overview.css')&&read(f).includes('./finding-charts.js'));
+console.log('Homepage verified: one-sentence overview, explicit question, six data-driven visuals, honest axes, scope labels and live asset wiring.');
