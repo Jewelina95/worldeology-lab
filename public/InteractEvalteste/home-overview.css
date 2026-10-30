@@ -1,7 +1,4 @@
 /* Homepage argument, continuous section navigation, and paper-grounded findings. */
-.results-page .journal-hero h1{font-size:clamp(64px,7.2vw,106px);letter-spacing:-.045em}
-.results-page .journal-hero .journal-deck{font:400 clamp(25px,2.5vw,33px)/1.25 var(--serif);color:#dce7d4}
-.results-page .hero-method-summary{font-size:17px;line-height:1.8;max-width:580px}
 .results-page .article-shell{align-items:start}
 @media(min-width:801px){.results-page .article-shell{width:min(1440px,100%);grid-template-columns:160px minmax(0,1fr)}}
 .results-page .home-rail{top:105px;max-height:calc(100dvh - 125px);overflow-y:auto}
@@ -33,7 +30,7 @@
 .results-page .home-finding footer>span{font:13px/1.65 var(--sans);color:#53634f}
 .results-page .home-finding footer>a{font:500 14px/1.6 var(--sans);color:#34573b;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1100px){.results-page .home-argument{grid-template-columns:150px minmax(0,1fr);gap:22px}.results-page .home-finding{padding:22px}.results-page .home-finding h3{font-size:27px}.results-page .intro-dialogue-panel{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:800px){.results-page .home-rail{position:static;display:flex;max-height:none;overflow-x:auto;overflow-y:hidden;margin-bottom:36px;gap:7px}.results-page .home-rail>a:not(.rail-link){white-space:nowrap;padding:10px 12px;min-height:44px}.results-page .home-argument{grid-template-columns:1fr;gap:12px}.results-page .home-argument h3{font-size:25px}.results-page .home-argument p{font-size:16px}.results-page .home-findings-grid{grid-template-columns:1fr}.results-page .home-finding h3{min-height:0;font-size:30px}.results-page .home-finding-stat strong{font-size:clamp(29px,9vw,36px)}.results-page .proactivity-opening .intro-section-heading{grid-template-columns:1fr;gap:16px}.results-page .hero-method-summary{font-size:16px}.results-page .journal-hero h1{font-size:clamp(46px,13vw,88px)}}
+@media(max-width:800px){.results-page .home-rail{position:static;display:flex;max-height:none;overflow-x:auto;overflow-y:hidden;margin-bottom:36px;gap:7px}.results-page .home-rail>a:not(.rail-link){white-space:nowrap;padding:10px 12px;min-height:44px}.results-page .home-argument{grid-template-columns:1fr;gap:12px}.results-page .home-argument h3{font-size:25px}.results-page .home-argument p{font-size:16px}.results-page .home-findings-grid{grid-template-columns:1fr}.results-page .home-finding h3{min-height:0;font-size:30px}.results-page .home-finding-stat strong{font-size:clamp(29px,9vw,36px)}.results-page .proactivity-opening .intro-section-heading{grid-template-columns:1fr;gap:16px}}
 @media(prefers-reduced-motion:reduce){.results-page .home-rail{scroll-behavior:auto}}
 @media(max-width:420px){.results-page :is(.journal-outcome-head,.journal-purpose-row){grid-template-columns:minmax(100px,1.2fr) minmax(60px,1fr) minmax(60px,1fr);gap:8px}}
 
@@ -41,7 +38,6 @@
 .results-page .home-project-overview{padding:0 0 32px;border-bottom:1px solid #dce2d6}
 .results-page .home-project-overview>h2{font:400 31px/1.2 var(--serif);margin:0 0 14px;color:#294837}
 .results-page .home-project-overview>p{font:400 18px/1.85 var(--sans);margin:0;max-width:900px;color:#435b45}
-.results-page .journal-hero .journal-deck{font-size:clamp(25px,2.4vw,32px);line-height:1.35}
 .results-page .home-findings-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .results-page .home-finding-visual{padding:22px 20px;background:#f0f3e9}
 .results-page .home-finding-visual h3{font:400 27px/1.15 var(--serif);min-height:62px}
