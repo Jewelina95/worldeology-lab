@@ -1,0 +1,5 @@
+/* Header and favicon share assets/brand/interacteval-mark.svg. */
+.masthead .wordmark{gap:10px;padding:0;background:transparent;border-radius:0;color:#203d30}
+.masthead .wordmark>img{display:block;flex:none;width:32px;height:32px}
+body.nav-on-hero .masthead .wordmark{background:transparent;color:#edf0e5}
+@media(max-width:700px){.masthead .wordmark{gap:8px}.masthead .wordmark>img{width:30px;height:30px}}
