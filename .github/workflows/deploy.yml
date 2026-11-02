@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "3-58/5 * * * *"
 
 permissions:
   contents: read
@@ -17,7 +19,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  updates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      publish: ${{ steps.check.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check InteractEval for a new commit
+        id: check
+        run: node scripts/check-interacteval-update.mjs
   build:
+    needs: updates
+    if: needs.updates.outputs.publish == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
