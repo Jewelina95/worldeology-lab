@@ -34,3 +34,22 @@ The long-form showcase presentation is replaced by the upstream interactive prin
 ## Visual homepage revision
 
 Following the subsequent review, Project Overview is one sentence, and the hero poses a concrete interaction-capability question. Six visual cards replace the long finding paragraphs: stage ranges, two recorded interest curves, information-condition fabrication, purpose-relative closure, a partner-condition slope comparison, and architecture stage gains. Values come from the existing publication JSON and recorded trajectories; the three information-facet rates are transcribed from manuscript Table 8 (0.051, 0.164, 0.103). Bar baselines are zero, the slope chart explicitly labels its 0.50–0.70 range, and the two-episode display makes no causal claim. Full explanations remain available through the relevant chart, record or source-table link. The demo and compact Research design are retained.
+
+## Case 11 opening, 2 November 2026
+
+Main and Research now introduce response versus interaction evaluation with the
+paper's reimbursement example. The A panel holds one response-scoped judgment;
+the B panel advances through three condensed stages, synchronizing the shared
+form, information available, event chain, and an illustrative evidence-based
+reading. Playback pauses when offscreen or hidden, provides manual stage controls,
+and defaults to a static view for reduced motion. The hero iceberg was redrawn as
+an editable SVG with clear, revisable state hypotheses. No published numerical
+measurements were changed. Routine clarification alone is not labeled proactive
+agency, and completed fields are not treated as a backend submission.
+
+The illustration reuses the approved manuscript figure. Selected source turns
+6, 7, 14, 22, and 23 are retained in `assets/research/case11/source.json`;
+t1–t3 in the player denote condensed presentation stages rather than literal
+archived turn indices. Browser checks cover stage selection, synchronized evidence,
+autoplay, desktop layout, and a 390px mobile preview. Astro build, output link
+verification and the repository's seven mobile-contract checks passed.

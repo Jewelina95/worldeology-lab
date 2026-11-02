@@ -71,6 +71,7 @@ function afterExplorerRender(){
   syncEditorialHeader();
   $('#app').classList.toggle('journal-app',route==='research'||route==='home');
   setupIntroductoryPlayer();
+  if(typeof setupCase11==='function')setupCase11();
   if(researchObserver)researchObserver.disconnect();
   if(route==='research'||route==='home'){
     researchObserver=new IntersectionObserver(()=>syncArticleNavigation(),{rootMargin:'-90px 0px -55% 0px'});

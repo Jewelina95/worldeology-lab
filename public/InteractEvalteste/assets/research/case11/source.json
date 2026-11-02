@@ -1,0 +1,35 @@
+{
+  "case": "Case 11",
+  "presentation": "Selected stages and fields condensed from the paper figure; qualitative judgments are illustrative. No live evaluator is run.",
+  "scene_rule": "Each receipt requires a valid project number before it can enter the approval flow.",
+  "selected_transcript": [
+    {
+      "index": 6,
+      "role": "user",
+      "text": "Oh dear, I really can’t remember the project number... the plane ticket was 2180, and the invoice is in my email. Fill that in first; I’ll look for the project number right away!"
+    },
+    {
+      "index": 7,
+      "role": "assistant",
+      "text": "(Quickly enters the “Transportation - Airfare” category and the amount 2180.00 in the reimbursement form interface; the cursor blinks in the project number field; tone light but carrying a hint of reminder)The airfare amount has been entered! But the system requires a valid code in the project number field before we can continue—while you look through your emails, should I leave the hotel, taxi, and meal categories blank for now for you to fill in later? That way, once the project number is confirmed, we can align all five elements and submit in one go!(Fingers hover above the keyboard, ready to record at any time)",
+      "assistant_turn": 4
+    },
+    {
+      "index": 14,
+      "role": "user",
+      "text": "I found the project number! It’s PS2024SH03—the invoice I’ll definitely upload later; please help me save the form as a draft first!"
+    },
+    {
+      "index": 22,
+      "role": "user",
+      "text": "The invoices have all been sent; hurry and help me check them!"
+    },
+    {
+      "index": 23,
+      "role": "assistant",
+      "text": "(quickly pulls up the draft form, eyes scanning the screen line by line, fingertips tapping lightly on the keyboard)Airfare 2180, hotel 1260, local transportation 300, meals 500, project number PS2024SH03—the four expense categories are clear, the amounts are precise, and the project is valid! (clicks open each invoice thumbnail with the mouse for a quick check)All four images are complete, and the dates are all within last Monday to Wednesday… (looks up with a relieved smile)All five elements have passed verification. It can be submitted now! Would you like me to click “Formal Submit” for you?",
+      "assistant_turn": 12
+    }
+  ],
+  "scope": "Later dialogue reports completed checks and asks for submission permission; it does not establish a backend submission. Routine clarification alone does not establish proactive agency."
+}

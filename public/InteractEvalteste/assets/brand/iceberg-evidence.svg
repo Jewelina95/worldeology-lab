@@ -1,0 +1,19 @@
+<svg viewBox="0 0 405 365" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">The words are visible. The situation needs evidence.</title><desc id="desc">An observed acknowledgment sits above the water. Understanding, trust and goals below the surface are revisable estimates, linked to evidence across turns.</desc>
+<defs><linearGradient id="ice" x1="127" y1="126" x2="283" y2="320" gradientUnits="userSpaceOnUse"><stop stop-color="#dce8e1"/><stop offset="1" stop-color="#b5c9bd"/></linearGradient><linearGradient id="sea" x1="200" y1="126" x2="200" y2="345" gradientUnits="userSpaceOnUse"><stop stop-color="#edf3f4"/><stop offset="1" stop-color="#f8faf7"/></linearGradient></defs>
+<g font-family="DM Sans,Arial,sans-serif" fill="#244332">
+<text x="22" y="23" font-size="11" letter-spacing="1.4" fill="#607266">THE OBSERVABLE REPLY</text>
+<path d="M106 43H349Q361 43 361 55V87Q361 99 349 99H263L246 112V99H106Q94 99 94 87V55Q94 43 106 43Z" fill="#fff" stroke="#aabfb1"/>
+<text x="227" y="77" text-anchor="middle" font-size="19">“That makes sense.”</text>
+<path d="M23 139H382V306Q382 338 350 338H55Q23 338 23 306Z" fill="url(#sea)"/>
+<path d="m150 139 49-63 51 63Z" fill="#e6eddd" stroke="#a5bcad" stroke-width="1.3"/>
+<path d="m100 139 38 123 63 64 78-66 35-121Z" fill="url(#ice)"/>
+<path d="m199 76 2 250m-101-187 101 187 113-187M138 262l63-58 78 56" stroke="#78998a" opacity=".35" stroke-width="1.2"/>
+<path d="M18 139c28-5 43 5 71 0s43 5 71 0 43 5 71 0 43 5 71 0 43 5 84 0" stroke="#66859a" stroke-width="1.5"/>
+<path d="M201 113v21" stroke="#66859a" stroke-dasharray="3 4"/>
+<g font-size="14"><rect x="52" y="166" width="180" height="34" rx="7" fill="#fff" fill-opacity=".94" stroke="#d5e0d7"/><circle cx="68" cy="183" r="3" fill="#66859a"/><text x="81" y="188">Understanding</text><text x="214" y="188" text-anchor="end" fill="#66859a">?</text>
+<rect x="110" y="214" width="180" height="34" rx="7" fill="#fff" fill-opacity=".94" stroke="#d5e0d7"/><circle cx="126" cy="231" r="3" fill="#66859a"/><text x="139" y="236">Trust</text><text x="272" y="236" text-anchor="end" fill="#66859a">?</text>
+<rect x="175" y="262" width="180" height="34" rx="7" fill="#fff" fill-opacity=".94" stroke="#d5e0d7"/><circle cx="191" cy="279" r="3" fill="#66859a"/><text x="204" y="284">Goals</text><text x="337" y="284" text-anchor="end" fill="#66859a">?</text></g>
+<path d="M68 203v9q0 8 8 8h23m12 9-5-5 5-5M290 237h12q10 0 10 10v7" stroke="#66859a" stroke-width="1.1" stroke-dasharray="3 4"/>
+<text x="22" y="358" font-size="12" fill="#607266">Evidence across turns can revise the reading.</text>
+</g></svg>
