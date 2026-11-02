@@ -14,7 +14,6 @@ let mainInformationView='conditions',mainGroupMeasure='active';
 let pairingSelection={partner:'claude-5-opus',assistant:'claude-opus-5.5'};
 let selectedMainLevel=null;
 let lastMainComparisonHash='';
-let mainCurrentPanel='response-interaction';
 const readMainLevels=new Set();
 
 const leaderboardGroups=[
@@ -58,37 +57,6 @@ function renderSystemOverview(){
  if(typeof systemFigure==='function')return systemFigure();
  return `<section id="system-overview" class="motivation-section" aria-label="System overview"><header class="motivation-heading"><h2>System Overview</h2><p>From reply to judgment. Figure 5 connects the three theoretical foundations to the measurement instrument.</p></header><figure class="motivation-figure"><img src="./assets/research/figure5/theory-v5.png" alt="Figure 5: three theoretical foundations, measurement requirements, reconstruction, capability adjudication, and retained diagnostic evidence" style="display:block;width:100%;height:auto"/><figcaption><p>Figure 5 · From three theoretical foundations to a stateful measurement instrument.</p><a href="./system-overview.html">Open Figure 5 ↗</a></figcaption></figure></section>`;
 }
-function mainPanelId(hash){
- const id=(hash||'').replace(/^#/,'').split('?')[0];
- const aliases={home:'response-interaction','beneath-the-words':'illustrations',capability:'model-readout',outcomes:'process',coverage:'comparisons',duration:'comparisons',architectures:'comparisons',partners:'comparisons',stages:'comparisons',scenarios:'comparisons',reliability:'comparisons'};
- const selected=aliases[id]||id;
- return ['response-interaction','system-overview','key-findings','model-readout','process','comparisons','illustrations'].includes(selected)?selected:null;
-}
-function mainPanel(id,content){return `<div data-main-panel="${id}" ${id===mainCurrentPanel?'':'hidden'}>${content}</div>`;}
-function showMainPanel(id,{historyEntry=true,resetScroll=true}={}){
- const pane=document.querySelector('.main-content-pane');if(!pane)return;
- mainCurrentPanel=mainPanelId(id)||mainCurrentPanel;
- document.querySelectorAll('[data-main-panel]').forEach(panel=>panel.hidden=panel.dataset.mainPanel!==mainCurrentPanel);
- document.querySelectorAll('.main-rail-content [data-research-section]').forEach(link=>{const active=link.dataset.researchSection===mainCurrentPanel;link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
- document.querySelectorAll('[data-main-welcome]').forEach(hero=>hero.hidden=true);
- if(resetScroll)pane.scrollTop=0;
- if(historyEntry&&location.hash!=='#'+mainCurrentPanel)history.pushState(null,'','#'+mainCurrentPanel);
- window.InteractEvalMotion?.scan();
-}
-function setupMainPanels(){
- const enabled=!!document.querySelector('.main-panel-layout');
- document.body.classList.toggle('main-panel-mode',enabled);
- if(enabled){showMainPanel(mainCurrentPanel,{historyEntry:false,resetScroll:false});if(!location.hash||location.hash==='#home')document.querySelectorAll('[data-main-welcome]').forEach(hero=>hero.hidden=false);}
-}
-// Sidebar navigation changes the right pane; it never scrolls the document.
-document.addEventListener('click',event=>{
- if(!document.querySelector('.main-panel-layout'))return;
- const link=event.target.closest('.main-rail-content [data-research-section],.main-content-pane .atlas-hero [data-research-section]');
- if(!link||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
- event.preventDefault();event.stopImmediatePropagation();showMainPanel(link.dataset.researchSection);
- document.querySelector('.main-results-rail')?.classList.remove('is-open');document.querySelector('[data-atlas-contents]')?.setAttribute('aria-expanded','false');
-},true);
-window.addEventListener('popstate',()=>{if(document.querySelector('.main-panel-layout'))showMainPanel(mainPanelId(location.hash)||'response-interaction',{historyEntry:false});});
 function resultsHomeV2(){
   selectedMainLevel=null;
   if(lastMainComparisonHash!==location.hash){
@@ -97,8 +65,7 @@ function resultsHomeV2(){
     const group=mainComparisonGroups.find(group=>group.id===aliases[location.hash.slice(1)]);
     if(group){mainComparisonGroup=group.id;mainComparisonMeasure=group.items[0][0];}
   }
-  mainCurrentPanel=mainPanelId(location.hash)||mainCurrentPanel;
-  return `<div class="research-restored results-page main-panel-layout"><div class="article-shell">${mainRail()}<article class="article-body main-content-pane" aria-label="Selected section" tabindex="-1">${mainPanel('response-interaction',`${!location.hash||location.hash==='#home'?`<div data-main-welcome>${atlasHero()}</div>`:''}${motivationFigure()}`)}${mainPanel('system-overview',renderSystemOverview())}${mainPanel('key-findings',`${atlasKeyFindings()}`)}${mainPanel('model-readout',`${journalSection('model-readout','01','','Model performance','Six levels, from following a brief to sustaining a new direction.',capabilityMatrix())}`)}${mainPanel('process',`${mainBehaviorSection()}`)}${mainPanel('comparisons',`${journalSection('comparisons','03','','Measures','',`<div class="main-comparison-tabs" role="group" aria-label="Comparison families">${mainComparisonGroups.map(group=>`<button type="button" data-main-family="${group.id}" aria-pressed="${group.id===mainComparisonGroup}">${navigationIcon(group.icon)}${group.title}</button>`).join('')}</div><div id="main-comparison-body">${mainComparisonPanel()}</div>`)}`)}${mainPanel('illustrations',`${journalSection('illustrations','04','','Conversations','',`<div class="atlas-examples">${proactivityOpening()}</div>`)}`)}</article></div></div>`;
+  return `<div class="research-restored results-page">${atlasHero()}<div class="article-shell">${mainRail()}<article class="article-body">${motivationFigure()}${renderSystemOverview()}${atlasKeyFindings()}${journalSection('model-readout','01','','Model performance','Six levels, from following a brief to sustaining a new direction.',capabilityMatrix())}${mainBehaviorSection()}${journalSection('comparisons','03','','Measures','',`<div class="main-comparison-tabs" role="group" aria-label="Comparison families">${mainComparisonGroups.map(group=>`<button type="button" data-main-family="${group.id}" aria-pressed="${group.id===mainComparisonGroup}">${navigationIcon(group.icon)}${group.title}</button>`).join('')}</div><div id="main-comparison-body">${mainComparisonPanel()}</div>`)}${journalSection('illustrations','04','','Conversations','',`<div class="atlas-examples">${proactivityOpening()}</div>`)}<nav class="result-next-links" aria-label="Explore InteractEval"><a href="#leaderboards"><b>Leaderboards</b></a><a href="./research.html"><b>Research</b></a><a href="./showcase.html"><b>Showcase</b></a></nav></article></div></div>`;
 }
 function comparisonDataTable(ids,labels=ids.map(id=>metricOf(id).label),rows=publication.models){
   return `<div class="comparison-table-wrap" role="region" aria-label="Published comparison values" tabindex="0"><table class="comparison-data-table"><thead><tr><th scope="col">Model</th>${labels.map(label=>`<th scope="col">${safe(label)}</th>`).join('')}</tr></thead><tbody>${rows.map(model=>`<tr><th scope="row"><a href="#model/${encodeURIComponent(model.name)}">${modelIdentity(model.name)}</a></th>${ids.map(id=>`<td>${publishedFormat(metricOf(id).get(model),metricOf(id))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
@@ -158,7 +125,7 @@ function refreshMainComparison(scroll=false){
   document.querySelectorAll('[data-main-comparison]').forEach(button=>{if(button.dataset.mainComparison===mainComparisonMeasure)button.setAttribute('aria-current','true');else button.removeAttribute('aria-current');});
   document.querySelectorAll('[data-main-rail-group]').forEach(detail=>detail.open=detail.dataset.mainRailGroup===mainComparisonGroup);
   atlasResponsiveTables();atlasDataMotion();
-  if(scroll){if(document.querySelector('.main-panel-layout'))showMainPanel('comparisons');else atlasScrollTo(document.getElementById('comparisons'));}
+  if(scroll)atlasScrollTo(document.getElementById('comparisons'));
 }
 function selectMainComparison(id,scroll=false){
   const group=mainComparisonGroups.find(group=>group.items.some(item=>item[0]===id));if(!group)return;
