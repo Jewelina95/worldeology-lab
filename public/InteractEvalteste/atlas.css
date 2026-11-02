@@ -213,3 +213,32 @@ html[data-ui-input=keyboard] :is(button,summary):active{transform:none}
 .main-capability-table thead button[aria-expanded=true]{background:#e5ece2;border-radius:5px}
 @media(hover:hover) and (pointer:fine){.level-explanation-tabs>button:not([aria-pressed=true]):hover{background:#e5ece2}.level-explanation-head>button:hover{background:#d9e4d4}}
 @media(max-width:600px){.atlas-finding-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.atlas-finding-tabs>button{min-height:72px;flex-direction:row;align-items:center;font-size:12px;gap:8px}.atlas-finding-tabs svg{width:26px;height:26px}.main-level-note{padding:14px;margin-bottom:15px}.level-explanation-body{grid-template-columns:1fr;gap:15px}.level-example{padding-left:12px}.level-score-span{grid-template-columns:1fr 1fr;gap:10px}.level-score-span>div{grid-column:1/-1;grid-row:2}.level-score-span small{grid-column:1/-1}.level-explanation-tabs{gap:3px}.level-explanation-tabs>button{padding-inline:9px;min-height:44px;min-width:38px}}
+
+/* Main is a persistent two-pane reader. Only the right-hand content scrolls. */
+body.main-panel-mode{height:100dvh;overflow:hidden}
+body.main-panel-mode #app.paper-app{width:100%;max-width:none;margin:0;min-height:0;height:calc(100dvh - var(--header-height));overflow:hidden}
+body.main-panel-mode .paper-footer{display:none}
+.main-panel-layout{height:100%;min-height:0}
+.results-page.main-panel-layout .article-shell{height:100%;min-height:0;box-sizing:border-box;padding:24px 32px 0;align-items:stretch}
+.main-panel-layout .main-results-rail{position:relative!important;top:0;max-height:none;height:100%;overflow-y:auto;padding-bottom:24px;box-sizing:border-box;overscroll-behavior:contain}
+.main-panel-layout .main-content-pane{height:100%;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 8px 40px 0;scrollbar-gutter:stable;scroll-padding-top:0}
+.main-panel-layout [data-main-panel][hidden],.main-panel-layout [data-main-welcome][hidden]{display:none!important}
+.main-panel-layout .motivation-section{width:100%;padding:0 0 25px;margin:0;border:0;scroll-margin-top:0}
+.main-panel-layout .motivation-heading{gap:24px}
+.main-panel-layout .motivation-heading h2{font-size:29px}
+.main-panel-layout #system-overview{margin:0;border:0}
+.main-panel-layout .atlas-hero{width:100%;grid-template-columns:minmax(0,1fr) 240px;gap:30px;padding:12px 0 30px;margin:0 0 28px}
+.main-panel-layout .atlas-hero h1{font-size:42px;letter-spacing:-1.3px}.main-panel-layout .atlas-hero p{font-size:15px}
+.main-panel-layout .article-section{margin-bottom:0}
+@media(max-width:1150px){.results-page.main-panel-layout .article-shell{padding-inline:24px}}
+@media(max-width:850px){
+ .results-page.main-panel-layout .article-shell{display:grid;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:0;padding:0 16px}
+ .main-panel-layout .main-results-rail{height:auto;position:relative!important;overflow:visible;top:0;margin:0 0 18px;padding:7px 0;z-index:45}
+ .main-panel-layout .main-content-pane{padding:0 0 25px}
+ .main-panel-layout .main-rail-content{z-index:46;max-height:65dvh}
+ .main-panel-layout .atlas-hero{grid-template-columns:1fr 170px;gap:18px}.main-panel-layout .atlas-hero h1{font-size:34px}
+ .main-panel-layout .motivation-heading{grid-template-columns:1fr;gap:12px}.main-panel-layout .motivation-heading h2{font-size:25px}
+}
+@media(max-width:500px){.main-panel-layout .atlas-hero{grid-template-columns:1fr}.main-panel-layout .atlas-hero figure{display:none}}
+
+.results-page.main-panel-layout .main-rail-content>a,.results-page.main-panel-layout .main-rail-content>a.active{font-weight:400;box-sizing:border-box;min-height:38px}
