@@ -6,8 +6,6 @@ Published results and illustrative conversations for the InteractEval study.
 - Research: https://worldeology.com/InteractEvalteste/research.html
 - Showcase: https://worldeology.com/InteractEvalteste/showcase.html
 
-This edition retains the xgogu/InteractEval website and published data, with expanded Research explanations checked against the supplied 26 October 2026 manuscript and showcase. See `UPSTREAM.md` for the source commit and section-level provenance. The existing `/interactiveval/` site is unchanged.
-
 ## Measurement sources
 
 All leaderboard and summary measurements are transcribed from the supplied paper,

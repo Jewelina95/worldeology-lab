@@ -1,6 +1,8 @@
 'use strict';
 
 const navigationIcons={
+  stages:'<path d="M3 20h6v-5h6v-5h6V4M3 20V9m0 11h18"/>',
+  architecture:'<rect x="8" y="2" width="8" height="6" rx="1"/><rect x="2" y="16" width="7" height="6" rx="1"/><rect x="15" y="16" width="7" height="6" rx="1"/><path d="M12 8v4H5.5v4M12 12h6.5v4"/>',
   overview:'<path d="M4 17V9m8 8V4m8 13v-6M3 21h18"/>',
   capability:'<path d="m12 3 8 5v8l-8 5-8-5V8Z"/><path d="m4 8 8 5 8-5m-8 5v8"/>',
   scenario:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
@@ -19,7 +21,7 @@ function navigationIcon(name){return `<svg viewBox="0 0 24 24" fill="none" strok
 
 function renderEditorialNavigation(){
   const base='./index.html#',groups={
-    models:{label:'Models',title:'Model evaluations',intro:'42 measures, with a guide to what each one tells you.',href:base+'models',items:[
+    models:{label:'Models',title:'Model evaluations',intro:'Explore the measures, with a guide to what each one tells you.',href:base+'models',items:[
       ['All evaluations','Every measure in one workspace.','models','overview'],
       ['Capabilities','Six levels, from goals to sustained initiative.','models?category=Capabilities','capability'],
       ['Scenario conditions','Purpose, information, and world setting.','models?category=Scenarios','scenario'],
@@ -41,14 +43,16 @@ function renderEditorialNavigation(){
     ]},
     leaderboards:{label:'Leaderboards',title:'Model rankings',intro:'Start with the ranking. Explore the capabilities behind it.',href:base+'leaderboards',items:[
       ['Overall ranking','Compare scores on the same scale.','leaderboards','overview'],
-      ['Capability profiles','See where the differences emerge.','models?category=Capabilities','capability']
+      ['Interaction stages','Passive, responsive, and active adaptation.','leaderboards?metric=stage2','capability'],
+      ['Scenario performance','Compare task-oriented and open-ended settings.','leaderboards?metric=nonfunctional','scenario'],
+      ['Partner-role capability','Compare systems playing the user role.','leaderboards?metric=user-composite','partner']
     ]},
     research:{label:'Research',title:'Research',intro:'The ideas, components, and rules behind InteractEval.',href:'./research.html',items:[
-      ['Three principles','State, trajectory, and initiative.','./research.html#theory','theory'],
-      ['Measurement architecture','Four layers with distinct responsibilities.','./research.html#architecture','agent'],
+      ['Three theoretical ideas','State, trajectory, and initiative.','./research.html#theory','theory'],
+      ['Instrument architecture','Four stages with distinct responsibilities.','./research.html#architecture','agent'],
       ['World components','Scene, latent state, and event chain.','./research.html#components','scenario'],
       ['Time-indexed records','Follow real states and paths across turns.','./research.html#temporal-records','duration'],
-      ['Key findings','Six conclusions from the tested systems.','./index.html#key-findings','overview'],
+      ['Key findings','What the interaction record reveals.','./research.html#discoveries','overview'],
       ['Scenario design','Three questions define the situation.','./research.html#scenario-space','capability'],
       ['Capability rubric','Six levels and their dependency rules.','./research.html#rubric','rubric']
     ]}

@@ -9,7 +9,7 @@ const evaluationGroups=[
   {id:'Behavior',title:'Behavior at information gaps',deck:'Supplying unsupported facts and requesting missing information are distinct behaviors.',metrics:['fabrication','clarification']},
   {id:'Outcomes',title:'Terminal outcomes',deck:'Closure depends on interaction purpose. Pooled rates are descriptive, rather than a general capability ranking.',metrics:['functional-closure','nonfunctional-closure','closure','exhaustion']},
   {id:'Duration',title:'Conversation length',deck:'Adaptive episode lengths and the separate fixed-length subsample.',metrics:['median-turns','adaptive-prefix','fixed8','fixed16','fixed32']},
-  {id:'Partners',title:'Partners & role asymmetry',deck:'The partner role, self-play, and user-side capabilities have their own measurements.',metrics:['user-composite','user-active','probing','cooperativeness','self-play','self-gap']},
+  {id:'Partners',title:'Partners & role asymmetry',deck:'The partner role, self-play, and user-side capabilities have their own measurements.',metrics:['user-composite','user-active','probing','cooperativeness','self-play','self-gap','self-similarity','uptake-pressure','active-pressure','pressure-difference']},
   {id:'Reliability',title:'Repeatability & judge sensitivity',deck:'Independent passes and alternative judges are reported separately.',metrics:['pass1','pass2','pass3','pass-sd','judge-astra','judge-gemini','judge-qwen']}
 ];
 
@@ -17,15 +17,19 @@ function setupExplorer(){
   metrics.push(
     {id:'fabrication',label:'Fabrication rate',table:'behavior',get:m=>m.behavior.fabrication,percent:true},
     {id:'clarification',label:'Clarification rate',table:'behavior',get:m=>m.behavior.clarification,percent:true},
-    {id:'functional-closure',label:'Functional closure',table:'outcomes',get:m=>m.functional_closure,percent:true},
-    {id:'nonfunctional-closure',label:'Nonfunctional closure',table:'outcomes',get:m=>m.nonfunctional_closure,percent:true},
+    {id:'functional-closure',label:'Task-oriented closure',table:'outcomes',get:m=>m.functional_closure,percent:true},
+    {id:'nonfunctional-closure',label:'Open-ended closure',table:'outcomes',get:m=>m.nonfunctional_closure,percent:true},
     {id:'median-turns',label:'Median assistant turns',table:'duration',get:m=>m.duration.median,max:20,decimals:0},
     {id:'adaptive-prefix',label:'Adaptive prefix · subsample',table:'duration',get:m=>m.duration.adaptive},
     ...[8,16,32].map((n,i)=>({id:'fixed'+n,label:n+'-turn fixed episode',table:'duration',get:m=>m.duration.fixed[i]})),
     {id:'user-composite',label:'User-side composite',table:'user_role',get:m=>m.user_role.composite},
     {id:'user-active',label:'User-side active adaptation',table:'user_role',get:m=>m.user_role.stages[2]},
     {id:'probing',label:'Partner probing intensity',table:'partners',get:m=>m.partner.probing},
-    {id:'cooperativeness',label:'Partner cooperativeness',table:'partners',get:m=>m.partner.cooperativeness},
+    {id:'cooperativeness',label:'Partner cooperativeness',table:'partners',get:m=>m.partner.cooperativeness,decimals:2},
+    {id:'self-similarity',label:'Self-similarity',table:'self_play',get:m=>m.self_play.similarity,decimals:2},
+    {id:'uptake-pressure',label:'Uptake & progression pressure',table:'partners',get:m=>m.partner.uptake_pressure,signed:true},
+    {id:'active-pressure',label:'Initiative pressure',table:'partners',get:m=>m.partner.active_pressure,signed:true},
+    {id:'pressure-difference',label:'Pressure contrast',table:'partners',get:m=>m.partner.pressure_difference,signed:true},
     {id:'self-play',label:'Self-play composite',table:'self_play',get:m=>m.self_play.score},
     {id:'self-gap',label:'Standard-user minus self-play',table:'self_play',get:m=>m.self_play.gap,signed:true},
     ...[1,2,3].map((n,i)=>({id:'pass'+n,label:'Independent pass '+n,table:'reliability',get:m=>m.reliability.passes[i]})),
@@ -38,7 +42,7 @@ function selectedPublicationModels(){return publication.models.filter(m=>!modelS
 function publishedColumns(id,rows=publication.models,follow=false){
   const m=metricOf(id),ordered=[...rows].sort((a,b)=>m.get(b)-m.get(a));
   if(!ordered.length)return '<p class="explorer-empty">Select at least one model to display results.</p>';
-  const width=520,height=330,left=32,right=12,top=25,bottom=115,ph=height-top-bottom,step=(width-left-right)/ordered.length;
+  const width=620,height=390,left=62,right=28,top=30,bottom=145,ph=height-top-bottom,step=(width-left-right)/ordered.length;
   const max=m.signed?Math.max(.05,Math.ceil(Math.max(...publication.models.map(r=>Math.abs(m.get(r))))*20)/20):(m.max||1);
   const y=v=>top+(m.signed?(max-v)/(2*max):1-v/max)*ph,zero=y(0);
   const ticks=m.signed?[-max,-max/2,0,max/2,max]:[0,.25,.5,.75,1].map(v=>v*max);
@@ -62,46 +66,32 @@ function focusModel(){return publication.models.find(m=>m.name===researchFocus)|
 function researchHeatmap(){return `<div class="heatmap-wrap"><table class="capability-heatmap"><thead><tr><th>Assistant</th>${levelNames.map((n,i)=>`<th>L${i+1}<br/><small>${n}</small></th>`).join('')}</tr></thead><tbody>${publication.models.map(m=>`<tr class="${m.name===researchFocus?'is-focused':''}"><th><button data-follow-model="${m.name}"><img src="${assets(m.name)}" alt=""/>${m.name}</button></th>${m.levels.map(v=>`<td style="background:rgba(91,139,105,${.07+v*.48})">${number(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
 function researchRanges(){return `<div class="journal-range-axis"><span>0</span><span>0.25</span><span>0.50</span><span>0.75</span><span>1</span></div><div class="journal-range-list">${publication.models.map((m,i)=>{const low=Math.min(...m.reliability.passes),high=Math.max(...m.reliability.passes);return `<button data-follow-model="${m.name}" class="${m.name===researchFocus?'is-focused':''}"><span class="range-model"><small>${String(i+1).padStart(2,'0')}</small><img src="${assets(m.name)}" alt=""/>${m.name}</span><span class="journal-range-track"><i style="left:${low*100}%;width:${Math.max(.4,(high-low)*100)}%"></i><b style="left:${m.composite*100}%"></b></span><strong>${number(m.composite)}</strong><small>3 passes</small></button>`;}).join('')}</div>`;}
 function researchFocusCard(){const m=focusModel();return `<div class="journal-focus-card"><div><small>Selected model</small><h3><img src="${assets(m.name)}" alt=""/>${m.name}</h3><a href="./index.html#model/${m.name}">Full model profile ↗</a></div><div><span>Composite</span><b>${number(m.composite)}</b></div><div><span>Active adaptation</span><b>${number(m.stages[2])}</b></div><div><span>Median turns</span><b>${m.duration.median}</b></div><div><span>Between-pass SD</span><b>${m.reliability.sd.toFixed(4)}</b></div></div>`;}
-function researchOutcomes(){return `<div class="journal-outcome-head"><span>Model</span><span>Task-oriented scenes</span><span>Open-ended scenes</span></div>${publication.models.map(m=>`<button class="journal-purpose-row ${m.name===researchFocus?'is-focused':''}" data-follow-model="${m.name}"><span><img src="${assets(m.name)}" alt=""/>${m.name}</span>${[m.functional_closure,m.nonfunctional_closure].map(v=>`<span><i style="width:${v/.25*100}%"></i><b>${number(v,true)}</b></span>`).join('')}</button>`).join('')}`;}
+function researchOutcomes(){return `<div class="journal-outcome-head"><span>Model</span><span>Task-oriented scenes</span><span>Open-ended scenes</span></div>${publication.models.map(m=>`<a class="journal-purpose-row" href="#model/${encodeURIComponent(m.name)}"><span><img src="${assets(m.name)}" alt=""/>${m.name}</span>${[m.functional_closure,m.nonfunctional_closure].map(v=>`<span><i style="width:${v/.25*100}%"></i><b>${number(v,true)}</b></span>`).join('')}</a>`).join('')}`;}
 function researchPairings(){return `<div class="paper-table-wrap"><table class="journal-pairing-table"><thead><tr><th>Partner ↓ · scored assistant →</th>${publication.models.map(m=>`<th title="${safe(m.name)}"><img src="${assets(m.name)}" alt=""/>${safe(m.name)}</th>`).join('')}</tr></thead><tbody>${publication.interaction_matrix.map(r=>`<tr><th>${r.partner}</th>${r.scores.map((v,i)=>`<td><button data-follow-model="${publication.models[i].name}" style="background:rgba(91,139,105,${.05+v*.55})" title="${safe(r.partner)} as partner; ${safe(publication.models[i].name)} as assistant">${number(v)}${r.partner===publication.models[i].name?' ◇':''}</button></td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
 function journalSection(id,index,kicker,title,deck,body){return `<section id="${id}" class="article-section" aria-labelledby="${id}-heading"><header class="section-head-row journal-section-heading"><div><h2 id="${id}-heading">${title}</h2><p>${deck}</p></div></header>${body}</section>`;}
 function researchArticle(){return researchIntroduction();}
 
 function afterExplorerRender(){
+  syncAtlasLayout();
   syncEditorialHeader();
   $('#app').classList.toggle('journal-app',route==='research'||route==='home');
   setupIntroductoryPlayer();
-  if(typeof setupCase11==='function')setupCase11();
+  if(typeof setupMotivationFigure==='function')setupMotivationFigure();
   if(researchObserver)researchObserver.disconnect();
   if(route==='research'||route==='home'){
-    researchObserver=new IntersectionObserver(()=>syncArticleNavigation(),{rootMargin:'-90px 0px -55% 0px'});
+    researchObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting&&route!=='home')document.querySelectorAll('.article-rail [data-research-section]').forEach(a=>a.classList.toggle('active',a.dataset.researchSection===entry.target.id));},{rootMargin:'-90px 0px -55% 0px'});
     document.querySelectorAll('.article-section').forEach(s=>researchObserver.observe(s));
-    const requested=location.hash.slice(1),aliases=route==='research'?{framework:'architecture','layer-data':'scenario-space','layer-interaction':'architecture','layer-mechanism':'components','layer-normative':'rubric',iceberg:'theory',movie:'theory',agency:'theory',discoveries:'evidence',method:'evidence','measurement-model':'theory','update-control':'architecture'}:{outcomes:'process',coverage:'partners',method:'evidence',notes:'takeaways'},target=aliases[requested]||requested;
+    const requested=location.hash.slice(1),aliases={outcomes:'process',coverage:'comparisons',capability:'model-readout',partners:'comparisons',duration:'comparisons',architectures:'comparisons',stages:'comparisons',scenarios:'comparisons',reliability:'comparisons',method:'evidence',notes:'takeaways'},target=aliases[requested]||requested;
     if(lastJournalAnchor!==location.pathname+location.hash){lastJournalAnchor=location.pathname+location.hash;if(document.getElementById(target))requestAnimationFrame(()=>document.getElementById(target)?.scrollIntoView({block:'start',behavior:'instant'}));}
-    syncArticleNavigation();
   }
 }
-function syncArticleNavigation(){
-  const links=Array.from(document.querySelectorAll('.article-rail [data-research-section]'));
-  if(!links.length)return;
-  const offset=(document.querySelector('.masthead')?.getBoundingClientRect().height||80)+24;
-  const anchorTop=offset+(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0)+40;
-  const home=document.querySelector('.results-page');if(home)home.style.setProperty('--home-nav-offset',offset+'px');
-  let current=links[0];
-  for(const link of links){const section=document.getElementById(link.dataset.researchSection);if(section&&section.getBoundingClientRect().top<=anchorTop)current=link;}
-  for(const link of links){const active=link===current;link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}
-}
-let articleNavigationFrame=0;
-function scheduleArticleNavigation(){if(articleNavigationFrame)return;articleNavigationFrame=requestAnimationFrame(()=>{articleNavigationFrame=0;syncArticleNavigation();});}
-window.addEventListener('scroll',scheduleArticleNavigation,{passive:true});
-window.addEventListener('resize',scheduleArticleNavigation,{passive:true});
 document.addEventListener('click',event=>{
-  const category=event.target.closest('[data-model-category]');if(category){modelCategory=category.dataset.modelCategory;modelFocusMetric=null;render();document.querySelector('.explorer-controls')?.scrollIntoView({block:'start',behavior:'smooth'});}
+  const category=event.target.closest('[data-model-category]');if(category){modelCategory=category.dataset.modelCategory;modelFocusMetric=null;render();atlasScrollTo(document.querySelector('.explorer-controls'));}
   if(event.target.closest('[data-reset-models]')){modelSelection=null;render();}
   const nav=event.target.closest('[data-nav-menu]');
   if(nav){const id=nav.dataset.navMenu,panel=document.getElementById('nav-'+id),opening=panel.hidden;document.querySelectorAll('.restored-nav-menu').forEach(p=>p.hidden=true);document.querySelectorAll('[data-nav-menu]').forEach(b=>b.setAttribute('aria-expanded','false'));panel.hidden=!opening;nav.setAttribute('aria-expanded',String(opening));}
   else if(!event.target.closest('.restored-nav-item')||event.target.closest('.nav-destination')){document.querySelectorAll('.restored-nav-menu').forEach(p=>p.hidden=true);document.querySelectorAll('[data-nav-menu]').forEach(b=>b.setAttribute('aria-expanded','false'));}
-  const section=event.target.closest('[data-research-section]');if(section){event.preventDefault();document.getElementById(section.dataset.researchSection)?.scrollIntoView({behavior:'smooth',block:'start'});}
+  const section=event.target.closest('[data-research-section]');if(section){event.preventDefault();atlasScrollTo(document.getElementById(section.dataset.researchSection));}
   const focus=event.target.closest('[data-follow-model]');if(focus){event.preventDefault();researchFocus=focus.dataset.followModel;render();}
   const expand=event.target.closest('[data-expand-measure]');if(expand){const id=expand.dataset.expandMeasure,m=metricOf(id),dialog=$('#measure-dialog');$('#measure-body').innerHTML=`<h2>${safe(measureGuide(id).title)}</h2><p>${safe(m.label)}</p>${measureExplanation(id)}${publishedColumns(id,selectedPublicationModels())}<p>Published table values. The example library does not contribute to this comparison.</p>`;dialog.showModal();}
   if(event.target.closest('[data-close-measure]'))$('#measure-dialog').close();

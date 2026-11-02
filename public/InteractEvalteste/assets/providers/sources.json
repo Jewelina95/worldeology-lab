@@ -26,5 +26,35 @@
   "kimi": {
     "source": "https://artificialanalysis.ai/img/logos/kimi.jpg",
     "file": "kimi.jpg"
+  },
+  "gemini": {
+    "source": "https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png",
+    "site": "https://gemini.google.com",
+    "file": "gemini.png"
+  },
+  "qwen": {
+    "source": "https://assets.alicdn.com/g/qwenweb/qwen-chat-fe/0.3.28/favicon.png",
+    "site": "https://chat.qwen.ai",
+    "file": "qwen.png"
+  },
+  "glm": {
+    "source": "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    "site": "https://chat.z.ai",
+    "file": "glm.svg"
+  },
+  "kimi-product": {
+    "source": "https://www.kimi.com/pwa-192.png",
+    "site": "https://www.kimi.com",
+    "file": "kimi.png"
+  },
+  "deepseek-product": {
+    "source": "https://fe-static.deepseek.com/chat/favicon.svg",
+    "site": "https://chat.deepseek.com",
+    "file": "deepseek-product.svg"
+  },
+  "claude": {
+    "source": "https://claude.com/icon.svg",
+    "site": "https://claude.com",
+    "file": "claude.svg"
   }
 }

@@ -1,56 +1,28 @@
-# InteractEvalteste provenance
+# Worldeology Lab InteractEval edition
 
-- Base website: https://github.com/xgogu/InteractEval
-- Upstream commit: 0ee2862ff28030c79bcd6727517c4332144e9072
-- Deployment: https://worldeology.com/InteractEvalteste/
-- Research content and full-site layout update: 30 October 2026.
+The complete upstream page design, backgrounds, navigation, assets, charts, and
+publication data were synchronized from Xgogu/InteractEval revision
+8488b98a2cd99efd784ff411c949617fdbb08ab7 on 2 November 2026. The original license
+is retained. Canonical URLs and Source links point to this Worldeology Lab edition:
+https://worldeology.com/InteractEvalteste/.
 
-The latest upstream typography, navigation, full-site layouts, published figures and 100-example library are retained. The original license and attribution remain. Published data match the upstream revision, including its newly supplied purpose-specific architecture gains. Existing model measurements and case records are not recalculated.
+Main follows the upstream hero (A good reply is only the beginning), then the
+response-versus-interaction figure, Key Findings, Model performance, and the
+remaining upstream sections. Research also contains the same figure.
 
-The Research presentation replaces the previous appended text panels with the theory and measurement sections adapted from the user-supplied `interacteval_showcase.html`, aligned to `main.tex` in `Qwen_InteractEval (1).zip`. The manuscript definitions take precedence when shorthand in the supplied HTML is ambiguous. Architecture layers are not capability levels L1–L4, an Advance path has no inherent positive valence, routine clarification is not necessarily initiative, and Δ_H is a theoretical causal contrast, not a quantity identified by transcript-only rubric scores. The 27-cell sampler and scoring cascade demonstrate definitions, not new observations.
+The standalone figure is `response-interaction.html`. Its source is the approved
+Case 11 manuscript PNG in `assets/research/case11/response-interaction.png`.
+Its composition, text, fonts, A panel, time axis, role strip, right-hand judgment,
+method panel, and results chart are fixed. Only the center of B receives a gray
+overlay and sequential color reveals. A and the right column never receive any
+animation layer. Playback lights the request, clarification, email, uptake of
+2180, project-code gap, follow-up question, uploaded information, and completed
+selected fields in sequence. Arrows carry a moving highlight. At the end, all
+overlays are removed and the unmodified source image is shown.
 
-Source mapping:
-
-| Addition | Manuscript source |
-| --- | --- |
-| Evidence, underlying world, operational estimate, source spans | §§2.1, 2.4 |
-| Trajectory value, P/C/F, four conditional path labels, revision gate | §2.2 |
-| Initiative set, response-only reference policy, causal benefit, sustained agency | §2.3 |
-| Layer interfaces, subturn order, no generation feedback | §§3.1–3.3 |
-| Scene fields, state families, significance classes, engagement, event updates | §3.4; Appendices A.2–A.7 |
-| Six-level criteria, role differences, evidence requirements, cascade and halt | §3.5 |
-| Record retention, aggregation, separate gap behaviors | §3.6; Appendix A.9 |
-
-No invented clinical, psychological, or causal measurements are added. Conceptual diagrams stay separate from the published full-study tables and the illustrative case records. The existing `/interactiveval/` site is not modified by this test edition.
-
-## Homepage argument and findings, 30 October 2026
-
-The homepage uses the paper title, introduces the limits of response-level evaluation, defines the process-oriented instrument, and explains initiative as a proposed precondition for interactive creativity. The Introduction and Discussion ground these paragraphs; capability-targeted learning, causal attribution experiments, and persistent worlds remain future studies rather than demonstrated benefits. The same six findings from `research-evidence.json` now appear as homepage section 07, with table provenance, comparison links and scope notes. A single section index covers the introduction, authored demo and results; its current-section state follows scrolling. No experimental records or measured values were changed in this update.
-
-## Compact Research revision
-
-The long-form showcase presentation is replaced by the upstream interactive principle, layer and component panels. The supplied HTML informs the technical rules rather than the page structure. Each principle shows one conceptual figure, a brief explanation, one formula and its symbol key. Detailed update, scene-revision, evidence, aggregation and termination rules are collapsed by default in their corresponding panel. The architecture uses the canonical Data, Interaction, Mechanism and Normative layer names; these remain distinct from capability levels L1–L6. The six findings are linked from the homepage instead of repeated as a second long Research section. Previous long-form fragment URLs retain equivalent destinations.
-
-## Visual homepage revision
-
-Following the subsequent review, Project Overview is one sentence, and the hero poses a concrete interaction-capability question. Six visual cards replace the long finding paragraphs: stage ranges, two recorded interest curves, information-condition fabrication, purpose-relative closure, a partner-condition slope comparison, and architecture stage gains. Values come from the existing publication JSON and recorded trajectories; the three information-facet rates are transcribed from manuscript Table 8 (0.051, 0.164, 0.103). Bar baselines are zero, the slope chart explicitly labels its 0.50–0.70 range, and the two-episode display makes no causal claim. Full explanations remain available through the relevant chart, record or source-table link. The demo and compact Research design are retained.
-
-## Case 11 opening, 2 November 2026
-
-Main and Research introduce response versus interaction evaluation with the
-paper's reimbursement example. The A panel holds one response-scoped judgment.
-The B panel is one persistent scene, with fixed human and AI characters and a
-single shared form. A continuous 30-second playhead reveals alternating dialogue,
-animates information into its target field, retains prior values, and updates the
-evidence record. It has play/pause, replay, and seeking controls. It does not swap
-stage images or present numbered slide navigation. Reduced-motion users receive
-a static completed reading by default. No published measurements are changed.
-Routine clarification alone is not labeled proactive agency, and completed fields
-are not treated as a backend submission.
-
-The illustration reuses the approved manuscript artwork; the text and fields are
-rendered natively in the page. Selected source turns 6, 7, 14, 22, and 23 are retained
-in `assets/research/case11/source.json`. Dialogue and selected fields are condensed;
-this is an illustrative reading, with no live evaluator. Browser checks cover
-continuous seeking, a packet in flight before a field is filled, retention of an
-earlier amount while the project is requested, playback, and the completed view.
+The player supports play/pause, replay, continuous seeking, visibility-based
+pausing, and an initially completed static view with reduced motion. It does not
+run a live evaluator or alter the supplied measurements. Scene stages and
+selected fields in the original figure are condensed; routine clarification is
+not labeled proactive agency, and completed fields do not establish submission.
+Selected source turns remain available in `assets/research/case11/source.json`.
