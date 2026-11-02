@@ -4,7 +4,7 @@ The complete upstream page design, backgrounds, navigation, assets, charts, and
 publication data were synchronized from Xgogu/InteractEval revision
 8488b98a2cd99efd784ff411c949617fdbb08ab7 on 2 November 2026. The original license
 is retained. Canonical URLs and Source links point to this Worldeology Lab edition:
-https://worldeology.com/InteractEvalteste/.
+https://worldeology.com/InteractEval/.
 
 Main follows the upstream hero (A good reply is only the beginning), then the
 response-versus-interaction figure, Key Findings, Model performance, and the
@@ -38,3 +38,6 @@ Main now uses a shared left navigation and one visible right content panel. Side
 
 ## Continuous article restoration (2026-11-02)
 Supersedes the persistent-panel implementation above. The full-width opening is restored exactly to the pre-panel version. Below it, the shared article shell begins with its sticky contents rail beside Response to Interaction, followed by Figure 5 System Overview, Key Findings, and the existing results sections in one continuous document. Contents links scroll to sections; they do not hide or replace content. The missing-animation-module fallback remains in place.
+
+## Official public release (2026-11-02)
+The current approved continuous-article site is published at https://worldeology.com/InteractEval/. The Worldeology Lab homepage and sitemap point to this official route. Canonical/social/source links use the official path. Former preview entry pages redirect to their matching official pages, preserving query strings and section anchors.

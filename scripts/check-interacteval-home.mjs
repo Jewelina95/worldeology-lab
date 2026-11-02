@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import vm from 'node:vm';
-const root=resolve('public/InteractEvalteste');
+const root=resolve('public/InteractEval');
 const read=f=>readFileSync(resolve(root,f),'utf8');
 const researchEvidence=JSON.parse(read('data/research-evidence.json'));
 const context=vm.createContext({document:{addEventListener(){}},window:{addEventListener(){}},safe:s=>String(s),researchEvidence,publication:JSON.parse(read('data/paper-results.json')),editorialHero:x=>x});

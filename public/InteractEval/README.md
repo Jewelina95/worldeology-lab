@@ -2,9 +2,9 @@
 
 Published results and illustrative conversations for the InteractEval study.
 
-- Website: https://worldeology.com/InteractEvalteste/
-- Research: https://worldeology.com/InteractEvalteste/research.html
-- Showcase: https://worldeology.com/InteractEvalteste/showcase.html
+- Website: https://worldeology.com/InteractEval/
+- Research: https://worldeology.com/InteractEval/research.html
+- Showcase: https://worldeology.com/InteractEval/showcase.html
 
 ## Measurement sources
 

@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const sharp = require('sharp');
-const root = path.resolve(__dirname, '../public/InteractEvalteste/assets/brand');
+const root = path.resolve(__dirname, '../public/InteractEval/assets/brand');
 async function build() {
   const source = path.join(root, 'interacteval-mark.svg');
   const sizes = [16, 32, 48, 64];
