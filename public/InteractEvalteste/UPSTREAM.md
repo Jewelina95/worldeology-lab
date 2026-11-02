@@ -37,19 +37,20 @@ Following the subsequent review, Project Overview is one sentence, and the hero 
 
 ## Case 11 opening, 2 November 2026
 
-Main and Research now introduce response versus interaction evaluation with the
-paper's reimbursement example. The A panel holds one response-scoped judgment;
-the B panel advances through three condensed stages, synchronizing the shared
-form, information available, event chain, and an illustrative evidence-based
-reading. Playback pauses when offscreen or hidden, provides manual stage controls,
-and defaults to a static view for reduced motion. The hero iceberg was redrawn as
-an editable SVG with clear, revisable state hypotheses. No published numerical
-measurements were changed. Routine clarification alone is not labeled proactive
-agency, and completed fields are not treated as a backend submission.
+Main and Research introduce response versus interaction evaluation with the
+paper's reimbursement example. The A panel holds one response-scoped judgment.
+The B panel is one persistent scene, with fixed human and AI characters and a
+single shared form. A continuous 30-second playhead reveals alternating dialogue,
+animates information into its target field, retains prior values, and updates the
+evidence record. It has play/pause, replay, and seeking controls. It does not swap
+stage images or present numbered slide navigation. Reduced-motion users receive
+a static completed reading by default. No published measurements are changed.
+Routine clarification alone is not labeled proactive agency, and completed fields
+are not treated as a backend submission.
 
-The illustration reuses the approved manuscript figure. Selected source turns
-6, 7, 14, 22, and 23 are retained in `assets/research/case11/source.json`;
-t1–t3 in the player denote condensed presentation stages rather than literal
-archived turn indices. Browser checks cover stage selection, synchronized evidence,
-autoplay, desktop layout, and a 390px mobile preview. Astro build, output link
-verification and the repository's seven mobile-contract checks passed.
+The illustration reuses the approved manuscript artwork; the text and fields are
+rendered natively in the page. Selected source turns 6, 7, 14, 22, and 23 are retained
+in `assets/research/case11/source.json`. Dialogue and selected fields are condensed;
+this is an illustrative reading, with no live evaluator. Browser checks cover
+continuous seeking, a packet in flight before a field is filled, retention of an
+earlier amount while the project is requested, playback, and the completed view.
