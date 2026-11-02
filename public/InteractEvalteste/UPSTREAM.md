@@ -26,3 +26,6 @@ run a live evaluator or alter the supplied measurements. Scene stages and
 selected fields in the original figure are condensed; routine clarification is
 not labeled proactive agency, and completed fields do not establish submission.
 Selected source turns remain available in `assets/research/case11/source.json`.
+
+## Figure 5 information flow (2026-11-02)
+The Main and Research pages now place the original manuscript Figure 5 after “From Reply to Interaction” and before Main's Key Findings. `system-figure.js` preserves `theory_cartoon_v5_2026-11-02/theory-v5.png` unchanged. SVG clips progressively reveal the three theoretical lenses, measurement questions, four instrument responsibilities, original source-evidence paths, and retained diagnostic record. Captions are grounded in the manuscript's §2.4 synthesis caption and accompanying paragraph (`fig:theory-measurement-bridge`); this is an illustrative measurement workflow, not a performance experiment. Four native SVG icons identify the instrument responsibilities. The animation has independent playback, replay, seek, offscreen pausing, and reduced-motion behavior. Standalone: `system-overview.html`.

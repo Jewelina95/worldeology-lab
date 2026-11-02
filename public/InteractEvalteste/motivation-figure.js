@@ -34,7 +34,7 @@ function motivationArtwork(){
 }
 function motivationFigure(standalone=false){
  return `<section id="response-interaction" class="motivation-section ${standalone?'motivation-standalone':''}" aria-label="Response versus interaction">
- ${standalone?'':`<header class="motivation-heading"><h2>From a reply to an interaction.</h2><p>A judges the relevance of one reply. B follows the exchanges, information uptake, and changes to the shared task.</p></header>`}
+ ${standalone?'':`<header class="motivation-heading"><h2>From Reply to Interaction</h2><p>A judges the relevance of one reply. B follows the exchanges, information uptake, and changes to the shared task.</p></header>`}
  <figure class="motivation-figure"><div class="motivation-picture">${motivationArtwork()}</div><figcaption><div class="motivation-controls"><button type="button" data-motivation-play aria-label="Pause figure animation">Ⅱ</button><button type="button" data-motivation-replay aria-label="Replay figure animation">↺</button><label><span class="motivation-sr">Figure playback position</span><input data-motivation-seek type="range" min="0" max="28" step="0.1" value="0"/></label><output aria-live="off" data-motivation-clock>0:00 / 0:28</output>${standalone?'':`<a href="./response-interaction.html" target="_blank" rel="noopener">Open figure ↗</a>`}</div><p data-motivation-caption>The user begins a reimbursement request.</p></figcaption></figure>
  </section>`;
 }
