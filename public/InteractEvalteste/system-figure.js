@@ -1,3 +1,6 @@
+(function(){
+'use strict';
+if(typeof window.systemFigure==='function')return;
 'use strict';
 
 // Preserve the original Figure 5. Animate its existing regions and evidence paths.
@@ -71,3 +74,7 @@ document.addEventListener('input',event=>{if(event.target.matches('[data-system-
 document.addEventListener('visibilitychange',scheduleSystem);window.addEventListener('pagehide',clearSystem);
 systemReduced.addEventListener('change',()=>{if(systemReduced.matches){systemPlayer.playing=false;paintSystem();scheduleSystem();}});
 if(document.body.hasAttribute('data-system-only')){document.getElementById('system-app').innerHTML=systemFigure(true);setupSystemFigure();}
+
+window.systemFigure=systemFigure;
+window.setupSystemFigure=setupSystemFigure;
+})();
