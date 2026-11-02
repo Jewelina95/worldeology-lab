@@ -63,9 +63,10 @@ function atlasScrollTo(element){
 document.addEventListener('keydown',()=>{document.documentElement.dataset.uiInput='keyboard'},{capture:true});
 document.addEventListener('pointerdown',()=>{document.documentElement.dataset.uiInput='pointer'},{capture:true,passive:true});
 function syncAtlasActiveSection(){
- const sections=[...document.querySelectorAll('.results-page .article-body>.article-section')];if(!sections.length)return;
+ const sections=[...document.querySelectorAll('.results-page>.motivation-section,.results-page .article-body>.article-section')];if(!sections.length)return;
  const edge=(document.querySelector('.masthead')?.getBoundingClientRect().bottom||0)+85;
- let current=sections[0];for(const section of sections)if(section.getBoundingClientRect().top<=edge)current=section;
+ const padding=parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0;
+ let current=sections[0];for(const section of sections){const targetEdge=Math.max(edge,padding+(parseFloat(getComputedStyle(section).scrollMarginTop)||0)+2);if(section.getBoundingClientRect().top<=targetEdge)current=section;}
  document.querySelectorAll('.main-rail-content [data-research-section]').forEach(a=>a.classList.toggle('active',a.dataset.researchSection===current.id));
 }
 let atlasScrollPending=false;
