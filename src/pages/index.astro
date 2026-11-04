@@ -7,27 +7,27 @@ const site = Astro.site!;
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'ResearchOrganization',
-  name: 'Worldeology Lab',
+  name: 'Worldeology',
   url: new URL('/', site).href,
   founder: { '@type': 'Person', name: 'Xuanming Zhang' },
-  description: 'Worldeology Lab studies Cognitive AI: the trajectory from understanding minds to inspecting cognition and modeling consequences.'
+  description: 'Worldeology studies Cognitive AI: the trajectory from understanding minds to inspecting cognition and modeling consequences.'
 };
 ---
 
 <SiteLayout
-  title="Worldeology Lab — Cognitive AI"
-  description="Worldeology Lab studies Cognitive AI: understanding minds before action, inspecting cognition during action, and modeling consequences after action."
+  title="Worldeology — Cognitive AI"
+  description="Worldeology studies Cognitive AI: understanding minds before action, inspecting cognition during action, and modeling consequences after action."
   image="/og.png"
-  imageAlt="Worldeology Lab — Cognitive AI from mind to cognition to world"
+  imageAlt="Worldeology — Cognitive AI from mind to cognition to world"
   headerTone="paper"
   noHeader={true}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)}></script>
 
   <main id="main" class="manifest-home">
-    <nav class="manifest-nav" aria-label="Worldeology Lab"><ResearchMenu context="manifest" /><a href="/#work-heading">Recent Work</a><a href="/faculty/">Faculty</a><a href="/about/">About</a><a href="#join-us">Join us</a></nav>
+    <nav class="manifest-nav" aria-label="Worldeology"><ResearchMenu context="manifest" /><a href="/#work-heading">Recent Work</a><a href="/faculty/">Faculty</a><a href="/about/">About</a><a href="#join-us">Join us</a></nav>
     <header class="manifest-wordmark">
-      <div class="worldeology-kinetic" aria-label="Worldeology Lab research fields">
+      <div class="worldeology-kinetic" aria-label="Worldeology research fields">
         <div class="kinetic-orbit kinetic-orbit-one"></div>
         <div class="kinetic-orbit kinetic-orbit-two"></div>
         <a class="kinetic-topic kinetic-mass" href="/research/cognitive-ai/" aria-label="Cognitive AI">
@@ -44,7 +44,7 @@ const organizationSchema = {
         </a>
         <b class="kinetic-trace"></b>
       </div>
-      <h1><span>WORLDEOLOGY</span><span>LAB</span></h1>
+      <h1><span>WORLDEOLOGY</span></h1>
       <p>Cognitive AI</p>
     </header>
 
@@ -73,13 +73,13 @@ const organizationSchema = {
 
     <section class="manifest-join" id="join-us">
       <h2>Build the field with us.</h2>
-      <p>Worldeology Lab is forming a research community around social cognition, metacognitive systems, model mechanisms, and long-horizon interactive worlds.</p>
-      <a href="mailto:zhangxm@worldeology.com?subject=Worldeology%20Lab">Start a conversation ↗</a>
+      <p>Worldeology is forming a research community around social cognition, metacognitive systems, model mechanisms, and long-horizon interactive worlds.</p>
+      <a href="mailto:zhangxm@worldeology.com?subject=Worldeology">Start a conversation ↗</a>
     </section>
 
     <footer class="manifest-footer">
-      <a class="manifest-footer-brand" href="/">Worldeology Lab</a>
-      <nav aria-label="Worldeology Lab"><a href="/research/">Research</a><a href="/faculty/">Faculty</a><a href="/about/">About</a><a href="https://github.com/Jewelina95/worldeology-lab">GitHub</a></nav>
+      <a class="manifest-footer-brand" href="/">Worldeology</a>
+      <nav aria-label="Worldeology"><a href="/research/">Research</a><a href="/faculty/">Faculty</a><a href="/about/">About</a><a href="https://github.com/Jewelina95/worldeology-lab">GitHub</a></nav>
       <span>© 2026</span>
     </footer>
   </main>
