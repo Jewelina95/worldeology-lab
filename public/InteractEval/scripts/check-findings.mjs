@@ -36,8 +36,15 @@ for(const f of data.findings){
  assert.ok(html.includes('finding-key-metrics'),f.id+' missing key metrics');
  assert.ok(html.includes('finding-data-explanation'),f.id+' missing below-data explanation');
  assert.ok(html.includes(`data-research-finding="${f.id}"`),f.id+' missing context');
- assert.ok(html.includes('Scope of the evidence'),f.id+' missing limitation');
- assert.ok(html.includes('InteractEval_research_v5.pdf#page='),f.id+' missing paper');
+ if(f.id==='F11'){
+  assert.ok(!html.includes('finding-source-links'));
+  assert.ok(!html.includes('finding-scope'));
+  assert.ok(html.includes('How to read the data'));
+  assert.ok(html.includes('8.5 percentage points'));
+ }else{
+  assert.ok(html.includes('Scope of the evidence'),f.id+' missing limitation');
+  assert.ok(html.includes('InteractEval_research_v5.pdf#page='),f.id+' missing paper');
+ }
  assert.ok(!/\bNaN\b|undefined|Infinity/.test(html),f.id+' invalid rendered value');
  assert.ok(/<table|evidence-bars|comparison-bars|architecture-comparison-grid/.test(html),f.id+' missing evidence');
 }
