@@ -123,3 +123,43 @@ export function ArchitectureMechanism(){
   <text x="12" y="285" fontSize="19" fill={muted}>Compare gains within each interaction purpose</text>
  </svg></AbsoluteFill>;
 }
+
+
+// Psychological lenses; diagrams are authored illustrations, not observed episodes.
+export function MindMechanism(){
+ return <AbsoluteFill style={base}><svg viewBox="0 0 480 300" role="img" aria-label="A key has moved to a bag, but a person still believes it is in a drawer. A useful response accounts for that belief.">
+  <text x="12" y="28" fontSize="21" fill={muted}>Different views of the same situation</text>
+  <Step x={12} y={55} w={210} h={76} lines={['World','Key in the bag']} start={.2}/>
+  <Step x={258} y={55} w={210} h={76} lines={['Belief','Key in the drawer']} start={.8} tone={rust} highlight/>
+  <DrawPath d="M117 139v28h123m123-28v28H240v28m-6-7 6 7 6-7" start={1.2} end={2.2}/>
+  <Step x={116} y={204} w={248} h={62} lines={['Explain where it moved']} start={2.2} highlight/>
+  <text x="12" y="294" fontSize="18" fill={muted}>Act on what the person knows and believes</text>
+ </svg></AbsoluteFill>;
+}
+export function GroundingMechanism(){
+ return <AbsoluteFill style={base}><svg viewBox="0 0 480 300" role="img" aria-label="Two participants build common ground by proposing, checking and confirming understanding.">
+  <text x="12" y="28" fontSize="21" fill={muted}>Understanding becomes shared</text>
+  <circle cx="186" cy="115" r="69" fill={ink} opacity=".12"/>
+  <circle cx="294" cy="115" r="69" fill={rust} opacity=".12"/>
+  <text x="151" y="121" fontSize="21" textAnchor="middle" fill={ink}>A knows</text>
+  <text x="330" y="121" fontSize="21" textAnchor="middle" fill={rust}>B knows</text>
+  <Reveal start={2.2}><path d="m225 115 11 11 21-25" fill="none" stroke={ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></Reveal>
+  <Step x={12} y={218} w={132} h={56} lines={['Propose']} start={.2}/>
+  <DrawPath d="M150 246h20m-7-6 7 6-7 6" start={.6} end={1}/>
+  <Step x={175} y={218} w={132} h={56} lines={['Check']} start={1}/>
+  <DrawPath d="M313 246h20m-7-6 7 6-7 6" start={1.4} end={1.8}/>
+  <Step x={338} y={218} w={132} h={56} lines={['Confirm']} start={2.2} highlight/>
+ </svg></AbsoluteFill>;
+}
+export function AwarenessMechanism(){
+ return <AbsoluteFill style={base}><svg viewBox="0 0 480 300" role="img" aria-label="Perceive a cancelled train, understand the connection is at risk, and anticipate the need for another route.">
+  {['Perceive','Understand','Anticipate'].map((label,i)=><text key={label} x={78+i*163} y="43" textAnchor="middle" fontSize="21" fill={muted}>{label}</text>)}
+  <Step x={12} y={80} w={132} h={92} lines={['Train','cancelled']} start={.2}/>
+  <DrawPath d="M150 126h20m-7-6 7 6-7 6" start={.7} end={1.1}/>
+  <Step x={175} y={80} w={132} h={92} lines={['Connection','at risk']} start={1.1}/>
+  <DrawPath d="M313 126h20m-7-6 7 6-7 6" start={1.6} end={2}/>
+  <Step x={338} y={80} w={132} h={92} lines={['Find another','route']} start={2} highlight/>
+  <DrawPath d="M78 194v25h326v-25" start={2.4} end={3.2} color={muted} width={1.5}/>
+  <Reveal start={2.7}><text x="240" y="262" textAnchor="middle" fontSize="21" fill={ink}>Goal: arrive before 9 a.m.</text></Reveal>
+ </svg></AbsoluteFill>;
+}

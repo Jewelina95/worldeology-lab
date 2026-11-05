@@ -1,0 +1,18 @@
+/* Original artwork, integrated with the existing Atlas layout. */
+.interaction-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:30px;align-items:start;margin-bottom:22px}
+.results-page .interaction-heading h2,.interaction-heading h2{font:600 clamp(26px,2.4vw,34px)/1.15 var(--sans);letter-spacing:-.8px;margin:0;color:#193b30}
+.interaction-heading p{font:400 16px/1.65 var(--sans);color:#52645b;margin:0}
+.interaction-figure{margin:0;min-width:0}
+.interaction-picture{background:#fff;line-height:0;overflow:hidden;border:1px solid #e3e9e3;border-radius:10px}
+.interaction-picture .motivation-art{display:block;width:100%;height:auto}
+.interaction-figure figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-top:12px;min-height:64px;font:400 14px/1.6 var(--sans);color:#52645b}
+.interaction-figure figcaption p{margin:0;max-width:76ch;font:inherit}
+.interaction-figure figcaption a{white-space:nowrap;color:#193b30;text-underline-offset:4px;font:inherit}
+.interaction-only{--sans:'DM Sans',Arial,sans-serif;background:#fff;margin:0;padding:30px;font-family:var(--sans);color:#193b30}
+.interaction-only main{max-width:1600px;margin:auto}
+.interaction-only .interaction-heading{grid-template-columns:1fr;gap:12px}
+.interaction-only .interaction-picture{border:0}
+.interaction-only .motivation-art{max-height:calc(100dvh - 200px)}
+.interaction-only figcaption a{display:none}
+@media(max-width:800px){.interaction-heading{grid-template-columns:1fr;gap:12px}.interaction-heading p{font-size:16px}.interaction-figure figcaption{gap:12px;font-size:13px;min-height:88px}.interaction-only{padding:20px 12px}.interaction-only .motivation-art{max-height:none}}
+@media(max-width:520px){.interaction-figure figcaption{display:block}.interaction-figure figcaption p{margin-bottom:8px}.interaction-figure figcaption a{display:inline-block;padding:4px 0}.interaction-only .interaction-picture{overflow-x:auto}.interaction-only .motivation-art{width:1000px;max-width:none}}

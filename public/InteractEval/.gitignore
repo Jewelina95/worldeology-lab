@@ -1,2 +1,5 @@
 __pycache__/
 .DS_Store
+
+/design-demos/
+/motion/node_modules/

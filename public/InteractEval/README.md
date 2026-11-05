@@ -10,7 +10,9 @@ Run `python3 -m http.server 8080` here and open http://localhost:8080/. This is 
 Keep the full-width opening unchanged. Below it, the figures and results form one continuous article with a sticky contents rail.
 
 ## Publication
-Worldeology Lab imports this repository's main branch whenever the Lab is published. The Lab owner can publish the latest website by running its existing deployment workflow: https://github.com/Jewelina95/worldeology-lab/actions/workflows/deploy.yml (Run workflow). Project collaborators do not receive Lab credentials or Lab write access.
+Changes pushed or merged to this repository's `main` branch are published automatically to https://worldeology.com/InteractEval/. Worldeology Lab checks for a new commit every five minutes and builds only when it finds one. GitHub scheduling and CDN delivery can add delay; publication is not instantaneous. No Lab credentials or Lab write access are shared with project collaborators.
+
+The Lab owner can also publish immediately through https://github.com/Jewelina95/worldeology-lab/actions/workflows/deploy.yml (Run workflow).
 
 Run `node scripts/check-render.mjs` before pushing.
 

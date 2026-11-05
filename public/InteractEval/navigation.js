@@ -43,7 +43,7 @@ function renderEditorialNavigation(){
     ]},
     leaderboards:{label:'Leaderboards',title:'Model rankings',intro:'Start with the ranking. Explore the capabilities behind it.',href:base+'leaderboards',items:[
       ['Overall ranking','Compare scores on the same scale.','leaderboards','overview'],
-      ['Interaction stages','Passive, responsive, and active adaptation.','leaderboards?metric=stage2','capability'],
+      ['Interaction stages','Passive, responsive, and proactive promotion.','leaderboards?metric=stage2','capability'],
       ['Scenario performance','Compare task-oriented and open-ended settings.','leaderboards?metric=nonfunctional','scenario'],
       ['Partner-role capability','Compare systems playing the user role.','leaderboards?metric=user-composite','partner']
     ]},
