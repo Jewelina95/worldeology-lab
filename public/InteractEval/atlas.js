@@ -19,7 +19,7 @@ const atlasSymbols={
 };
 function atlasSymbol(name){return `<svg viewBox="0 0 80 80" fill="none" aria-hidden="true">${atlasSymbols[name]}</svg>`;}
 function atlasHero(){return `<section class="atlas-hero"><div><h1>A response is not<br/>an interaction.</h1><p>Interaction is what unfolds between replies. InteractEval measures how models understand changing situations, take initiative, and follow through across a conversation.</p><a href="#response-interaction" data-research-section="response-interaction">Why interact <span aria-hidden="true">&#8595;</span></a></div><figure><img src="./assets/brand/iceberg.svg" width="405" height="365" alt="An iceberg separates spoken words from a participant’s uncertain understanding, trust, and goals."/></figure></section>`;}
-function atlasKeyFindings(){return `<section id="key-findings" class="article-section atlas-key-findings"><h2>Key Findings</h2><ol class="atlas-findings-list">${atlasFindings.map((f,index)=>`<li><a class="atlas-finding-link" href="#comparisons?measure=${f.measure}" data-finding-measure="${f.measure}"><span class="atlas-finding-number" aria-hidden="true">${String(index+1).padStart(2,'0')}</span><div class="atlas-finding-text"><h3>${f.title}</h3></div></a>${f.id==='information'?`<div class="finding-information-definitions"><table><caption>Information conditions</caption><thead><tr><th scope="col">Sufficient</th><th scope="col">Partial</th><th scope="col">Insufficient</th></tr></thead><tbody><tr><td>The information needed to proceed is available.</td><td>The brief is incomplete, with a consequential information gap or a misleading premise.</td><td>The brief makes clear that more information is needed.</td></tr></tbody></table></div>`:''}</li>`).join('')}</ol></section>`;}
+function atlasKeyFindings(){return coreFindings();}
 
 function atlasMobileScores(){
  const columns=[[0,5,6],[1,2,3],[4,5,6]][atlasMobileGroup],names=['Overall','L1','L2','L3','L4','L5','L6'];
@@ -34,6 +34,7 @@ function syncAtlasLayout(){
  atlasResponsiveTables();
  atlasDataMotion();
  window.InteractEvalFindingFocus?.fromLocation();
+ applyResearchFindingFocus(document.getElementById('main-comparison-body'));
 }
 function atlasResponsiveTables(){
  document.querySelectorAll('.comparison-data-table,.agent-results-table').forEach(table=>{
@@ -72,8 +73,8 @@ document.addEventListener('click',event=>{
  if(finding&&!event.defaultPrevented&&event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey){
   event.preventDefault();
   if(finding.dataset.findingMeasure==='information')mainInformationView='conditions';
-  selectMainComparison(finding.dataset.findingMeasure);
   if(location.hash!==finding.getAttribute('href'))history.pushState(null,'',finding.getAttribute('href'));
+  selectMainComparison(finding.dataset.findingMeasure);
   lastMainComparisonHash=location.hash;
   document.getElementById('main-comparison-body')?.focus({preventScroll:true});
   window.InteractEvalFindingFocus?.show(finding.dataset.findingMeasure);

@@ -21,6 +21,7 @@ function navigationIcon(name){return `<svg viewBox="0 0 24 24" fill="none" strok
 
 function renderEditorialNavigation(){
   const base='./index.html#',groups={
+    findings:{label:'Findings',title:'Research findings',intro:'Seven research questions connect 34 claims to their evidence.',href:base+'findings',items:findingsResearch.categories.map(c=>[c.title_en,c.research_question_en,'findings?category='+c.slug,'theory'])},
     models:{label:'Models',title:'Model evaluations',intro:'Explore the measures, with a guide to what each one tells you.',href:base+'models',items:[
       ['All evaluations','Every measure in one workspace.','models','overview'],
       ['Capabilities','Six levels, from goals to sustained initiative.','models?category=Capabilities','capability'],

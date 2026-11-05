@@ -42,7 +42,7 @@ window.InteractEvalFindingFocus=(()=>{
   if(measure==='stage-profile'){
    mark('[data-comparison-metric="stage0"]','passive');
    mark('[data-comparison-metric="stage2"]','proactive');
-   for(const name of ['claude-opus-5.5','deepseek-v4-pro'])panel.querySelectorAll(`[data-comparison-model="${name}"]`).forEach(row=>row.dataset.findingRow='true');
+   for(const name of (activeResearchFinding()?.id==='F03'?['deepseek-v4-pro','kimi-k3']:['claude-opus-5.5','deepseek-v4-pro']))panel.querySelectorAll(`[data-comparison-model="${name}"]`).forEach(row=>row.dataset.findingRow='true');
    mark('.finding-stage-ranges>span:first-child','passive');
    mark('.finding-stage-ranges>span:last-child','proactive');
   }else if(measure==='information'){

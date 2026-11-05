@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s),safe=(s='')=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const REV='atlas-20261102b',levelNames=['Goal preservation','Information uptake','State progression','Contextual expression','Proactive agency','Long-horizon coherence'];
+const REV='findings-20261105-v5',levelNames=['Goal preservation','Information uptake','State progression','Contextual expression','Proactive agency','Long-horizon coherence'];
 let publication,researchEvidence,exhibits=[],route='home',metric='composite',agentMetric='composite',architecture='All',caseQuery='',casePurpose='all',view='chart',sortDown=true;
 const modelIconFiles=[[/^claude(?:[-\s]|$)/i,'claude.svg'],[/^(?:gpt|chatgpt|openai)(?:[-\s]|$)/i,'openai.svg'],[/^gemini(?:[-\s]|$)/i,'gemini.png'],[/^deepseek(?:[-\s]|$)/i,'deepseek-product.svg'],[/^qwen/i,'qwen.png'],[/^kimi(?:[-\s]|$)/i,'kimi.png'],[/^(?:glm|z[.-]?ai)(?:[-\s]|$)/i,'glm.svg']];
 const assets=name=>'./assets/providers/'+(modelIconFiles.find(([pattern])=>pattern.test(String(name)))?.[1]||'model.svg');
@@ -55,7 +55,7 @@ function render(){
  const resultAnchors=['key-findings','illustrations','beneath-the-words','model-readout','capability','comparisons','stages','scenarios','reliability','process','duration','architectures','partners','takeaways','notes','outcomes','coverage'];
  if(page==='research.html'&&['model-readout','capability','process','duration','partners','outcomes','coverage'].includes(hash)){location.replace('./index.html#'+({outcomes:'process',coverage:'partners'}[hash]||hash));return;}
  route=page==='research.html'?'research':page==='showcase.html'?'cases':resultAnchors.includes(hash)?'home':hash||'home';
- if(!['home','models','agents','cases','research','trends','multimodal','leaderboards','compare','architecture'].includes(route)&&!route.startsWith('model/'))route='home';
+ if(!['home','models','agents','cases','research','trends','multimodal','leaderboards','compare','architecture','findings'].includes(route)&&!route.startsWith('model/'))route='home';
  const params=new URLSearchParams(query);
  if(params.has('metric')&&metrics.some(m=>m.id===params.get('metric')))metric=params.get('metric');
  if(params.has('model'))caseQuery=params.get('model');
@@ -63,13 +63,14 @@ function render(){
  if(params.has('architecture')&&['All','MetaMind','Cognizer','Claude Code'].includes(params.get('architecture')))architecture=params.get('architecture');
  if(params.has('purpose'))casePurpose=params.get('purpose');
  masthead();
- document.title=({home:'Main',research:'Research',cases:'Showcase',models:'Measures',agents:'Agents',leaderboards:'Leaderboards'}[route]|| (route.startsWith('model/')?decodeURIComponent(route.slice(6)):route))+' - InteractEval';
+ document.title=({home:'Main',findings:'Findings',research:'Research',cases:'Showcase',models:'Measures',agents:'Agents',leaderboards:'Leaderboards'}[route]|| (route.startsWith('model/')?decodeURIComponent(route.slice(6)):route))+' - InteractEval';
  let content;
  if(route.startsWith('model/'))content=modelProfile(decodeURIComponent(route.slice(6)));
  else if(route==='models'||route==='leaderboards'||route==='compare')content=modelExplorer();
  else if(route==='agents')content=agents();
  else if(route==='cases')content=cases();
  else if(route==='research')content=research();
+ else if(route==='findings')content=findingsIndex();
  else if(route==='trends')content=trends();
  else if(route==='multimodal')content='<section class="paper-card pending-publication"><span class="eyebrow">Pending</span><h1>Image, speech, and video</h1><p>Multimodal results will appear when published measurements are available.</p></section>';
  else content=home();
@@ -79,4 +80,4 @@ document.addEventListener('click',e=>{const m=e.target.closest('[data-metric]');
 document.addEventListener('change',e=>{if(e.target.id==='paper-metric'){metric=e.target.value;render();}if(e.target.id==='agent-metric'){agentMetric=e.target.value;render();}if(e.target.id==='case-purpose'){casePurpose=e.target.value;$('#case-library').innerHTML=caseCards();}});
 document.addEventListener('input',e=>{if(e.target.id==='case-search'){caseQuery=e.target.value;$('#case-library').innerHTML=caseCards();}});
 window.addEventListener('hashchange',()=>{render();window.scrollTo({top:0,behavior:'instant'});});
-Promise.all(['paper-results.json','cases.json','research-evidence.json'].map(n=>fetch('./data/'+n+'?v='+REV).then(r=>{if(!r.ok)throw new Error('Could not load publication data');return r.json();}))).then(([p,c,r])=>{publication=p;exhibits=c;researchEvidence=r;render();}).catch(e=>{$('#app').textContent=e.message;});
+Promise.all(['paper-results.json','cases.json','research-evidence.json','findings-v5.json','findings-evidence.json'].map(n=>fetch('./data/'+n+'?v='+REV).then(r=>{if(!r.ok)throw new Error('Could not load publication data');return r.json();}))).then(([p,c,r,f,e])=>{publication=p;exhibits=c;researchEvidence=r;findingsResearch=f;findingsEvidence=e;configureFindingMeasures();render();}).catch(e=>{$('#app').textContent=e.message;});

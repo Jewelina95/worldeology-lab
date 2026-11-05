@@ -12,7 +12,7 @@
     "check:analytics-config": "node scripts/check-analytics-config.mjs",
     "check:analytics-live": "node scripts/check-analytics-live.mjs",
     "social": "node scripts/generate-social-cards.mjs",
-    "verify": "node scripts/check-interacteval-update.mjs --test && node scripts/check-interacteval-render.mjs && npm run build && node scripts/check-dist.mjs && npm run check:mobile",
+    "verify": "node scripts/check-interacteval-update.mjs --test && node scripts/check-interacteval-render.mjs && node scripts/check-interacteval-findings.mjs && npm run build && node scripts/check-dist.mjs && npm run check:mobile",
     "start:local": "node scripts/start-local.mjs",
     "preview:dist": "node scripts/preview-dist.mjs"
   },
