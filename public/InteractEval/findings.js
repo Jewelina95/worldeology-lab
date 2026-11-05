@@ -4,7 +4,7 @@ let findingsResearch,findingsEvidence;
 const findingById=id=>findingsResearch?.findings.find(f=>f.id===id);
 const findingCategory=slug=>findingsResearch?.categories.find(c=>c.slug===slug);
 const findingLink=f=>`./index.html#comparisons?measure=${encodeURIComponent(f.measure)}&finding=${f.id}`;
-const findingCategoryLink=slug=>`./index.html#findings?category=${encodeURIComponent(slug)}`;
+const findingCategoryLink=slug=>`./index.html#key-findings?category=${encodeURIComponent(slug)}`;
 function activeResearchFinding(){
  const id=new URLSearchParams(location.hash.split('?')[1]||'').get('finding'),f=findingById(id);
  return f?.measure===mainComparisonMeasure?f:null;
@@ -17,11 +17,12 @@ function configureFindingMeasures(){
   for(const item of items)if(!mainComparisonGroups.some(g=>g.items.some(i=>i[0]===item[0])))group.items.push(item);
  }
 }
-function informationDefinitions(){return `<div class="finding-information-definitions"><table><caption>Information conditions</caption><thead><tr><th scope="col">Sufficient</th><th scope="col">Partial</th><th scope="col">Insufficient</th></tr></thead><tbody><tr><td>The information needed to proceed is available.</td><td>The brief is incomplete, with a consequential information gap or a misleading premise.</td><td>The brief makes clear that more information is needed.</td></tr></tbody></table></div>`;}
+function informationDefinitions(){return `<aside class="finding-data-explanation"><h4>How to read the information conditions</h4><p><strong>Sufficient:</strong> the information needed to proceed is available.</p><p><strong>Partial:</strong> the brief provides some information but leaves a consequential gap or includes a misleading premise. The model must recognize which details remain unsupported.</p><p><strong>Insufficient:</strong> the brief makes clear that more information is needed before proceeding.</p></aside>`;}
 function coreFindings(){
- const ids=['F01','F07','F19',...findingsResearch.homepage_ids.filter(id=>!['F01','F07','F19'].includes(id))];
- return `<section id="key-findings" class="article-section atlas-key-findings"><div class="findings-section-heading"><h2>Key Findings</h2><a href="./index.html#findings">Explore all 34 findings <span aria-hidden="true">↗</span></a></div><ol class="atlas-findings-list">${ids.map((id,index)=>{const f=findingById(id);return `<li><a class="atlas-finding-link" href="${findingLink(f).replace('./index.html','')}" data-finding-measure="${f.measure}" data-finding-id="${f.id}"><span class="atlas-finding-number" aria-hidden="true">${String(index+1).padStart(2,'0')}</span><div class="atlas-finding-text"><h3>${safe(f.title_en)}</h3></div></a>${id==='F07'?informationDefinitions():''}</li>`;}).join('')}</ol></section>`;
+ const params=new URLSearchParams(location.hash.split('?')[1]||''),requested=params.get('category'),category=findingCategory(requested)?requested:'',q=params.get('q')||'';
+ return `<section id="key-findings" class="article-section atlas-key-findings homepage-findings"><div class="findings-section-heading"><h2>Key Findings</h2><a href="./key-findings-zh.html" lang="zh-CN">中文版 ↗</a></div><nav class="finding-category-nav" aria-label="Homepage finding categories"><a href="./index.html#key-findings" ${!category?'aria-current="page"':''}>All findings <span>34</span></a>${findingsResearch.categories.map(c=>`<a href="${findingCategoryLink(c.slug)}" ${category===c.slug?'aria-current="page"':''}>${safe(c.title_en)} <span>${c.finding_ids.length}</span></a>`).join('')}</nav><div class="finding-index-tools"><label for="home-finding-search">Search findings</label><input id="home-finding-search" type="search" value="${safe(q)}" placeholder="Search a claim or finding ID" data-finding-category="${safe(category)}"/></div><div id="home-finding-catalog-results">${findingsCards(category,q)}</div></section>`;
 }
+
 function findingsCategoryOverview(){return `<div class="findings-category-overview">${findingsResearch.categories.map(c=>`<a href="${findingCategoryLink(c.slug)}"><span>${c.finding_ids.length} findings</span><h3>${safe(c.title_en)}</h3><p>${safe(c.research_question_en)}</p><i aria-hidden="true">↗</i></a>`).join('')}</div>`;}
 function findingsCards(category,query=''){
  const q=query.trim().toLowerCase();let total=0;
@@ -38,12 +39,12 @@ function findingsIndex(){
 function findingSourceLinks(f){return f.verified_pages.map(page=>`<a href="${findingsResearch.paper.path}#page=${page}" target="_blank" rel="noreferrer">Paper p. ${page} ↗</a>`).join('');}
 function findingEvidenceIntro(){
  const f=activeResearchFinding();if(!f)return '';
- return `<header class="finding-evidence-intro" data-research-finding="${f.id}"><a class="finding-back" href="${findingCategoryLink(f.category_slug)}">← ${safe(f.category_en)}</a><span class="findings-eyebrow">${f.id} / ${safe(f.tier_en)}</span><h3>${safe(f.title_en)}</h3><p>${safe(f.summary_en)}</p><div class="finding-source-links"><span>${safe(f.paper_source)}</span>${findingSourceLinks(f)}</div><aside class="finding-scope"><span>Scope of the evidence</span><p>${safe(f.limitation_en)}</p></aside></header>`;
+ return `<header class="finding-evidence-intro" data-research-finding="${f.id}"><a class="finding-back" href="${findingCategoryLink(f.category_slug)}">← ${safe(f.category_en)}</a><span class="findings-eyebrow">${f.id} / ${safe(f.tier_en)}</span><h3>${safe(f.title_en)}</h3><p>${safe(f.summary_en)}</p>${findingKeyMetrics(f)}<div class="finding-source-links"><span>${safe(f.paper_source)}</span>${findingSourceLinks(f)}</div><aside class="finding-scope"><span>Scope of the evidence</span><p>${safe(f.limitation_en)}</p></aside></header>`;
 }
 function findingEvidenceFooter(){
  const f=activeResearchFinding();if(!f)return '';
  const related=f.related_ids.map(findingById).filter(Boolean),next=findingById(f.next_finding);
- return `<nav class="finding-evidence-nav" aria-label="Related findings">${related.length?`<div><span>Related in ${safe(f.category_en)}</span>${related.map(r=>`<a href="${findingLink(r)}"><b>${r.id}</b>${safe(r.title_en)} <i aria-hidden="true">↗</i></a>`).join('')}</div>`:''}${next?`<div><span>Next research question</span><a href="${findingLink(next)}"><b>${next.id}</b>${safe(next.title_en)} <i aria-hidden="true">→</i></a></div>`:''}<a href="./index.html#findings">Browse all 34 findings ↗</a></nav>`;
+ return `${findingDataExplanation(f.measure)}<nav class="finding-evidence-nav" aria-label="Related findings">${related.length?`<div><span>Related in ${safe(f.category_en)}</span>${related.map(r=>`<a href="${findingLink(r)}"><b>${r.id}</b>${safe(r.title_en)} <i aria-hidden="true">↗</i></a>`).join('')}</div>`:''}${next?`<div><span>Next research question</span><a href="${findingLink(next)}"><b>${next.id}</b>${safe(next.title_en)} <i aria-hidden="true">→</i></a></div>`:''}<a href="./index.html#key-findings">Browse all 34 findings ↗</a></nav>`;
 }
 function evidenceTable(headers,rows,caption='Published evidence'){
  return `<div class="evidence-table-wrap" role="region" aria-label="${safe(caption)}" tabindex="0"><table class="evidence-data-table"><caption>${safe(caption)}</caption><thead><tr>${headers.map(h=>`<th scope="col">${safe(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr>${row.map((v,i)=>i===0?`<th scope="row">${safe(v)}</th>`:`<td>${safe(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
@@ -79,7 +80,7 @@ function findingsMeasureContent(measure){
  if(measure==='self-gap'&&finding?.id==='F22')return evidenceTable(['System','Standard-user score','Self-play score','Self-play minus standard'],m.map(x=>[x.name,number(x.self_play.standard_user),number(x.self_play.score),signed(x.self_play.score-x.self_play.standard_user)]),'Self-play contrast · Table 13')+evidenceBars(m.map(x=>[x.name,x.self_play.score-x.self_play.standard_user,['deepseek-v4-pro','gemini-3.8-flash'].includes(x.name)]),{label:'Self-play minus standard-user composite',format:signed,min:-.13,max:.08});
  switch(measure){
   case 'weighting-sensitivity':return evidenceBars([['Reference level weights',.222,true],['Equal level weights',.163,true]],{label:'Across-model composite range',max:.25})+evidenceTable(['Variant','Composite range','Ranking ρ','Largest rank change'],[['Reference','0.222','1.000','0'],['Equal level weights','0.163','0.988','1']],'Aggregation comparison · Table 30');
-  case 'gap-behavior':return evidenceBars([['Sufficient',.051],['Partial',.164,true],['Insufficient',.103]],{label:'Unsupported factual additions · share of turns',format:percent,max:.20})+informationDefinitions();
+  case 'gap-behavior':return evidenceBars([['Sufficient',.051],['Partial',.164,true],['Insufficient',.103]],{label:'Unsupported factual additions · share of turns',format:percent,max:.20});
   case 'gap-correlation':return evidenceScatter(m.map(x=>[x.name,x.stages[0],x.behavior.fabrication,['claude-opus-5.5','deepseek-v4-pro','glm-5.3-flash'].includes(x.name)]),{xLabel:'Passive execution',yLabel:'Fabrication rate',xMin:.74,xMax:.80,yMax:.20,caption:'Execution and unsupported factual additions · Spearman ρ = +0.77 · n = 10'});
   case 'question-vs-agency':return evidenceIntervals();
   case 'case-trajectories':return findingTrajectories();
@@ -109,12 +110,91 @@ function applyResearchFindingFocus(panel){
  const focusModels={F02:['deepseek-v4-pro','claude-opus-5.5'],F03:['deepseek-v4-pro','kimi-k3'],F05:['claude-5-opus','glm-5.3-flash'],F17:['gemini-3.8-flash'],F21:['gemini-3.8-flash','deepseek-v4-pro'],F22:['deepseek-v4-pro','gemini-3.8-flash'],F23:['gemini-3.8-flash','claude-fable-5.1']};
  for(const name of focusModels[f.id]||[])panel.querySelectorAll(`[data-comparison-model="${name}"]`).forEach(row=>row.classList.add('is-research-focus'));
  if(['F01','F02','F03','F07','F19'].includes(f.id))window.InteractEvalFindingFocus?.show(f.measure);
+ const values=new Set(primaryFindingMetrics[f.id].flatMap(([,value])=>(value.match(/[−+-]?\d[\d,]*(?:\.\d+)?%?/g)||[]).map(normalizeMetricValue)));
+ panel.querySelectorAll('.comparison-content td,.comparison-content dd,.evidence-bar-row>strong,.finding-stage-ranges strong').forEach(cell=>{if(values.has(normalizeMetricValue(cell.textContent)))cell.classList.add('is-key-metric');});
  if(['F25','F26'].includes(f.id))panel.querySelectorAll('.architecture-comparison-grid article').forEach(article=>{const name=article.querySelector('h4')?.textContent;article.querySelectorAll('.architecture-gain-row').forEach((row,index)=>{if(f.id==='F25'&&name==='Cognizer'&&[0,2].includes(index)||f.id==='F26'&&(name==='MetaMind'&&index===2||name==='Cognizer'&&index===0))row.classList.add('is-research-focus');});});
 }
 document.addEventListener('input',event=>{
- if(event.target.id!=='finding-search')return;
+ if(!['finding-search','home-finding-search'].includes(event.target.id))return;
  const q=event.target.value,category=event.target.dataset.findingCategory;
- document.getElementById('finding-catalog-results').innerHTML=findingsCards(category,q);
+ const home=event.target.id==='home-finding-search';
+ document.getElementById(home?'home-finding-catalog-results':'finding-catalog-results').innerHTML=findingsCards(category,q);
  const params=new URLSearchParams();if(category)params.set('category',category);if(q)params.set('q',q);
- history.replaceState(null,'','./index.html#findings'+(params.size?'?'+params:''));
+ history.replaceState(null,'','./index.html#'+(home?'key-findings':'findings')+(params.size?'?'+params:''));
 });
+
+const primaryFindingMetrics={
+ F01:[['Passive score range','0.035'],['Proactive score range','0.370'],['Difference in separation','10.6×']],
+ F02:[['Same passive score','0.787'],['DeepSeek proactive score','0.170'],['Opus proactive score','0.540']],
+ F03:[['Composite / DeepSeek & Kimi','0.430 / 0.425'],['Proactive / DeepSeek & Kimi','0.170 / 0.212'],['L6/L5 / DeepSeek & Kimi','0.832 / 0.965']],
+ F04:[['Models with L6 below L5','10 / 10'],['L6 / L5 ratio','0.832–0.965']],
+ F05:[['Claude / task-oriented','0.600'],['Claude / open-ended','0.454'],['GLM / task vs open-ended','0.403 / 0.421']],
+ F06:[['Reference composite range','0.222'],['Equal-weight range','0.163'],['Reduction in range','26.6%']],
+ F07:[['GPT / sufficient','0.662'],['GPT / partial','0.592'],['GPT / insufficient','0.603']],
+ F08:[['Sufficient / fabrication','5.1%'],['Partial / fabrication','16.4%'],['Insufficient / fabrication','10.3%']],
+ F09:[['Spearman correlation','+0.77'],['Models compared','10'],['Fabrication / Opus vs GLM','16.8% / 2.7%']],
+ F11:[['Clarification change','+0.085'],['L5 change','+0.006'],['L5 / 95% interval','−0.027 to +0.043']],
+ F13:[['Case 1 / interest at ending','0.20'],['Case 1 / exhaustion','Turn 5'],['Case 2 / successful closure','Turn 6']],
+ F14:[['Range at turn 1','0.109'],['Range at turn 16','0.204']],
+ F16:[['Interest-exhaustion endings','87.6%–99.0%']],
+ F17:[['Gemini / task closure','4.3%'],['Gemini / open-ended closure','0.2%']],
+ F18:[['Full patience mechanism','6.2 turns'],['Without patience budget','13.7 turns']],
+ F19:[['Pairing variance component','9.9%'],['Matrix residual','10.9%']],
+ F21:[['Gemini / mean & range','0.392 / 0.209'],['DeepSeek / mean & range','0.490 / 0.425']],
+ F22:[['Mean self-play excess','+0.020'],['DeepSeek / standard → self','0.430 → 0.501'],['Gemini / standard → self','0.450 → 0.328']],
+ F23:[['Gemini / L2–L3 pressure','+0.249'],['Fable / L5–L6 pressure','+0.044']],
+ F24:[['User-identity main effect','94.4%'],['User-side residual','2.0%'],['Assistant-side residual','10.9%']],
+ F25:[['Cognizer / passive gain','+0.012'],['Cognizer / proactive gain','+0.066'],['Ratio of gains','5.5×']],
+ F26:[['MetaMind / task vs open-ended','+0.021 / +0.046'],['Cognizer / task vs open-ended','+0.061 / +0.032']],
+ F28:[['L1–L4 absolute decline','0.030'],['L5–L6 absolute decline','0.105'],['Ratio of absolute declines','3.5×']],
+ F30:[['Base score vs gain / reported r','≤ −0.99'],['DeepSeek / MM & Cognizer gain','+0.063 / +0.092'],['Opus / MM & Cognizer gain','+0.024 / +0.040']],
+ F31:[['Qwen3.8 / assistant R²','−0.082'],['Qwen3.8 / user-role R²','+0.168']],
+ F32:[['Affection-direction cosine','0.620–0.737'],['Residual user-affection R²','−0.225 / −0.182 / −0.248']],
+ F33:[['Interest-change correlation','0.264'],['Assistant within-dialogue R²','−0.374'],['User within-dialogue R²','−0.246']],
+ F34:[['Layer 52 / final-position recovery','0.777'],['40-head ablation / retained sensitivity','0.941']],
+ F35:[['Intervention sample','60 contexts'],['Beyond random-direction controls','No consistent signed effect']],
+ F36:[['State-probe separation','64% → 91%'],['Recurrence-probe separation','49% → 89%'],['Absolute gains','27 / 40 percentage points']],
+ F37:[['L1 / human endorsement','98.8%'],['L5 / human endorsement','78.9%'],['L6 / human endorsement','74.0%']],
+ F40:[['Latent-state agreement','0.806 / 0.816'],['Ranking Spearman ρ','0.988']],
+ F41:[['GPT / own-family lift','+0.013'],['Qwen / own-family lift','+0.011'],['Gemini / own-family lift','+0.017']],
+ F42:[['Generation / tokens per exchange','9,510'],['Evaluation / tokens per exchange','159,680'],['Evaluation / generation','16.8×']]
+};
+const normalizeMetricValue=value=>String(value).trim().replace(/[−–]/g,'-').replace(/[,+\s]/g,'');
+function findingKeyMetrics(f){return `<section class="finding-key-metrics" aria-label="Key evidence metrics">${primaryFindingMetrics[f.id].map(([label,value])=>`<div><span>${safe(label)}</span><strong>${safe(value)}</strong></div>`).join('')}</section>`;}
+const findingDataDefinitions={
+ 'stage-profile':'Passive execution is the mean of L1–L2, responsive adaptation of L3–L4, and proactive promotion of L5–L6. A score range is the maximum minus the minimum across the ten models; it does not describe improvement within one model.',
+ coherence:'L5 measures useful initiative; L6 measures follow-through across the interaction. L6/L5 expresses coherence relative to initiative. Higher levels are constrained by the dependency cascade, so a lower L6 partly reflects the scoring construction.',
+ purpose:'Task-oriented interactions aim to complete a practical objective. Open-ended interactions can aim to sustain conversation or a relationship. The scores measure capability within each purpose, rather than how often an episode ends.',
+ 'weighting-sensitivity':'Both conditions reuse the same interaction records. The reference gives higher capability levels more weight; equal weighting gives each of the six levels the same weight. The smaller range is an aggregation effect.',
+ 'gap-correlation':'Fabrication means stating an absent, task-relevant fact as known. Spearman ρ measures association between rankings across the ten models. A positive correlation does not establish a causal link.',
+ 'question-vs-agency':'A clarification is a request for missing task-relevant information. The clarification change is a frequency difference: +0.085 equals +8.5 percentage points. L5 is a capability grade; its 95% interval crosses zero, so the comparison does not establish a clear L5 improvement.',
+ 'case-trajectories':'User interest is the evaluator’s operational reading of a simulated participant’s willingness to continue. P(Advance) is the projected probability of a productive next course. These readings describe the joint trajectory, not which participant caused it.',
+ 'turn-divergence':'Each score averages only episodes that reach that turn. The percentage in parentheses is the share that reaches it; later-turn comparisons therefore have survivor selection.',
+ 'termination-outcomes':'Successful closure means the objective is judged complete under the protocol. Interest exhaustion means the simulated user’s interest or accumulated patience reaches the stopping threshold. An open-ended episode can be valuable without closing a task.',
+ 'closure-purpose':'Closure is the share of episodes judged to have completed an objective. Open-ended conversations often have no concrete task to close, so their closure rate should not be treated as a failure rate.',
+ 'stopping-ablation':'The patience budget accumulates the cost of an unproductive exchange. Degrade is a projected course in which interaction value declines. The comparison changes the stopping rule for these trajectories, rather than training the model.',
+ pairings:'The 9.9% pairing component uses the combined variance of scored model, partner and pairing as its denominator. The 10.9% matrix residual is a different statistic: variation left after row and column effects, including self-play and noise.',
+ 'pairing-summary':'Mean assistant score describes how hard a partner is on average. Across-assistant range describes how much it separates assistants. A partner that lowers every score equally need not distinguish capabilities well.',
+ 'self-gap':'Self-play uses the same model for both participants. The plotted difference is self-play minus the standard-user score: positive values favor self-play; negative values favor the standard user.',
+ 'partner-pressure':'Positive extra pressure means the assistant scores lower than it does with the standard partner. L2–L3 concern uptake and progress; L5–L6 concern initiative and follow-through. This is the effect on the assistant, not the partner’s own score.',
+ 'role-asymmetry':'A main effect is variation attributed to one participant’s identity. The residual is what remains after both identities’ main effects are removed. Assistant and user roles have different rubrics, so their decompositions must be read within role.',
+ 'architecture-stages':'An architecture gain is its score minus the score of the same base model, averaged over ten bases. Passive and proactive gains use the same score scale; additional calls and compute are not controlled.',
+ 'architecture-purpose':'Each gain compares an architecture with its own base model under the same interaction purpose. Task-oriented and open-ended gains describe different demands; they are not direct measures of human psychological skills.',
+ 'group-size':'The reported declines compare two with four participants. The 3.5× figure divides the absolute score declines, 0.105 by 0.030; it is not a 350% decline in capability. All other seats use the standard partner.',
+ 'architecture-headroom':'Proactive gain is the architecture’s L5–L6 score minus the base score. A negative r means weaker bases tend to gain more. Score ceilings and available headroom can contribute to that relationship.',
+ 'role-probes':'R² compares a linear probe’s prediction with a mean baseline. A negative within-dialogue R² means it tracks changes worse than that baseline. These probes hold out complete scenes; decodability alone does not establish understanding.',
+ 'shared-affection':'Affection is an annotated positive attitude toward the partner. Cosine similarity compares fitted readout directions. Residual R² asks whether the other participant’s state can be predicted after removing variation shared with the model’s own state; negative values do not support reliable independent readout.',
+ 'shared-miscalibration':'Correlation compares whether two readouts vary together. R² compares a readout with the annotated target. Two readouts can agree with each other while both track the target poorly.',
+ 'partner-integration':'Recovery is the fraction of a next-token distribution change reversed by restoring clean activations. Sensitivity retention is the fraction remaining after ablation. The two ratios have different denominators; neither is general task accuracy.',
+ 'representation-control':'Reading a state from a representation and controlling behavior by changing that representation are separate tests. “No consistent signed effect” means the fitted directions did not reliably move behavior in the intended direction beyond random-direction controls under this intervention.',
+ 'reconstruction-ablation':'A probe pairs transcripts that differ in one controlled respect. Separation means the grades change in the direction required by the definitions. Both conditions read the complete transcript; the full instrument also receives reconstructed states and event chains.',
+ 'human-audit':'Endorsement is the share of reviewed judgments accepted by human auditors with the full record available. It is not independent objective accuracy. Each capability level has its own review denominator.',
+ 'extractor-stability':'Latent-record agreement compares reconstructed state entries. Ranking Spearman ρ compares the final model order. Stable ranking can coexist with disagreement about the states behind the scores.',
+ 'judge-families':'Own-family lift is the judge’s relative additional score for a model from its own family, compared with the remaining models. The reported shifts are small; evidence of an equivalent preference by the reference judge is weak.',
+ 'evaluation-cost':'Tokens include both input and output. Generation includes the two participants; evaluation includes all fifteen calls per exchange. Parallel execution can reduce latency but does not remove these token counts.'
+};
+function findingDataExplanation(measure){
+ if(measure==='information'||measure==='gap-behavior')return informationDefinitions();
+ const text=findingDataDefinitions[measure];
+ return text?`<aside class="finding-data-explanation"><h4>How to read the data</h4><p>${safe(text)}</p></aside>`:'';
+}

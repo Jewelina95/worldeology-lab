@@ -22,10 +22,14 @@ The earlier `assets/Qwen_InteractEval.pdf` has different pagination and omits th
 
 ## Compatibility and interpretation
 
-The original first two destinations remain `measure=stage-profile` and `measure=information`. New links add IDs F01 and F07; earlier URLs still work. The pairing destination remains available. The homepage displays the supplied 12 core claims, keeping its original first two positions and F19 third. Four supporting items are available in the full catalog.
+The original first two destinations remain `measure=stage-profile` and `measure=information`. New links add IDs F01 and F07; earlier URLs still work. The pairing destination remains available. The homepage now displays all 34 findings in seven research-question categories, as requested in the subsequent revision. The supplied editorial tiers are retained as labels; all four supporting items are visible on the homepage. Stable F01 and F07 evidence destinations remain unchanged.
 
 Each finding belongs to exactly one category. Related links and reading paths indicate reading order, not causal inference. Every evidence context includes its limitations. The F07 context displays only the three information conditions supported by the new Table 7; the older partial-subvariant view is retained outside that context.
 
 ## Validation
 
-`node scripts/check-render.mjs` verifies the main article and original routes. `node scripts/check-findings.mjs` renders all 34 evidence contexts with published model data, verifies seven exclusive categories and related IDs, source integrity, invalid values, 12 homepage claims, original destinations and search. Browser checks cover all 34 direct links, category filtering, search, original destinations and desktop/mobile layouts.
+`node scripts/check-render.mjs` verifies the main article and original routes. `node scripts/check-findings.mjs` renders all 34 evidence contexts with published model data, verifies seven exclusive categories and related IDs, source integrity, invalid values, 34 homepage claims, original destinations and search. Browser checks cover all 34 direct links, category filtering, search, original destinations and desktop/mobile layouts.
+
+## Homepage and data-reading revision
+
+All 34 findings are now rendered directly in the homepage Key Findings section. Definitions appear below the corresponding data, including the three information conditions. Each evidence view has curated, prominent key metrics and matching table values receive emphasis. `key-findings-zh.html` and `research/Key_Findings_zh.md` provide a separate Chinese version with the same 34 IDs and seven categories.

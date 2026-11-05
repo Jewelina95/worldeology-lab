@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 const data=JSON.parse(fs.readFileSync('data/findings-v5.json','utf8'));
 assert.equal(data.findings.length,34);
 assert.equal(data.categories.length,7);
-assert.equal(data.homepage_ids.length,12);
+assert.equal(data.homepage_ids.length,34);
 const ids=new Set(data.findings.map(f=>f.id));
 assert.equal(ids.size,34);
 const categorized=data.categories.flatMap(c=>c.finding_ids);
@@ -33,14 +33,20 @@ for(const f of data.findings){
  c.selected=f;
  vm.runInContext('mainComparisonMeasure=selected.measure;mainComparisonGroup=mainComparisonGroups.find(g=>g.items.some(i=>i[0]===selected.measure)).id;',c);
  const html=vm.runInContext('findingEvidenceIntro()+mainComparisonContent()+findingEvidenceFooter()',c);
+ assert.ok(html.includes('finding-key-metrics'),f.id+' missing key metrics');
+ assert.ok(html.includes('finding-data-explanation'),f.id+' missing below-data explanation');
  assert.ok(html.includes(`data-research-finding="${f.id}"`),f.id+' missing context');
  assert.ok(html.includes('Scope of the evidence'),f.id+' missing limitation');
  assert.ok(html.includes('InteractEval_research_v5.pdf#page='),f.id+' missing paper');
  assert.ok(!/\bNaN\b|undefined|Infinity/.test(html),f.id+' invalid rendered value');
  assert.ok(/<table|evidence-bars|comparison-bars|architecture-comparison-grid/.test(html),f.id+' missing evidence');
 }
+c.location.hash='#key-findings';
 const homepage=vm.runInContext('coreFindings()',c);
-assert.equal((homepage.match(/data-finding-measure=/g)||[]).length,12);
+assert.equal((homepage.match(/class="finding-catalog-card/g)||[]).length,34);
+assert.ok(!homepage.includes('finding-data-explanation'));
+assert.ok(!homepage.includes('finding-information-definitions'));
+assert.equal((fs.readFileSync('key-findings-zh.html','utf8').match(/class="finding-catalog-card/g)||[]).length,34);
 assert.match(homepage,/measure=stage-profile&finding=F01/);
 assert.match(homepage,/measure=information&finding=F07/);
 assert.ok(homepage.indexOf('finding=F01')<homepage.indexOf('finding=F07'));
@@ -51,4 +57,4 @@ for(const category of data.categories){
 }
 assert.match(vm.runInContext("findingsCards('', 'F42')",c),/1 finding/);
 assert.match(vm.runInContext("findingsCards('', 'no matching phrase xyz')",c),/No findings match/);
-console.log('34 evidence views render with source links, caveats and valid values; 7 exclusive categories, 12 homepage claims, search and original finding routes verified.');
+console.log('34 evidence views render with source links, caveats and valid values; 7 exclusive categories, 34 homepage claims, search and original finding routes verified.');
