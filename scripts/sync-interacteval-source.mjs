@@ -2,10 +2,10 @@ import {execFileSync} from 'node:child_process';
 import {existsSync,rmSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
-if(process.env.GITHUB_ACTIONS!=='true'&&!process.argv.includes('--force')){
- console.log('Using the local InteractEval snapshot. Publication imports the independent repository.');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+if(process.env.GITHUB_ACTIONS!=='true'&&!process.argv.includes('--force')&&existsSync(path.join(root,'public','InteractionNet','index.html'))){
+ console.log('Using the local InteractionNet snapshot. Publication imports the independent repository.');
 }else{
- const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
  const source=path.join(root,'.interacteval-source');
  if(existsSync(source))rmSync(source,{recursive:true,force:true});
  execFileSync('git',['clone','--depth','1','--single-branch','--branch','main','https://github.com/Jewelina95/InteractEval-website.git',source],{stdio:'inherit'});

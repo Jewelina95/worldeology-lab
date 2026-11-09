@@ -8,3 +8,5 @@ tmp/
 .env
 
 .interacteval-source/
+
+/public/InteractionNet/

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-const root='public/InteractEval/';
+const root='public/InteractionNet/';
 for(const name of ['index.html','research.html','showcase.html']){
  const html=readFileSync(root+name,'utf8');
  const favicon=html.match(/rel="icon"[^>]+href="([^"]+)"/)[1];

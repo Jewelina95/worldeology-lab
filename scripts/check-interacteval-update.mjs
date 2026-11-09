@@ -10,7 +10,7 @@ if(process.argv.includes('--test')){
 }else{
  const latest=execFileSync('git',['ls-remote','https://github.com/Jewelina95/InteractEval-website.git','refs/heads/main'],{encoding:'utf8'}).split(/\s+/)[0];
  if(!/^[a-f0-9]{40}$/.test(latest))throw new Error('Could not resolve the InteractEval source commit');
- const response=await fetch('https://worldeology.com/InteractEval/deployment.json?check='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(15000)});
+ const response=await fetch('https://worldeology.com/InteractionNet/deployment.json?check='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(15000)});
  let published='';
  if(response.ok)published=(await response.json()).revision||'';
  else if(response.status!==404)throw new Error(`Could not check published revision (${response.status})`);

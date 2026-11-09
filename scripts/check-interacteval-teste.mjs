@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {resolve} from 'node:path';
 import vm from 'node:vm';
-const root=resolve('public/InteractEval');
+const root=resolve('public/InteractionNet');
 const read=f=>readFileSync(resolve(root,f),'utf8');
 const context=vm.createContext({document:{addEventListener(){}},safe:s=>String(s),navigationIcon:()=>'<svg></svg>',levelNames:['L1','L2','L3','L4','L5','L6'],measureGuide:id=>({title:id,meaning:'Criterion',reading:'Reading'}),researchRecordsPanel:()=>'<div>Recorded evidence</div>',journalSection:(id,n,k,title,deck,body)=>`<section id="${id}">${body}</section>`});
 for(const f of ['site-pages.js','research-details.js','research-upgrade.js','research-features.js'])vm.runInContext(read(f),context);
@@ -32,7 +32,7 @@ vm.runInContext('cascadeValues=[1,1,0,1,1,1]',context);
 assert.equal((context.cascadeDemo().match(/class="capped"/g)||[]).length,3);
 for(const f of ['index.html','research.html','showcase.html']){
  const html=read(f);
- assert.ok(html.includes('https://worldeology.com/InteractEval/'));
+ assert.ok(html.includes('https://worldeology.com/InteractionNet/'));
  assert.ok(html.includes('./fonts.css')&&html.includes('./readability.css'));
  assert.ok(html.indexOf('./research-details.js')<html.indexOf('./paper-site.js'));
  assert.ok(!html.includes('./research-methods')&&!html.includes('./research-showcase'));

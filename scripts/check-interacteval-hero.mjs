@@ -1,7 +1,7 @@
 import {readFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
-const read=f=>readFileSync('public/InteractEval/'+f,'utf8');
+const read=f=>readFileSync('public/InteractionNet/'+f,'utf8');
 const context=vm.createContext({document:{addEventListener(){}},window:{addEventListener(){}}});
 vm.runInContext(read('hero-interaction.js'),context);
 for(let t=0;t<4;t++){

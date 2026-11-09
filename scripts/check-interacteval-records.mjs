@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
-const root='public/InteractEval/';
+const root='public/InteractionNet/';
 const read=f=>readFileSync(root+f,'utf8');
 const data=JSON.parse(read('data/research-evidence.json'));
 const context=vm.createContext({document:{addEventListener(){}},safe:s=>String(s),researchEvidence:data});
