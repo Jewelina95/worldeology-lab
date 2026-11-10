@@ -91,3 +91,28 @@ vm.runInContext("mainComparisonMeasure='pairings'",c);
 const reversal=vm.runInContext('findingsMeasureContent(mainComparisonMeasure)',c);
 assert.ok(reversal.includes('0.394')&&reversal.includes('0.510'));
 assert.ok(!reversal.includes('39.4%')&&!reversal.includes('51.0%'));
+
+// Every evidence panel has one manuscript destination, including archived links.
+const groups=vm.runInContext('mainComparisonGroups',c);
+assert.deepEqual(Array.from(groups,g=>g.number),['4.2','4.3','4.4','4.5','4.5.1','4.5.2','5.1','5.2','5.3','5.4','5.5','5.6']);
+const measures=Array.from(groups,g=>Array.from(g.items,i=>i[0])).flat();
+assert.equal(new Set(measures).size,measures.length,'Each measure belongs to exactly one section');
+const destination=id=>groups.find(g=>g.items.some(i=>i[0]===id));
+for(const id of ['weighting-sensitivity','adaptive-prefix','fixed8','fixed16','fixed32'])assert.equal(destination(id).number,'4.2');
+assert.equal(destination('group-size').number,'4.4');
+assert.equal(destination('human-audit').number,'4.5.2');
+assert.equal(destination('evaluation-cost').number,'5.6');
+assert.equal(destination('reconstruction-ablation').parent,'reliability');
+assert.equal(destination('human-audit').parent,'reliability');
+c.atlasMobileScores=()=>'';
+for(const group of groups){
+ for(const [id] of group.items){
+  c.location.hash='#comparisons?measure='+id;
+  c.measureToTest=id;
+  vm.runInContext('mainComparisonMeasure=measureToTest',c);
+  const panel=vm.runInContext('mainComparisonContent()',c);
+  assert.ok(panel.length>0,id+' empty panel');
+  assert.ok(!/\bNaN\b|undefined|Infinity/.test(panel),id+' invalid panel');
+ }
+}
+console.log(`${measures.length} measures render in the requested paper hierarchy; main-result sensitivity and nested robustness destinations verified.`);

@@ -10,11 +10,9 @@ function activeResearchFinding(){
  return f?.measure===mainComparisonMeasure?f:null;
 }
 function configureFindingMeasures(){
- const extra={stages:[['question-vs-agency','Clarification and initiative']],scenarios:[['gap-behavior','Unsupported factual additions'],['gap-correlation','Execution and unsupported facts']],duration:[['case-trajectories','Two interaction trajectories'],['turn-divergence','Scores at matched turns'],['termination-outcomes','Stopping outcomes'],['closure-purpose','Closure by purpose'],['stopping-ablation','Patience-budget ablation']],partners:[['partner-pressure','Pressure by capability'],['role-asymmetry','Partner effects across roles'],['simulated-user-quality','Simulated and human users']],architectures:[['architecture-headroom','Base capability and gains']],representations:[['role-probes','Role-dependent state readouts'],['shared-affection','Shared and independent states'],['shared-miscalibration','Correspondence and accuracy'],['partner-integration','Partner-conditioned computation'],['representation-control','Readouts and behavioral control']],measurement:[['weighting-sensitivity','Aggregation sensitivity'],['reconstruction-ablation','Reconstruction and probe separation'],['human-audit','Human audit'],['extractor-stability','Extraction and ranking stability'],['judge-families','Judge-family preference'],['evaluation-cost','Evaluation cost'],['scene-revision','Scene revision and static rules'],['joint-level-judging','Joint and isolated judgments'],['scenario-coverage','Observed scenario coverage'],['serialization-format','Information format']]};
- for(const [id,items] of Object.entries(extra)){
-  let group=mainComparisonGroups.find(g=>g.id===id);
-  if(!group){group={id,title:id==='representations'?'Internal representations':'Measurement validity',icon:id==='representations'?'theory':'repeat',items:[]};mainComparisonGroups.push(group);}
-  for(const item of items)if(!mainComparisonGroups.some(g=>g.items.some(i=>i[0]===item[0])))group.items.push(item);
+ // All evidence destinations are declared once, in paper order.
+ for(const finding of findingsResearch.findings){
+  if(!mainComparisonGroups.some(group=>group.items.some(([id])=>id===finding.measure)))throw new Error(`Missing paper section for ${finding.measure}`);
  }
 }
 function informationDefinitions(){return `<aside class="finding-data-explanation"><h4>Information conditions</h4><p><strong>Sufficient:</strong> the information needed to proceed is available.</p><p><strong>Partial:</strong> the brief provides some information but leaves a consequential gap or includes a misleading premise. The model must recognize which details remain unsupported.</p><p><strong>Insufficient:</strong> the brief makes clear that more information is needed before proceeding.</p></aside>`;}
