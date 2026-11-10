@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 const data=JSON.parse(fs.readFileSync('data/findings-v5.json','utf8'));
 assert.equal(data.findings.length,40);
 assert.equal(data.categories.length,7);
-assert.equal(data.homepage_ids.length,9);
+assert.equal(data.homepage_ids.length,8);
 const ids=new Set(data.findings.map(f=>f.id));
 assert.equal(ids.size,40);
 const categorized=data.categories.flatMap(c=>c.finding_ids);
@@ -46,7 +46,7 @@ for(const f of data.findings){
 }
 c.location.hash='#key-findings';
 const homepage=vm.runInContext('coreFindings()',c);
-assert.equal((homepage.match(/class="finding-row-link/g)||[]).length,9);
+assert.equal((homepage.match(/class="finding-row-link/g)||[]).length,8);
 assert.equal((homepage.match(/class="finding-row"/g)||[]).length,5);
 assert.ok(homepage.includes('finding-row-tag'),'rows must carry a category tag');
 for(const tag of ['Capability','Context','Trajectory','Partners','Architecture'])assert.ok(homepage.includes('>'+tag+'<'),'missing row tag '+tag);
@@ -63,7 +63,7 @@ assert.ok(!fs.existsSync('key-findings-zh.html'),'the Chinese companion page mus
 assert.match(homepage,/measure=stage-profile&finding=F01/);
 assert.match(homepage,/measure=information&finding=F07/);
 assert.ok(homepage.indexOf('finding=F01')<homepage.indexOf('finding=F07'));
-const approved=['F01','F04','F07','F09','F14','F19','F28','F26','F30'];
+const approved=['F01','F07','F09','F14','F19','F28','F26','F30'];
 assert.deepEqual(data.published_ids,approved);
 assert.deepEqual(data.homepage_ids,approved);
 for(const id of ['F03','F05','F24','F25','F33','F36','F43','F13','F22','F35','F16','F17','F32'])assert.ok(!homepage.includes('finding='+id));
@@ -84,7 +84,7 @@ assert.ok(Math.abs(span(c.published.models.map(m=>m.duration.adaptive))-0.223)<1
 assert.ok(Math.abs(span(c.published.models.map(m=>m.duration.fixed[2]))-0.267)<1e-10);
 
 assert.ok(data.homepage_ids.indexOf('F28')<data.homepage_ids.indexOf('F26'));
-console.log('9 latest reviewed findings render without categories; 40 archived evidence routes remain valid; list order, review states, key metrics and original destinations verified.');
+console.log('8 latest reviewed findings render without categories; 40 archived evidence routes remain valid; list order, review states, key metrics and original destinations verified.');
 
 c.location.hash='#comparisons?measure=pairings&finding=F19';
 vm.runInContext("mainComparisonMeasure='pairings'",c);

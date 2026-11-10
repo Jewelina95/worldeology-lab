@@ -5,7 +5,6 @@
   "language_principle": "Short clear generalizable academic claim; no model-specific numbers in headline; evidence panel owns numbers and caveats.",
   "homepage_ids": [
     "F01",
-    "F04",
     "F07",
     "F09",
     "F14",
@@ -210,7 +209,7 @@
           "J"
         ]
       },
-      "published": true
+      "published": false
     },
     {
       "id": "F05",
@@ -2697,7 +2696,6 @@
   },
   "published_ids": [
     "F01",
-    "F04",
     "F07",
     "F09",
     "F14",
