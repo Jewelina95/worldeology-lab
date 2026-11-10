@@ -1,5 +1,5 @@
 {
-  "title": "InteractEval: 34 academically revised findings",
+  "title": "InteractNet: 34 academically revised findings",
   "schema_version": "research-question-taxonomy-v5",
   "status": "taxonomy, site navigation and focus proposal; no live site changes",
   "language_principle": "Short clear generalizable academic claim; no model-specific numbers in headline; evidence panel owns numbers and caveats.",
@@ -39,8 +39,8 @@
       "view_design": "三阶段差异柱状图；同时展示原始与级联后的极差",
       "highlight": "默认高亮 Passive 0.035 与 Proactive 0.370；提供 Table 5 原始行",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F01",
-      "existing_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=stage-profile",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F01",
+      "existing_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile",
       "former_group": "能力边界",
       "category_id": "C01",
       "category_slug": "capability",
@@ -48,9 +48,9 @@
       "related_within_category": "F02",
       "next_finding": "F07",
       "next_finding_rationale_zh": "从模型能力分化追问：信息条件是否改变这一差异",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=information&finding=F07",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=capability",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stage-profile&finding=F01"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01"
     },
     {
       "id": "F02",
@@ -67,7 +67,7 @@
       "view_design": "两模型三阶段分数并排 + 六级能力表",
       "highlight": "锁定 DeepSeek V4 Pro、Claude Opus 5.5；突出 L1–L2 平手、L5–L6 分化",
       "deduplication": "关联 F01：作为具象对照",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F02",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F02",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C01",
@@ -76,9 +76,9 @@
       "related_within_category": "F03",
       "next_finding": "F13",
       "next_finding_rationale_zh": "相近的局部能力为何可能导向不同的长期轨迹",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=case-trajectories&finding=F13",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=capability",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stage-profile&finding=F02"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F02"
     },
     {
       "id": "F03",
@@ -95,7 +95,7 @@
       "view_design": "两模型雷达/六级折线 + 综合评分对比",
       "highlight": "高亮 DeepSeek/Kimi 的综合评分几乎相同；展开 Passive、L5–L6、L6/L5",
       "deduplication": "独立；关联 F02",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F03",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F03",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C01",
@@ -104,9 +104,9 @@
       "related_within_category": "F04",
       "next_finding": "F06",
       "next_finding_rationale_zh": "总分掩盖结构差异，因此需要检验汇总规则",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=capability",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stage-profile&finding=F03"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F03"
     },
     {
       "id": "F04",
@@ -123,7 +123,7 @@
       "view_design": "L5/L6 成对散点及比率排名",
       "highlight": "默认按 L6/L5 升序；在图注说明部分差距来自评分级联规则",
       "deduplication": "并入 F01 的 L5/L6 视图",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=coherence&finding=F04",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=coherence&finding=F04",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C01",
@@ -132,9 +132,9 @@
       "related_within_category": "F01",
       "next_finding": "F13",
       "next_finding_rationale_zh": "策略是否持续贡献，需要看后续交互轨迹",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=case-trajectories&finding=F13",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=capability",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=coherence&finding=F04"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=coherence&finding=F04"
     },
     {
       "id": "F05",
@@ -151,7 +151,7 @@
       "view_design": "按模型分组的任务型/混合型/关系型条形图",
       "highlight": "默认突出 Claude 5 Opus 两端差异；GLM 为方向相反但幅度很小的例子",
       "deduplication": "独立；关联 F17",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=purpose&finding=F05",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=purpose&finding=F05",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C02",
@@ -160,9 +160,9 @@
       "related_within_category": "F07",
       "next_finding": "F17",
       "next_finding_rationale_zh": "交互目标改变能力要求，也改变“成功结束”的定义",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=closure-purpose&finding=F17",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=context",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=purpose&finding=F05"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=closure-purpose&finding=F17",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05"
     },
     {
       "id": "F06",
@@ -179,7 +179,7 @@
       "view_design": "参考权重 vs 六级等权的极差并列柱状图",
       "highlight": "高亮 0.222→0.163；解释仅权重改变，原始记录不变",
       "deduplication": "独立；关联 F03",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=weighting-sensitivity&finding=F06",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=weighting-sensitivity&finding=F06",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C07",
@@ -188,9 +188,9 @@
       "related_within_category": "F36",
       "next_finding": "F03",
       "next_finding_rationale_zh": "总分构造的敏感性反向解释结构性能力差异",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stage-profile&finding=F03",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=weighting-sensitivity&finding=F06"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F03",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06"
     },
     {
       "id": "F07",
@@ -207,8 +207,8 @@
       "view_design": "沿用网站已有 information 视图：三模型×三信息条件",
       "highlight": "保留既有 Finding 2 标题与路由；高亮 Partial 的三处最低值",
       "deduplication": "独立；既有线上链接",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=information&finding=F07",
-      "existing_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=information",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=information&finding=F07",
+      "existing_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=information",
       "former_group": "证据与不确定性",
       "category_id": "C02",
       "category_slug": "context",
@@ -216,9 +216,9 @@
       "related_within_category": "F08",
       "next_finding": "F13",
       "next_finding_rationale_zh": "信息条件改变单轮策略，可能进一步影响交互进展",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=case-trajectories&finding=F13",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=context",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=information&finding=F07"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07"
     },
     {
       "id": "F08",
@@ -235,7 +235,7 @@
       "view_design": "按信息条件绘制 Fabrication 柱图，配简短真实定义",
       "highlight": "高亮 Partial 16.4%；与 Sufficient 5.1% 和 Insufficient 10.3% 同框对比",
       "deduplication": "并入 F07 的信息条件扩展面板",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=gap-behavior&finding=F08",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=gap-behavior&finding=F08",
       "existing_url": null,
       "former_group": "证据与不确定性",
       "category_id": "C02",
@@ -244,9 +244,9 @@
       "related_within_category": "F09",
       "next_finding": "F11",
       "next_finding_rationale_zh": "事实补充与澄清提问可共同解释证据不足时的行为",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=question-vs-agency&finding=F11",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=context",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=gap-behavior&finding=F08"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=question-vs-agency&finding=F11",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-behavior&finding=F08"
     },
     {
       "id": "F09",
@@ -263,7 +263,7 @@
       "view_design": "被动执行分数 × 无依据事实补充率散点图",
       "highlight": "标注 ρ=0.77；突出 Opus 5.5 / DeepSeek / GLM；注明 n=10",
       "deduplication": "独立；链接 F08 的指标定义",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=gap-correlation&finding=F09",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=gap-correlation&finding=F09",
       "existing_url": null,
       "former_group": "证据与不确定性",
       "category_id": "C02",
@@ -272,9 +272,9 @@
       "related_within_category": "F08",
       "next_finding": "F01",
       "next_finding_rationale_zh": "较高执行能力未必代表更充分的主动决策依据",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stage-profile&finding=F01",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=context",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=gap-correlation&finding=F09"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-correlation&finding=F09"
     },
     {
       "id": "F11",
@@ -291,7 +291,7 @@
       "view_design": "澄清频率和 L5 的双指标变化图，附置信区间",
       "highlight": "高亮澄清 +8.5 个百分点；L5 区间跨零",
       "deduplication": "独立；关联 F09",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=question-vs-agency&finding=F11",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=question-vs-agency&finding=F11",
       "existing_url": null,
       "former_group": "证据与不确定性",
       "category_id": "C01",
@@ -300,9 +300,9 @@
       "related_within_category": "F01",
       "next_finding": "F07",
       "next_finding_rationale_zh": "提问数量与真正识别信息缺口是两个问题",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=information&finding=F07",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=capability",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=question-vs-agency&finding=F11"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=question-vs-agency&finding=F11"
     },
     {
       "id": "F13",
@@ -319,7 +319,7 @@
       "view_design": "同步逐轮轨迹：L1–L6、Advance 概率、用户兴趣、事件节点",
       "highlight": "锁定 Cases 1/2；突出 Case 1 重复索要缺失票据与兴趣耗尽",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=case-trajectories&finding=F13",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=case-trajectories&finding=F13",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -328,9 +328,9 @@
       "related_within_category": "F14",
       "next_finding": "F19",
       "next_finding_rationale_zh": "观察到的进展还会受到交互对象的影响",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=pairings&finding=F19",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=trajectory",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=case-trajectories&finding=F13"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairings&finding=F19",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13"
     },
     {
       "id": "F14",
@@ -347,7 +347,7 @@
       "view_design": "按轮次的模型分布范围折线 + 到达该轮的样本占比",
       "highlight": "高亮 t=1/t=16 的极差并展示存活样本比例",
       "deduplication": "独立；关联 F13",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=turn-divergence&finding=F14",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=turn-divergence&finding=F14",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -356,9 +356,9 @@
       "related_within_category": "F16",
       "next_finding": "F06",
       "next_finding_rationale_zh": "随时间拉大的差距需要结合评分的时间权重理解",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=trajectory",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=turn-divergence&finding=F14"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=turn-divergence&finding=F14"
     },
     {
       "id": "F16",
@@ -375,7 +375,7 @@
       "view_design": "按模型堆叠的 Closure / Exhaustion 结束类型分布",
       "highlight": "高亮 87.6%–99.0%，强制显示“模拟用户与自适应停止规则”说明",
       "deduplication": "建议并入 F17 的结束条件视图",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=termination-outcomes&finding=F16",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=termination-outcomes&finding=F16",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -384,9 +384,9 @@
       "related_within_category": "F17",
       "next_finding": "F36",
       "next_finding_rationale_zh": "判断为何结束，需要结构化记录结果与过程",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=trajectory",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=termination-outcomes&finding=F16"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=termination-outcomes&finding=F16"
     },
     {
       "id": "F17",
@@ -403,7 +403,7 @@
       "view_design": "按目的分组的 Closure 比率图",
       "highlight": "锁定 Gemini 的 4.3% 与 0.2%；旁注目的不同，结束率不等于能力排名",
       "deduplication": "独立；F16作为补充",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=closure-purpose&finding=F17",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=closure-purpose&finding=F17",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -412,9 +412,9 @@
       "related_within_category": "F13",
       "next_finding": "F05",
       "next_finding_rationale_zh": "终局的解释必须联系任务与关系目标",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=purpose&finding=F05",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=trajectory",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=closure-purpose&finding=F17"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=closure-purpose&finding=F17"
     },
     {
       "id": "F18",
@@ -431,7 +431,7 @@
       "view_design": "完整仪器 vs 移除耐心预算的长度对照",
       "highlight": "高亮 6.2→13.7；明确是终止规则消融，而非模型能力训练效果",
       "deduplication": "并入 F13 或 F17 的停止机制",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=stopping-ablation&finding=F18",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stopping-ablation&finding=F18",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -440,9 +440,9 @@
       "related_within_category": "F16",
       "next_finding": "F36",
       "next_finding_rationale_zh": "耐心累积是停止规则的重要消融对象",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=trajectory",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stopping-ablation&finding=F18"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stopping-ablation&finding=F18"
     },
     {
       "id": "F19",
@@ -459,8 +459,8 @@
       "view_design": "10×10 互动矩阵 + 同列多用户对照 + 方差分解",
       "highlight": "保留既有 Finding 3 的 measure=pairings；选中一个助手，跨用户对照",
       "deduplication": "独立；既有线上链接",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=pairings&finding=F19",
-      "existing_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=pairings",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=pairings&finding=F19",
+      "existing_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=pairings",
       "former_group": "交互对象与角色",
       "category_id": "C04",
       "category_slug": "partners",
@@ -468,9 +468,9 @@
       "related_within_category": "F23",
       "next_finding": "F13",
       "next_finding_rationale_zh": "交互配对可能使相同模型产生不同轨迹",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=case-trajectories&finding=F13",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=pairings&finding=F19"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairings&finding=F19"
     },
     {
       "id": "F21",
@@ -487,7 +487,7 @@
       "view_design": "用户平均分 × 使助手产生的分数极差二维散点",
       "highlight": "高亮 Gemini/DeepSeek；标注“得分低≠区分度高”",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=pairing-summary&finding=F21",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=pairing-summary&finding=F21",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -496,9 +496,9 @@
       "related_within_category": "F23",
       "next_finding": "F36",
       "next_finding_rationale_zh": "评测对象的选择会改变测量的区分效度",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=pairing-summary&finding=F21"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairing-summary&finding=F21"
     },
     {
       "id": "F22",
@@ -515,7 +515,7 @@
       "view_design": "标准用户 vs 同模型自我配对的哑铃图",
       "highlight": "高亮正向与反向示例；注明家庭风格相似性混杂",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=self-gap&finding=F22",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=self-gap&finding=F22",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -524,9 +524,9 @@
       "related_within_category": "F24",
       "next_finding": "F40",
       "next_finding_rationale_zh": "自我配对效应提醒区分真实行为与评估偏差",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=extractor-stability&finding=F40",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=self-gap&finding=F22"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=self-gap&finding=F22"
     },
     {
       "id": "F23",
@@ -543,7 +543,7 @@
       "view_design": "L2–L3 与 L5–L6 的伙伴压力二维象限图",
       "highlight": "以 Gemini、Fable 为两个焦点；正值表示相对标准用户使该能力得分更低",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=partner-pressure&finding=F23",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=partner-pressure&finding=F23",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -552,9 +552,9 @@
       "related_within_category": "F28",
       "next_finding": "F25",
       "next_finding_rationale_zh": "更复杂的交互要求引出架构增强的价值",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=architecture-stages&finding=F25",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=partner-pressure&finding=F23"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=partner-pressure&finding=F23"
     },
     {
       "id": "F24",
@@ -571,7 +571,7 @@
       "view_design": "两角色的方差分解 + 10×10 矩阵旁置",
       "highlight": "将 94.4%、2.0%、10.9% 分组显示；解释两个角色使用不同 rubric",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=role-asymmetry&finding=F24",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=role-asymmetry&finding=F24",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -580,9 +580,9 @@
       "related_within_category": "F19",
       "next_finding": "F31",
       "next_finding_rationale_zh": "角色不对称可延伸到内部状态表征的角色依赖",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=role-probes&finding=F31",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=role-asymmetry&finding=F24"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-asymmetry&finding=F24"
     },
     {
       "id": "F25",
@@ -599,7 +599,7 @@
       "view_design": "MetaMind / Cognizer / Claude Code 三阶段增益分组柱状图",
       "highlight": "默认高亮 Cognizer 被动 +0.012 与主动 +0.066；保留三架构比较",
       "deduplication": "与 F26 共用架构图表",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=architecture-stages&finding=F25",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=architecture-stages&finding=F25",
       "existing_url": null,
       "former_group": "认知架构与多人",
       "category_id": "C05",
@@ -608,9 +608,9 @@
       "related_within_category": "F26",
       "next_finding": "F01",
       "next_finding_rationale_zh": "架构增益主要落在模型最能分化的能力维度",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=stage-profile&finding=F01",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=architectures",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=architecture-stages&finding=F25"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25"
     },
     {
       "id": "F26",
@@ -627,7 +627,7 @@
       "view_design": "架构×交互目的 3×3 分组柱状图",
       "highlight": "高亮 MetaMind × Nonfunctional、Cognizer × Functional 两格",
       "deduplication": "独立；F25作阶段补充",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=architecture-purpose&finding=F26",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=architecture-purpose&finding=F26",
       "existing_url": null,
       "former_group": "认知架构与多人",
       "category_id": "C05",
@@ -636,9 +636,9 @@
       "related_within_category": "F30",
       "next_finding": "F05",
       "next_finding_rationale_zh": "架构能力偏向须联系任务型与关系型目标",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=purpose&finding=F05",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=architectures",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=architecture-purpose&finding=F26"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-purpose&finding=F26"
     },
     {
       "id": "F28",
@@ -655,7 +655,7 @@
       "view_design": "2/3/4 人三阶段得分折线 + L6/L5 面板",
       "highlight": "高亮 2→4 人的下降 0.030 vs 0.105；不要声称是相对百分比",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=group-size&finding=F28",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=group-size&finding=F28",
       "existing_url": null,
       "former_group": "认知架构与多人",
       "category_id": "C04",
@@ -664,9 +664,9 @@
       "related_within_category": "F23",
       "next_finding": "F25",
       "next_finding_rationale_zh": "多人环境的协调负担与认知架构的提升可形成对照",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=architecture-stages&finding=F25",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=group-size&finding=F28"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=group-size&finding=F28"
     },
     {
       "id": "F30",
@@ -683,7 +683,7 @@
       "view_design": "基础主动评分 × 架构主动增益双系列散点",
       "highlight": "标注 DeepSeek 与 Opus 5.5；同时显示 r 和天花板效应说明",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=architecture-headroom&finding=F30",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=architecture-headroom&finding=F30",
       "existing_url": null,
       "former_group": "认知架构与多人",
       "category_id": "C05",
@@ -692,9 +692,9 @@
       "related_within_category": "F25",
       "next_finding": "F31",
       "next_finding_rationale_zh": "架构改善外部行为，仍需区分其内部表征机制",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=role-probes&finding=F31",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=architectures",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=architecture-headroom&finding=F30"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-headroom&finding=F30"
     },
     {
       "id": "F31",
@@ -711,7 +711,7 @@
       "view_design": "模型×角色的兴趣可读性 R² 对照图",
       "highlight": "锁定 Qwen3.8 的 assistant/user 两根柱；解释负 R² 含义",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=role-probes&finding=F31",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=role-probes&finding=F31",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -720,9 +720,9 @@
       "related_within_category": "F32",
       "next_finding": "F24",
       "next_finding_rationale_zh": "内部用户状态读出的角色差异呼应双边评测",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=role-asymmetry&finding=F24",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=representations",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=role-probes&finding=F31"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-asymmetry&finding=F24",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31"
     },
     {
       "id": "F32",
@@ -739,7 +739,7 @@
       "view_design": "双角色 Affection 方向相似度 + 残差 R² 对照",
       "highlight": "高亮三个负的用户 affection 残差；对比用户 anxiety 为正",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=shared-affection&finding=F32",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=shared-affection&finding=F32",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -748,9 +748,9 @@
       "related_within_category": "F33",
       "next_finding": "F36",
       "next_finding_rationale_zh": "能解码状态仍需验证其判断准确度与测量可靠性",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=representations",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=shared-affection&finding=F32"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-affection&finding=F32"
     },
     {
       "id": "F33",
@@ -767,7 +767,7 @@
       "view_design": "预测一致性 vs 对标注趋势的拟合 R² 三指标卡",
       "highlight": "显示“相关性≠准确性”；标出负 R²",
       "deduplication": "与 F32 共用表征模块的扩展",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=shared-miscalibration&finding=F33",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=shared-miscalibration&finding=F33",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -776,9 +776,9 @@
       "related_within_category": "F34",
       "next_finding": "F40",
       "next_finding_rationale_zh": "状态读数一致性与评估器记录一致性不等价",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=extractor-stability&finding=F40",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=representations",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=shared-miscalibration&finding=F33"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-miscalibration&finding=F33"
     },
     {
       "id": "F34",
@@ -795,7 +795,7 @@
       "view_design": "分层恢复曲线 + Ablation 两组柱状图",
       "highlight": "高亮 layer 52 的 0.777 和 40 heads 的 0.941；限于 Qwen3.8-27B",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=partner-integration&finding=F34",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=partner-integration&finding=F34",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -804,9 +804,9 @@
       "related_within_category": "F35",
       "next_finding": "F36",
       "next_finding_rationale_zh": "信息影响输出的机制与交互失败检测属不同证据",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=representations",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=partner-integration&finding=F34"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=partner-integration&finding=F34"
     },
     {
       "id": "F35",
@@ -823,7 +823,7 @@
       "view_design": "干预设计+结果矩阵（无一致效应，避免虚构数值）",
       "highlight": "区分解码结果与因果干预；表格显示样本量、定性结论和负面影响",
       "deduplication": "独立；关联 F32",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=representation-control&finding=F35",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=representation-control&finding=F35",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -832,9 +832,9 @@
       "related_within_category": "F31",
       "next_finding": "F36",
       "next_finding_rationale_zh": "表征可读与可控之间的界限要求独立测量",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=representations",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=representation-control&finding=F35"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=representation-control&finding=F35"
     },
     {
       "id": "F36",
@@ -851,7 +851,7 @@
       "view_design": "双实验 Before/After 对照图 + +27/+40pp 注记",
       "highlight": "同时突出两组差异；说明两条件都阅读完整多轮对话",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=reconstruction-ablation&finding=F36",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=reconstruction-ablation&finding=F36",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C07",
@@ -860,9 +860,9 @@
       "related_within_category": "F40",
       "next_finding": "F13",
       "next_finding_rationale_zh": "重建的诊断效果应与具体轨迹案例交叉验证",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=case-trajectories&finding=F13",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=reconstruction-ablation&finding=F36"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36"
     },
     {
       "id": "F37",
@@ -879,7 +879,7 @@
       "view_design": "六个等级的人工认可率对照柱状图",
       "highlight": "高亮 L1 98.8 vs L6 74.0；在图注解释 endorsement",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=human-audit&finding=F37",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=human-audit&finding=F37",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -888,9 +888,9 @@
       "related_within_category": "F40",
       "next_finding": "F04",
       "next_finding_rationale_zh": "长期策略能力更难判定，需要独立审计与稳定性分析",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=coherence&finding=F04",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=human-audit&finding=F37"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=coherence&finding=F04",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=human-audit&finding=F37"
     },
     {
       "id": "F40",
@@ -907,7 +907,7 @@
       "view_design": "提取器更换后的记录一致率 vs 排行榜稳定度",
       "highlight": "高亮约19%状态记录不一致与 ρ=0.988 同框",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=extractor-stability&finding=F40",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=extractor-stability&finding=F40",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -916,9 +916,9 @@
       "related_within_category": "F41",
       "next_finding": "F31",
       "next_finding_rationale_zh": "描述层分歧也提醒内部表征读出不能直接当作事实",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=role-probes&finding=F31",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=extractor-stability&finding=F40"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40"
     },
     {
       "id": "F41",
@@ -935,7 +935,7 @@
       "view_design": "评估者家族 × 被测模型分数偏移热图",
       "highlight": "锁定同家族对角关系；强制显示偏移小且不改变总体结论",
       "deduplication": "独立；标注探索性",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=judge-families&finding=F41",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=judge-families&finding=F41",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -944,9 +944,9 @@
       "related_within_category": "F42",
       "next_finding": "F06",
       "next_finding_rationale_zh": "评审差异与评分规则一起限制数值可比性",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=judge-families&finding=F41"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=judge-families&finding=F41"
     },
     {
       "id": "F42",
@@ -958,12 +958,12 @@
       "supporting_data": "评估 159,680 tokens vs 双方生成约 9,510 tokens／轮（约 16.8×）",
       "paper_source": "T35",
       "pdf_pages": "50",
-      "limitation": "特定 InteractEval 协议评估成本，不是所有交互测量的固有要求。",
+      "limitation": "特定 InteractNet 协议评估成本，不是所有交互测量的固有要求。",
       "measure": "evaluation-cost",
       "view_design": "生成 vs 评估 token 堆叠柱形 + 评估调用构成",
       "highlight": "高亮 17×；说明具体协议、并行开销与不是普遍下界",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractEval/index.html?v=0cd9f10#comparisons?measure=evaluation-cost&finding=F42",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=evaluation-cost&finding=F42",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -972,9 +972,9 @@
       "related_within_category": "F36",
       "next_finding": "F25",
       "next_finding_rationale_zh": "衡量更细能力需要额外计算，须与架构增益权衡",
-      "next_finding_url_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=architecture-stages&finding=F25",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement",
-      "clean_permalink_proposed": "https://worldeology.com/InteractEval/index.html#comparisons?measure=evaluation-cost&finding=F42"
+      "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=evaluation-cost&finding=F42"
     }
   ],
   "evidence_anchors": [
@@ -1480,7 +1480,7 @@
     },
     {
       "id": "F36",
-      "subject": "Full InteractEval",
+      "subject": "Full InteractNet",
       "metric": "state probe",
       "value": 0.91,
       "unit": "rate",
@@ -1500,7 +1500,7 @@
     },
     {
       "id": "F36",
-      "subject": "Full InteractEval",
+      "subject": "Full InteractNet",
       "metric": "recurrence probe",
       "value": 0.89,
       "unit": "rate",
@@ -1611,7 +1611,7 @@
       ],
       "transition_to_next_zh": "已观察到的能力差异，在信息不足或场景改变时是否保持？",
       "next_category": "C02",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=capability"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability"
     },
     {
       "id": "C02",
@@ -1632,7 +1632,7 @@
       ],
       "transition_to_next_zh": "即便某一轮回答看似合适，整段交互最终是否真的进展？",
       "next_category": "C03",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=context"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context"
     },
     {
       "id": "C03",
@@ -1654,7 +1654,7 @@
       ],
       "transition_to_next_zh": "一条交互轨迹的质量，究竟是谁贡献的——模型还是伙伴？",
       "next_category": "C04",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=trajectory"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory"
     },
     {
       "id": "C04",
@@ -1677,7 +1677,7 @@
       ],
       "transition_to_next_zh": "交互复杂性会放大差距；能否通过认知架构增强主动能力？",
       "next_category": "C05",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=partners"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners"
     },
     {
       "id": "C05",
@@ -1697,7 +1697,7 @@
       ],
       "transition_to_next_zh": "架构能改变外在行为；模型内部如何表示交互对象的信息？",
       "next_category": "C06",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=architectures"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures"
     },
     {
       "id": "C06",
@@ -1719,7 +1719,7 @@
       ],
       "transition_to_next_zh": "内部读出具有局限，评估框架怎样避免把推断当成事实？",
       "next_category": "C07",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=representations"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations"
     },
     {
       "id": "C07",
@@ -1742,7 +1742,7 @@
       ],
       "transition_to_next_zh": "回到 C01：哪些能力差异在可审计的测量下依然成立？",
       "next_category": "C01",
-      "category_url_proposed": "https://worldeology.com/InteractEval/index.html#findings?category=measurement"
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement"
     }
   ],
   "reading_paths": [

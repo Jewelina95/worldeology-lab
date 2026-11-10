@@ -1,4 +1,4 @@
-# interacteval
+# interactnet
 
 Model comparisons and research notes on cognition and interaction.
 

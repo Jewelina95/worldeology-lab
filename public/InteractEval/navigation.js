@@ -48,7 +48,7 @@ function renderEditorialNavigation(){
       ['Scenario performance','Compare task-oriented and open-ended settings.','leaderboards?metric=nonfunctional','scenario'],
       ['Partner-role capability','Compare systems playing the user role.','leaderboards?metric=user-composite','partner']
     ]},
-    research:{label:'Research',title:'Research',intro:'The ideas, components, and rules behind InteractEval.',href:'./research.html',items:[
+    research:{label:'Research',title:'Research',intro:'The ideas, components, and rules behind InteractNet.',href:'./research.html',items:[
       ['Three theoretical ideas','State, trajectory, and initiative.','./research.html#theory','theory'],
       ['Instrument architecture','Four stages with distinct responsibilities.','./research.html#architecture','agent'],
       ['World components','Scene, latent state, and event chain.','./research.html#components','scenario'],

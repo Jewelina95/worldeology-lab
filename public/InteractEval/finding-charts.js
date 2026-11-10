@@ -25,7 +25,7 @@ function homeFindingCards(){
     ['Proactive promotion separates models',()=>findingBars([['Passive',ranges[0]],['Responsive',ranges[1]],['Active',ranges[2],true]],.4,'Across-model score range',v=>v.toFixed(3)),4,'Ten base models','#capability'],
     ['Similar starts, different trajectories',findingTrajectory,36,'Two episodes · not a causal pair','./research.html#temporal-records'],
     // Exact transcription of the information-facet rows in manuscript Table 8.
-    ['Partial briefs elicit more fabrication',()=>findingBars([['Sufficient',.051],['Partial',.164,true],['Insufficient',.103]],.20,'Fabrication rate',v=>(v*100).toFixed(1)+'%')+'<p class="finding-one-line">Partial includes omissions and misleading premises.</p>',8,'Information conditions','./assets/Qwen_InteractEval.pdf#page=22'],
+    ['Partial briefs elicit more fabrication',()=>findingBars([['Sufficient',.051],['Partial',.164,true],['Insufficient',.103]],.20,'Fabrication rate',v=>(v*100).toFixed(1)+'%')+'<p class="finding-one-line">Partial includes omissions and misleading premises.</p>',8,'Information conditions','./assets/Qwen_InteractNet.pdf#page=22'],
     ['Closure depends on the purpose',()=>findingBars([['Task-oriented',opus.functional_closure,true],['Open-ended',opus.nonfunctional_closure]],.25,'Successful closure rate',v=>(v*100).toFixed(1)+'%')+'<p class="finding-one-line">claude-opus-5.5 · completion is purpose-relative.</p>',9,'One model, two purposes','#process'],
     ['The partner can reverse the ranking',findingPairing,13,'Two assistants, two partner conditions','#partners'],
     ['Architecture gains favor proactive promotion',findingArchitecture,17,'Mean over ten base models','#architectures']

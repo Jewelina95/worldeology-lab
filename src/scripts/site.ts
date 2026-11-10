@@ -199,11 +199,11 @@ const citations: Record<string, string> = {
   booktitle={Advances in Neural Information Processing Systems},
   year={2025}
 }`,
-  coot: `@inproceedings{zhang2026coot,
+  coot: `@inproceedings{zhang2025coot,
   title={Cognition-of-Thought Elicits Social-Aligned Reasoning in Large Language Models},
   author={Zhang, Xuanming and Chen, Yuxuan and Yeh, Samuel and Li, Sharon},
-  booktitle={Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics},
-  year={2026}
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2025}
 }`,
   deception: `@inproceedings{xu2026deception,
   title={Simulating and Understanding Deceptive Behaviors in Long-Horizon Interactions},

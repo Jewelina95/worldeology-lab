@@ -18,7 +18,7 @@ const atlasSymbols={
   agency:'<path d="M12 61V42h18V27h18V12h19v12H58v15H40v15H22v7Z" fill="currentColor" opacity=".22"/><path d="M12 61h12V49h18V34h18V19h7" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><circle cx="65" cy="18" r="7" fill="currentColor"/>'
 };
 function atlasSymbol(name){return `<svg viewBox="0 0 80 80" fill="none" aria-hidden="true">${atlasSymbols[name]}</svg>`;}
-function atlasHero(){return `<section class="atlas-hero"><div><h1>A response is not<br/>an interaction.</h1><p>Interaction is what unfolds between replies. InteractEval measures how models understand changing situations, take initiative, and follow through across a conversation.</p><a href="#response-interaction" data-research-section="response-interaction">Why interact <span aria-hidden="true">&#8595;</span></a></div><figure><img src="./assets/brand/iceberg.svg" width="405" height="365" alt="An iceberg separates spoken words from a participant’s uncertain understanding, trust, and goals."/></figure></section>`;}
+function atlasHero(){return `<section class="atlas-hero"><div><h1>A response is not<br/>an interaction.</h1><p>Interaction is what unfolds between replies. InteractNet measures how models understand changing situations, take initiative, and follow through across a conversation.</p><a href="#response-interaction" data-research-section="response-interaction">Why interact <span aria-hidden="true">&#8595;</span></a></div><figure><img src="./assets/brand/iceberg.svg" width="405" height="365" alt="An iceberg separates spoken words from a participant’s uncertain understanding, trust, and goals."/></figure></section>`;}
 function atlasKeyFindings(){return coreFindings();}
 
 function atlasMobileScores(){
@@ -27,13 +27,13 @@ function atlasMobileScores(){
 }
 function syncAtlasLayout(){
  setupInteractionFigures();
- window.InteractEvalMotion?.unmountAll();window.InteractEvalMotion?.scan();
+ window.InteractNetMotion?.unmountAll();window.InteractNetMotion?.scan();
  const header=document.querySelector('.masthead');
  if(header){const size=()=>document.documentElement.style.setProperty('--header-height',Math.ceil(header.getBoundingClientRect().height)+'px');size();if(!header.atlasResize){header.atlasResize=new ResizeObserver(size);header.atlasResize.observe(header);}}
  syncAtlasActiveSection();
  atlasResponsiveTables();
  atlasDataMotion();
- window.InteractEvalFindingFocus?.fromLocation();
+ window.InteractNetFindingFocus?.fromLocation();
  applyResearchFindingFocus(document.getElementById('main-comparison-body'));
 }
 function atlasResponsiveTables(){
@@ -77,7 +77,7 @@ document.addEventListener('click',event=>{
   selectMainComparison(finding.dataset.findingMeasure);
   lastMainComparisonHash=location.hash;
   document.getElementById('main-comparison-body')?.focus({preventScroll:true});
-  window.InteractEvalFindingFocus?.show(finding.dataset.findingMeasure);
+  window.InteractNetFindingFocus?.show(finding.dataset.findingMeasure);
   atlasScrollTo(document.querySelector('#main-comparison-body .comparison-content')||document.getElementById('comparisons'));
  }
  const toggle=event.target.closest('[data-atlas-contents]');

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-const root='public/InteractionNet/';
+const root='public/InteractNet/';
 for(const name of ['index.html','research.html','showcase.html']){
  const html=readFileSync(root+name,'utf8');
  const favicon=html.match(/rel="icon"[^>]+href="([^"]+)"/)[1];
@@ -9,7 +9,7 @@ for(const name of ['index.html','research.html','showcase.html']){
  assert.ok(html.includes('./brand.css?v=brand-loop-20261030i'));
  assert.ok(html.includes('apple-touch-icon'));
 }
-const ico=readFileSync(root+'assets/brand/interacteval.ico');
+const ico=readFileSync(root+'assets/brand/interactnet.ico');
 assert.equal(ico.readUInt16LE(2),1);
 assert.equal(ico.readUInt16LE(4),4);
 for(const [i,size]of [16,32,48,64].entries()){

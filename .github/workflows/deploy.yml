@@ -30,9 +30,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check InteractEval for a new commit
+      - name: Check InteractNet for a new commit
         id: check
-        run: node scripts/check-interacteval-update.mjs
+        run: node scripts/check-interactnet-update.mjs
   build:
     needs: updates
     if: needs.updates.outputs.publish == 'true'

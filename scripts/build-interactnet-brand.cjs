@@ -1,9 +1,9 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const sharp = require('sharp');
-const root = path.resolve(__dirname, '../public/InteractionNet/assets/brand');
+const root = path.resolve(__dirname, '../public/InteractNet/assets/brand');
 async function build() {
-  const source = path.join(root, 'interacteval-mark.svg');
+  const source = path.join(root, 'interactnet-mark.svg');
   const sizes = [16, 32, 48, 64];
   const images = await Promise.all(sizes.map(size => sharp(source).resize(size, size).png().toBuffer()));
   const header = Buffer.alloc(6 + 16 * sizes.length);
@@ -16,7 +16,7 @@ async function build() {
     header.writeUInt32LE(image.length, at + 8); header.writeUInt32LE(offset, at + 12);
     offset += image.length;
   });
-  fs.writeFileSync(path.join(root, 'interacteval.ico'), Buffer.concat([header, ...images]));
+  fs.writeFileSync(path.join(root, 'interactnet.ico'), Buffer.concat([header, ...images]));
   await sharp(source).resize(180, 180).png().toFile(path.join(root, 'apple-touch-icon.png'));
   console.log('Brand icons built from one SVG: ICO 16/32/48/64px and Apple 180px.');
 }

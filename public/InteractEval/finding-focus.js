@@ -1,7 +1,7 @@
 'use strict';
 
 // Emphasis stays on the existing table cells; no extra panels or controls.
-window.InteractEvalFindingFocus=(()=>{
+window.InteractNetFindingFocus=(()=>{
  let panel=null,observer=null;
  const mark=(selector,kind)=>panel.querySelectorAll(selector).forEach(node=>node.dataset.findingHighlight=kind);
  function clear(){

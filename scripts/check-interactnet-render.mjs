@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
-const source=fs.readFileSync('public/InteractionNet/results-explorer.js','utf8');
+const source=fs.readFileSync('public/InteractNet/results-explorer.js','utf8');
 const start=source.indexOf('function resultsHomeV2()');
 const end=source.indexOf('function comparisonDataTable(',start);
 const makeContext=()=>{

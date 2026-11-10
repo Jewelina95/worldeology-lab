@@ -1,4 +1,4 @@
-# InteractEval chart motion
+# InteractNet chart motion
 
 Browser compositions built with Remotion Player. Run `npm ci` followed by `npm run build` from this directory to rebuild assets/motion/charts.js.
 

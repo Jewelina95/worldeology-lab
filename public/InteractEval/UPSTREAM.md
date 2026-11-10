@@ -1,10 +1,10 @@
-# Worldeology Lab InteractEval edition
+# Worldeology Lab InteractNet edition
 
 The complete upstream page design, backgrounds, navigation, assets, charts, and
 publication data were synchronized from Xgogu/InteractEval revision
 8488b98a2cd99efd784ff411c949617fdbb08ab7 on 2 November 2026. The original license
 is retained. Canonical URLs and Source links point to this Worldeology Lab edition:
-https://worldeology.com/InteractEval/.
+https://worldeology.com/InteractNet/.
 
 Main follows the upstream hero (A good reply is only the beginning), then the
 response-versus-interaction figure, Key Findings, Model performance, and the
@@ -31,7 +31,7 @@ Selected source turns remain available in `assets/research/case11/source.json`.
 The Main and Research pages now place the original manuscript Figure 5 after “From Reply to Interaction” and before Main's Key Findings. `system-figure.js` preserves `theory_cartoon_v5_2026-11-02/theory-v5.png` unchanged. SVG clips progressively reveal the three theoretical lenses, measurement questions, four instrument responsibilities, original source-evidence paths, and retained diagnostic record. Captions are grounded in the manuscript's §2.4 synthesis caption and accompanying paragraph (`fig:theory-measurement-bridge`); this is an illustrative measurement workflow, not a performance experiment. Four native SVG icons identify the instrument responsibilities. The animation has independent playback, replay, seek, offscreen pausing, and reduced-motion behavior. Standalone: `system-overview.html`.
 
 ## Main render recovery (2026-11-02)
-Observed in the user's Chrome: `systemFigure is not defined`, with the main content replaced by the boot error. Figure 5 now ships inside the established `motivation-figure.js` entry point, avoiding an additional blocking dependency. The standalone module uses an idempotent closure and exports only its render/setup functions. Main and Research fall back to the original static Figure 5 if the animation entry is unavailable. `scripts/check-interacteval-render.mjs` reproduces the missing-module failure and verifies both fallback and enhanced rendering; it is included in deployment verification.
+Observed in the user's Chrome: `systemFigure is not defined`, with the main content replaced by the boot error. Figure 5 now ships inside the established `motivation-figure.js` entry point, avoiding an additional blocking dependency. The standalone module uses an idempotent closure and exports only its render/setup functions. Main and Research fall back to the original static Figure 5 if the animation entry is unavailable. `scripts/check-interactnet-render.mjs` reproduces the missing-module failure and verifies both fallback and enhanced rendering; it is included in deployment verification.
 
 ## Persistent Main navigation (2026-11-02)
 Main now uses a shared left navigation and one visible right content panel. Sidebar activation toggles existing panels in place and updates browser history; it does not perform anchor scrolling or replace the sidebar DOM. The right pane scrolls independently of the left rail. From Response to Interaction, System Overview, Key Findings, model performance, behavior, measures, and conversations share this shell. On narrow screens Contents stays above the independently scrolling content. Original figure artwork and data remain unchanged. Render verification checks that each URL selects exactly one panel; browser checks compare sidebar link positions before and after switches and verify that right-pane scrolling leaves document scrollY at zero.
@@ -40,12 +40,12 @@ Main now uses a shared left navigation and one visible right content panel. Side
 Supersedes the persistent-panel implementation above. The full-width opening is restored exactly to the pre-panel version. Below it, the shared article shell begins with its sticky contents rail beside Response to Interaction, followed by Figure 5 System Overview, Key Findings, and the existing results sections in one continuous document. Contents links scroll to sections; they do not hide or replace content. The missing-animation-module fallback remains in place.
 
 ## Official public release (2026-11-02)
-The current approved continuous-article site is published at https://worldeology.com/InteractEval/. The Worldeology Lab homepage and sitemap point to this official route. Canonical/social/source links use the official path. Former preview entry pages redirect to their matching official pages, preserving query strings and section anchors.
+The current approved continuous-article site is published at https://worldeology.com/InteractNet/. The Worldeology Lab homepage and sitemap point to this official route. Canonical/social/source links use the official path. Former preview entry pages redirect to their matching official pages, preserving query strings and section anchors.
 
 
 ## Current website refresh (2026-11-02)
 
-The current InteractEval design is synchronized from Xgogu/InteractEval revision d0b99a665b7f3f2da31a26239897439214ec5962. This supersedes the earlier visual descriptions above. The opening introduces response versus interaction, followed by Why interact and How we extract. Both original manuscript figures loop automatically, pause offscreen, and show a completed view for reduced motion. The current six theory explanations, refined illustrations, judge model header icons, grouped leaderboard picker, publication measurements, and conversation library are retained. Official canonical URLs remain https://worldeology.com/InteractEval/ and Source links point to this repository.
+The current InteractNet design is synchronized from Xgogu/InteractEval revision d0b99a665b7f3f2da31a26239897439214ec5962. This supersedes the earlier visual descriptions above. The opening introduces response versus interaction, followed by Why interact and How we extract. Both original manuscript figures loop automatically, pause offscreen, and show a completed view for reduced motion. The current six theory explanations, refined illustrations, judge model header icons, grouped leaderboard picker, publication measurements, and conversation library are retained. Official canonical URLs remain https://worldeology.com/InteractNet/ and Source links point to this repository.
 
 Publication remains owner-controlled through the existing Worldeology Lab deployment workflow. No credentials or changes to other Lab projects are included.
 

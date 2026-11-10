@@ -2,7 +2,7 @@
 
 The supplied workbook and JSON are retained unchanged. All 34 IDs and English titles agree. The public catalog derives from them with English evidence summaries and limitations.
 
-The earlier `assets/Qwen_InteractEval.pdf` has different pagination and omits the newer representation experiments. It remains available for existing research pages. New findings link to the matching 100-page edition, `assets/InteractEval_research_v5.pdf`, SHA-256 `f36861fc53e88d020a99ad587c59e6e54e43b60772f10f73a5699101b343b2a4`.
+The earlier `assets/Qwen_InteractNet.pdf` has different pagination and omits the newer representation experiments. It remains available for existing research pages. New findings link to the matching 100-page edition, `assets/InteractNet_research_v5.pdf`, SHA-256 `f36861fc53e88d020a99ad587c59e6e54e43b60772f10f73a5699101b343b2a4`.
 
 ## Source checks
 

@@ -45,6 +45,6 @@ if __name__ == '__main__':
     root = Path(__file__).resolve().parent.parent
     path = root / 'data/paper-results.json'
     paper = json.loads(path.read_text(encoding='utf-8'))
-    enrich_comparisons(paper, fitz.open(root / 'assets/Qwen_InteractEval.pdf'))
+    enrich_comparisons(paper, fitz.open(root / 'assets/Qwen_InteractNet.pdf'))
     path.write_text(json.dumps(paper, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print('Imported Table 7 matched scenarios and Table 18 group-size comparisons.')

@@ -1,4 +1,4 @@
-# InteractEval · Key Findings（中文版）
+# InteractNet · Key Findings（中文版）
 
 34 条发现，按七个研究问题分组。
 

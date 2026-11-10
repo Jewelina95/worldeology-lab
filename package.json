@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "build": "node scripts/sync-interacteval-source.mjs && node scripts/clean-dist.mjs && cross-env ASTRO_TELEMETRY_DISABLED=1 astro check && cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "build": "node scripts/sync-interactnet-source.mjs && node scripts/clean-dist.mjs && cross-env ASTRO_TELEMETRY_DISABLED=1 astro check && cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
     "check:mobile": "node scripts/check-mobile-contract.mjs",
     "check:analytics-config": "node scripts/check-analytics-config.mjs",
     "check:analytics-live": "node scripts/check-analytics-live.mjs",
     "social": "node scripts/generate-social-cards.mjs",
-    "verify": "node scripts/check-interacteval-update.mjs --test && npm run build && node scripts/check-interacteval-render.mjs && node scripts/check-interacteval-findings.mjs && node scripts/check-dist.mjs && node scripts/check-interactionnet-routing.mjs && npm run check:mobile",
+    "verify": "node scripts/check-interactnet-update.mjs --test && npm run build && node scripts/check-interactnet-render.mjs && node scripts/check-interactnet-findings.mjs && node scripts/check-dist.mjs && node scripts/check-interactnet-routing.mjs && npm run check:mobile",
     "start:local": "node scripts/start-local.mjs",
     "preview:dist": "node scripts/preview-dist.mjs"
   },

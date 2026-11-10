@@ -43,7 +43,7 @@ for(const f of data.findings){
   assert.ok(html.includes('8.5 percentage points'));
  }else{
   assert.ok(html.includes('Scope of the evidence'),f.id+' missing limitation');
-  assert.ok(html.includes('InteractEval_research_v5.pdf#page='),f.id+' missing paper');
+  assert.ok(html.includes('InteractNet_research_v5.pdf#page='),f.id+' missing paper');
  }
  assert.ok(!/\bNaN\b|undefined|Infinity/.test(html),f.id+' invalid rendered value');
  assert.ok(/<table|evidence-bars|comparison-bars|architecture-comparison-grid/.test(html),f.id+' missing evidence');
