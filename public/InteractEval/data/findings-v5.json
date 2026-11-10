@@ -1,48 +1,23 @@
 {
-  "title": "InteractNet: 34 academically revised findings",
-  "schema_version": "research-question-taxonomy-v5",
+  "title": "InteractNet: 40 academically reviewed findings",
+  "schema_version": "research-question-taxonomy-v6",
   "status": "taxonomy, site navigation and focus proposal; no live site changes",
   "language_principle": "Short clear generalizable academic claim; no model-specific numbers in headline; evidence panel owns numbers and caveats.",
   "homepage_ids": [
     "F01",
-    "F02",
-    "F03",
     "F04",
-    "F05",
-    "F06",
     "F07",
-    "F08",
     "F09",
-    "F11",
-    "F13",
     "F14",
-    "F16",
-    "F17",
-    "F18",
     "F19",
-    "F21",
-    "F22",
-    "F23",
-    "F24",
-    "F25",
-    "F26",
     "F28",
-    "F30",
-    "F31",
-    "F32",
-    "F33",
-    "F34",
-    "F35",
-    "F36",
-    "F37",
-    "F40",
-    "F41",
-    "F42"
+    "F26",
+    "F30"
   ],
-  "reviewed_count": 34,
+  "reviewed_count": 11,
   "editorial_tiers": {
-    "首页核心": 12,
-    "延伸发现": 18,
+    "首页核心": 15,
+    "延伸发现": 21,
     "补充证据": 4
   },
   "findings": [
@@ -51,18 +26,18 @@
       "group": "交互能力的分野",
       "editorial_tier": "首页核心",
       "title_zh": "今天模型间真正拉开差距的，是主动推进交互的能力。",
-      "title_en": "What separates today's models is their ability to proactively advance an interaction.",
-      "clarification": "保留网站原有主标题；突出模型之间差异最大的能力维度，而非断言所有模型都已具备很强的主动性。",
-      "supporting_data": "被动能力极差 0.035；主动能力极差 0.370（约 10.6 倍）",
-      "paper_source": "T5; F7; T30",
+      "title_en": "Proactive advancement is what separates today’s models.",
+      "clarification": "同一批模型基础执行能力接近，主动推进能力跨度更大",
+      "supporting_data": "模型得分极差：被动0.035；交互0.111；主动0.370（10.6×）",
+      "paper_source": "Table 3; Figure 6; §4.2",
       "pdf_pages": "24,25,47",
-      "limitation": "跨模型极差，不是单模型能力提升",
+      "limitation": "10模型；描述性跨模型差异",
       "measure": "stage-profile",
       "view_design": "三阶段差异柱状图；同时展示原始与级联后的极差",
       "highlight": "默认高亮 Passive 0.035 与 Proactive 0.370；提供 Table 5 原始行",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F01",
-      "existing_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile",
       "former_group": "能力边界",
       "category_id": "C01",
       "category_slug": "capability",
@@ -73,8 +48,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01",
-      "summary_en": "Across ten systems, the across-model score range is 0.035 for passive execution and 0.370 for proactive promotion: a 10.6-fold difference in separation.",
-      "limitation_en": "These are ranges across models, not improvements within one model. The raw-grade comparison also widens: 0.034 to 0.341.",
+      "summary_en": "Basic execution is nearly matched across the ten tested models, while the ability to advance an interaction proactively varies far more.",
+      "limitation_en": "Descriptive differences across the ten tested models; these are score ranges, not a causal effect.",
       "tier_en": "Core finding",
       "verified_pages": [
         24,
@@ -83,7 +58,11 @@
       ],
       "related_ids": [
         "F02"
-      ]
+      ],
+      "evidence_summary_en": "Across-model score ranges: passive 0.035, responsive 0.111 and proactive 0.370 (10.6× the passive range).",
+      "review_status": "confirmed",
+      "website_order": 1,
+      "published": true
     },
     {
       "id": "F02",
@@ -100,7 +79,7 @@
       "view_design": "两模型三阶段分数并排 + 六级能力表",
       "highlight": "锁定 DeepSeek V4 Pro、Claude Opus 5.5；突出 L1–L2 平手、L5–L6 分化",
       "deduplication": "关联 F01：作为具象对照",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F02",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F02",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C01",
@@ -112,15 +91,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F02",
-      "summary_en": "DeepSeek V4 Pro and Claude Opus 5.5 both score 0.787 in passive execution, but 0.170 and 0.540 in proactive promotion.",
-      "limitation_en": "This contrast concerns the ten models and scenario design in the study.",
+      "summary_en": "Both models score 0.787 on passive execution, but 0.170 and 0.540 on proactive promotion. This contrasts their capability profiles rather than their overall intelligence.",
+      "limitation_en": "Limited to the ten models tested.",
       "tier_en": "Further finding",
       "verified_pages": [
         24
       ],
       "related_ids": [
         "F03"
-      ]
+      ],
+      "evidence_summary_en": "Both passive scores: 0.787; proactive scores: 0.170 versus 0.540 (3.18×).",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 6,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F03",
@@ -137,7 +128,7 @@
       "view_design": "两模型雷达/六级折线 + 综合评分对比",
       "highlight": "高亮 DeepSeek/Kimi 的综合评分几乎相同；展开 Passive、L5–L6、L6/L5",
       "deduplication": "独立；关联 F02",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F03",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F03",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C01",
@@ -149,8 +140,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F03",
-      "summary_en": "DeepSeek V4 Pro and Kimi K3 have similar composites, 0.430 and 0.425, but proactive scores of 0.170 and 0.212 and L6/L5 ratios of 0.832 and 0.965.",
-      "limitation_en": "A similar composite does not establish equivalent capability profiles.",
+      "summary_en": "The composite aggregates per-turn grades across six capability levels through the dependency cascade, weighting and aggregation over turns. It is not a model’s exam score.",
+      "limitation_en": "Similar aggregate scores do not imply identical capabilities.",
       "tier_en": "Core finding",
       "verified_pages": [
         24,
@@ -158,14 +149,26 @@
       ],
       "related_ids": [
         "F04"
-      ]
+      ],
+      "evidence_summary_en": "DeepSeek: 0.430; Kimi: 0.425. Proactive scores: 0.170 versus 0.212; L6/L5: 0.832 versus 0.965.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 7,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F04",
       "group": "交互能力的分野",
       "editorial_tier": "补充证据",
       "title_zh": "能提出有价值的交互策略，并不代表能持续有效地执行。",
-      "title_en": "A promising interaction strategy does not guarantee effective follow-through.",
+      "title_en": "Every model’s follow-through falls short of its initiative.",
       "clarification": "L5衡量有根据的策略价值，L6衡量跨轮协调；两者下降部分受到级联评分规则影响。",
       "supporting_data": "10/10 模型 L6<L5；L6/L5 介于 0.832–0.965",
       "paper_source": "T5",
@@ -175,7 +178,7 @@
       "view_design": "L5/L6 成对散点及比率排名",
       "highlight": "默认按 L6/L5 升序；在图注说明部分差距来自评分级联规则",
       "deduplication": "并入 F01 的 L5/L6 视图",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=coherence&finding=F04",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=coherence&finding=F04",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C01",
@@ -187,15 +190,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=coherence&finding=F04",
-      "summary_en": "All ten models score lower at L6 than L5; the L6/L5 ratio ranges from 0.832 to 0.965.",
-      "limitation_en": "The dependency cascade mechanically constrains higher levels. Part of this gap can arise from the scoring rule.",
+      "summary_en": "All ten models score lower on long-horizon coherence than on proactive initiative.",
+      "limitation_en": "Part of the gap is mechanically produced by the cascade constraints.",
       "tier_en": "Supporting evidence",
       "verified_pages": [
         24
       ],
       "related_ids": [
         "F01"
-      ]
+      ],
+      "evidence_summary_en": "All ten models have L6 below L5; L6/L5 ranges from 0.832 to 0.965.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 8,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": true
     },
     {
       "id": "F05",
@@ -204,15 +219,15 @@
       "title_zh": "擅长完成任务，并不保证同样擅长关系导向的交互。",
       "title_en": "Strength in task completion does not guarantee strength in relational interaction.",
       "clarification": "对比同一模型在功能性与非功能性互动场景的交互评分；后者不等于现实亲密关系能力。",
-      "supporting_data": "Claude 5 Opus：任务型 0.600 vs 关系型 0.454；GLM：0.403 vs 0.421",
+      "supporting_data": "Claude Opus 5：任务型 0.600 vs 关系型 0.454；GLM：0.403 vs 0.421",
       "paper_source": "T5; T6",
       "pdf_pages": "24,26",
       "limitation": "不同目标不能以闭合率直接排序",
       "measure": "purpose",
       "view_design": "按模型分组的任务型/混合型/关系型条形图",
-      "highlight": "默认突出 Claude 5 Opus 两端差异；GLM 为方向相反但幅度很小的例子",
+      "highlight": "默认突出 Claude Opus 5 两端差异；GLM 为方向相反但幅度很小的例子",
       "deduplication": "独立；关联 F17",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=purpose&finding=F05",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C02",
@@ -224,8 +239,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=closure-purpose&finding=F17",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05",
-      "summary_en": "Claude 5 Opus scores 0.600 in task-oriented settings and 0.454 in open-ended settings. GLM scores 0.403 and 0.421.",
-      "limitation_en": "Different purposes measure different demands. Closure rates cannot directly rank capability across purposes.",
+      "summary_en": "This compares the same model’s interaction scores in functional and nonfunctional scenes. The latter do not measure real-world intimate relationship skills.",
+      "limitation_en": "Different purposes cannot be ranked directly by closure rate.",
       "tier_en": "Further finding",
       "verified_pages": [
         24,
@@ -233,7 +248,19 @@
       ],
       "related_ids": [
         "F07"
-      ]
+      ],
+      "evidence_summary_en": "Claude Opus 5: task-oriented 0.600 versus relational 0.454; GLM: 0.403 versus 0.421.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 9,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F06",
@@ -250,7 +277,7 @@
       "view_design": "参考权重 vs 六级等权的极差并列柱状图",
       "highlight": "高亮 0.222→0.163；解释仅权重改变，原始记录不变",
       "deduplication": "独立；关联 F03",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=weighting-sensitivity&finding=F06",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
       "existing_url": null,
       "former_group": "能力边界",
       "category_id": "C07",
@@ -262,33 +289,45 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F03",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
-      "summary_en": "Equal weighting of the six levels narrows the composite range from 0.222 to 0.163, a reduction of about 26.6%.",
-      "limitation_en": "The records stay fixed; only aggregation changes. The main ordering is largely preserved.",
+      "summary_en": "The dialogues stay the same; only the weights of the six capability levels change. The across-model composite range falls from 0.222 to 0.163. This does not mean the models’ actual capabilities have changed.",
+      "limitation_en": "The same records are rescored. This is not a decline in actual model performance; the main ordering remains largely stable.",
       "tier_en": "Further finding",
       "verified_pages": [
         47
       ],
       "related_ids": [
         "F36"
-      ]
+      ],
+      "evidence_summary_en": "Composite range: reference weights 0.222 → equal level weights 0.163, a reduction of approximately 26.6%.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 10,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F07",
       "group": "交互情境与不确定性",
       "editorial_tier": "首页核心",
       "title_zh": "更多信息反而可能让模型表现更差。",
-      "title_en": "More information can make a model perform worse.",
-      "clarification": "保留网站现有 Finding 2；在匹配场景下“部分信息”比“明显不足”更难（仅在三模型中测试）。",
-      "supporting_data": "GPT-6 Astra：充分 0.662／部分 0.592／不足 0.603；其余两个模型相同方向",
-      "paper_source": "T7; F8",
+      "title_en": "Partial information makes models perform worse.",
+      "clarification": "部分但看似合理的信息可能比充分或明显不足的信息造成更差表现",
+      "supporting_data": "Astra 0.662/0.592/0.603；Sol 0.557/0.466/0.484；Gemini 0.483/0.393/0.440（充分/部分/不足）",
+      "paper_source": "Table 5; Figure 7; §4.3",
       "pdf_pages": "26,27",
-      "limitation": "控制比较仅3模型",
+      "limitation": "指标为交互综合分而非事实准确率",
       "measure": "information",
       "view_design": "沿用网站已有 information 视图：三模型×三信息条件",
       "highlight": "保留既有 Finding 2 标题与路由；高亮 Partial 的三处最低值",
       "deduplication": "独立；既有线上链接",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=information&finding=F07",
-      "existing_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=information",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information",
       "former_group": "证据与不确定性",
       "category_id": "C02",
       "category_slug": "context",
@@ -299,8 +338,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07",
-      "summary_en": "All three matched models score lower with partial than insufficient information. GPT-6 Astra scores 0.662, 0.592 and 0.603 under sufficient, partial and insufficient information.",
-      "limitation_en": "This matched comparison covers three models. It does not establish that adding information generally harms performance.",
+      "summary_en": "With partly specified information, models score below both the sufficient and the insufficient conditions.",
+      "limitation_en": "These are composite interaction scores, not factual accuracy. The controlled comparison covers three models.",
       "tier_en": "Core finding",
       "verified_pages": [
         26,
@@ -308,7 +347,11 @@
       ],
       "related_ids": [
         "F08"
-      ]
+      ],
+      "evidence_summary_en": "Sufficient / partial / insufficient: Astra 0.662 / 0.592 / 0.603; Sol 0.557 / 0.466 / 0.484; Gemini 0.483 / 0.393 / 0.440.",
+      "review_status": "confirmed",
+      "website_order": 2,
+      "published": true
     },
     {
       "id": "F08",
@@ -325,7 +368,7 @@
       "view_design": "按信息条件绘制 Fabrication 柱图，配简短真实定义",
       "highlight": "高亮 Partial 16.4%；与 Sufficient 5.1% 和 Insufficient 10.3% 同框对比",
       "deduplication": "并入 F07 的信息条件扩展面板",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=gap-behavior&finding=F08",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-behavior&finding=F08",
       "existing_url": null,
       "former_group": "证据与不确定性",
       "category_id": "C02",
@@ -337,8 +380,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=question-vs-agency&finding=F11",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-behavior&finding=F08",
-      "summary_en": "Unsupported factual additions occur on 5.1% of turns with sufficient information, 16.4% with partial information and 10.3% with insufficient information.",
-      "limitation_en": "Fabrication means treating an absent, task-relevant fact as known. It does not include every fictional narrative or explicit assumption.",
+      "summary_en": "An unsupported factual claim treats a specific date, amount, rule or other consequential detail as known even though neither the scene nor the user supplied it. This does not generalize to every form of hallucination.",
+      "limitation_en": "Fabrication here means unsupported additions of task-relevant facts.",
       "tier_en": "Supporting evidence",
       "verified_pages": [
         27,
@@ -346,25 +389,37 @@
       ],
       "related_ids": [
         "F09"
-      ]
+      ],
+      "evidence_summary_en": "Unsupported additions of key facts: sufficient 5.1%; partial 16.4%; obviously insufficient 10.3%.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 12,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F09",
       "group": "交互情境与不确定性",
       "editorial_tier": "首页核心",
-      "title_zh": "执行能力更强的模型，也可能更频繁地作出缺乏依据的事实判断。",
-      "title_en": "Stronger execution can coexist with more unsupported factual claims.",
-      "clarification": "受测10系统存在ρ=0.77的模型级相关性；并未证明强执行能力导致事实补充。",
-      "supporting_data": "Spearman ρ=+0.77（10 个模型）；例如 Opus 5.5 的补充率 16.8%，GLM 为 2.7%",
-      "paper_source": "T8; F10",
+      "title_zh": "较强的基础执行能力，并不能避免模型在信息缺失时编造事实。",
+      "title_en": "Better basic execution goes with more unsupported factual additions.",
+      "clarification": "良好的基础任务表现未必意味着谨慎处理缺失事实",
+      "supporting_data": "被动执行×无依据事实补造：Spearman ρ=+0.77；Opus5.5 0.787/16.8%；Astra 0.781/17.4%",
+      "paper_source": "Table 6; Figure 9; §4.4",
       "pdf_pages": "27,29",
-      "limitation": "横截面关联，不证明能力导致补充",
+      "limitation": "相关非因果；标题待确认",
       "measure": "gap-correlation",
       "view_design": "被动执行分数 × 无依据事实补充率散点图",
       "highlight": "标注 ρ=0.77；突出 Opus 5.5 / DeepSeek / GLM；注明 n=10",
       "deduplication": "独立；链接 F08 的指标定义",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=gap-correlation&finding=F09",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-correlation&finding=F09",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-correlation",
       "former_group": "证据与不确定性",
       "category_id": "C02",
       "category_slug": "context",
@@ -375,8 +430,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=gap-correlation&finding=F09",
-      "summary_en": "Passive-execution scores and fabrication rates have a Spearman correlation of +0.77 across ten models.",
-      "limitation_en": "This is a cross-sectional association. It does not show that stronger execution causes unsupported factual claims.",
+      "summary_en": "Models that execute routine steps well add unsupported facts more often, not less. The association is positive across the ten models.",
+      "limitation_en": "Association is not causation; only ten models are included. The headline remains provisional in the source review.",
       "tier_en": "Core finding",
       "verified_pages": [
         27,
@@ -384,7 +439,11 @@
       ],
       "related_ids": [
         "F08"
-      ]
+      ],
+      "evidence_summary_en": "Passive execution versus unsupported factual additions: Spearman ρ = +0.77. Opus 5.5: 0.787 / 16.8%; Astra: 0.781 / 17.4%.",
+      "review_status": "provisional",
+      "website_order": 3,
+      "published": true
     },
     {
       "id": "F11",
@@ -401,7 +460,7 @@
       "view_design": "澄清频率和 L5 的双指标变化图，附置信区间",
       "highlight": "高亮澄清 +8.5 个百分点；L5 区间跨零",
       "deduplication": "独立；关联 F09",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=question-vs-agency&finding=F11",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=question-vs-agency&finding=F11",
       "existing_url": null,
       "former_group": "证据与不确定性",
       "category_id": "C01",
@@ -413,33 +472,45 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=information&finding=F07",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=question-vs-agency&finding=F11",
-      "summary_en": "For Kimi, changing the partner raises clarification frequency by 0.085, while the L5 change is 0.006 with a 95% interval of −0.027 to 0.043.",
-      "limitation_en": "The L5 interval includes zero. This partner comparison does not control conversation length and does not show that clarification causes initiative.",
+      "summary_en": "This compares clarification-question frequency with the L5 score. It does not show an increase in conversation turns or in time spent guiding the interaction.",
+      "limitation_en": "Only the change in clarification frequency is established. Conversation length is not controlled, and the confidence interval for the L5 change crosses zero.",
       "tier_en": "Further finding",
       "verified_pages": [
         35
       ],
       "related_ids": [
         "F01"
-      ]
+      ],
+      "evidence_summary_en": "Clarification frequency changes by +0.085; L5 changes by +0.006 (95% CI −0.027 to +0.043).",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 14,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F13",
       "group": "交互轨迹与结果",
       "editorial_tier": "首页核心",
-      "title_zh": "单次回应符合要求，也不能保证整个交互持续取得进展。",
-      "title_en": "Locally adequate responses do not guarantee a productive interaction.",
-      "clarification": "单次回应指每次用户说话后AI的一条回复；能正确回应但一直重复相同策略、未推动目标或关系发展。",
-      "supporting_data": "报销案例：Case 1 第5轮兴趣降至 0.20 后结束；Case 2 第6轮完成；前两轮六级评分相同",
-      "paper_source": "F9; T40",
+      "title_zh": "单轮表现出色，不代表整段交互能够成功。",
+      "title_en": "A strong turn does not make a successful interaction.",
+      "clarification": "每轮局部合规依然可能导致整体目标失败",
+      "supporting_data": "对照案例：一例第5轮兴趣降至0.20无闭环；另一例第6轮完成",
+      "paper_source": "Figure 8; Table 39; Appendix C.1",
       "pdf_pages": "28,81",
-      "limitation": "案例双方行为不同，不能作因果归因",
+      "limitation": "个案且两段用户回复不同，不能推因果",
       "measure": "case-trajectories",
       "view_design": "同步逐轮轨迹：L1–L6、Advance 概率、用户兴趣、事件节点",
       "highlight": "锁定 Cases 1/2；突出 Case 1 重复索要缺失票据与兴趣耗尽",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=case-trajectories&finding=F13",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories",
       "former_group": "时间与结束",
       "category_id": "C03",
       "category_slug": "trajectory",
@@ -450,8 +521,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairings&finding=F19",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
-      "summary_en": "The two reimbursement cases have identical six-level grades on their first two turns. Case 1 ends at turn 5 with interest 0.20; Case 2 reaches successful closure at turn 6.",
-      "limitation_en": "Both participants behave differently across the cases. This illustrative contrast cannot assign causality to the assistant alone.",
+      "summary_en": "Replying well at each turn can still leave the interaction’s objective unmet.",
+      "limitation_en": "These are illustrative cases with different user replies, not a causal comparison.",
       "tier_en": "Core finding",
       "verified_pages": [
         28,
@@ -459,14 +530,18 @@
       ],
       "related_ids": [
         "F14"
-      ]
+      ],
+      "evidence_summary_en": "In one case, interest falls to 0.20 at turn 5 without successful closure. The comparison case closes at turn 6.",
+      "review_status": "confirmed",
+      "website_order": 4,
+      "published": false
     },
     {
       "id": "F14",
       "group": "交互轨迹与结果",
       "editorial_tier": "延伸发现",
       "title_zh": "对话越往后，模型在每轮交互质量上的差距可能越大。",
-      "title_en": "Differences in per-turn interaction quality can widen over time.",
+      "title_en": "Model differences widen as the interaction continues.",
       "clarification": "差距是同轮存续对话中的平均单轮综合交互评分极差（第1轮0.109、第16轮0.204）；晚轮样本有选择效应。",
       "supporting_data": "十模型单轮得分极差：第1轮 0.109 → 第16轮 0.204",
       "paper_source": "T32",
@@ -476,7 +551,7 @@
       "view_design": "按轮次的模型分布范围折线 + 到达该轮的样本占比",
       "highlight": "高亮 t=1/t=16 的极差并展示存活样本比例",
       "deduplication": "独立；关联 F13",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=turn-divergence&finding=F14",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=turn-divergence&finding=F14",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -488,22 +563,34 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=turn-divergence&finding=F14",
-      "summary_en": "The across-model range of turn scores grows from 0.109 at turn 1 to 0.204 at turn 16.",
-      "limitation_en": "Later turns include only episodes that reach them. The table reports the surviving fraction beside every score.",
+      "summary_en": "At turn one the ten models are close; by turn sixteen the spread has nearly doubled.",
+      "limitation_en": "Later turns are subject to selection effects.",
       "tier_en": "Further finding",
       "verified_pages": [
         48
       ],
       "related_ids": [
         "F16"
-      ]
+      ],
+      "evidence_summary_en": "Across ten models, the per-turn score range rises from 0.109 at turn 1 to 0.204 at turn 16.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 16,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": true
     },
     {
       "id": "F16",
       "group": "交互轨迹与结果",
       "editorial_tier": "补充证据",
       "title_zh": "交互可能因失去继续交流的价值而结束，而非因为目标已经完成。",
-      "title_en": "Interactions can end through disengagement rather than goal completion.",
+      "title_en": "Most interactions end because interest runs out, not because the goal was met.",
       "clarification": "模拟评估以用户兴趣/耐心和目标达成为终止规则；在非功能性场景，缺少明确闭合目标并非失败。",
       "supporting_data": "各系统兴趣耗尽结束占比 87.6%–99.0%",
       "paper_source": "T9; F10",
@@ -513,7 +600,7 @@
       "view_design": "按模型堆叠的 Closure / Exhaustion 结束类型分布",
       "highlight": "高亮 87.6%–99.0%，强制显示“模拟用户与自适应停止规则”说明",
       "deduplication": "建议并入 F17 的结束条件视图",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=termination-outcomes&finding=F16",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=termination-outcomes&finding=F16",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -525,8 +612,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=termination-outcomes&finding=F16",
-      "summary_en": "Interest exhaustion accounts for 87.6% to 99.0% of endings across systems.",
-      "limitation_en": "These are simulated users under adaptive stopping. Open-ended settings often have no concrete goal to complete.",
+      "summary_en": "Across all ten systems, the large majority of episodes stop at the simulated partner’s interest or patience threshold rather than at successful closure.",
+      "limitation_en": "Simulated partners with adaptive stopping. Open-ended scenes often have no concrete endpoint, so exhaustion is a stopping classification, not a measure of human satisfaction.",
       "tier_en": "Supporting evidence",
       "verified_pages": [
         29,
@@ -534,7 +621,20 @@
       ],
       "related_ids": [
         "F17"
-      ]
+      ],
+      "evidence_summary_en": "Interest-exhaustion endings account for 87.6%–99.0% of episodes across the ten systems.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 17,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false,
+      "review_status": "confirmed"
     },
     {
       "id": "F17",
@@ -551,7 +651,7 @@
       "view_design": "按目的分组的 Closure 比率图",
       "highlight": "锁定 Gemini 的 4.3% 与 0.2%；旁注目的不同，结束率不等于能力排名",
       "deduplication": "独立；F16作为补充",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=closure-purpose&finding=F17",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=closure-purpose&finding=F17",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -563,15 +663,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=closure-purpose&finding=F17",
-      "summary_en": "Gemini 3.8 Flash reaches successful closure in 4.3% of task-oriented episodes and 0.2% of open-ended episodes.",
-      "limitation_en": "An open-ended conversation need not aim to close a task. Low closure in that condition does not by itself mean failure.",
+      "summary_en": "Successful closure is substantially more frequent in task-oriented than relationship-oriented scenes. Comparing completion rates across scenes can confound interaction purpose with model capability.",
+      "limitation_en": "Low closure in nonfunctional tasks must not be treated as failure.",
       "tier_en": "Further finding",
       "verified_pages": [
         30
       ],
       "related_ids": [
         "F13"
-      ]
+      ],
+      "evidence_summary_en": "Gemini 3.8 Flash: task-oriented closure 4.3% versus relational closure 0.2%, approximately 21.5×.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 18,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F18",
@@ -588,7 +700,7 @@
       "view_design": "完整仪器 vs 移除耐心预算的长度对照",
       "highlight": "高亮 6.2→13.7；明确是终止规则消融，而非模型能力训练效果",
       "deduplication": "并入 F13 或 F17 的停止机制",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stopping-ablation&finding=F18",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stopping-ablation&finding=F18",
       "existing_url": null,
       "former_group": "时间与结束",
       "category_id": "C03",
@@ -600,33 +712,45 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stopping-ablation&finding=F18",
-      "summary_en": "Episodes with a persistently dominant Degrade path last 6.2 turns under the full instrument and 13.7 without the patience budget.",
-      "limitation_en": "This is an ablation of the stopping rule on degrading trajectories, not a training intervention on model capability.",
+      "summary_en": "Patience means the user’s patience budget recorded by the evaluator, not the model’s own memory. Removing this mechanism extends persistently Degrade-dominant trajectories from 6.2 to 13.7 turns.",
+      "limitation_en": "Limited to trajectories whose dominant path remains Degrade.",
       "tier_en": "Supporting evidence",
       "verified_pages": [
         50
       ],
       "related_ids": [
         "F16"
-      ]
+      ],
+      "evidence_summary_en": "Persistently Degrade-dominant dialogues: 6.2 turns with the mechanism versus 13.7 without the patience budget.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 19,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F19",
       "group": "交互对象与群体效应",
       "editorial_tier": "首页核心",
-      "title_zh": "AI 的交互表现不仅取决于自身，也取决于与谁互动。",
-      "title_en": "AI performance depends not only on the model, but also on its partner.",
-      "clarification": "强调观察到的助手表现具有配对属性；配对对特定尺度的方差贡献为9.9%。",
-      "supporting_data": "配对效应解释模型+伙伴+配对三项得分方差的 9.9%",
-      "paper_source": "T11; T29; F11",
+      "title_zh": "更换交互对象，可能逆转 AI 模型之间的能力排名。",
+      "title_en": "Changing the interaction partner changes model capability.",
+      "clarification": "单一固定模拟用户可能改变模型排序",
+      "supporting_data": "标准用户下Sol 0.515>Qwen 0.482；DeepSeek用户下Sol 0.394<Qwen 0.510",
+      "paper_source": "Table 9; Table 28; §4.5",
       "pdf_pages": "31,45,34",
-      "limitation": "9.9%按特定方差标度定义",
+      "limitation": "仅描述性逆转；该对模型差值无显著性检验",
       "measure": "pairings",
       "view_design": "10×10 互动矩阵 + 同列多用户对照 + 方差分解",
       "highlight": "保留既有 Finding 3 的 measure=pairings；选中一个助手，跨用户对照",
       "deduplication": "独立；既有线上链接",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=pairings&finding=F19",
-      "existing_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=pairings",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairings&finding=F19",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairings",
       "former_group": "交互对象与角色",
       "category_id": "C04",
       "category_slug": "partners",
@@ -637,8 +761,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairings&finding=F19",
-      "summary_en": "The mixed-effects analysis attributes 9.9% of the variance of scored system, partner and pairing together to the pairing.",
-      "limitation_en": "This denominator differs from total episode variance. The 10.9% matrix residual additionally combines pairing, self-play and measurement noise.",
+      "summary_en": "Who the model interacts with changes its score, and can change the order between two models.",
+      "limitation_en": "This is a descriptive reversal for these pairings. The two-model differences have not been tested for statistical significance. The headline remains provisional in the source review.",
       "tier_en": "Core finding",
       "verified_pages": [
         31,
@@ -647,7 +771,11 @@
       ],
       "related_ids": [
         "F23"
-      ]
+      ],
+      "evidence_summary_en": "With the standard user, Sol 0.515 > Qwen 0.482; with the DeepSeek user, Sol 0.394 < Qwen 0.510.",
+      "review_status": "provisional",
+      "website_order": 5,
+      "published": true
     },
     {
       "id": "F21",
@@ -664,7 +792,7 @@
       "view_design": "用户平均分 × 使助手产生的分数极差二维散点",
       "highlight": "高亮 Gemini/DeepSeek；标注“得分低≠区分度高”",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=pairing-summary&finding=F21",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairing-summary&finding=F21",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -676,33 +804,45 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=pairing-summary&finding=F21",
-      "summary_en": "Gemini as partner yields mean assistant score 0.392 and range 0.209; DeepSeek yields mean 0.490 and range 0.425.",
-      "limitation_en": "A lower mean score is not the same as greater discrimination. The comparison covers ten simulated partners.",
+      "summary_en": "The “user” is a model acting as the user in the evaluation. Discrimination is the difference between the highest and lowest scores across assistants, not how difficult a user is to interact with.",
+      "limitation_en": "Based only on the ten simulated users.",
       "tier_en": "Further finding",
       "verified_pages": [
         31
       ],
       "related_ids": [
         "F23"
-      ]
+      ],
+      "evidence_summary_en": "Gemini user: mean assistant score 0.392, range 0.209; DeepSeek user: mean 0.490, range 0.425.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 21,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F22",
       "group": "交互对象与群体效应",
       "editorial_tier": "延伸发现",
-      "title_zh": "模型与自己交互，可能获得配对特有的评分优势。",
-      "title_en": "Self-play can confer an evaluation advantage on some models.",
-      "clarification": "自我配对平均超额+0.020，但个别系统自我互动分数下降，故使用can和some而非普遍断言。",
-      "supporting_data": "平均自我配对超额 +0.020；DeepSeek 0.430→0.501；Gemini 0.450→0.328",
-      "paper_source": "T13; T28",
+      "title_zh": "自我交互评测可能使不同角色下行为模式相似的模型获得评分优势。",
+      "title_en": "Partners with similar interaction patterns score higher together.",
+      "clarification": "同一模型分饰用户和助手时，角色行为适配可能抬高评分",
+      "supporting_data": "配对额外效应+0.020（95% CI +0.012~+0.028）；相似度与标准减自我差值相关−0.65",
+      "paper_source": "Table 11; Table 27; §4.5.1",
       "pdf_pages": "33,45",
-      "limitation": "可能混入模型家族相似性",
+      "limitation": "不是普遍优势；关联非因果",
       "measure": "self-gap",
       "view_design": "标准用户 vs 同模型自我配对的哑铃图",
       "highlight": "高亮正向与反向示例；注明家庭风格相似性混杂",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=self-gap&finding=F22",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=self-gap&finding=F22",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=self-gap",
       "former_group": "交互对象与角色",
       "category_id": "C04",
       "category_slug": "partners",
@@ -713,8 +853,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=self-gap&finding=F22",
-      "summary_en": "Mean self-play excess is +0.020. DeepSeek scores 0.430 with the standard user and 0.501 in self-play; Gemini changes from 0.450 to 0.328.",
-      "limitation_en": "Self-play can help or hurt. Model-family or style similarity may contribute to the observed differences.",
+      "summary_en": "When both sides ask and advance in a similar style, the pairing scores higher than the same models paired with a dissimilar partner.",
+      "limitation_en": "Self-play is not advantageous for every model, and the association is not causal. The headline remains provisional in the source review.",
       "tier_en": "Further finding",
       "verified_pages": [
         33,
@@ -722,7 +862,11 @@
       ],
       "related_ids": [
         "F24"
-      ]
+      ],
+      "evidence_summary_en": "Self-pairing excess: +0.020 (95% CI +0.012 to +0.028). Role-pattern similarity correlates at −0.65 with standard-user score minus self-play score.",
+      "review_status": "provisional",
+      "website_order": 6,
+      "published": false
     },
     {
       "id": "F23",
@@ -739,7 +883,7 @@
       "view_design": "L2–L3 与 L5–L6 的伙伴压力二维象限图",
       "highlight": "以 Gemini、Fable 为两个焦点；正值表示相对标准用户使该能力得分更低",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=partner-pressure&finding=F23",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=partner-pressure&finding=F23",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -751,15 +895,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=partner-pressure&finding=F23",
-      "summary_en": "Gemini as partner adds +0.249 pressure at L2–L3; Fable adds +0.044 at L5–L6 relative to the standard user.",
-      "limitation_en": "Positive pressure means a lower assistant score relative to the standard partner. Partner behavior and model identity are confounded.",
+      "summary_en": "Some users chiefly test information understanding and state updating (L2–L3); others chiefly test strategic anticipation and coordination (L5–L6).",
+      "limitation_en": "User behavior is confounded with model identity.",
       "tier_en": "Core finding",
       "verified_pages": [
         32
       ],
       "related_ids": [
         "F28"
-      ]
+      ],
+      "evidence_summary_en": "Gemini user: extra L2–L3 pressure +0.249; Fable user: extra L5–L6 pressure +0.044.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 23,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F24",
@@ -776,7 +932,7 @@
       "view_design": "两角色的方差分解 + 10×10 矩阵旁置",
       "highlight": "将 94.4%、2.0%、10.9% 分组显示；解释两个角色使用不同 rubric",
       "deduplication": "独立；关联 F19",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=role-asymmetry&finding=F24",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-asymmetry&finding=F24",
       "existing_url": null,
       "former_group": "交互对象与角色",
       "category_id": "C04",
@@ -788,8 +944,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-asymmetry&finding=F24",
-      "summary_en": "User identity explains 94.4% of variation in the user-side matrix. Its residual is 2.0%, compared with 10.9% for the assistant-side matrix.",
-      "limitation_en": "The two roles use different rubrics. The matrix residual is not the same statistic as the mixed-effects pairing component.",
+      "summary_en": "Under the different scoring criteria for the two roles, the user-side main effect is 94.4%, the user-side residual 2.0% and the assistant-side residual 10.9%.",
+      "limitation_en": "The two roles do not use identical rubrics.",
       "tier_en": "Further finding",
       "verified_pages": [
         33,
@@ -797,7 +953,19 @@
       ],
       "related_ids": [
         "F19"
-      ]
+      ],
+      "evidence_summary_en": "User-side main effect: 94.4%; user-side residual: 2.0%; assistant-side residual: 10.9%.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 24,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F25",
@@ -814,7 +982,7 @@
       "view_design": "MetaMind / Cognizer / Claude Code 三阶段增益分组柱状图",
       "highlight": "默认高亮 Cognizer 被动 +0.012 与主动 +0.066；保留三架构比较",
       "deduplication": "与 F26 共用架构图表",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=architecture-stages&finding=F25",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
       "existing_url": null,
       "former_group": "认知架构与多人",
       "category_id": "C05",
@@ -826,33 +994,45 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=stage-profile&finding=F01",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
-      "summary_en": "All three architectures gain most at the proactive stage. Cognizer gains +0.012 at L1–L2 and +0.066 at L5–L6.",
-      "limitation_en": "Extra model calls and computation are not controlled, so the gain cannot be attributed to architecture alone.",
+      "summary_en": "This compares gains at different stages before and after adding an architecture to the same base model. Extra inference calls and cost are not controlled.",
+      "limitation_en": "Extra calls and computation budgets are not controlled.",
       "tier_en": "Further finding",
       "verified_pages": [
         41
       ],
       "related_ids": [
         "F26"
-      ]
+      ],
+      "evidence_summary_en": "Cognizer: L1–L2 gain +0.012; L5–L6 gain +0.066 (5.5×).",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 25,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F26",
       "group": "认知架构与能力增强",
       "editorial_tier": "首页核心",
-      "title_zh": "不同认知架构会强化不同类型的交互能力。",
-      "title_en": "Different cognitive architectures strengthen different forms of interactive competence.",
-      "clarification": "任务型与关系型场景的改善侧重不同；不能泛化成模型获得了经现实验证的社交情感能力。",
-      "supporting_data": "MetaMind：任务型 +0.021、关系型 +0.046；Cognizer：+0.061、+0.032",
-      "paper_source": "T19",
+      "title_zh": "认知架构不仅能增强AI，还可能改变它的交互能力优势。",
+      "title_en": "An agent harness shifts a model toward different interaction strengths.",
+      "clarification": "不同架构分别偏重任务导向或关系导向的交互",
+      "supporting_data": "MetaMind 任务+0.021/关系+0.046；Cognizer任务+0.061/关系+0.032",
+      "paper_source": "Table 17; §4.8",
       "pdf_pages": "41",
-      "limitation": "任务目的代理具体能力，不等同现实心理技能",
+      "limitation": "计算量未匹配，不能单独归因内部机制",
       "measure": "architecture-purpose",
       "view_design": "架构×交互目的 3×3 分组柱状图",
       "highlight": "高亮 MetaMind × Nonfunctional、Cognizer × Functional 两格",
       "deduplication": "独立；F25作阶段补充",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=architecture-purpose&finding=F26",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-purpose&finding=F26",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-purpose",
       "former_group": "认知架构与多人",
       "category_id": "C05",
       "category_slug": "architectures",
@@ -863,33 +1043,37 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=purpose&finding=F05",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-purpose&finding=F26",
-      "summary_en": "MetaMind gains +0.021 in task-oriented and +0.046 in open-ended settings; Cognizer gains +0.061 and +0.032.",
-      "limitation_en": "Interaction purpose operationalizes different demands here; it is not a direct measurement of real-world psychological skills.",
+      "summary_en": "Adding a harness changes which interactions a model is good at, not only how high it scores.",
+      "limitation_en": "Computation is not matched, so the gains cannot be attributed solely to internal mechanisms.",
       "tier_en": "Core finding",
       "verified_pages": [
         41
       ],
       "related_ids": [
         "F30"
-      ]
+      ],
+      "evidence_summary_en": "MetaMind gains: task +0.021 / relational +0.046; Cognizer: task +0.061 / relational +0.032.",
+      "review_status": "confirmed",
+      "website_order": 8,
+      "published": true
     },
     {
       "id": "F28",
       "group": "交互对象与群体效应",
       "editorial_tier": "首页核心",
-      "title_zh": "多人交互对 AI 主动推进能力的冲击，远大于对基础响应能力的影响。",
-      "title_en": "Adding participants disproportionately impairs proactive interaction.",
-      "clarification": "双人到四人时，L1–L4绝对分数下降0.030，L5–L6下降0.105；3.5倍指绝对降幅之比，非能力下降倍数。",
-      "supporting_data": "L1–L4 平均下降 0.030；L5–L6 平均下降 0.105（绝对降幅 3.5×）",
-      "paper_source": "T20",
+      "title_zh": "随着交互参与人数增加，AI更容易失去主动协调能力，而非基础响应能力。",
+      "title_en": "More participants cost proactive coordination more than basic responsiveness.",
+      "clarification": "从双人扩展到四人，主动协调下降更明显",
+      "supporting_data": "基础L1–L4 0.722→0.692（−0.030）；主动L5–L6 0.348→0.243（−0.105）",
+      "paper_source": "Table 18; §4.8",
       "pdf_pages": "41",
-      "limitation": "其他参与者是同一标准用户",
+      "limitation": "模拟参与者；‘更容易失去’是通俗标题，正文需解释平均分下降",
       "measure": "group-size",
       "view_design": "2/3/4 人三阶段得分折线 + L6/L5 面板",
       "highlight": "高亮 2→4 人的下降 0.030 vs 0.105；不要声称是相对百分比",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=group-size&finding=F28",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=group-size&finding=F28",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=group-size",
       "former_group": "认知架构与多人",
       "category_id": "C04",
       "category_slug": "partners",
@@ -900,33 +1084,37 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=group-size&finding=F28",
-      "summary_en": "From two to four participants, mean L1–L4 scores fall by 0.030 and L5–L6 scores by 0.105: a 3.5-fold ratio of absolute declines.",
-      "limitation_en": "This is not a relative percentage decline. Every other seat is played by the same standard user.",
+      "summary_en": "Going from two to four participants lowers proactive coordination further than basic responsiveness.",
+      "limitation_en": "Participants are simulated. “More likely to lose” describes the larger decline in mean scores, not a measured probability of failure.",
       "tier_en": "Core finding",
       "verified_pages": [
         41
       ],
       "related_ids": [
         "F23"
-      ]
+      ],
+      "evidence_summary_en": "Mean L1–L4: 0.722 → 0.692 (−0.030); mean L5–L6: 0.348 → 0.243 (−0.105).",
+      "review_status": "confirmed",
+      "website_order": 7,
+      "published": true
     },
     {
       "id": "F30",
       "group": "认知架构与能力增强",
       "editorial_tier": "首页核心",
-      "title_zh": "主动推进能力较弱的模型，往往从认知架构中获得更大的提升。",
-      "title_en": "Models weaker at proactive interaction often gain more from cognitive architectures.",
-      "clarification": "相关系数近-0.99，但仅有10个基础模型，部分关联可能由评分上限与可提升空间导致。",
-      "supporting_data": "两个架构相关 r≤−0.99；DeepSeek 增益 +0.063/+0.092，Opus 5.5 为 +0.024/+0.040",
-      "paper_source": "T18; §4.8",
+      "title_zh": "认知架构对较弱模型的主动能力提升更大，但高水平前沿贡献仍集中在较强模型上。",
+      "title_en": "Weaker bases gain more proactive capability, but frontier contributions stay with stronger bases.",
+      "clarification": "主动能力的边际增益与严格前沿贡献在模型强弱上的分布相反",
+      "supporting_data": "基础主动分与增益r≤−0.99；FE非零仅强的4个基础模型搭配Cognizer/Claude Code",
+      "paper_source": "Table 16; Table 17; §4.8",
       "pdf_pages": "39,40",
-      "limitation": "模型仅10个，负相关可能部分由分数天花板/提升空间造成。",
+      "limitation": "评分天花板；FE非经独立验证的科学突破",
       "measure": "architecture-headroom",
       "view_design": "基础主动评分 × 架构主动增益双系列散点",
       "highlight": "标注 DeepSeek 与 Opus 5.5；同时显示 r 和天花板效应说明",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=architecture-headroom&finding=F30",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-headroom&finding=F30",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-headroom",
       "former_group": "认知架构与多人",
       "category_id": "C05",
       "category_slug": "architectures",
@@ -937,8 +1125,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-headroom&finding=F30",
-      "summary_en": "For MetaMind and Cognizer, proactive gain falls with the base proactive score, with reported r ≤ −0.99.",
-      "limitation_en": "There are only ten base models. Score ceilings and available headroom may partly explain the negative association.",
+      "summary_en": "Marginal proactive gain and stringent frontier-level contribution have opposite distributions across base models.",
+      "limitation_en": "Score ceilings can contribute to the gain relationship. Frontier Emergence is not an independently validated scientific breakthrough.",
       "tier_en": "Core finding",
       "verified_pages": [
         39,
@@ -946,7 +1134,11 @@
       ],
       "related_ids": [
         "F25"
-      ]
+      ],
+      "evidence_summary_en": "Base proactive score versus gain: reported r ≤ −0.99. Nonzero Frontier Emergence occurs only with the four stronger bases paired with Cognizer or Claude Code.",
+      "review_status": "confirmed",
+      "website_order": 9,
+      "published": true
     },
     {
       "id": "F31",
@@ -963,7 +1155,7 @@
       "view_design": "模型×角色的兴趣可读性 R² 对照图",
       "highlight": "锁定 Qwen3.8 的 assistant/user 两根柱；解释负 R² 含义",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=role-probes&finding=F31",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -975,8 +1167,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-asymmetry&finding=F24",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
-      "summary_en": "At 75% depth, Qwen3.8-27B has within-dialogue user-interest R² of −0.082 as assistant and +0.168 in the user role.",
-      "limitation_en": "Negative R² is worse than the mean baseline. Linear decodability is not evidence of accurate understanding by itself.",
+      "summary_en": "The roles are the same model replying as an assistant or acting as a simulated user with another assistant. The measure is internal linear-probe R², not subjective understanding.",
+      "limitation_en": "Linear-probe readability does not establish genuine understanding.",
       "tier_en": "Further finding",
       "verified_pages": [
         36,
@@ -984,25 +1176,37 @@
       ],
       "related_ids": [
         "F32"
-      ]
+      ],
+      "evidence_summary_en": "Qwen3.8-27B: within-dialogue R² is −0.082 as assistant and +0.168 as user.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 29,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F32",
       "group": "交互状态的内部表征",
       "editorial_tier": "首页核心",
-      "title_zh": "AI 能表征互动中的好感，却未必能区分这种好感来自哪一方。",
-      "title_en": "Models can encode affection without reliably distinguishing whose it is.",
-      "clarification": "好感指研究者依据对话标注的affection，即对对方的积极态度；并不暗示AI真实体验情感。模型对双方affection可解码方向重叠，控制关联后用户剩余部分的R²为负。",
-      "supporting_data": "好感探针方向 cosine 0.620–0.737；三个模型的用户好感残差 R² 均为负",
-      "paper_source": "T38",
+      "title_zh": "AI的内部表征可以编码好感信息，却未必能可靠区分好感属于哪一方。",
+      "title_en": "Models encode affection without reliably separating whose affection it is.",
+      "clarification": "可读关系信号不一定有参与者归属信息",
+      "supporting_data": "三模型好感方向cos 0.737/0.661/0.620；残差R² −0.225/−0.182/−0.248",
+      "paper_source": "Table 37; §4.7.1",
       "pdf_pages": "77",
-      "limitation": "来自可读性的线性探针，不代表模型拥有独立的主观感受。",
+      "limitation": "3开源模型；线性探针；affection是标注关系状态",
       "measure": "shared-affection",
       "view_design": "双角色 Affection 方向相似度 + 残差 R² 对照",
       "highlight": "高亮三个负的用户 affection 残差；对比用户 anxiety 为正",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=shared-affection&finding=F32",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-affection&finding=F32",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-affection",
       "former_group": "内部表征与测量",
       "category_id": "C06",
       "category_slug": "representations",
@@ -1013,15 +1217,19 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-affection&finding=F32",
-      "summary_en": "Assistant-side affection directions have cosine similarity 0.620–0.737. Residual user-affection R² is negative in all three models, while residual user-anxiety R² is positive.",
-      "limitation_en": "These are linear readouts of annotated states. They do not establish subjective feelings or completely separate representations.",
+      "summary_en": "A readable relational signal does not by itself identify which participant holds the state.",
+      "limitation_en": "Three open models and linear probes; affection is an annotated relational state. The headline remains provisional in the source review.",
       "tier_en": "Core finding",
       "verified_pages": [
         77
       ],
       "related_ids": [
         "F33"
-      ]
+      ],
+      "evidence_summary_en": "Affection-direction cosine: 0.737 / 0.661 / 0.620; residual user-affection R²: −0.225 / −0.182 / −0.248.",
+      "review_status": "provisional",
+      "website_order": 10,
+      "published": false
     },
     {
       "id": "F33",
@@ -1038,7 +1246,7 @@
       "view_design": "预测一致性 vs 对标注趋势的拟合 R² 三指标卡",
       "highlight": "显示“相关性≠准确性”；标出负 R²",
       "deduplication": "与 F32 共用表征模块的扩展",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=shared-miscalibration&finding=F33",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-miscalibration&finding=F33",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -1050,15 +1258,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=shared-miscalibration&finding=F33",
-      "summary_en": "In 16 eligible Gemma–Gemma dialogues, interest-change readouts correlate at 0.264; their within-dialogue R² values are −0.374 and −0.246 on 204 boundaries.",
-      "limitation_en": "Correlation is not accuracy. A correlation of 0.264 should not be described as strong synchronization; the targets are evaluator-produced labels.",
+      "summary_en": "The positive correlation is r = 0.264, not ‘high synchronization’. Accuracy is evaluated against dialogue-based user-interest annotations, and both R² values are negative.",
+      "limitation_en": "The reference is an interest label produced by the evaluation framework. A correlation of 0.264 must not be described as highly synchronized.",
       "tier_en": "Further finding",
       "verified_pages": [
         37
       ],
       "related_ids": [
         "F34"
-      ]
+      ],
+      "evidence_summary_en": "Change correlation: r = 0.264; the two within-dialogue R² values are −0.374 and −0.246.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 31,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F34",
@@ -1075,7 +1295,7 @@
       "view_design": "分层恢复曲线 + Ablation 两组柱状图",
       "highlight": "高亮 layer 52 的 0.777 和 40 heads 的 0.941；限于 Qwen3.8-27B",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=partner-integration&finding=F34",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=partner-integration&finding=F34",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C06",
@@ -1087,8 +1307,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=partner-integration&finding=F34",
-      "summary_en": "In Qwen3.8-27B, final-position recovery reaches 0.777 at layer 52. Removing forty selected heads retains 0.941 of sensitivity to the partner utterance.",
-      "limitation_en": "These are next-token KL-based interventions in one model, with 41 selected decisions from 17 scenes. Other positions and computation remain intact.",
+      "summary_en": "The evidence comes from next-token distribution restoration experiments in Qwen3.8-27B. It does not establish the same mechanism in other models.",
+      "limitation_en": "Limited to the specified model and next-token KL measure.",
       "tier_en": "Further finding",
       "verified_pages": [
         38,
@@ -1096,25 +1316,37 @@
       ],
       "related_ids": [
         "F35"
-      ]
+      ],
+      "evidence_summary_en": "Final-position recovery at layer 52: 0.777; sensitivity retained after removing 40 heads: 0.941.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 32,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F35",
       "group": "交互状态的内部表征",
       "editorial_tier": "延伸发现",
-      "title_zh": "能从模型内部读出某种状态，不意味着能借此可靠控制行为。",
-      "title_en": "Readable internal states do not necessarily provide reliable behavioral control.",
-      "clarification": "对兴趣与好感方向的干预未产生超出随机方向对照的一致定向行为变化。",
-      "supporting_data": "对 60 个上下文的方向干预未超过随机方向对照形成一致的期望方向变化",
-      "paper_source": "§4.7.3",
+      "title_zh": "读懂AI的内部状态，不代表就能操控它的行为。",
+      "title_en": "Reading a model’s internal state is not the same as steering its behaviour.",
+      "clarification": "可解码的内在关系变量不必然能在干预中引导行为",
+      "supporting_data": "297段训练方向；60个上下文；未发现胜过随机方向对照的可靠符号效应",
+      "paper_source": "§4.7.3; Appendix A.13",
       "pdf_pages": "37",
-      "limitation": "论文无足够汇总数值；优先展示原图/描述",
+      "limitation": "Qwen3.8-27B及受测干预方法，不能泛化为不可控制",
       "measure": "representation-control",
       "view_design": "干预设计+结果矩阵（无一致效应，避免虚构数值）",
       "highlight": "区分解码结果与因果干预；表格显示样本量、定性结论和负面影响",
       "deduplication": "独立；关联 F32",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=representation-control&finding=F35",
-      "existing_url": null,
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=representation-control&finding=F35",
+      "existing_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=representation-control",
       "former_group": "内部表征与测量",
       "category_id": "C06",
       "category_slug": "representations",
@@ -1125,15 +1357,19 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=representation-control&finding=F35",
-      "summary_en": "Adding or subtracting fitted relational directions in 60 contexts produces no consistent signed change beyond random-direction controls.",
-      "limitation_en": "This intervention does not establish that all behavioral control is impossible. At larger magnitudes, persona fit deteriorates; interest interventions also reduce coherence.",
+      "summary_en": "A decodable relational variable does not reliably move behaviour when intervened on.",
+      "limitation_en": "Limited to Qwen3.8-27B and the tested intervention method. This does not establish that the model’s behavior is generally uncontrollable.",
       "tier_en": "Further finding",
       "verified_pages": [
         37
       ],
       "related_ids": [
         "F31"
-      ]
+      ],
+      "evidence_summary_en": "Directions fitted on 297 dialogues; tested in 60 contexts. No reliable signed effect beyond random-direction controls.",
+      "review_status": "confirmed",
+      "website_order": 11,
+      "published": false
     },
     {
       "id": "F36",
@@ -1150,7 +1386,7 @@
       "view_design": "双实验 Before/After 对照图 + +27/+40pp 注记",
       "highlight": "同时突出两组差异；说明两条件都阅读完整多轮对话",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=reconstruction-ablation&finding=F36",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
       "existing_url": null,
       "former_group": "内部表征与测量",
       "category_id": "C07",
@@ -1162,8 +1398,8 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=case-trajectories&finding=F13",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=reconstruction-ablation&finding=F36",
-      "summary_en": "Both judges read the complete transcript. State-probe separation rises from 64% to 91% with reconstruction; recurrence-probe separation rises from 49% to 89%.",
-      "limitation_en": "These are controlled probes whose required outcomes follow from the definitions, not estimates of real-world accuracy.",
+      "summary_en": "With the same multi-turn evidence, structured reconstruction raises state-change probe separation from 64% to 91% and recurrence-stagnation probe separation from 49% to 89%. The tests use predefined controlled probes.",
+      "limitation_en": "Probe pass rates come from controlled tests constructed according to the definitions; they cannot be generalized to real-world accuracy.",
       "tier_en": "Core finding",
       "verified_pages": [
         50,
@@ -1171,7 +1407,19 @@
       ],
       "related_ids": [
         "F40"
-      ]
+      ],
+      "evidence_summary_en": "State-change probes: 64% → 91%; recurrence-stagnation probes: 49% → 89%.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 34,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F37",
@@ -1188,7 +1436,7 @@
       "view_design": "六个等级的人工认可率对照柱状图",
       "highlight": "高亮 L1 98.8 vs L6 74.0；在图注解释 endorsement",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=human-audit&finding=F37",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=human-audit&finding=F37",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -1200,15 +1448,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=coherence&finding=F04",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=human-audit&finding=F37",
-      "summary_en": "Human auditors endorse L1 judgments in 98.8% of reviewed records, L5 in 78.9% and L6 in 74.0%.",
-      "limitation_en": "Endorsement is acceptance under an audit with the full record available, not independent objective accuracy.",
+      "summary_en": "Endorsement is the acceptance rate in human audits of the evaluator’s existing judgments. It is neither agreement between human reviewers nor objective accuracy.",
+      "limitation_en": "Endorsement is not objective accuracy.",
       "tier_en": "Further finding",
       "verified_pages": [
         22
       ],
       "related_ids": [
         "F40"
-      ]
+      ],
+      "evidence_summary_en": "Human endorsement: L1 Goal 98.8%; L5 78.9%; L6 74.0%.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 35,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F40",
@@ -1225,7 +1485,7 @@
       "view_design": "提取器更换后的记录一致率 vs 排行榜稳定度",
       "highlight": "高亮约19%状态记录不一致与 ρ=0.988 同框",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=extractor-stability&finding=F40",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -1237,15 +1497,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=role-probes&finding=F31",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=extractor-stability&finding=F40",
-      "summary_en": "Alternative extractors agree on 0.806 and 0.816 of latent-state records, while both retain ranking Spearman ρ = 0.988.",
-      "limitation_en": "Record agreement and ranking correlation are different statistics. Their numerical difference is not a comparable error rate.",
+      "summary_en": "Alternative state extractors agree on approximately 80.6%–81.6% of latent-state records while final model rankings correlate at ρ = 0.988. This does not prove that the rankings are correct.",
+      "limitation_en": "These are different statistics and cannot be directly compared as error rates.",
       "tier_en": "Further finding",
       "verified_pages": [
         43
       ],
       "related_ids": [
         "F41"
-      ]
+      ],
+      "evidence_summary_en": "State-record agreement: 0.806 / 0.816; final-ranking Spearman ρ = 0.988.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 36,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F41",
@@ -1262,7 +1534,7 @@
       "view_design": "评估者家族 × 被测模型分数偏移热图",
       "highlight": "锁定同家族对角关系；强制显示偏移小且不改变总体结论",
       "deduplication": "独立；标注探索性",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=judge-families&finding=F41",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=judge-families&finding=F41",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -1274,15 +1546,27 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=weighting-sensitivity&finding=F06",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=judge-families&finding=F41",
-      "summary_en": "Alternative judges give their own family a small relative lift: +0.013 for GPT, +0.011 for Qwen and +0.017 for Gemini.",
-      "limitation_en": "Evidence of the same bias in the reference judge is weak. The shifts are small and do not overturn the broad conclusions.",
+      "summary_en": "Three alternative judges raise their own-family model’s relative score by 0.011–0.017. There is no clear evidence of such a preference by the reference judge.",
+      "limitation_en": "A significant own-family preference by the reference judge has not been established.",
       "tier_en": "Further finding",
       "verified_pages": [
         43
       ],
       "related_ids": [
         "F42"
-      ]
+      ],
+      "evidence_summary_en": "Relative additional score: approximately +0.011 to +0.017.",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 37,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
     },
     {
       "id": "F42",
@@ -1299,7 +1583,7 @@
       "view_design": "生成 vs 评估 token 堆叠柱形 + 评估调用构成",
       "highlight": "高亮 17×；说明具体协议、并行开销与不是普遍下界",
       "deduplication": "独立",
-      "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=evaluation-cost&finding=F42",
+      "proposed_url": "https://worldeology.com/InteractNet/index.html#comparisons?measure=evaluation-cost&finding=F42",
       "existing_url": null,
       "former_group": "评测可信度",
       "category_id": "C07",
@@ -1311,15 +1595,220 @@
       "next_finding_url_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=architecture-stages&finding=F25",
       "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement",
       "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=evaluation-cost&finding=F42",
-      "summary_en": "The reported protocol uses 159,680 evaluation tokens per exchange versus approximately 9,510 tokens to generate both participants, about 16.8 times as many.",
-      "limitation_en": "These are input plus output tokens under this protocol, not a universal lower bound. Parallel calls change latency, not the token total.",
+      "summary_en": "This concerns the paper’s process-evaluation configuration with 15 evaluation calls per exchange. Its token cost is approximately 17 times generation cost; this is not a universal theoretical lower bound.",
+      "limitation_en": "This cost belongs to the specific InteractNet protocol; it is not an inherent requirement of all interaction measurement.",
       "tier_en": "Further finding",
       "verified_pages": [
         50
       ],
       "related_ids": [
         "F36"
-      ]
+      ],
+      "evidence_summary_en": "Evaluation: 159,680 tokens versus approximately 9,510 for generation by both participants per exchange (about 16.8×).",
+      "copy_source": {
+        "workbook": "research/InteractNet_Findings_Research_Taxonomy_v5.xlsx",
+        "sheet": "02_34条逐句审校",
+        "row": 38,
+        "columns": [
+          "F",
+          "G",
+          "J"
+        ]
+      },
+      "published": false
+    },
+    {
+      "id": "F43",
+      "group": "测量效度与稳健性",
+      "editorial_tier": "首页核心",
+      "title_en": "Static evaluation can mistake legitimate adaptation for failure.",
+      "title_zh": "静态评估可能将合理的交互适应误判为失败。",
+      "summary_en": "Without scene revision, 22.9% of turns after an admitted rule revision receive an L1 failure against rules that the interaction has already changed.",
+      "clarification": "Without scene revision, 22.9% of turns after an admitted rule revision receive an L1 failure against rules that the interaction has already changed.",
+      "supporting_data": "22.9% of turns after an admitted revision",
+      "paper_source": "Table 34; §4.9.3",
+      "pdf_pages": "49,50",
+      "limitation": "This is a controlled removal of scene revision. The denominator includes only turns after an admitted revision, not all turns or all static evaluation systems.",
+      "limitation_en": "This is a controlled removal of scene revision. The denominator includes only turns after an admitted revision, not all turns or all static evaluation systems.",
+      "measure": "scene-revision",
+      "category_id": "C07",
+      "category_slug": "measurement",
+      "category_en": "Measurement Validity",
+      "tier_en": "Core finding",
+      "verified_pages": [
+        49,
+        50
+      ],
+      "related_ids": [
+        "F36",
+        "F44"
+      ],
+      "related_within_category": "F36,F44",
+      "next_finding": "F07",
+      "priority_zh": "强烈推荐",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=scene-revision&finding=F43",
+      "published": false
+    },
+    {
+      "id": "F44",
+      "group": "测量效度与稳健性",
+      "editorial_tier": "首页核心",
+      "title_en": "Judging six capabilities in one call makes the judgment less reliable.",
+      "title_zh": "同时评估更多能力，反而可能降低 AI 评判的可靠性。",
+      "summary_en": "Asking a judge to grade all six levels at once separates them less sharply and repeats less consistently than grading each level on its own.",
+      "clarification": "Combining all six capability grades in one call lowers single-level probe separation from 90% to 61% and repeated-grading agreement from 0.871 to 0.833.",
+      "supporting_data": "Single-level probes: 90% → 61%; reliability: 0.871 → 0.833",
+      "paper_source": "Table 34; §4.9.3",
+      "pdf_pages": "49,50",
+      "limitation": "These controlled probes test separation required by the instrument’s definitions. Agreement across grading runs is a reliability measure, not independent objective accuracy.",
+      "limitation_en": "Controlled probes built to the instrument’s definitions. Agreement between grading runs is a reliability measure, not independent objective accuracy.",
+      "measure": "joint-level-judging",
+      "category_id": "C07",
+      "category_slug": "measurement",
+      "category_en": "Measurement Validity",
+      "tier_en": "Core finding",
+      "verified_pages": [
+        49,
+        50
+      ],
+      "related_ids": [
+        "F43",
+        "F37"
+      ],
+      "related_within_category": "F43,F37",
+      "next_finding": "F42",
+      "priority_zh": "强烈推荐",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=joint-level-judging&finding=F44",
+      "published": false,
+      "evidence_summary_en": "Single-level probe separation falls from 90% to 61%; agreement between two independent grading runs falls from 0.871 to 0.833.",
+      "review_status": "confirmed"
+    },
+    {
+      "id": "F45",
+      "group": "测量效度与稳健性",
+      "editorial_tier": "首页核心",
+      "title_en": "Naturally occurring interactions can leave major capabilities untested.",
+      "title_zh": "自然发生的交互数据可能系统性遗漏重要能力。",
+      "summary_en": "Functional tasks make up approximately 2.6% of the original role-play material. Across the audited observational source pools, 10–13 of the 27 designed scenario cells contain no samples before coverage correction.",
+      "clarification": "Functional tasks make up approximately 2.6% of the original role-play material. Across the audited observational source pools, 10–13 of the 27 designed scenario cells contain no samples before coverage correction.",
+      "supporting_data": "Functional role-play cases: ≈2.6%; empty cells: 10–13 / 27",
+      "paper_source": "Table 2; §3.2.2",
+      "pdf_pages": "12,13",
+      "limitation": "The 2.6% share concerns role-play material; the empty-cell range concerns the audited source pools. The 27 cells define this study’s sampling frame, not every possible capability or natural interaction.",
+      "limitation_en": "The 2.6% share concerns role-play material; the empty-cell range concerns the audited source pools. The 27 cells define this study’s sampling frame, not every possible capability or natural interaction.",
+      "measure": "scenario-coverage",
+      "category_id": "C07",
+      "category_slug": "measurement",
+      "category_en": "Measurement Validity",
+      "tier_en": "Core finding",
+      "verified_pages": [
+        12,
+        13
+      ],
+      "related_ids": [
+        "F36",
+        "F48"
+      ],
+      "related_within_category": "F36,F48",
+      "next_finding": "F07",
+      "priority_zh": "强烈推荐",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=scenario-coverage&finding=F45",
+      "published": false
+    },
+    {
+      "id": "F46",
+      "group": "交互对象与群体效应",
+      "editorial_tier": "延伸发现",
+      "title_en": "Simulated users can be more expressive yet less consistent than humans.",
+      "title_zh": "模拟用户可能表达更丰富，却比真实用户更缺乏一致性。",
+      "summary_en": "Simulated users have MTLD lexical diversity of 79.8–95.5 versus 60.1 in human–AI logs, but flagged user contradictions of 7.1%–18.1% versus 4.6% in those logs.",
+      "clarification": "Simulated users have MTLD lexical diversity of 79.8–95.5 versus 60.1 in human–AI logs, but flagged user contradictions of 7.1%–18.1% versus 4.6% in those logs.",
+      "supporting_data": "MTLD: 79.8–95.5 vs 60.1; contradictions: 7.1%–18.1% vs 4.6%",
+      "paper_source": "Table 16; §4.5.2",
+      "pdf_pages": "34,35",
+      "limitation": "Contradiction checks differ: simulated users are checked against prior utterances and their role view; human logs are checked only against prior utterances. These descriptive rates are not a matched causal comparison. MTLD measures lexical diversity, not realism.",
+      "limitation_en": "Contradiction checks differ: simulated users are checked against prior utterances and their role view; human logs are checked only against prior utterances. These descriptive rates are not a matched causal comparison. MTLD measures lexical diversity, not realism.",
+      "measure": "simulated-user-quality",
+      "category_id": "C04",
+      "category_slug": "partners",
+      "category_en": "Partner and Group Effects",
+      "tier_en": "Further finding",
+      "verified_pages": [
+        34,
+        35
+      ],
+      "related_ids": [
+        "F21",
+        "F24"
+      ],
+      "related_within_category": "F21,F24",
+      "next_finding": "F45",
+      "priority_zh": "推荐",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=simulated-user-quality&finding=F46",
+      "published": false
+    },
+    {
+      "id": "F47",
+      "group": "测量效度与稳健性",
+      "editorial_tier": "延伸发现",
+      "title_en": "Adaptive stopping can conceal differences between AI systems.",
+      "title_zh": "自适应结束交互可能掩盖 AI 系统之间的能力差异。",
+      "summary_en": "On the same fixed-length subsample, the across-model composite range is 0.223 under adaptive stopping and 0.267 at 32 turns. The full-design adaptive range is 0.222. Weaker systems lose more over the extended interactions.",
+      "clarification": "On the same fixed-length subsample, the across-model composite range is 0.223 under adaptive stopping and 0.267 at 32 turns. The full-design adaptive range is 0.222. Weaker systems lose more over the extended interactions.",
+      "supporting_data": "Matched subsample: 0.223 → 0.267; full-design adaptive: 0.222",
+      "paper_source": "Table 31; §4.9.2",
+      "pdf_pages": "47",
+      "limitation": "Continuing after natural stopping changes the evaluation conditions and includes turns after successful closure. The within-subsample comparison is 0.223 versus 0.267; 0.222 is the full-design reference, not the matched baseline.",
+      "limitation_en": "Continuing after natural stopping changes the evaluation conditions and includes turns after successful closure. The within-subsample comparison is 0.223 versus 0.267; 0.222 is the full-design reference, not the matched baseline.",
+      "measure": "fixed32",
+      "category_id": "C07",
+      "category_slug": "measurement",
+      "category_en": "Measurement Validity",
+      "tier_en": "Further finding",
+      "verified_pages": [
+        47
+      ],
+      "related_ids": [
+        "F06",
+        "F36"
+      ],
+      "related_within_category": "F06,F36",
+      "next_finding": "F14",
+      "priority_zh": "推荐",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=fixed32&finding=F47",
+      "published": false
+    },
+    {
+      "id": "F48",
+      "group": "测量效度与稳健性",
+      "editorial_tier": "延伸发现",
+      "title_en": "The presentation of identical information can change measured AI performance.",
+      "title_zh": "相同的信息仅因呈现方式不同，就可能改变测得的 AI 表现。",
+      "summary_en": "Replacing structured scene and profile fields with natural-language prose lowers scores for nine of ten systems, with a mean absolute composite change of approximately 0.012. The information content is held fixed.",
+      "clarification": "Replacing structured scene and profile fields with natural-language prose lowers scores for nine of ten systems, with a mean absolute composite change of approximately 0.012. The information content is held fixed.",
+      "supporting_data": "Models with lower scores: 9 / 10; mean |Δq|: ≈0.012",
+      "paper_source": "Tables 26–27; §4.9.1",
+      "pdf_pages": "43,44",
+      "limitation": "Serialization changes wherever scenes and profiles enter the protocol, including generation and engagement judgment. The effect cannot be attributed to the scoring judge alone. Mean absolute change includes the one model whose score rises.",
+      "limitation_en": "Serialization changes wherever scenes and profiles enter the protocol, including generation and engagement judgment. The effect cannot be attributed to the scoring judge alone. Mean absolute change includes the one model whose score rises.",
+      "measure": "serialization-format",
+      "category_id": "C07",
+      "category_slug": "measurement",
+      "category_en": "Measurement Validity",
+      "tier_en": "Further finding",
+      "verified_pages": [
+        43,
+        44
+      ],
+      "related_ids": [
+        "F45",
+        "F40"
+      ],
+      "related_within_category": "F45,F40",
+      "next_finding": "F06",
+      "priority_zh": "推荐",
+      "clean_permalink_proposed": "https://worldeology.com/InteractNet/index.html#comparisons?measure=serialization-format&finding=F48",
+      "published": false
     }
   ],
   "evidence_anchors": [
@@ -2018,7 +2507,8 @@
         "F22",
         "F23",
         "F24",
-        "F28"
+        "F28",
+        "F46"
       ],
       "transition_to_next_zh": "交互复杂性会放大差距；能否通过认知架构增强主动能力？",
       "next_category": "C05",
@@ -2083,7 +2573,12 @@
         "F37",
         "F40",
         "F41",
-        "F42"
+        "F42",
+        "F43",
+        "F44",
+        "F45",
+        "F47",
+        "F48"
       ],
       "transition_to_next_zh": "回到 C01：哪些能力差异在可审计的测量下依然成立？",
       "next_category": "C01",
@@ -2199,5 +2694,55 @@
     "date": "2026-11-05",
     "method": "Compared the supplied JSON and workbook with the matching local manuscript. Added English evidence summaries and limitations; did not infer missing curve points.",
     "cost_generation_calculation": "2 × (4450 + 305) = 9510 input-plus-output tokens per exchange"
+  },
+  "published_ids": [
+    "F01",
+    "F04",
+    "F07",
+    "F09",
+    "F14",
+    "F19",
+    "F28",
+    "F26",
+    "F30"
+  ],
+  "source_review": {
+    "url": "https://docs.google.com/spreadsheets/d/1ALnCQklBXagNB87tN8BHyxlfuR50Jl6cZcJpSRDvJ5s/edit?usp=sharing",
+    "modified_time": "2026-11-09T16:06:49.484Z",
+    "title": "InteractNet — Findings 网站设计与审核总表（2026-11）",
+    "published_sheet": "网站文案",
+    "confirmed_ids": [
+      "F01",
+      "F07",
+      "F13",
+      "F26",
+      "F28",
+      "F30",
+      "F35"
+    ],
+    "provisional_ids": [
+      "F09",
+      "F19",
+      "F22",
+      "F32"
+    ],
+    "merged": {
+      "F03": "F01",
+      "F08": "F07",
+      "F05": "F26",
+      "F24": "F19"
+    },
+    "suggested_merges": {
+      "F17": "F13",
+      "F21": "F19"
+    },
+    "removed": [
+      "F25",
+      "F33",
+      "F36"
+    ],
+    "pending": [
+      "F43"
+    ]
   }
 }

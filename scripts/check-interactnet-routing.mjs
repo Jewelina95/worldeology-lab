@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import vm from 'node:vm';
 
 const root=resolve('dist');
-const pages=['index.html','research.html','showcase.html','response-interaction.html','key-findings-zh.html','assets/research/findings-bilingual.html'];
+const pages=['index.html','research.html','showcase.html','response-interaction.html','assets/research/findings-bilingual.html'];
 for(const page of pages){
  const current=readFileSync(resolve(root,'InteractNet',page),'utf8');
  assert.ok(current.includes('InteractNet'),page+' is missing the new brand');

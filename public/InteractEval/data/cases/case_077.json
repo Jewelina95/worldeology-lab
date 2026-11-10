@@ -116,7 +116,7 @@
   },
   "administration": {
     "assistant_system": "gpt-6-astra",
-    "user_system": "claude-5-opus",
+    "user_system": "claude-opus-5",
     "protocol": "one-sided",
     "judge": "Claude Opus 5",
     "extraction_model": "Claude Opus 5",

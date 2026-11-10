@@ -317,3 +317,23 @@ html[data-ui-input=keyboard] select,html[data-ui-input=keyboard] select::picker-
 .main-capability-table .active-level-column :is(strong,span){color:#513b0f;font-weight:700}
 .atlas-mobile-model button[data-main-level="L5"],.atlas-mobile-model button[data-main-level="L6"]{background:#ffe7a1;color:#513b0f}
 @media(max-width:600px){.finding-information-definitions{margin:0 0 22px 36px}.finding-information-definitions table{font-size:12px}.finding-information-definitions th,.finding-information-definitions td{padding:9px 6px}}
+
+/* Capability requirements accumulate; numeric scoring remains unchanged. */
+.cumulative-rubric{background:#f3f6ef;border:1px solid #dce5d8;border-radius:12px;padding:26px;min-width:0;align-self:start}
+.cumulative-rubric h3{font:500 23px/1.25 var(--sans);letter-spacing:-.5px;color:#193b30;margin:0 0 22px}
+.capability-equations{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.capability-equations>li{display:grid;grid-template-columns:27px 12px minmax(0,1fr);gap:10px;align-items:baseline;border-radius:7px;padding:12px 10px;color:#52645b}
+.capability-equations>li[aria-current=step]{background:#e2ecd9;color:#193b30;box-shadow:inset 3px 0 #52765b}
+.capability-symbol,.capability-inherited{font:500 17px/1.5 var(--sans);font-variant-numeric:tabular-nums;white-space:nowrap;color:#193b30}
+.capability-symbol sub,.capability-inherited sub{font-size:.7em;vertical-align:sub;line-height:0}
+.capability-equals,.capability-plus{font:400 17px/1.5 var(--sans);color:#71836d}
+.capability-requirement{display:grid;grid-template-columns:25px 12px minmax(0,1fr);gap:8px;align-items:baseline;min-width:0}
+.capability-equations>li:first-child .capability-requirement{grid-template-columns:minmax(0,1fr)}
+.capability-addition{font:400 15px/1.65 var(--sans);overflow-wrap:normal}
+.capability-equation-note{margin:20px 10px 0;font:400 13px/1.6 var(--sans);color:#52645b}
+@media(max-width:700px){.cumulative-rubric{padding:22px 15px}.cumulative-rubric h3{font-size:22px}.capability-equations>li{gap:7px;padding:11px 7px}.capability-requirement{gap:6px;grid-template-columns:23px 10px minmax(0,1fr)}.capability-addition{font-size:15px}}
+
+.research-feature .research-rubric{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:24px;align-items:start}
+.research-feature .rubric-ladder{align-content:start}
+.research-feature .rubric-ladder>button{min-height:70px;padding:16px 14px}
+@media(max-width:700px){.research-feature .research-rubric{grid-template-columns:minmax(0,1fr)}}

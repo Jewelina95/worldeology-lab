@@ -40,7 +40,7 @@ families = [
 ]
 
 latent = {
- 'model':'claude-fable-5.1', 'partner':'claude-5-opus', 'outcome':'Successful closure',
+ 'model':'claude-fable-5.1', 'partner':'claude-opus-5', 'outcome':'Successful closure',
  'title':'The meaning of the coat', 'turns':list(range(1,11)),
  'slots': {
   'Trust':['low']*4+['high']*6,
@@ -173,7 +173,7 @@ for lang in ['en','zh']:
  interest_ax.set_ylabel('用户兴趣' if zh else 'User interest')
  for t in [1,5,7,10]: interest_ax.annotate(f"{latent['interest'][t-1]:.2f}",(t,latent['interest'][t-1]),xytext=(0,9),textcoords='offset points',ha='center',fontsize=9)
  fig.text(.16,.94,'话没说完，状态已经在变' if zh else 'The state changes before the story is fully told.',fontsize=22,color='#244633')
- fig.text(.16,.885,'一段对话的 10 轮记录 · 用户视角 · claude-fable-5.1 / claude-5-opus' if zh else 'One recorded conversation · user as subject · claude-fable-5.1 / claude-5-opus',fontsize=11,color='#70806a')
+ fig.text(.16,.885,'一段对话的 10 轮记录 · 用户视角 · claude-fable-5.1 / claude-opus-5' if zh else 'One recorded conversation · user as subject · claude-fable-5.1 / claude-opus-5',fontsize=11,color='#70806a')
  fig.text(.16,.035,'状态格是有序类别，颜色表示程度、不表示好坏。用户兴趣另用 0–1 刻度；10 轮后成功结束。' if zh else 'States are ordinal; color indicates degree, not quality. Interest uses a separate 0–1 scale. Closure at turn 10.',fontsize=10,color='#74816d')
  save(fig,f'latent-state-over-time-{lang}')
 

@@ -740,7 +740,7 @@ L 851.02 491.34625
    <text style="fill: #244633; font: 22px 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start" x="54.7" y="24.78625" transform="rotate(-0 54.7 24.78625)">话没说完，状态已经在变</text>
   </g>
   <g id="text_87">
-   <text style="fill: #70806a; font: 11px 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start" x="54.7" y="56.46625" transform="rotate(-0 54.7 56.46625)">一段对话的 10 轮记录 · 用户视角 · claude-fable-5.1 / claude-5-opus</text>
+   <text style="fill: #70806a; font: 11px 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start" x="54.7" y="56.46625" transform="rotate(-0 54.7 56.46625)">一段对话的 10 轮记录 · 用户视角 · claude-fable-5.1 / claude-opus-5</text>
   </g>
   <g id="text_88">
    <text style="fill: #74816d; font: 10px 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start" x="54.7" y="546.06625" transform="rotate(-0 54.7 546.06625)">状态格是有序类别，颜色表示程度、不表示好坏。用户兴趣另用 0–1 刻度；10 轮后成功结束。</text>

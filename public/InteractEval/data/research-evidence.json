@@ -208,7 +208,7 @@
   ],
   "latent_episode": {
     "model": "claude-fable-5.1",
-    "partner": "claude-5-opus",
+    "partner": "claude-opus-5",
     "outcome": "Successful closure",
     "title": "The meaning of the coat",
     "turns": [

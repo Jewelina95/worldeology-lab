@@ -80,8 +80,8 @@ function afterExplorerRender(){
   if(route==='research'||route==='home'){
     researchObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting&&route!=='home')document.querySelectorAll('.article-rail [data-research-section]').forEach(a=>a.classList.toggle('active',a.dataset.researchSection===entry.target.id));},{rootMargin:'-90px 0px -55% 0px'});
     document.querySelectorAll('.article-section').forEach(s=>researchObserver.observe(s));
-    const requested=location.hash.slice(1).split('?')[0],aliases={outcomes:'process',coverage:'comparisons',capability:'model-readout',partners:'comparisons',duration:'comparisons',architectures:'comparisons',stages:'comparisons',scenarios:'comparisons',reliability:'comparisons',method:'evidence',notes:'takeaways'},target=aliases[requested]||requested;
-    if(lastJournalAnchor!==location.pathname+location.hash){lastJournalAnchor=location.pathname+location.hash;const destination=target==='comparisons'&&document.querySelector('.finding-evidence-intro,#main-comparison-body.finding-focus')?document.querySelector('#main-comparison-body .comparison-content'):document.getElementById(target);if(destination)requestAnimationFrame(()=>destination.isConnected&&destination.scrollIntoView({block:'start',behavior:'instant'}));}
+    const requested=location.hash.slice(1).split('?')[0],aliases={findings:'key-findings',outcomes:'process',coverage:'comparisons',capability:'model-readout',partners:'comparisons',duration:'comparisons',architectures:'comparisons',stages:'comparisons',scenarios:'comparisons',reliability:'comparisons',method:'evidence',notes:'takeaways'},target=aliases[requested]||requested;
+    if(lastJournalAnchor!==location.pathname+location.hash){lastJournalAnchor=location.pathname+location.hash;const destination=target==='comparisons'&&document.querySelector('.finding-evidence-intro,#main-comparison-body.finding-focus')?findingEvidenceTarget():document.getElementById(target);if(destination)requestAnimationFrame(()=>destination.isConnected&&destination.scrollIntoView({block:'start',behavior:'instant'}));}
   }
 }
 document.addEventListener('click',event=>{

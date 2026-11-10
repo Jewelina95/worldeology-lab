@@ -11,7 +11,7 @@ root=Path(__file__).resolve().parent.parent
 pdf_path=args.paper.resolve(strict=True)
 pdf=fitz.open(pdf_path)
 text='\n'.join(p.get_text() for p in pdf).replace('−','-')
-names=['claude-opus-5.5','gpt-6-astra','claude-fable-5.1','claude-5-opus','gpt-5.6-sol','qwen3.8-max','gemini-3.8-flash','deepseek-v4-pro','kimi-k3','glm-5.3-flash']
+names=['claude-opus-5.5','gpt-6-astra','claude-fable-5.1','claude-opus-5','gpt-5.6-sol','qwen3.8-max','gemini-3.8-flash','deepseek-v4-pro','kimi-k3','glm-5.3-flash']
 scenario_titles={
  'S02':'A gentler start to training',
  'S03':'Listening on a late-night support line',
@@ -64,7 +64,7 @@ for name in names:
  v=t16[name]
  for i,architecture in enumerate(['Base model','MetaMind','Cognizer','Claude Code']):
   if i:agents.append(dict(base_model=name,architecture=architecture,composite=v[i],active_adaptation=v[4+i],purpose_delta=v[8+i]))
-paper={'source':'Qwen_InteractNet.pdf','sha256':hashlib.sha256(pdf_path.read_bytes()).hexdigest(),'scope':{'scenario_cells':27,'dialogues_per_cell':30,'passes':3,'episodes_per_model':2430,'standard_user':'claude-5-opus','judge':'Claude Opus 5'},'tables':{'models':{'table':4,'page':19},'facets':{'table':6,'page':21},'outcomes':{'table':9,'page':24},'agents':{'table':16,'page':28},'architecture_gains':{'table':17,'page':28}},'models':models,'agents':agents,'architecture_gains':[{'architecture':'MetaMind','composite':.033,'stages':[.012,.026,.043],'purpose_delta':.025,'purpose_gains':{'functional': 0.021, 'mixed': 0.032, 'nonfunctional': 0.046}},{'architecture':'Cognizer','composite':.050,'stages':[.012,.038,.066],'purpose_delta':-.029,'purpose_gains':{'functional': 0.061, 'mixed': 0.056, 'nonfunctional': 0.032}},{'architecture':'Claude Code','composite':.041,'stages':[.016,.024,.058],'purpose_delta':-.043,'purpose_gains':{'functional': 0.062, 'mixed': 0.042, 'nonfunctional': 0.019}}]}
+paper={'source':'Qwen_InteractNet.pdf','sha256':hashlib.sha256(pdf_path.read_bytes()).hexdigest(),'scope':{'scenario_cells':27,'dialogues_per_cell':30,'passes':3,'episodes_per_model':2430,'standard_user':'claude-opus-5','judge':'Claude Opus 5'},'tables':{'models':{'table':4,'page':19},'facets':{'table':6,'page':21},'outcomes':{'table':9,'page':24},'agents':{'table':16,'page':28},'architecture_gains':{'table':17,'page':28}},'models':models,'agents':agents,'architecture_gains':[{'architecture':'MetaMind','composite':.033,'stages':[.012,.026,.043],'purpose_delta':.025,'purpose_gains':{'functional': 0.021, 'mixed': 0.032, 'nonfunctional': 0.046}},{'architecture':'Cognizer','composite':.050,'stages':[.012,.038,.066],'purpose_delta':-.029,'purpose_gains':{'functional': 0.061, 'mixed': 0.056, 'nonfunctional': 0.032}},{'architecture':'Claude Code','composite':.041,'stages':[.016,.024,.058],'purpose_delta':-.043,'purpose_gains':{'functional': 0.062, 'mixed': 0.042, 'nonfunctional': 0.019}}]}
 # Use actual PDF page locations for every reference.
 for key,needle in [('facets','Table 6: Scores'),('outcomes','Table 9: Distribution')]:
  paper['tables'][key]['page']=next(i+1 for i,p in enumerate(pdf) if needle in p.get_text())

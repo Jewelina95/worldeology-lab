@@ -21,7 +21,6 @@ function navigationIcon(name){return `<svg viewBox="0 0 24 24" fill="none" strok
 
 function renderEditorialNavigation(){
   const base='./index.html#',groups={
-    findings:{label:'Findings',title:'Research findings',intro:'Seven research questions connect 34 claims to their evidence.',href:base+'key-findings',items:findingsResearch.categories.map(c=>[c.title_en,c.research_question_en,'key-findings?category='+c.slug,'theory'])},
     models:{label:'Models',title:'Model evaluations',intro:'Explore the measures, with a guide to what each one tells you.',href:base+'models',items:[
       ['All evaluations','Every measure in one workspace.','models','overview'],
       ['Capabilities','Six levels, from goals to sustained initiative.','models?category=Capabilities','capability'],
@@ -59,7 +58,7 @@ function renderEditorialNavigation(){
     ]}
   };
   const item=(id,g)=>`<div class="restored-nav-item"><a href="${g.href}" ${route===id||(id==='showcase'&&route==='cases')?'aria-current="page"':''}>${g.label}</a><button data-nav-menu="${id}" aria-label="Open ${g.label} menu" aria-expanded="false" aria-controls="nav-${id}"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></button><div class="restored-nav-menu" id="nav-${id}" hidden><header><span>Explore ${g.label}</span><h2>${g.title}</h2><p>${g.intro}</p></header><div class="nav-card-grid">${g.items.map(([title,copy,url,icon])=>`<a class="nav-destination" href="${url.startsWith('./')?url:base+url}"><i>${agentIdentity[icon]?agentIcon(icon):navigationIcon(icon)}</i><span><strong>${title}</strong><small>${copy}</small></span><b aria-hidden="true">&#8599;</b></a>`).join('')}</div></div></div>`;
-  $('.primary-nav').innerHTML=`<a class="results-nav-link" href="./index.html" ${route==='home'?'aria-current="page"':''}>Main</a>`+Object.entries(groups).map(([id,g])=>item(id,g)).join('');
+  $('.primary-nav').innerHTML=`<a class="results-nav-link" href="./index.html" ${route==='home'?'aria-current="page"':''}>Main</a>`+`<a class="results-nav-link" href="./index.html#key-findings">Findings</a>`+Object.entries(groups).map(([id,g])=>item(id,g)).join('');
   $('.wordmark').href='./index.html';
 }
 

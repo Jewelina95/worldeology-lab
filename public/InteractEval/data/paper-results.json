@@ -6,7 +6,7 @@
     "dialogues_per_cell": 30,
     "passes": 3,
     "episodes_per_model": 2430,
-    "standard_user": "claude-5-opus",
+    "standard_user": "claude-opus-5",
     "judge": "Claude Opus 5"
   },
   "tables": {
@@ -394,7 +394,7 @@
       }
     },
     {
-      "name": "claude-5-opus",
+      "name": "claude-opus-5",
       "composite": 0.54,
       "levels": [
         0.777,
@@ -1208,21 +1208,21 @@
       "purpose_delta": -0.149
     },
     {
-      "base_model": "claude-5-opus",
+      "base_model": "claude-opus-5",
       "architecture": "MetaMind",
       "composite": 0.571,
       "active_adaptation": 0.433,
       "purpose_delta": -0.123
     },
     {
-      "base_model": "claude-5-opus",
+      "base_model": "claude-opus-5",
       "architecture": "Cognizer",
       "composite": 0.587,
       "active_adaptation": 0.455,
       "purpose_delta": -0.179
     },
     {
-      "base_model": "claude-5-opus",
+      "base_model": "claude-opus-5",
       "architecture": "Claude Code",
       "composite": 0.583,
       "active_adaptation": 0.451,
@@ -1455,7 +1455,7 @@
       "span": 0.22
     },
     {
-      "partner": "claude-5-opus",
+      "partner": "claude-opus-5",
       "scores": [
         0.636,
         0.629,

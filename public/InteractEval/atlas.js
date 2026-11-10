@@ -70,15 +70,16 @@ let atlasScrollPending=false;
 window.addEventListener('scroll',()=>{if(!atlasScrollPending){atlasScrollPending=true;requestAnimationFrame(()=>{atlasScrollPending=false;syncAtlasActiveSection()});}},{passive:true});
 document.addEventListener('click',event=>{
  const finding=event.target.closest('[data-finding-measure]');
- if(finding&&!event.defaultPrevented&&event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey){
+ if(finding&&document.getElementById('main-comparison-body')&&!event.defaultPrevented&&event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey){
   event.preventDefault();
   if(finding.dataset.findingMeasure==='information')mainInformationView='conditions';
-  if(location.hash!==finding.getAttribute('href'))history.pushState(null,'',finding.getAttribute('href'));
+  history.pushState(null,'',finding.getAttribute('href'));
+  lastJournalAnchor=location.pathname+location.hash;
   selectMainComparison(finding.dataset.findingMeasure);
   lastMainComparisonHash=location.hash;
   document.getElementById('main-comparison-body')?.focus({preventScroll:true});
   window.InteractNetFindingFocus?.show(finding.dataset.findingMeasure);
-  atlasScrollTo(document.querySelector('#main-comparison-body .comparison-content')||document.getElementById('comparisons'));
+  atlasScrollTo(findingEvidenceTarget());
  }
  const toggle=event.target.closest('[data-atlas-contents]');
  if(toggle){const expanded=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(expanded));document.querySelector('.main-results-rail').classList.toggle('is-open',expanded);}

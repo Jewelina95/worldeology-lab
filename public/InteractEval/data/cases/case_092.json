@@ -122,7 +122,7 @@
   },
   "administration": {
     "assistant_system": "qwen3.8-max",
-    "user_system": "claude-5-opus",
+    "user_system": "claude-opus-5",
     "protocol": "one-sided",
     "judge": "Claude Opus 5",
     "extraction_model": "Claude Opus 5",
