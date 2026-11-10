@@ -65,7 +65,7 @@
       "limitation": "仅限当前10模型",
       "measure": "stage-profile",
       "view_design": "两模型三阶段分数并排 + 六级能力表",
-      "highlight": "锁定 DeepSeek V4 Pro、Claude Opus 5.5；突出 L1–L2 平手、L5–L6 分化",
+      "highlight": "锁定 DeepSeek V4 Pro、claude-opus-5.5；突出 L1–L2 平手、L5–L6 分化",
       "deduplication": "关联 F01：作为具象对照",
       "proposed_url": "https://worldeology.com/InteractNet/index.html?v=0cd9f10#comparisons?measure=stage-profile&finding=F02",
       "existing_url": null,

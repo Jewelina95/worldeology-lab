@@ -112,8 +112,8 @@
     "assistant_system": "kimi-k3",
     "user_system": "claude-opus-5",
     "protocol": "two-sided",
-    "judge": "Claude Opus 5",
-    "extraction_model": "Claude Opus 5",
+    "judge": "claude-opus-5",
+    "extraction_model": "claude-opus-5",
     "original": {
       "protocol": "two_sided_x2",
       "terminal_state": "exhaustion of interest",

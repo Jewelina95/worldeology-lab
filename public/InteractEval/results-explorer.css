@@ -214,12 +214,3 @@
 .pairing-matrix tbody th .model-identity>img{width:16px;height:16px}
 .pairing-matrix tbody th>small{margin-left:23px}
 .pairing-readout .model-identity>img{width:15px;height:15px}
-
-/* Manuscript hierarchy, including the two robustness subsections. */
-.paper-rail-section>h3{font:600 11px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#71816c;margin:19px 9px 7px}
-.main-rail-group .main-rail-subgroup{margin:3px 0;border:0;background:transparent}
-.main-rail-group .main-rail-subgroup>summary{font-size:12px;padding-left:3px!important}
-.main-rail-group .main-rail-subgroup>div{margin-left:5px}
-.main-rail-group[open]>summary:after{transform:rotate(45deg)}
-.main-rail-group:not([open])>summary:after{transform:rotate(-45deg)}
-.main-measure-selector h3{overflow-wrap:normal}

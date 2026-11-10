@@ -1,0 +1,18 @@
+{
+  "asset": "figure1-static-v2.png",
+  "kind": "conceptual illustration",
+  "generation": "built-in image_gen",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "revision": "2026-11-10",
+  "changes": [
+    "Two responsive dialogue exchanges",
+    "Static figure, no controls",
+    "Remove Safe model badge and inter-panel plants",
+    "Align latent-state and event-chain captions",
+    "Fictional cartoon Bomb throw, retreating spacecraft, relieved participant"
+  ],
+  "note": "Redrawn artwork. Opening prompt is Can you help me handle this?; no technical instructions depicted."
+}

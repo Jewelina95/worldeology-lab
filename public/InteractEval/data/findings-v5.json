@@ -1,8 +1,125 @@
 {
-  "title": "InteractNet: 40 academically reviewed findings",
   "schema_version": "research-question-taxonomy-v6",
-  "status": "taxonomy, site navigation and focus proposal; no live site changes",
-  "language_principle": "Short clear generalizable academic claim; no model-specific numbers in headline; evidence panel owns numbers and caveats.",
+  "reading_paths": [
+    {
+      "id": "P01",
+      "question_zh": "哪些模型能力真正拉开差距？",
+      "finding_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F06",
+        "F36"
+      ],
+      "argument_zh": "能力差异→总分信息损失→汇总规则→测量效度",
+      "reader_takeaway_zh": "先理解差异，再验证一种总分是否足以表达它。",
+      "question_en": "Where do model capabilities diverge?"
+    },
+    {
+      "id": "P02",
+      "question_zh": "信息不足如何影响模型的决策？",
+      "finding_ids": [
+        "F07",
+        "F08",
+        "F09",
+        "F11"
+      ],
+      "argument_zh": "信息条件→无依据补充→执行表现→提问频率",
+      "reader_takeaway_zh": "主动决策需要证据基础，提问频率只是表面行为。",
+      "question_en": "How do information gaps change decisions?"
+    },
+    {
+      "id": "P03",
+      "question_zh": "为什么局部回答不等于交互成功？",
+      "finding_ids": [
+        "F13",
+        "F14",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "argument_zh": "局部行为→逐轮分化→终局→任务目的→耐心机制",
+      "reader_takeaway_zh": "长期轨迹必须连同对话目的和结束条件一起解释。",
+      "question_en": "Why can good replies lead to poor outcomes?"
+    },
+    {
+      "id": "P04",
+      "question_zh": "一个模型的成绩有多少属于它的伙伴？",
+      "finding_ids": [
+        "F19",
+        "F21",
+        "F23",
+        "F24",
+        "F28"
+      ],
+      "argument_zh": "配对依赖→伙伴区分力→能力压力→角色差异→多人规模",
+      "reader_takeaway_zh": "能力的分析单位逐渐从个体扩展到配对与群体。",
+      "question_en": "How much of a score belongs to the partner?"
+    },
+    {
+      "id": "P05",
+      "question_zh": "增加认知架构会改变哪些能力？",
+      "finding_ids": [
+        "F25",
+        "F26",
+        "F30",
+        "F01"
+      ],
+      "argument_zh": "阶段增益→能力类型→基座依赖→能力分野",
+      "reader_takeaway_zh": "架构增益不同于规模效应，并且要联系基础能力。",
+      "question_en": "What do cognitive architectures improve?"
+    },
+    {
+      "id": "P06",
+      "question_zh": "模型内部状态究竟可读、可区分还是可控制？",
+      "finding_ids": [
+        "F31",
+        "F32",
+        "F33",
+        "F34",
+        "F35"
+      ],
+      "argument_zh": "角色读出→主体区分→误差→深层整合→干预",
+      "reader_takeaway_zh": "按表征证据层级递进，避免把可解码误当成真实理解。",
+      "question_en": "Can internal states be read, separated and controlled?"
+    },
+    {
+      "id": "P07",
+      "question_zh": "为什么可以信任这套交互评估？",
+      "finding_ids": [
+        "F36",
+        "F37",
+        "F40",
+        "F41",
+        "F06",
+        "F42"
+      ],
+      "argument_zh": "重建消融→人审→提取器→评估器→汇总方式→成本",
+      "reader_takeaway_zh": "将评估器自身的有效性和可靠性也作为测量对象。",
+      "question_en": "What makes the measurement trustworthy?"
+    }
+  ],
+  "editorial_tiers": {
+    "首页核心": 15,
+    "延伸发现": 21,
+    "补充证据": 4
+  },
+  "paper": {
+    "path": "./assets/InteractNet_research_v5.pdf",
+    "sha256": "f36861fc53e88d020a99ad587c59e6e54e43b60772f10f73a5699101b343b2a4",
+    "pages": 100,
+    "note": "Evidence links refer to the manuscript edition matching the supplied v5 taxonomy. The earlier site manuscript remains available separately."
+  },
+  "published_ids": [
+    "F01",
+    "F07",
+    "F09",
+    "F14",
+    "F19",
+    "F28",
+    "F26",
+    "F30"
+  ],
   "homepage_ids": [
     "F01",
     "F07",
@@ -13,11 +130,822 @@
     "F26",
     "F30"
   ],
+  "status": "taxonomy, site navigation and focus proposal; no live site changes",
+  "principle": "Each finding has one primary research-question category. Related findings and next steps are navigational connections, not causal inferences.",
+  "title": "InteractNet: 40 academically reviewed findings",
+  "categories": [
+    {
+      "id": "C01",
+      "slug": "capability",
+      "title_en": "Capability Differentiation",
+      "title_zh": "交互能力的分野",
+      "research_question_en": "What distinguishes the capabilities of contemporary models?",
+      "research_question_zh": "今天的模型，究竟在哪些交互能力上拉开差距？",
+      "naming_rationale_zh": "按被测能力来分组：执行、主动性、策略延续及其代理指标，而不是按某张表或某个具体模型分类。",
+      "in_scope_zh": "L1–L6 能力结构、相近执行与不同主动性、策略推进、提问行为与主动性区分",
+      "out_of_scope_zh": "不收录综合评分公式（C07）、信息条件操作（C02）",
+      "theoretical_lens": "Agency Principle / six-level hierarchy",
+      "finding_ids": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F11"
+      ],
+      "transition_to_next_zh": "已观察到的能力差异，在信息不足或场景改变时是否保持？",
+      "next_category": "C02",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability"
+    },
+    {
+      "id": "C02",
+      "slug": "context",
+      "title_en": "Context and Uncertainty",
+      "title_zh": "交互情境与不确定性",
+      "research_question_en": "When do information and objectives change model performance?",
+      "research_question_zh": "在什么信息条件和交互目标下，模型行为会发生改变？",
+      "naming_rationale_zh": "把输入条件和目标条件放在一起：两者决定何种行动有证据、有价值；不把这些条件误说成模型固有能力。",
+      "in_scope_zh": "任务与关系目标差异、信息充分性、无依据事实补充与证据约束",
+      "out_of_scope_zh": "不收录用户反馈随时间累积的结果（C03）",
+      "theoretical_lens": "Data Iceberg Theory / scene constraints",
+      "finding_ids": [
+        "F05",
+        "F07",
+        "F08",
+        "F09"
+      ],
+      "transition_to_next_zh": "即便某一轮回答看似合适，整段交互最终是否真的进展？",
+      "next_category": "C03",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context"
+    },
+    {
+      "id": "C03",
+      "slug": "trajectory",
+      "title_en": "Trajectory and Outcomes",
+      "title_zh": "交互轨迹与结果",
+      "research_question_en": "How can locally adequate replies produce different long-run outcomes?",
+      "research_question_zh": "为什么局部合理的回答不一定带来长期进展？",
+      "naming_rationale_zh": "按时间上的观察对象分类：状态如何变化、重复如何积累、何时结束，以及目标如何决定结束的解释。",
+      "in_scope_zh": "局部与全局反差、逐轮差异、停止机制、终局与任务目的",
+      "out_of_scope_zh": "不收录测量算法本身的有效性验证（C07）",
+      "theoretical_lens": "Movie Evaluation Theory / Event Chain",
+      "finding_ids": [
+        "F13",
+        "F14",
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "transition_to_next_zh": "一条交互轨迹的质量，究竟是谁贡献的——模型还是伙伴？",
+      "next_category": "C04",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory"
+    },
+    {
+      "id": "C04",
+      "slug": "partners",
+      "title_en": "Partner and Group Effects",
+      "title_zh": "交互对象与群体效应",
+      "research_question_en": "To what extent does performance depend on who interacts, and how many?",
+      "research_question_zh": "同一个模型，换对象、换角色或增加参与者后，表现会如何变化？",
+      "naming_rationale_zh": "统一以交互单元而不是单模型为分析对象：二人配对、角色、互相适配和多人规模是同一问题的不同层级。",
+      "in_scope_zh": "配对效应、模拟用户区分力、自我配对、角色不对称、多人交互",
+      "out_of_scope_zh": "架构作为外加干预的增益归 C05，不将“人数”当作“架构”",
+      "theoretical_lens": "Agency Principle + bidirectional protocol",
+      "finding_ids": [
+        "F19",
+        "F21",
+        "F22",
+        "F23",
+        "F24",
+        "F28",
+        "F46"
+      ],
+      "transition_to_next_zh": "交互复杂性会放大差距；能否通过认知架构增强主动能力？",
+      "next_category": "C05",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners"
+    },
+    {
+      "id": "C05",
+      "slug": "architectures",
+      "title_en": "Architectural Effects",
+      "title_zh": "认知架构与能力增强",
+      "research_question_en": "Which capabilities change when a cognitive architecture is added?",
+      "research_question_zh": "给模型加入认知架构后，哪些交互能力得到改善？",
+      "naming_rationale_zh": "按干预手段分类：所有结论都比较基础模型与增强架构，区分增益的幅度、能力方向和基础水平依赖。",
+      "in_scope_zh": "MetaMind、Cognizer、Claude Code 的阶段增益、任务偏向及基础模型依赖",
+      "out_of_scope_zh": "不是多人规模问题（C04）；不是隐藏层表征实验（C06）",
+      "theoretical_lens": "Agency Principle / architectural interventions",
+      "finding_ids": [
+        "F25",
+        "F26",
+        "F30"
+      ],
+      "transition_to_next_zh": "架构能改变外在行为；模型内部如何表示交互对象的信息？",
+      "next_category": "C06",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures"
+    },
+    {
+      "id": "C06",
+      "slug": "representations",
+      "title_en": "Internal Representations",
+      "title_zh": "交互状态的内部表征",
+      "research_question_en": "What is encoded, shared, integrated, and controllable inside the model?",
+      "research_question_zh": "模型内部能否区分交互双方状态，又如何整合对方的信息？",
+      "naming_rationale_zh": "按证据层级归类模型内部结果：解码、角色依赖、跨模型一致性、层间恢复与行为干预；与外部表现分开。",
+      "in_scope_zh": "用户投入程度读出、affection 状态区分、对齐与误差、深层整合、控制性干预",
+      "out_of_scope_zh": "不把探针可读性等同于主观体验，也不把测量框架消融归入内部机制",
+      "theoretical_lens": "Operational latent state / representation probes",
+      "finding_ids": [
+        "F31",
+        "F32",
+        "F33",
+        "F34",
+        "F35"
+      ],
+      "transition_to_next_zh": "内部读出具有局限，评估框架怎样避免把推断当成事实？",
+      "next_category": "C07",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations"
+    },
+    {
+      "id": "C07",
+      "slug": "measurement",
+      "title_en": "Measurement Validity",
+      "title_zh": "测量效度与稳健性",
+      "research_question_en": "How do we know the measured distinctions are reliable and interpretable?",
+      "research_question_zh": "这些交互差异究竟被多可靠地测量出来？",
+      "naming_rationale_zh": "收束整条研究论证：量表与汇总规则、状态重建消融、人工审计、评估器变化和实现成本都属于测量工具的性质。",
+      "in_scope_zh": "综合评分敏感性、重建有效性、人工审计、提取器/评审偏差、token 成本",
+      "out_of_scope_zh": "不把评估器能否读出状态混同为被测 AI 的内部能力",
+      "theoretical_lens": "Measurement instrument / descriptive–normative separation",
+      "finding_ids": [
+        "F06",
+        "F36",
+        "F37",
+        "F40",
+        "F41",
+        "F42",
+        "F43",
+        "F44",
+        "F45",
+        "F47",
+        "F48"
+      ],
+      "transition_to_next_zh": "回到 C01：哪些能力差异在可审计的测量下依然成立？",
+      "next_category": "C01",
+      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement"
+    }
+  ],
+  "language_principle": "Short clear generalizable academic claim; no model-specific numbers in headline; evidence panel owns numbers and caveats.",
+  "evidence_anchors": [
+    {
+      "id": "F01",
+      "subject": "Passive stage",
+      "metric": "range",
+      "value": 0.035,
+      "unit": "score",
+      "source": "Table 5",
+      "pdf_page": "p.24",
+      "note": "跨模型极差"
+    },
+    {
+      "id": "F01",
+      "subject": "Proactive stage",
+      "metric": "range",
+      "value": 0.37,
+      "unit": "score",
+      "source": "Table 5",
+      "pdf_page": "p.24",
+      "note": "跨模型极差"
+    },
+    {
+      "id": "F02",
+      "subject": "DeepSeek V4 Pro",
+      "metric": "passive",
+      "value": 0.787,
+      "unit": "score",
+      "source": "Table 5",
+      "pdf_page": "p.24",
+      "note": "与Opus并列"
+    },
+    {
+      "id": "F02",
+      "subject": "Opus 5.5",
+      "metric": "passive",
+      "value": 0.787,
+      "unit": "score",
+      "source": "Table 5",
+      "pdf_page": "p.24",
+      "note": "与DeepSeek并列"
+    },
+    {
+      "id": "F02",
+      "subject": "DeepSeek V4 Pro",
+      "metric": "proactive",
+      "value": 0.17,
+      "unit": "score",
+      "source": "Table 5",
+      "pdf_page": "p.24",
+      "note": ""
+    },
+    {
+      "id": "F02",
+      "subject": "Opus 5.5",
+      "metric": "proactive",
+      "value": 0.54,
+      "unit": "score",
+      "source": "Table 5",
+      "pdf_page": "p.24",
+      "note": ""
+    },
+    {
+      "id": "F06",
+      "subject": "Default weighting",
+      "metric": "roster span",
+      "value": 0.222,
+      "unit": "score",
+      "source": "Table 30",
+      "pdf_page": "p.47",
+      "note": ""
+    },
+    {
+      "id": "F06",
+      "subject": "Equal weighting",
+      "metric": "roster span",
+      "value": 0.163,
+      "unit": "score",
+      "source": "Table 30",
+      "pdf_page": "p.47",
+      "note": ""
+    },
+    {
+      "id": "F07",
+      "subject": "GPT-6 Astra sufficient",
+      "metric": "q",
+      "value": 0.662,
+      "unit": "score",
+      "source": "Table 7",
+      "pdf_page": "p.26",
+      "note": ""
+    },
+    {
+      "id": "F07",
+      "subject": "GPT-6 Astra partial",
+      "metric": "q",
+      "value": 0.592,
+      "unit": "score",
+      "source": "Table 7",
+      "pdf_page": "p.26",
+      "note": ""
+    },
+    {
+      "id": "F07",
+      "subject": "GPT-6 Astra insufficient",
+      "metric": "q",
+      "value": 0.603,
+      "unit": "score",
+      "source": "Table 7",
+      "pdf_page": "p.26",
+      "note": ""
+    },
+    {
+      "id": "F08",
+      "subject": "Sufficient",
+      "metric": "fabrication",
+      "value": 0.051,
+      "unit": "fraction of turns",
+      "source": "Table 8",
+      "pdf_page": "p.27",
+      "note": ""
+    },
+    {
+      "id": "F08",
+      "subject": "Partial",
+      "metric": "fabrication",
+      "value": 0.164,
+      "unit": "fraction of turns",
+      "source": "Table 8",
+      "pdf_page": "p.27",
+      "note": ""
+    },
+    {
+      "id": "F08",
+      "subject": "Insufficient",
+      "metric": "fabrication",
+      "value": 0.103,
+      "unit": "fraction of turns",
+      "source": "Table 8",
+      "pdf_page": "p.27",
+      "note": ""
+    },
+    {
+      "id": "F09",
+      "subject": "Passive vs fabrication",
+      "metric": "Spearman rho",
+      "value": 0.77,
+      "unit": "correlation",
+      "source": "Table 8",
+      "pdf_page": "p.27",
+      "note": "n=10 models"
+    },
+    {
+      "id": "F11",
+      "subject": "Kimi partner swap",
+      "metric": "clarification delta",
+      "value": 0.085,
+      "unit": "fraction of turns",
+      "source": "§4.6",
+      "pdf_page": "p.35",
+      "note": ""
+    },
+    {
+      "id": "F11",
+      "subject": "Kimi partner swap",
+      "metric": "L5 delta",
+      "value": 0.006,
+      "unit": "score",
+      "source": "§4.6",
+      "pdf_page": "p.35",
+      "note": "CI crosses 0"
+    },
+    {
+      "id": "F13",
+      "subject": "Case 1",
+      "metric": "ending user interest",
+      "value": 0.2,
+      "unit": "score",
+      "source": "Table 40",
+      "pdf_page": "p.81",
+      "note": "exhaustion at turn5"
+    },
+    {
+      "id": "F13",
+      "subject": "Case 2",
+      "metric": "final composite",
+      "value": 0.661,
+      "unit": "score",
+      "source": "Table 40",
+      "pdf_page": "p.81",
+      "note": "closure at turn6"
+    },
+    {
+      "id": "F14",
+      "subject": "Turn 1",
+      "metric": "range",
+      "value": 0.109,
+      "unit": "score",
+      "source": "Table 32",
+      "pdf_page": "p.48",
+      "note": "100% survived"
+    },
+    {
+      "id": "F14",
+      "subject": "Turn 16",
+      "metric": "range",
+      "value": 0.204,
+      "unit": "score",
+      "source": "Table 32",
+      "pdf_page": "p.48",
+      "note": "survival selection"
+    },
+    {
+      "id": "F19",
+      "subject": "Pairing",
+      "metric": "variance component",
+      "value": 0.099,
+      "unit": "fraction",
+      "source": "Table 29",
+      "pdf_page": "p.45",
+      "note": "defined variance denominator"
+    },
+    {
+      "id": "F21",
+      "subject": "Gemini user",
+      "metric": "row mean",
+      "value": 0.392,
+      "unit": "score",
+      "source": "Table 11",
+      "pdf_page": "p.31",
+      "note": ""
+    },
+    {
+      "id": "F21",
+      "subject": "Gemini user",
+      "metric": "across-assistant span",
+      "value": 0.209,
+      "unit": "score",
+      "source": "Table 11",
+      "pdf_page": "p.31",
+      "note": ""
+    },
+    {
+      "id": "F21",
+      "subject": "DeepSeek user",
+      "metric": "row mean",
+      "value": 0.49,
+      "unit": "score",
+      "source": "Table 11",
+      "pdf_page": "p.31",
+      "note": ""
+    },
+    {
+      "id": "F21",
+      "subject": "DeepSeek user",
+      "metric": "across-assistant span",
+      "value": 0.425,
+      "unit": "score",
+      "source": "Table 11",
+      "pdf_page": "p.31",
+      "note": ""
+    },
+    {
+      "id": "F24",
+      "subject": "User role",
+      "metric": "variance by user identity",
+      "value": 0.944,
+      "unit": "fraction",
+      "source": "§4.5.1",
+      "pdf_page": "p.32",
+      "note": ""
+    },
+    {
+      "id": "F24",
+      "subject": "User role",
+      "metric": "matrix residual",
+      "value": 0.02,
+      "unit": "fraction",
+      "source": "Table 15",
+      "pdf_page": "p.33",
+      "note": ""
+    },
+    {
+      "id": "F24",
+      "subject": "Assistant role",
+      "metric": "matrix residual",
+      "value": 0.109,
+      "unit": "fraction",
+      "source": "Table 11",
+      "pdf_page": "p.31",
+      "note": ""
+    },
+    {
+      "id": "F25",
+      "subject": "Cognizer",
+      "metric": "passive gain",
+      "value": 0.012,
+      "unit": "score",
+      "source": "Table 19",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F25",
+      "subject": "Cognizer",
+      "metric": "proactive gain",
+      "value": 0.066,
+      "unit": "score",
+      "source": "Table 19",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F26",
+      "subject": "MetaMind functional",
+      "metric": "gain",
+      "value": 0.021,
+      "unit": "score",
+      "source": "Table 19",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F26",
+      "subject": "MetaMind nonfunctional",
+      "metric": "gain",
+      "value": 0.046,
+      "unit": "score",
+      "source": "Table 19",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F26",
+      "subject": "Cognizer functional",
+      "metric": "gain",
+      "value": 0.061,
+      "unit": "score",
+      "source": "Table 19",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F26",
+      "subject": "Cognizer nonfunctional",
+      "metric": "gain",
+      "value": 0.032,
+      "unit": "score",
+      "source": "Table 19",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F28",
+      "subject": "2 participants",
+      "metric": "L1-L4",
+      "value": 0.722,
+      "unit": "score",
+      "source": "Table 20",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F28",
+      "subject": "4 participants",
+      "metric": "L1-L4",
+      "value": 0.692,
+      "unit": "score",
+      "source": "Table 20",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F28",
+      "subject": "2 participants",
+      "metric": "L5-L6",
+      "value": 0.348,
+      "unit": "score",
+      "source": "Table 20",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F28",
+      "subject": "4 participants",
+      "metric": "L5-L6",
+      "value": 0.243,
+      "unit": "score",
+      "source": "Table 20",
+      "pdf_page": "p.41",
+      "note": ""
+    },
+    {
+      "id": "F30",
+      "subject": "MetaMind+Cognizer",
+      "metric": "correlation",
+      "value": -0.99,
+      "unit": "approximate upper bound",
+      "source": "§4.8",
+      "pdf_page": "p.39",
+      "note": "reported r<=−0.99"
+    },
+    {
+      "id": "F32",
+      "subject": "Gemma assistant",
+      "metric": "affection cosine",
+      "value": 0.737,
+      "unit": "cosine",
+      "source": "Table 38",
+      "pdf_page": "p.77",
+      "note": ""
+    },
+    {
+      "id": "F32",
+      "subject": "Gemma assistant",
+      "metric": "residual user affection R2",
+      "value": -0.225,
+      "unit": "R²",
+      "source": "Table 38",
+      "pdf_page": "p.77",
+      "note": ""
+    },
+    {
+      "id": "F32",
+      "subject": "Qwen3.5 assistant",
+      "metric": "residual user affection R2",
+      "value": -0.182,
+      "unit": "R²",
+      "source": "Table 38",
+      "pdf_page": "p.77",
+      "note": ""
+    },
+    {
+      "id": "F32",
+      "subject": "Qwen3.8 assistant",
+      "metric": "residual user affection R2",
+      "value": -0.248,
+      "unit": "R²",
+      "source": "Table 38",
+      "pdf_page": "p.77",
+      "note": ""
+    },
+    {
+      "id": "F33",
+      "subject": "Gemma-Gemma",
+      "metric": "interest change r",
+      "value": 0.264,
+      "unit": "correlation",
+      "source": "§4.7.2",
+      "pdf_page": "p.37",
+      "note": ""
+    },
+    {
+      "id": "F33",
+      "subject": "Gemma assistant",
+      "metric": "within-dialogue R2",
+      "value": -0.374,
+      "unit": "R²",
+      "source": "§4.7.2",
+      "pdf_page": "p.37",
+      "note": ""
+    },
+    {
+      "id": "F33",
+      "subject": "Gemma user",
+      "metric": "within-dialogue R2",
+      "value": -0.246,
+      "unit": "R²",
+      "source": "§4.7.2",
+      "pdf_page": "p.37",
+      "note": ""
+    },
+    {
+      "id": "F34",
+      "subject": "Qwen layer52",
+      "metric": "final position recovery",
+      "value": 0.777,
+      "unit": "recovery",
+      "source": "§4.7.3",
+      "pdf_page": "p.38",
+      "note": ""
+    },
+    {
+      "id": "F34",
+      "subject": "After ablate 40 heads",
+      "metric": "partner sensitivity retained",
+      "value": 0.941,
+      "unit": "ratio",
+      "source": "§4.7.3",
+      "pdf_page": "p.39",
+      "note": ""
+    },
+    {
+      "id": "F36",
+      "subject": "Transcript + scene",
+      "metric": "state probe",
+      "value": 0.64,
+      "unit": "rate",
+      "source": "Table 34",
+      "pdf_page": "p.50",
+      "note": ""
+    },
+    {
+      "id": "F36",
+      "subject": "Full InteractNet",
+      "metric": "state probe",
+      "value": 0.91,
+      "unit": "rate",
+      "source": "Table 34",
+      "pdf_page": "p.50",
+      "note": ""
+    },
+    {
+      "id": "F36",
+      "subject": "Transcript + scene",
+      "metric": "recurrence probe",
+      "value": 0.49,
+      "unit": "rate",
+      "source": "Table 34",
+      "pdf_page": "p.50",
+      "note": ""
+    },
+    {
+      "id": "F36",
+      "subject": "Full InteractNet",
+      "metric": "recurrence probe",
+      "value": 0.89,
+      "unit": "rate",
+      "source": "Table 34",
+      "pdf_page": "p.50",
+      "note": ""
+    },
+    {
+      "id": "F37",
+      "subject": "L1 goal preservation",
+      "metric": "human endorsement",
+      "value": 0.988,
+      "unit": "rate",
+      "source": "Table 4",
+      "pdf_page": "p.22",
+      "note": ""
+    },
+    {
+      "id": "F37",
+      "subject": "L5 proactive agency",
+      "metric": "human endorsement",
+      "value": 0.789,
+      "unit": "rate",
+      "source": "Table 4",
+      "pdf_page": "p.22",
+      "note": ""
+    },
+    {
+      "id": "F37",
+      "subject": "L6 long-horizon coherence",
+      "metric": "human endorsement",
+      "value": 0.74,
+      "unit": "rate",
+      "source": "Table 4",
+      "pdf_page": "p.22",
+      "note": ""
+    },
+    {
+      "id": "F40",
+      "subject": "Qwen extractor",
+      "metric": "latent agreement",
+      "value": 0.806,
+      "unit": "fraction",
+      "source": "Table 25",
+      "pdf_page": "p.43",
+      "note": ""
+    },
+    {
+      "id": "F40",
+      "subject": "Gemini extractor",
+      "metric": "latent agreement",
+      "value": 0.816,
+      "unit": "fraction",
+      "source": "Table 25",
+      "pdf_page": "p.43",
+      "note": ""
+    },
+    {
+      "id": "F40",
+      "subject": "Both extractors",
+      "metric": "ranking Spearman rho",
+      "value": 0.988,
+      "unit": "correlation",
+      "source": "Table 25",
+      "pdf_page": "p.43",
+      "note": ""
+    },
+    {
+      "id": "F42",
+      "subject": "Generation",
+      "metric": "tokens per exchange",
+      "value": 9510,
+      "unit": "tokens",
+      "source": "Table 35",
+      "pdf_page": "p.50",
+      "note": ""
+    },
+    {
+      "id": "F42",
+      "subject": "Evaluation",
+      "metric": "tokens per exchange",
+      "value": 159680,
+      "unit": "tokens",
+      "source": "Table 35",
+      "pdf_page": "p.50",
+      "note": ""
+    }
+  ],
   "reviewed_count": 11,
-  "editorial_tiers": {
-    "首页核心": 15,
-    "延伸发现": 21,
-    "补充证据": 4
+  "source_review": {
+    "url": "https://docs.google.com/spreadsheets/d/1ALnCQklBXagNB87tN8BHyxlfuR50Jl6cZcJpSRDvJ5s/edit?usp=sharing",
+    "modified_time": "2026-11-09T16:06:49.484Z",
+    "title": "InteractNet — Findings 网站设计与审核总表（2026-11）",
+    "published_sheet": "网站文案",
+    "confirmed_ids": [
+      "F01",
+      "F07",
+      "F13",
+      "F26",
+      "F28",
+      "F30",
+      "F35"
+    ],
+    "provisional_ids": [
+      "F09",
+      "F19",
+      "F22",
+      "F32"
+    ],
+    "merged": {
+      "F03": "F01",
+      "F08": "F07",
+      "F05": "F26",
+      "F24": "F19"
+    },
+    "suggested_merges": {
+      "F17": "F13",
+      "F21": "F19"
+    },
+    "removed": [
+      "F25",
+      "F33",
+      "F36"
+    ],
+    "pending": [
+      "F43"
+    ]
   },
   "findings": [
     {
@@ -1810,937 +2738,9 @@
       "published": false
     }
   ],
-  "evidence_anchors": [
-    {
-      "id": "F01",
-      "subject": "Passive stage",
-      "metric": "range",
-      "value": 0.035,
-      "unit": "score",
-      "source": "Table 5",
-      "pdf_page": "p.24",
-      "note": "跨模型极差"
-    },
-    {
-      "id": "F01",
-      "subject": "Proactive stage",
-      "metric": "range",
-      "value": 0.37,
-      "unit": "score",
-      "source": "Table 5",
-      "pdf_page": "p.24",
-      "note": "跨模型极差"
-    },
-    {
-      "id": "F02",
-      "subject": "DeepSeek V4 Pro",
-      "metric": "passive",
-      "value": 0.787,
-      "unit": "score",
-      "source": "Table 5",
-      "pdf_page": "p.24",
-      "note": "与Opus并列"
-    },
-    {
-      "id": "F02",
-      "subject": "Opus 5.5",
-      "metric": "passive",
-      "value": 0.787,
-      "unit": "score",
-      "source": "Table 5",
-      "pdf_page": "p.24",
-      "note": "与DeepSeek并列"
-    },
-    {
-      "id": "F02",
-      "subject": "DeepSeek V4 Pro",
-      "metric": "proactive",
-      "value": 0.17,
-      "unit": "score",
-      "source": "Table 5",
-      "pdf_page": "p.24",
-      "note": ""
-    },
-    {
-      "id": "F02",
-      "subject": "Opus 5.5",
-      "metric": "proactive",
-      "value": 0.54,
-      "unit": "score",
-      "source": "Table 5",
-      "pdf_page": "p.24",
-      "note": ""
-    },
-    {
-      "id": "F06",
-      "subject": "Default weighting",
-      "metric": "roster span",
-      "value": 0.222,
-      "unit": "score",
-      "source": "Table 30",
-      "pdf_page": "p.47",
-      "note": ""
-    },
-    {
-      "id": "F06",
-      "subject": "Equal weighting",
-      "metric": "roster span",
-      "value": 0.163,
-      "unit": "score",
-      "source": "Table 30",
-      "pdf_page": "p.47",
-      "note": ""
-    },
-    {
-      "id": "F07",
-      "subject": "GPT-6 Astra sufficient",
-      "metric": "q",
-      "value": 0.662,
-      "unit": "score",
-      "source": "Table 7",
-      "pdf_page": "p.26",
-      "note": ""
-    },
-    {
-      "id": "F07",
-      "subject": "GPT-6 Astra partial",
-      "metric": "q",
-      "value": 0.592,
-      "unit": "score",
-      "source": "Table 7",
-      "pdf_page": "p.26",
-      "note": ""
-    },
-    {
-      "id": "F07",
-      "subject": "GPT-6 Astra insufficient",
-      "metric": "q",
-      "value": 0.603,
-      "unit": "score",
-      "source": "Table 7",
-      "pdf_page": "p.26",
-      "note": ""
-    },
-    {
-      "id": "F08",
-      "subject": "Sufficient",
-      "metric": "fabrication",
-      "value": 0.051,
-      "unit": "fraction of turns",
-      "source": "Table 8",
-      "pdf_page": "p.27",
-      "note": ""
-    },
-    {
-      "id": "F08",
-      "subject": "Partial",
-      "metric": "fabrication",
-      "value": 0.164,
-      "unit": "fraction of turns",
-      "source": "Table 8",
-      "pdf_page": "p.27",
-      "note": ""
-    },
-    {
-      "id": "F08",
-      "subject": "Insufficient",
-      "metric": "fabrication",
-      "value": 0.103,
-      "unit": "fraction of turns",
-      "source": "Table 8",
-      "pdf_page": "p.27",
-      "note": ""
-    },
-    {
-      "id": "F09",
-      "subject": "Passive vs fabrication",
-      "metric": "Spearman rho",
-      "value": 0.77,
-      "unit": "correlation",
-      "source": "Table 8",
-      "pdf_page": "p.27",
-      "note": "n=10 models"
-    },
-    {
-      "id": "F11",
-      "subject": "Kimi partner swap",
-      "metric": "clarification delta",
-      "value": 0.085,
-      "unit": "fraction of turns",
-      "source": "§4.6",
-      "pdf_page": "p.35",
-      "note": ""
-    },
-    {
-      "id": "F11",
-      "subject": "Kimi partner swap",
-      "metric": "L5 delta",
-      "value": 0.006,
-      "unit": "score",
-      "source": "§4.6",
-      "pdf_page": "p.35",
-      "note": "CI crosses 0"
-    },
-    {
-      "id": "F13",
-      "subject": "Case 1",
-      "metric": "ending user interest",
-      "value": 0.2,
-      "unit": "score",
-      "source": "Table 40",
-      "pdf_page": "p.81",
-      "note": "exhaustion at turn5"
-    },
-    {
-      "id": "F13",
-      "subject": "Case 2",
-      "metric": "final composite",
-      "value": 0.661,
-      "unit": "score",
-      "source": "Table 40",
-      "pdf_page": "p.81",
-      "note": "closure at turn6"
-    },
-    {
-      "id": "F14",
-      "subject": "Turn 1",
-      "metric": "range",
-      "value": 0.109,
-      "unit": "score",
-      "source": "Table 32",
-      "pdf_page": "p.48",
-      "note": "100% survived"
-    },
-    {
-      "id": "F14",
-      "subject": "Turn 16",
-      "metric": "range",
-      "value": 0.204,
-      "unit": "score",
-      "source": "Table 32",
-      "pdf_page": "p.48",
-      "note": "survival selection"
-    },
-    {
-      "id": "F19",
-      "subject": "Pairing",
-      "metric": "variance component",
-      "value": 0.099,
-      "unit": "fraction",
-      "source": "Table 29",
-      "pdf_page": "p.45",
-      "note": "defined variance denominator"
-    },
-    {
-      "id": "F21",
-      "subject": "Gemini user",
-      "metric": "row mean",
-      "value": 0.392,
-      "unit": "score",
-      "source": "Table 11",
-      "pdf_page": "p.31",
-      "note": ""
-    },
-    {
-      "id": "F21",
-      "subject": "Gemini user",
-      "metric": "across-assistant span",
-      "value": 0.209,
-      "unit": "score",
-      "source": "Table 11",
-      "pdf_page": "p.31",
-      "note": ""
-    },
-    {
-      "id": "F21",
-      "subject": "DeepSeek user",
-      "metric": "row mean",
-      "value": 0.49,
-      "unit": "score",
-      "source": "Table 11",
-      "pdf_page": "p.31",
-      "note": ""
-    },
-    {
-      "id": "F21",
-      "subject": "DeepSeek user",
-      "metric": "across-assistant span",
-      "value": 0.425,
-      "unit": "score",
-      "source": "Table 11",
-      "pdf_page": "p.31",
-      "note": ""
-    },
-    {
-      "id": "F24",
-      "subject": "User role",
-      "metric": "variance by user identity",
-      "value": 0.944,
-      "unit": "fraction",
-      "source": "§4.5.1",
-      "pdf_page": "p.32",
-      "note": ""
-    },
-    {
-      "id": "F24",
-      "subject": "User role",
-      "metric": "matrix residual",
-      "value": 0.02,
-      "unit": "fraction",
-      "source": "Table 15",
-      "pdf_page": "p.33",
-      "note": ""
-    },
-    {
-      "id": "F24",
-      "subject": "Assistant role",
-      "metric": "matrix residual",
-      "value": 0.109,
-      "unit": "fraction",
-      "source": "Table 11",
-      "pdf_page": "p.31",
-      "note": ""
-    },
-    {
-      "id": "F25",
-      "subject": "Cognizer",
-      "metric": "passive gain",
-      "value": 0.012,
-      "unit": "score",
-      "source": "Table 19",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F25",
-      "subject": "Cognizer",
-      "metric": "proactive gain",
-      "value": 0.066,
-      "unit": "score",
-      "source": "Table 19",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F26",
-      "subject": "MetaMind functional",
-      "metric": "gain",
-      "value": 0.021,
-      "unit": "score",
-      "source": "Table 19",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F26",
-      "subject": "MetaMind nonfunctional",
-      "metric": "gain",
-      "value": 0.046,
-      "unit": "score",
-      "source": "Table 19",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F26",
-      "subject": "Cognizer functional",
-      "metric": "gain",
-      "value": 0.061,
-      "unit": "score",
-      "source": "Table 19",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F26",
-      "subject": "Cognizer nonfunctional",
-      "metric": "gain",
-      "value": 0.032,
-      "unit": "score",
-      "source": "Table 19",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F28",
-      "subject": "2 participants",
-      "metric": "L1-L4",
-      "value": 0.722,
-      "unit": "score",
-      "source": "Table 20",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F28",
-      "subject": "4 participants",
-      "metric": "L1-L4",
-      "value": 0.692,
-      "unit": "score",
-      "source": "Table 20",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F28",
-      "subject": "2 participants",
-      "metric": "L5-L6",
-      "value": 0.348,
-      "unit": "score",
-      "source": "Table 20",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F28",
-      "subject": "4 participants",
-      "metric": "L5-L6",
-      "value": 0.243,
-      "unit": "score",
-      "source": "Table 20",
-      "pdf_page": "p.41",
-      "note": ""
-    },
-    {
-      "id": "F30",
-      "subject": "MetaMind+Cognizer",
-      "metric": "correlation",
-      "value": -0.99,
-      "unit": "approximate upper bound",
-      "source": "§4.8",
-      "pdf_page": "p.39",
-      "note": "reported r<=−0.99"
-    },
-    {
-      "id": "F32",
-      "subject": "Gemma assistant",
-      "metric": "affection cosine",
-      "value": 0.737,
-      "unit": "cosine",
-      "source": "Table 38",
-      "pdf_page": "p.77",
-      "note": ""
-    },
-    {
-      "id": "F32",
-      "subject": "Gemma assistant",
-      "metric": "residual user affection R2",
-      "value": -0.225,
-      "unit": "R²",
-      "source": "Table 38",
-      "pdf_page": "p.77",
-      "note": ""
-    },
-    {
-      "id": "F32",
-      "subject": "Qwen3.5 assistant",
-      "metric": "residual user affection R2",
-      "value": -0.182,
-      "unit": "R²",
-      "source": "Table 38",
-      "pdf_page": "p.77",
-      "note": ""
-    },
-    {
-      "id": "F32",
-      "subject": "Qwen3.8 assistant",
-      "metric": "residual user affection R2",
-      "value": -0.248,
-      "unit": "R²",
-      "source": "Table 38",
-      "pdf_page": "p.77",
-      "note": ""
-    },
-    {
-      "id": "F33",
-      "subject": "Gemma-Gemma",
-      "metric": "interest change r",
-      "value": 0.264,
-      "unit": "correlation",
-      "source": "§4.7.2",
-      "pdf_page": "p.37",
-      "note": ""
-    },
-    {
-      "id": "F33",
-      "subject": "Gemma assistant",
-      "metric": "within-dialogue R2",
-      "value": -0.374,
-      "unit": "R²",
-      "source": "§4.7.2",
-      "pdf_page": "p.37",
-      "note": ""
-    },
-    {
-      "id": "F33",
-      "subject": "Gemma user",
-      "metric": "within-dialogue R2",
-      "value": -0.246,
-      "unit": "R²",
-      "source": "§4.7.2",
-      "pdf_page": "p.37",
-      "note": ""
-    },
-    {
-      "id": "F34",
-      "subject": "Qwen layer52",
-      "metric": "final position recovery",
-      "value": 0.777,
-      "unit": "recovery",
-      "source": "§4.7.3",
-      "pdf_page": "p.38",
-      "note": ""
-    },
-    {
-      "id": "F34",
-      "subject": "After ablate 40 heads",
-      "metric": "partner sensitivity retained",
-      "value": 0.941,
-      "unit": "ratio",
-      "source": "§4.7.3",
-      "pdf_page": "p.39",
-      "note": ""
-    },
-    {
-      "id": "F36",
-      "subject": "Transcript + scene",
-      "metric": "state probe",
-      "value": 0.64,
-      "unit": "rate",
-      "source": "Table 34",
-      "pdf_page": "p.50",
-      "note": ""
-    },
-    {
-      "id": "F36",
-      "subject": "Full InteractNet",
-      "metric": "state probe",
-      "value": 0.91,
-      "unit": "rate",
-      "source": "Table 34",
-      "pdf_page": "p.50",
-      "note": ""
-    },
-    {
-      "id": "F36",
-      "subject": "Transcript + scene",
-      "metric": "recurrence probe",
-      "value": 0.49,
-      "unit": "rate",
-      "source": "Table 34",
-      "pdf_page": "p.50",
-      "note": ""
-    },
-    {
-      "id": "F36",
-      "subject": "Full InteractNet",
-      "metric": "recurrence probe",
-      "value": 0.89,
-      "unit": "rate",
-      "source": "Table 34",
-      "pdf_page": "p.50",
-      "note": ""
-    },
-    {
-      "id": "F37",
-      "subject": "L1 goal preservation",
-      "metric": "human endorsement",
-      "value": 0.988,
-      "unit": "rate",
-      "source": "Table 4",
-      "pdf_page": "p.22",
-      "note": ""
-    },
-    {
-      "id": "F37",
-      "subject": "L5 proactive agency",
-      "metric": "human endorsement",
-      "value": 0.789,
-      "unit": "rate",
-      "source": "Table 4",
-      "pdf_page": "p.22",
-      "note": ""
-    },
-    {
-      "id": "F37",
-      "subject": "L6 long-horizon coherence",
-      "metric": "human endorsement",
-      "value": 0.74,
-      "unit": "rate",
-      "source": "Table 4",
-      "pdf_page": "p.22",
-      "note": ""
-    },
-    {
-      "id": "F40",
-      "subject": "Qwen extractor",
-      "metric": "latent agreement",
-      "value": 0.806,
-      "unit": "fraction",
-      "source": "Table 25",
-      "pdf_page": "p.43",
-      "note": ""
-    },
-    {
-      "id": "F40",
-      "subject": "Gemini extractor",
-      "metric": "latent agreement",
-      "value": 0.816,
-      "unit": "fraction",
-      "source": "Table 25",
-      "pdf_page": "p.43",
-      "note": ""
-    },
-    {
-      "id": "F40",
-      "subject": "Both extractors",
-      "metric": "ranking Spearman rho",
-      "value": 0.988,
-      "unit": "correlation",
-      "source": "Table 25",
-      "pdf_page": "p.43",
-      "note": ""
-    },
-    {
-      "id": "F42",
-      "subject": "Generation",
-      "metric": "tokens per exchange",
-      "value": 9510,
-      "unit": "tokens",
-      "source": "Table 35",
-      "pdf_page": "p.50",
-      "note": ""
-    },
-    {
-      "id": "F42",
-      "subject": "Evaluation",
-      "metric": "tokens per exchange",
-      "value": 159680,
-      "unit": "tokens",
-      "source": "Table 35",
-      "pdf_page": "p.50",
-      "note": ""
-    }
-  ],
-  "principle": "Each finding has one primary research-question category. Related findings and next steps are navigational connections, not causal inferences.",
-  "categories": [
-    {
-      "id": "C01",
-      "slug": "capability",
-      "title_en": "Capability Differentiation",
-      "title_zh": "交互能力的分野",
-      "research_question_en": "What distinguishes the capabilities of contemporary models?",
-      "research_question_zh": "今天的模型，究竟在哪些交互能力上拉开差距？",
-      "naming_rationale_zh": "按被测能力来分组：执行、主动性、策略延续及其代理指标，而不是按某张表或某个具体模型分类。",
-      "in_scope_zh": "L1–L6 能力结构、相近执行与不同主动性、策略推进、提问行为与主动性区分",
-      "out_of_scope_zh": "不收录综合评分公式（C07）、信息条件操作（C02）",
-      "theoretical_lens": "Agency Principle / six-level hierarchy",
-      "finding_ids": [
-        "F01",
-        "F02",
-        "F03",
-        "F04",
-        "F11"
-      ],
-      "transition_to_next_zh": "已观察到的能力差异，在信息不足或场景改变时是否保持？",
-      "next_category": "C02",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=capability"
-    },
-    {
-      "id": "C02",
-      "slug": "context",
-      "title_en": "Context and Uncertainty",
-      "title_zh": "交互情境与不确定性",
-      "research_question_en": "When do information and objectives change model performance?",
-      "research_question_zh": "在什么信息条件和交互目标下，模型行为会发生改变？",
-      "naming_rationale_zh": "把输入条件和目标条件放在一起：两者决定何种行动有证据、有价值；不把这些条件误说成模型固有能力。",
-      "in_scope_zh": "任务与关系目标差异、信息充分性、无依据事实补充与证据约束",
-      "out_of_scope_zh": "不收录用户反馈随时间累积的结果（C03）",
-      "theoretical_lens": "Data Iceberg Theory / scene constraints",
-      "finding_ids": [
-        "F05",
-        "F07",
-        "F08",
-        "F09"
-      ],
-      "transition_to_next_zh": "即便某一轮回答看似合适，整段交互最终是否真的进展？",
-      "next_category": "C03",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=context"
-    },
-    {
-      "id": "C03",
-      "slug": "trajectory",
-      "title_en": "Trajectory and Outcomes",
-      "title_zh": "交互轨迹与结果",
-      "research_question_en": "How can locally adequate replies produce different long-run outcomes?",
-      "research_question_zh": "为什么局部合理的回答不一定带来长期进展？",
-      "naming_rationale_zh": "按时间上的观察对象分类：状态如何变化、重复如何积累、何时结束，以及目标如何决定结束的解释。",
-      "in_scope_zh": "局部与全局反差、逐轮差异、停止机制、终局与任务目的",
-      "out_of_scope_zh": "不收录测量算法本身的有效性验证（C07）",
-      "theoretical_lens": "Movie Evaluation Theory / Event Chain",
-      "finding_ids": [
-        "F13",
-        "F14",
-        "F16",
-        "F17",
-        "F18"
-      ],
-      "transition_to_next_zh": "一条交互轨迹的质量，究竟是谁贡献的——模型还是伙伴？",
-      "next_category": "C04",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=trajectory"
-    },
-    {
-      "id": "C04",
-      "slug": "partners",
-      "title_en": "Partner and Group Effects",
-      "title_zh": "交互对象与群体效应",
-      "research_question_en": "To what extent does performance depend on who interacts, and how many?",
-      "research_question_zh": "同一个模型，换对象、换角色或增加参与者后，表现会如何变化？",
-      "naming_rationale_zh": "统一以交互单元而不是单模型为分析对象：二人配对、角色、互相适配和多人规模是同一问题的不同层级。",
-      "in_scope_zh": "配对效应、模拟用户区分力、自我配对、角色不对称、多人交互",
-      "out_of_scope_zh": "架构作为外加干预的增益归 C05，不将“人数”当作“架构”",
-      "theoretical_lens": "Agency Principle + bidirectional protocol",
-      "finding_ids": [
-        "F19",
-        "F21",
-        "F22",
-        "F23",
-        "F24",
-        "F28",
-        "F46"
-      ],
-      "transition_to_next_zh": "交互复杂性会放大差距；能否通过认知架构增强主动能力？",
-      "next_category": "C05",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=partners"
-    },
-    {
-      "id": "C05",
-      "slug": "architectures",
-      "title_en": "Architectural Effects",
-      "title_zh": "认知架构与能力增强",
-      "research_question_en": "Which capabilities change when a cognitive architecture is added?",
-      "research_question_zh": "给模型加入认知架构后，哪些交互能力得到改善？",
-      "naming_rationale_zh": "按干预手段分类：所有结论都比较基础模型与增强架构，区分增益的幅度、能力方向和基础水平依赖。",
-      "in_scope_zh": "MetaMind、Cognizer、Claude Code 的阶段增益、任务偏向及基础模型依赖",
-      "out_of_scope_zh": "不是多人规模问题（C04）；不是隐藏层表征实验（C06）",
-      "theoretical_lens": "Agency Principle / architectural interventions",
-      "finding_ids": [
-        "F25",
-        "F26",
-        "F30"
-      ],
-      "transition_to_next_zh": "架构能改变外在行为；模型内部如何表示交互对象的信息？",
-      "next_category": "C06",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=architectures"
-    },
-    {
-      "id": "C06",
-      "slug": "representations",
-      "title_en": "Internal Representations",
-      "title_zh": "交互状态的内部表征",
-      "research_question_en": "What is encoded, shared, integrated, and controllable inside the model?",
-      "research_question_zh": "模型内部能否区分交互双方状态，又如何整合对方的信息？",
-      "naming_rationale_zh": "按证据层级归类模型内部结果：解码、角色依赖、跨模型一致性、层间恢复与行为干预；与外部表现分开。",
-      "in_scope_zh": "用户投入程度读出、affection 状态区分、对齐与误差、深层整合、控制性干预",
-      "out_of_scope_zh": "不把探针可读性等同于主观体验，也不把测量框架消融归入内部机制",
-      "theoretical_lens": "Operational latent state / representation probes",
-      "finding_ids": [
-        "F31",
-        "F32",
-        "F33",
-        "F34",
-        "F35"
-      ],
-      "transition_to_next_zh": "内部读出具有局限，评估框架怎样避免把推断当成事实？",
-      "next_category": "C07",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=representations"
-    },
-    {
-      "id": "C07",
-      "slug": "measurement",
-      "title_en": "Measurement Validity",
-      "title_zh": "测量效度与稳健性",
-      "research_question_en": "How do we know the measured distinctions are reliable and interpretable?",
-      "research_question_zh": "这些交互差异究竟被多可靠地测量出来？",
-      "naming_rationale_zh": "收束整条研究论证：量表与汇总规则、状态重建消融、人工审计、评估器变化和实现成本都属于测量工具的性质。",
-      "in_scope_zh": "综合评分敏感性、重建有效性、人工审计、提取器/评审偏差、token 成本",
-      "out_of_scope_zh": "不把评估器能否读出状态混同为被测 AI 的内部能力",
-      "theoretical_lens": "Measurement instrument / descriptive–normative separation",
-      "finding_ids": [
-        "F06",
-        "F36",
-        "F37",
-        "F40",
-        "F41",
-        "F42",
-        "F43",
-        "F44",
-        "F45",
-        "F47",
-        "F48"
-      ],
-      "transition_to_next_zh": "回到 C01：哪些能力差异在可审计的测量下依然成立？",
-      "next_category": "C01",
-      "category_url_proposed": "https://worldeology.com/InteractNet/index.html#findings?category=measurement"
-    }
-  ],
-  "reading_paths": [
-    {
-      "id": "P01",
-      "question_zh": "哪些模型能力真正拉开差距？",
-      "finding_ids": [
-        "F01",
-        "F02",
-        "F03",
-        "F06",
-        "F36"
-      ],
-      "argument_zh": "能力差异→总分信息损失→汇总规则→测量效度",
-      "reader_takeaway_zh": "先理解差异，再验证一种总分是否足以表达它。",
-      "question_en": "Where do model capabilities diverge?"
-    },
-    {
-      "id": "P02",
-      "question_zh": "信息不足如何影响模型的决策？",
-      "finding_ids": [
-        "F07",
-        "F08",
-        "F09",
-        "F11"
-      ],
-      "argument_zh": "信息条件→无依据补充→执行表现→提问频率",
-      "reader_takeaway_zh": "主动决策需要证据基础，提问频率只是表面行为。",
-      "question_en": "How do information gaps change decisions?"
-    },
-    {
-      "id": "P03",
-      "question_zh": "为什么局部回答不等于交互成功？",
-      "finding_ids": [
-        "F13",
-        "F14",
-        "F16",
-        "F17",
-        "F18"
-      ],
-      "argument_zh": "局部行为→逐轮分化→终局→任务目的→耐心机制",
-      "reader_takeaway_zh": "长期轨迹必须连同对话目的和结束条件一起解释。",
-      "question_en": "Why can good replies lead to poor outcomes?"
-    },
-    {
-      "id": "P04",
-      "question_zh": "一个模型的成绩有多少属于它的伙伴？",
-      "finding_ids": [
-        "F19",
-        "F21",
-        "F23",
-        "F24",
-        "F28"
-      ],
-      "argument_zh": "配对依赖→伙伴区分力→能力压力→角色差异→多人规模",
-      "reader_takeaway_zh": "能力的分析单位逐渐从个体扩展到配对与群体。",
-      "question_en": "How much of a score belongs to the partner?"
-    },
-    {
-      "id": "P05",
-      "question_zh": "增加认知架构会改变哪些能力？",
-      "finding_ids": [
-        "F25",
-        "F26",
-        "F30",
-        "F01"
-      ],
-      "argument_zh": "阶段增益→能力类型→基座依赖→能力分野",
-      "reader_takeaway_zh": "架构增益不同于规模效应，并且要联系基础能力。",
-      "question_en": "What do cognitive architectures improve?"
-    },
-    {
-      "id": "P06",
-      "question_zh": "模型内部状态究竟可读、可区分还是可控制？",
-      "finding_ids": [
-        "F31",
-        "F32",
-        "F33",
-        "F34",
-        "F35"
-      ],
-      "argument_zh": "角色读出→主体区分→误差→深层整合→干预",
-      "reader_takeaway_zh": "按表征证据层级递进，避免把可解码误当成真实理解。",
-      "question_en": "Can internal states be read, separated and controlled?"
-    },
-    {
-      "id": "P07",
-      "question_zh": "为什么可以信任这套交互评估？",
-      "finding_ids": [
-        "F36",
-        "F37",
-        "F40",
-        "F41",
-        "F06",
-        "F42"
-      ],
-      "argument_zh": "重建消融→人审→提取器→评估器→汇总方式→成本",
-      "reader_takeaway_zh": "将评估器自身的有效性和可靠性也作为测量对象。",
-      "question_en": "What makes the measurement trustworthy?"
-    }
-  ],
-  "paper": {
-    "path": "./assets/InteractNet_research_v5.pdf",
-    "sha256": "f36861fc53e88d020a99ad587c59e6e54e43b60772f10f73a5699101b343b2a4",
-    "pages": 100,
-    "note": "Evidence links refer to the manuscript edition matching the supplied v5 taxonomy. The earlier site manuscript remains available separately."
-  },
   "verification": {
     "date": "2026-11-05",
     "method": "Compared the supplied JSON and workbook with the matching local manuscript. Added English evidence summaries and limitations; did not infer missing curve points.",
     "cost_generation_calculation": "2 × (4450 + 305) = 9510 input-plus-output tokens per exchange"
-  },
-  "published_ids": [
-    "F01",
-    "F07",
-    "F09",
-    "F14",
-    "F19",
-    "F28",
-    "F26",
-    "F30"
-  ],
-  "source_review": {
-    "url": "https://docs.google.com/spreadsheets/d/1ALnCQklBXagNB87tN8BHyxlfuR50Jl6cZcJpSRDvJ5s/edit?usp=sharing",
-    "modified_time": "2026-11-09T16:06:49.484Z",
-    "title": "InteractNet — Findings 网站设计与审核总表（2026-11）",
-    "published_sheet": "网站文案",
-    "confirmed_ids": [
-      "F01",
-      "F07",
-      "F13",
-      "F26",
-      "F28",
-      "F30",
-      "F35"
-    ],
-    "provisional_ids": [
-      "F09",
-      "F19",
-      "F22",
-      "F32"
-    ],
-    "merged": {
-      "F03": "F01",
-      "F08": "F07",
-      "F05": "F26",
-      "F24": "F19"
-    },
-    "suggested_merges": {
-      "F17": "F13",
-      "F21": "F19"
-    },
-    "removed": [
-      "F25",
-      "F33",
-      "F36"
-    ],
-    "pending": [
-      "F43"
-    ]
   }
 }

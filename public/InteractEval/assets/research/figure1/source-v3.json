@@ -1,0 +1,20 @@
+{
+  "asset": "figure1-static-v3.png",
+  "revision": "2026-11-10",
+  "method": "Local compositing and typography, explicitly authorized by user",
+  "base": "C:\\Users\\24605\\AppData\\Local\\Temp\\codex-clipboard-6a29633e-1791-493c-8124-f22d9f9f6caf.png",
+  "inserts": [
+    "original figure1.png tabletop and throwing poses"
+  ],
+  "dimensions": [
+    3548,
+    1774
+  ],
+  "changes": [
+    "Background labels",
+    "Context-sensitive dialogue",
+    "Original tabletop Bomb preparation and throwing artwork",
+    "Retreating spacecraft and safe-escape follow-through",
+    "Consistent state and event captions"
+  ]
+}

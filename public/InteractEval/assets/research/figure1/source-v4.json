@@ -1,0 +1,148 @@
+{
+  "asset": "figure1-static-v4.svg",
+  "revision": "2026-11-10",
+  "method": "User-authorized native SVG text/bubble overlays",
+  "source": "C:\\Users\\24605\\AppData\\Local\\Temp\\codex-clipboard-e7454894-bf76-4c88-9d9a-f0d1ec51cdbe.png",
+  "components": [
+    {
+      "name": "a-t1-user",
+      "x": 695,
+      "y": 172,
+      "width": 186,
+      "height": 114
+    },
+    {
+      "name": "a-t1-robot",
+      "x": 884,
+      "y": 171,
+      "width": 173,
+      "height": 121
+    },
+    {
+      "name": "a-t2-robot",
+      "x": 1294,
+      "y": 176,
+      "width": 186,
+      "height": 107
+    },
+    {
+      "name": "a-t3-user",
+      "x": 1644,
+      "y": 174,
+      "width": 180,
+      "height": 110
+    },
+    {
+      "name": "a-t3-robot",
+      "x": 1838,
+      "y": 171,
+      "width": 195,
+      "height": 123
+    },
+    {
+      "name": "left-user-request",
+      "x": 172,
+      "y": 225,
+      "width": 210,
+      "height": 143
+    },
+    {
+      "name": "left-user-urgency",
+      "x": 172,
+      "y": 624,
+      "width": 210,
+      "height": 129
+    },
+    {
+      "name": "b-t1-user",
+      "x": 692,
+      "y": 591,
+      "width": 191,
+      "height": 118
+    },
+    {
+      "name": "b-t1-robot",
+      "x": 882,
+      "y": 589,
+      "width": 174,
+      "height": 121
+    },
+    {
+      "name": "b-t2-robot",
+      "x": 1328,
+      "y": 589,
+      "width": 170,
+      "height": 112
+    },
+    {
+      "name": "b-t3-robot",
+      "x": 1612,
+      "y": 594,
+      "width": 263,
+      "height": 125
+    },
+    {
+      "name": "b-t3-user",
+      "x": 1910,
+      "y": 650,
+      "width": 128,
+      "height": 160
+    },
+    {
+      "name": "title",
+      "x": 4,
+      "y": 7,
+      "width": 2040,
+      "height": 70
+    },
+    {
+      "name": "background-a",
+      "x": 413,
+      "y": 169,
+      "width": 186,
+      "height": 248
+    },
+    {
+      "name": "background-b",
+      "x": 413,
+      "y": 583,
+      "width": 186,
+      "height": 266
+    },
+    {
+      "name": "a-latent-state",
+      "x": 413,
+      "y": 424,
+      "width": 1623,
+      "height": 70
+    },
+    {
+      "name": "a-event-chain",
+      "x": 413,
+      "y": 500,
+      "width": 1623,
+      "height": 70
+    },
+    {
+      "name": "b-latent-state",
+      "x": 413,
+      "y": 855,
+      "width": 1623,
+      "height": 70
+    },
+    {
+      "name": "b-event-chain",
+      "x": 413,
+      "y": 932,
+      "width": 1623,
+      "height": 77
+    },
+    {
+      "name": "b-t3-flying-bomb",
+      "x": 1875,
+      "y": 597,
+      "width": 110,
+      "height": 54
+    }
+  ]
+}

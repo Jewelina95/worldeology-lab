@@ -27,10 +27,17 @@ body{background:#fff;font-family:var(--sans);color:#193b30}
 .paper-footer{font-size:13px;color:#52645b}
 .results-page{--serif:var(--sans);background:#fff;color:#193b30}
 .atlas-hero{display:grid;grid-template-columns:minmax(0,1fr) 380px;align-items:center;gap:65px;width:min(1400px,calc(100% - 64px));margin:auto;padding:35px 0 40px;border-bottom:1px solid #d5ded5}
-.atlas-hero h1{font:600 clamp(38px,4.1vw,62px)/1.06 var(--sans);letter-spacing:-2px;margin:0 0 22px}
+.atlas-hero h1{font:600 clamp(38px,4.1vw,62px)/1.06 var(--sans);letter-spacing:-2px;margin:0 0 22px;text-wrap:balance}
 .atlas-hero p{font-size:17px;line-height:1.7;max-width:650px;margin:0;color:#52645b}
+.atlas-intelligence-definitions{text-align:left}
+.atlas-intelligence-definitions p+p{margin-top:14px}
+.atlas-intelligence-definitions strong{font-weight:600;color:#193b30}
 .atlas-hero a{display:inline-block;margin-top:24px;padding:11px 19px;background:#193b30;color:#fff;border-radius:5px;font-size:14px;text-decoration:none}
 .atlas-hero figure{margin:0}.atlas-hero img{display:block;width:100%;height:auto}
+.atlas-hero .atlas-epigraph{margin:0 0 22px;padding:0 0 0 16px;border-left:2px solid #9eb3a4;max-width:650px}
+.atlas-hero .atlas-epigraph p{font-size:16px;line-height:1.55;color:#355743}
+.atlas-hero .atlas-epigraph footer{margin-top:8px;font-size:12px;line-height:1.6;color:#52645b}
+.atlas-hero .atlas-epigraph a{display:inline;margin:0;padding:0;border-radius:0;background:none;color:inherit;font-size:inherit;text-decoration:underline;text-underline-offset:3px}
 .results-page .article-shell{width:min(1464px,100%);margin:auto;display:grid;grid-template-columns:190px minmax(0,1fr);gap:38px;padding:34px 32px 65px;align-items:start}
 .results-page .article-body{min-width:0;width:100%}
 .results-page .article-section{scroll-margin-top:0;margin:0 0 44px;padding-top:34px;border-top:1px solid #d5ded5}
@@ -313,9 +320,6 @@ html[data-ui-input=keyboard] select,html[data-ui-input=keyboard] select::picker-
 .finding-information-definitions th,.finding-information-definitions td{padding:12px 14px;border:1px solid #d5ded5;vertical-align:top}
 .finding-information-definitions th{background:#f3f6f1;font-weight:700}
 .results-page .main-capability-table tbody td{font-weight:700}
-.results-page .main-capability-table :is(thead th,tbody td,tfoot td).active-level-column{background:#ffe7a1;color:#513b0f;font-weight:800}
-.main-capability-table .active-level-column :is(strong,span){color:#513b0f;font-weight:700}
-.atlas-mobile-model button[data-main-level="L5"],.atlas-mobile-model button[data-main-level="L6"]{background:#ffe7a1;color:#513b0f}
 @media(max-width:600px){.finding-information-definitions{margin:0 0 22px 36px}.finding-information-definitions table{font-size:12px}.finding-information-definitions th,.finding-information-definitions td{padding:9px 6px}}
 
 /* Capability requirements accumulate; numeric scoring remains unchanged. */

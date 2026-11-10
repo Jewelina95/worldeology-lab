@@ -23,3 +23,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Qwen provider icon: the unmodified favicon served by https://qwen.ai/, downloaded 2026-11-10 from https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png. The mark belongs to its respective owner and identifies evaluated models.
+
+The displayed Qwen model mark uses the purple artwork from QwenLM/Qwen3 README: https://qianwen-res.oss-accelerate-overseas.aliyuncs.com/logo_qwen3.png. qwen-model.svg frames only the symbol from that unmodified image; its colors and geometry are preserved.

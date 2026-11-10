@@ -18,7 +18,7 @@ const atlasSymbols={
   agency:'<path d="M12 61V42h18V27h18V12h19v12H58v15H40v15H22v7Z" fill="currentColor" opacity=".22"/><path d="M12 61h12V49h18V34h18V19h7" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><circle cx="65" cy="18" r="7" fill="currentColor"/>'
 };
 function atlasSymbol(name){return `<svg viewBox="0 0 80 80" fill="none" aria-hidden="true">${atlasSymbols[name]}</svg>`;}
-function atlasHero(){return `<section class="atlas-hero"><div><h1>A response is not<br/>an interaction.</h1><p>Interaction is what unfolds between replies. InteractNet measures how models understand changing situations, take initiative, and follow through across a conversation.</p><a href="#response-interaction" data-research-section="response-interaction">Why interact <span aria-hidden="true">&#8595;</span></a></div><figure><img src="./assets/brand/iceberg.svg" width="405" height="365" alt="An iceberg separates spoken words from a participant’s uncertain understanding, trust, and goals."/></figure></section>`;}
+function atlasHero(){return `<section class="atlas-hero"><div><h1>The measure of intelligence is the ability to change</h1><div class="atlas-intelligence-definitions"><p><strong>Responsive intelligence</strong> is the ability to respond appropriately within a direction set by the partner, following instructions and adapting to new information.</p><p><strong>Interactive intelligence</strong> additionally involves understanding the evolving situation, initiating justified new directions, and following through coherently across turns.</p><p>InteractNet evaluates this progression across six capability levels.</p></div><a href="#response-interaction" data-research-section="response-interaction">Why interact <span aria-hidden="true">&#8595;</span></a></div><figure><img src="./assets/brand/iceberg.svg" width="405" height="365" alt="An iceberg separates spoken words from a participant’s uncertain understanding, trust, and goals."/></figure></section>`;}
 function atlasKeyFindings(){return coreFindings();}
 
 function atlasMobileScores(){
@@ -32,9 +32,6 @@ function syncAtlasLayout(){
  if(header){const size=()=>document.documentElement.style.setProperty('--header-height',Math.ceil(header.getBoundingClientRect().height)+'px');size();if(!header.atlasResize){header.atlasResize=new ResizeObserver(size);header.atlasResize.observe(header);}}
  syncAtlasActiveSection();
  atlasResponsiveTables();
- atlasDataMotion();
- window.InteractNetFindingFocus?.fromLocation();
- applyResearchFindingFocus(document.getElementById('main-comparison-body'));
 }
 function atlasResponsiveTables(){
  document.querySelectorAll('.comparison-data-table,.agent-results-table').forEach(table=>{
@@ -69,36 +66,8 @@ function syncAtlasActiveSection(){
 let atlasScrollPending=false;
 window.addEventListener('scroll',()=>{if(!atlasScrollPending){atlasScrollPending=true;requestAnimationFrame(()=>{atlasScrollPending=false;syncAtlasActiveSection()});}},{passive:true});
 document.addEventListener('click',event=>{
- const finding=event.target.closest('[data-finding-measure]');
- if(finding&&document.getElementById('main-comparison-body')&&!event.defaultPrevented&&event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey){
-  event.preventDefault();
-  if(finding.dataset.findingMeasure==='information')mainInformationView='conditions';
-  history.pushState(null,'',finding.getAttribute('href'));
-  lastJournalAnchor=location.pathname+location.hash;
-  selectMainComparison(finding.dataset.findingMeasure);
-  lastMainComparisonHash=location.hash;
-  document.getElementById('main-comparison-body')?.focus({preventScroll:true});
-  window.InteractNetFindingFocus?.show(finding.dataset.findingMeasure);
-  atlasScrollTo(findingEvidenceTarget());
- }
  const toggle=event.target.closest('[data-atlas-contents]');
  if(toggle){const expanded=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(expanded));document.querySelector('.main-results-rail').classList.toggle('is-open',expanded);}
  const group=event.target.closest('[data-atlas-mobile]');if(group){atlasMobileGroup=Number(group.dataset.atlasMobile);document.querySelector('.atlas-mobile-scores').innerHTML=atlasMobileScores();}
  if(event.target.closest('.main-rail-content [data-research-section],.main-rail-content [data-main-comparison]')){document.querySelector('.main-results-rail')?.classList.remove('is-open');document.querySelector('[data-atlas-contents]')?.setAttribute('aria-expanded','false');}
 });
-
-
-const atlasMotionSeen=new WeakSet();
-const atlasMotionObserver=new IntersectionObserver(entries=>{
- for(const entry of entries){
-  if(!entry.isIntersecting)continue;
-  atlasMotionObserver.unobserve(entry.target);
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.dataset.uiInput==='keyboard')continue;
-  const bars=entry.target.querySelectorAll('.comparison-bar-track>b,.architecture-gain-row>i>b,.journal-purpose-row>span>i');
-  if(bars.length){bars.forEach((bar,i)=>{bar.style.transformOrigin=bar.closest('.is-signed')&&parseFloat(bar.style.left)<50?'right center':'left center';bar.animate([{transform:'scaleX(0)'},{transform:'scaleX(1)'}],{duration:420,delay:Math.min(i*25,200),easing:'cubic-bezier(.23,1,.32,1)',fill:'backwards'});});}
-  else entry.target.querySelectorAll('tbody tr').forEach((row,i)=>row.animate([{opacity:.35},{opacity:1}],{duration:220,delay:i*18,easing:'cubic-bezier(.23,1,.32,1)',fill:'backwards'}));
- }
-},{threshold:.15});
-function atlasDataMotion(){
- document.querySelectorAll('.comparison-bars,.main-capability-wrap,.architecture-comparison-grid,.main-outcome-wrap,.comparison-table-wrap').forEach(el=>{if(!atlasMotionSeen.has(el)){atlasMotionSeen.add(el);atlasMotionObserver.observe(el);}});
-}
