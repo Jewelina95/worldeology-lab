@@ -16,3 +16,7 @@
 .interaction-only figcaption a{display:none}
 @media(max-width:800px){.interaction-heading{grid-template-columns:1fr;gap:12px}.interaction-heading p{font-size:16px}.interaction-figure figcaption{gap:12px;font-size:13px;min-height:88px}.interaction-only{padding:20px 12px}.interaction-only .motivation-art{max-height:none}}
 @media(max-width:520px){.interaction-figure figcaption{display:block}.interaction-figure figcaption p{margin-bottom:8px}.interaction-figure figcaption a{display:inline-block;padding:4px 0}.interaction-only .interaction-picture{overflow-x:auto}.interaction-only .motivation-art{width:1000px;max-width:none}}
+
+.pipeline-picture img{display:block;width:100%;height:auto}
+.pipeline-picture:focus-visible{outline:2px solid #234e3b;outline-offset:4px}
+@media(max-width:800px){.pipeline-picture{overflow-x:auto}.pipeline-picture img{width:1200px;max-width:none}}
