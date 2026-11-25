@@ -3,6 +3,24 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import '../../styles/lab.css';
 
+const teamLeads = [
+  {
+    name: 'Yonghang Chen',
+    role: 'Head of Architecture',
+    links: [{ label: 'GitHub', href: 'https://github.com/Xgogu' }]
+  },
+  {
+    name: 'Yuxuan Chen',
+    role: 'Head of Engineering',
+    links: [{ label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=4d2nNo8AAAAJ&hl=en' }]
+  },
+  {
+    name: 'Jewelina Wen',
+    role: 'Head of Operation and Design',
+    links: [{ label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=5b0nSSMAAAAJ&hl=zh-CN' }]
+  }
+];
+
 const institutions = [
   'Stanford University',
   'Tsinghua University',
@@ -21,11 +39,11 @@ const institutions = [
     <header class="lab-page-hero faculty-directory-hero">
       <p class="lab-index">Worldeology / Faculty</p>
       <h1>Faculty</h1>
-      <p>Researchers building Cognitive AI across mechanisms, minds, and long-horizon worlds.</p>
+      <p>Meet the team building Worldeology and the research network it works with.</p>
     </header>
 
     <section class="lab-page-section" aria-labelledby="faculty-core">
-      <header><p class="lab-index">01 / Founding faculty</p><h2 id="faculty-core">The person building Worldeology.</h2></header>
+      <header><p class="lab-index">Worldeology team</p><h2 id="faculty-core">Leadership</h2></header>
       <div class="people-grid people-grid-single">
         <article class="person-card member">
           <img src="/assets/images/xuanming-zhang-color.webp" width="1400" height="1400" alt="Xuanming Zhang" />
@@ -37,6 +55,21 @@ const institutions = [
           </div>
         </article>
       </div>
+      <ul class="team-leads">
+        {teamLeads.map(({ name, role, links }) => (
+          <li>
+            <div>
+              <h3>{name}</h3>
+              <p>{role}</p>
+            </div>
+            <div class="team-lead-links">
+              {links.map(({ label, href }) => (
+                <a href={href} aria-label={`${name} on ${label}`}>{label} <span aria-hidden="true">↗</span></a>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section class="lab-page-section collaboration-section" aria-labelledby="collab-title">
@@ -66,3 +99,45 @@ const institutions = [
     <SiteFooter />
   </main>
 </SiteLayout>
+
+<style>
+  .team-leads {
+    width: min(760px, 100%);
+    margin: 36px auto 0;
+    padding: 0;
+    border-top: 1px solid var(--lab-line);
+    list-style: none;
+  }
+
+  .team-leads li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--lab-line);
+  }
+
+  .team-leads h3 {
+    margin: 0 0 4px;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  }
+
+  .team-leads p {
+    margin: 0;
+    font-size: .88rem;
+  }
+
+  .team-lead-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .team-lead-links a {
+    border-bottom: 1px solid currentColor;
+    font-size: .75rem;
+    font-weight: 700;
+  }
+</style>
