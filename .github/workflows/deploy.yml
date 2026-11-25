@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      interactnet_revision:
+        description: 'Use a verified InteractNet commit for this deployment (optional)'
+        type: string
   schedule:
     - cron: "3-58/5 * * * *"
 
@@ -50,6 +54,7 @@ jobs:
         run: npm run verify
         env:
           PUBLIC_SITE_URL: https://worldeology.com
+          INTERACTNET_SOURCE_REVISION: ${{ inputs.interactnet_revision }}
       - uses: actions/configure-pages@v5
         if: github.event_name != 'pull_request'
       - uses: actions/upload-pages-artifact@v3
