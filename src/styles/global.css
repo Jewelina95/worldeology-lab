@@ -271,13 +271,34 @@ button { color: inherit; }
 .trajectory span { color: var(--muted); font-size: .62rem; text-transform: uppercase; }
 .trajectory li p { grid-column: 1 / -1; margin: 5px 0 0; color: var(--muted); font-size: .75rem; }
 
-.site-footer { padding: clamp(100px, 13vw, 175px) max(32px, calc((100vw - 1320px) / 2)) 35px; color: var(--white); background: var(--night); }
+.site-footer { padding: clamp(60px, 10vw, 150px) max(32px, calc((100vw - 1320px) / 2)) 35px; color: var(--white); background: var(--night); }
 .site-footer .index-label { color: var(--signal); }
-.footer-call h2 { max-width: 1100px; margin: 38px 0 50px; font-family: var(--serif); font-size: clamp(3.2rem, 6.4vw, 7rem); font-weight: 380; line-height: .92; letter-spacing: -.045em; }
-.footer-email { color: var(--signal); font-family: var(--serif); font-size: clamp(1.25rem, 2.4vw, 2.25rem); border-bottom: 1px solid var(--signal); }
-.footer-meta { margin-top: 110px; padding-top: 24px; display: grid; grid-template-columns: 1fr auto auto; gap: 35px; color: rgba(255,255,255,.45); border-top: 1px solid rgba(255,255,255,.16); font-size: .6rem; }
+.footer-call { max-width: 1100px; container-type: inline-size; }
+.footer-call h2 {
+  margin: clamp(20px, 3vw, 38px) 0 clamp(24px, 4vw, 50px);
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 6.4vw, 7rem);
+  font-size: clamp(1.75rem, 8.5cqi, 7rem);
+  font-weight: 380;
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+.footer-email {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .45em;
+  max-width: 100%;
+  color: var(--signal);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 2.4vw, 2.25rem);
+  font-size: clamp(1rem, 3.4cqi, 2.25rem);
+  border-bottom: 1px solid currentColor;
+}
+.footer-meta { margin-top: clamp(44px, 8vw, 110px); padding-top: 24px; display: grid; grid-template-columns: 1fr auto auto; gap: 35px; color: rgba(255,255,255,.45); border-top: 1px solid rgba(255,255,255,.16); font-size: .6rem; }
 .footer-meta p { margin: 0; }
-.footer-meta nav { display: flex; gap: 20px; }
+.footer-meta nav { display: flex; flex-wrap: wrap; gap: 10px 20px; }
 .footer-meta a:hover { color: var(--white); }
 
 .notice { position: fixed; z-index: 500; right: 22px; bottom: 22px; padding: 11px 16px; color: var(--night); background: var(--signal); font-size: .67rem; font-weight: 760; opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .2s, transform .2s; }

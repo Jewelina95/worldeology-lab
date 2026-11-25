@@ -41,6 +41,7 @@
 .person-card.forming{background:#fff}
 .work-row:hover{background:#f5f5f1}
 .lab-site .site-footer{color:var(--lab-ink);background:#fff;border-top:1px solid var(--lab-ink)}
+.lab-page .site-footer{padding-inline:0}
 .lab-site .site-footer .index-label{color:var(--lab-red)}
 .lab-site .footer-email{color:var(--lab-ink);border-color:var(--lab-ink)}
 .lab-site .footer-meta{color:#686d65;border-color:var(--lab-line)}
