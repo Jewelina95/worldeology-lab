@@ -2,6 +2,8 @@
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 
 const site = Astro.site!;
+const metaMindUrl = '/blog/MetaMind/technical-contribution/';
+const confidentDecodingUrl = 'https://arxiv.org/abs/2606.21906';
 const interactNetUrl = '/InteractNet/';
 
 const recentNews = [
@@ -15,7 +17,7 @@ const recentNews = [
     date: '2026',
     title: 'Confident Decoding',
     text: 'Accepted to EMNLP 2026 as an Oral, in the top 0.45%; released with an official QwenLM implementation.',
-    href: 'https://arxiv.org/abs/2606.21906'
+    href: confidentDecodingUrl
   },
   {
     date: '2025',
@@ -33,7 +35,7 @@ const recentNews = [
     date: '2025',
     title: 'MetaMind',
     text: 'Received a NeurIPS Spotlight for modeling human social thought with metacognitive multi-agent systems.',
-    href: '/blog/MetaMind/technical-contribution/'
+    href: metaMindUrl
   }
 ];
 
@@ -66,7 +68,7 @@ const publications = [
     venue: 'EMNLP 2026 Oral · Top 0.45%',
     title: 'Deeper is Not Always Better: Mitigating the Alignment Tax via Confident Layer Decoding',
     authors: 'Xuanming Zhang, Sining Zhoubian, Yuxuan Chen, Tianyi Tang, An Yang, et al.',
-    paper: 'https://arxiv.org/abs/2606.21906',
+    paper: confidentDecodingUrl,
     code: 'https://github.com/QwenLM/Confident-Decoding'
   },
   {
@@ -98,7 +100,7 @@ const publications = [
     venue: 'NeurIPS · Spotlight',
     title: 'MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems',
     authors: 'Xuanming Zhang, Yuxuan Chen, Samuel Yeh',
-    page: '/blog/MetaMind/technical-contribution/',
+    page: metaMindUrl,
     paper: 'https://arxiv.org/abs/2505.18943',
     code: 'https://github.com/XMZhangAI/MetaMind'
   },
@@ -172,7 +174,7 @@ const personSchema = {
         </div>
 
         <div class="profile-biography">
-          <p><strong>Xuanming Zhang is the Co-Founder and Chief Cognitive Scientist of AlpsLab</strong>, focused on <strong>Cognitive AI</strong> and <strong>the next generation of foundation models</strong>. Inspired by “The measure of intelligence is the ability to change” (often attributed to Albert Einstein), he asks how AI can evolve from generating answers to understanding people, modeling the world, and acquiring intelligence through interaction. He has pioneered research in <strong>metacognitive intelligence, cognitive inference, interactive world modeling, and latent-state reinforcement learning</strong>, with representative works including <strong>MetaMind, Confident Decoding, <a href={interactNetUrl}>InteractNet</a>, and Cognizer</strong>.</p>
+          <p><strong>Xuanming Zhang is the Co-Founder and Chief Cognitive Scientist of AlpsLab</strong>, focused on <strong>Cognitive AI</strong> and <strong>the next generation of foundation models</strong>. Inspired by “The measure of intelligence is the ability to change” (often attributed to Albert Einstein), he asks how AI can evolve from generating answers to understanding people, modeling the world, and acquiring intelligence through interaction. He has pioneered research in <strong>metacognitive intelligence, cognitive inference, interactive world modeling, and latent-state reinforcement learning</strong>, with representative works including <strong><a href={metaMindUrl}>MetaMind</a>, <a href={confidentDecodingUrl}>Confident Decoding</a>, <a href={interactNetUrl}>InteractNet</a>, and <a href="/blog/cognitive-harness/">Cognizer</a></strong>.</p>
           <p>His work has been published in <strong>NeurIPS, EMNLP, ACL, ICLR, and PNAS</strong>, including <strong>two Oral/Spotlight selections</strong>, and an <strong>Outstanding Paper nomination</strong>. His works have integrated in frontier-model development at <strong>Qwen, DeepMind, ByteDance, Anthropic, and Nova</strong>. His prior research spans <strong>the Qwen Team (Subjectivity &amp; Interactivity Team), Stanford, Amazon (AGI Team), Anthropic (Interpretability Team), ByteDance (Coze Team), and Zhipu AI (Emohaa Team)</strong>.</p>
         </div>
 
