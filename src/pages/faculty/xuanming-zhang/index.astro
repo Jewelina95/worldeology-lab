@@ -313,7 +313,7 @@ const personSchema = {
   .profile-hero, .profile-section, .profile-footer { width: min(1180px, calc(100vw - 64px)); margin-inline: auto; }
   .profile-hero { padding: 142px 0 54px; }
   .profile-kicker { margin: 0 0 40px; color: #646860; font-size: .66rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
-  .profile-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); grid-template-areas: "intro intro" "bio portrait"; gap: clamp(34px, 4.4vw, 60px) clamp(38px, 6vw, 84px); align-items: start; }
+  .profile-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(270px, min(32%, 330px)); grid-template-areas: "intro intro" "bio portrait"; gap: clamp(34px, 4.4vw, 60px) clamp(38px, 6vw, 84px); align-items: start; }
   .profile-intro { grid-area: intro; }
   .profile-role { margin: 0 0 18px; color: #62665f; font-size: .78rem; font-weight: 650; letter-spacing: .03em; }
   h1 { margin: 0; font-family: var(--serif); font-size: clamp(3rem, 8vw, 7.8rem); font-weight: 500; line-height: .93; letter-spacing: -.055em; overflow-wrap: normal; }
@@ -378,7 +378,25 @@ const personSchema = {
   .profile-footer p { margin: 0 0 6px; color: #191b18; font-family: var(--serif); font-size: 1.25rem; }
   .profile-footer nav { display: flex; flex-wrap: wrap; gap: 12px 22px; }
 
-  @media (max-width: 860px) {
+  @media (width > 960px) {
+    .profile-aside {
+      align-self: stretch;
+      container-type: size;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 16px;
+      margin-top: .2rem;
+    }
+    .profile-portrait {
+      aspect-ratio: auto;
+      max-height: 125cqi;
+      min-height: 0;
+    }
+    .profile-portrait img { object-position: 52% 5%; }
+    .field-key { margin-top: 0; padding-top: 12px; gap: 7px; }
+  }
+
+  @media (max-width: 960px) {
     .profile-hero, .profile-section, .profile-footer { width: min(100% - 36px, 720px); }
     .profile-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "portrait" "bio"; }
     .profile-aside { width: min(100%, 420px); }
